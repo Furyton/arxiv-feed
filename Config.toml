@@ -1,6 +1,5 @@
 site_title = "Arxiv Daily"
 limit_days = 14
-cache_url = "https://Furyton.github.io/arxiv-feed/cache.json"
 
 [[sources]]
 limit = 50
