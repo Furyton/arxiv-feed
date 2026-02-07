@@ -45,7 +45,7 @@ let authors_array = [
     "Hansi Zeng",
     "Omar Khattab",
     "Jingtao Zhan",
-    "Sebastian Bruch"
+    "Sebastian Bruch",
     "Sanjeev Arora",
     // my feed
     "Julian McAuley", "J McAuley",
