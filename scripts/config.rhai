@@ -1,27 +1,68 @@
-let titles_area = ["Recommendation", "theory", "rethinking", "revisit", "foundation", "neural process", "representation learning", "recommender system", "regularization", "theoretical", "information theory", "embedding", "vector", "retrieval", "generative retrieval", "differentiable search index", "stream", "representation", "expressivity", "bound", "understand", "algorithm", "provable", "learnability", "provably", "optimial", "dynamic"];
+let titles_area = ["embedding", "vector", "retrieval", "generative retrieval", "differentiable search index", "generative information retrieval", "provable", "learnability", "provably", "nearest neighbor", "index"];
 let titles_type = [];
 // let titles_model = ["BERT", "GPT", "Transformer"];
 // let titles_method = ["Contrastive Learning", "Contrastive", "Pre-train", "Pretrain", "Prompt", "Self-Supervised", "Distillation"];
 let titles = titles_area + titles_type;
 let authors_array = [
-    // default
-    "Kaiming He", "Graham Neubig", "Tie-Yan Liu", "Xipeng Qiu", "Yue Zhang", "Yang liu", "Zhiyuan Liu", "Christopher D. Manning", "Christopher D Manning", "Christopher Manning", "Noah A. Smith", "Jason Eisner", "Percy Liang", "Bill Yuchen Lin", "Li Dong", "Pengfei Liu", "Peter Anderson", "Samuel R. Bowman", "Li Fei-Fei", "Nan Duan", "Kang Liu", "Tang Jie", "Michael I. Jordan", "Steven C.H. Hoi", "Hanwang Zhang", "Caiming Xiong", "Dan Roth", "Yankai Lin", "Mikel Artetxe", "Jian Tang", "Duyu Tang", "Christopher D Manning", "Jason Weston", "William Fedus", "Jason C.S. Wu", "Bing Liu", "Jiawei Han", "Kyunghyun Cho", "Yonglong Tian", "Richard Socher", "Andrew Ng", "Jiatao Gu", "Phillip Isola", "Zhongyu Wei", "Zhou Yu", "Juergen Schmidhuber", "Yejin Choi", "Yoshua Bengio", "Sebastian Ruder", "Zhilin Yang", "Tao Gui", "Zachary C. Lipton", "Jure Leskovec", "Wayne Xin Zhao", "Rico Sennrich", "Jeffrey Pennington", "Wanxiang Che", "Tong Xiao", "Noam Shazeer", "Barret Zoph", "Chris Dyer", "Furu Wei", "Jiang Guo", "Danqi Chen", "Jiajun Wu", "Chris Pal", "Bolei Zhou", "Yoav Goldberg", "Yuchen Zhang", "Quoc V. Le", "Jiasen Lu", "Jing Jiang", "Dzmitry Bahdanau", "Dan Jurafsky", "Yoon Kim", "Wenhu Chen", "Justin Johnson", "Andrej Karpathy", "Ming Zhou", "Ian Goodfellow", "Jianfeng Gao", "Tomas Mikolov", "Geoffrey Hinton", "Yann LeCun", "Hai Zhao", "Xu Sun", "Jiwei Li", "Haifeng Wang", "Luke Zettlemoyer", "ChengXiang Zhai", "Zengfeng Huang", "Tianyang Lin", "Yiheng Shu", "Libo Qin", "Rami Al-Rfou", "Xinlei Chen", "Deng Cai", "Jingjing Xu", "Zhe Gan", "Dhruv Batra", "Devi Parikh", "Zhiting Hu", "Eduard Hovy", "Eric Xing", "Xuezhe Ma", "Hao Tan", "Peng Cui", "Qun Liu", "Qi Wu", "Thomas Wolf", "Qi Zhang", "Amir Zadeh", "Jingjing Liu", "Andrew Zisserman", "Jean-Baptiste Alayrac", "Ivan Laptev", "Dima Damen", "Hang Zhao", "Chen Sun", "Du Tran", "Kai Yu", "Lijuan Wang", "Jianlong Fu", "Lu Yuan",
+    "Jimmy Lin",
+    "Kaifeng Lyu",
+    "Zhiyuan Li",
+    "Yuanzhi Li",
+    "Chuan Meng",
+    "Tengyu Ma",
+    "Taiji Suzuki",
+    "Kun Gai",
+    "Jason D. Lee",
+    "Zeyuan Allen-Zhu",
+    "Jiafeng Guo",
+    "Zhengliang Shi",
+    "Lijun Zhang",
+    "Weiwei Sun",
+    "Luke Zettlemoyer",
+    "Yongfeng Zhang",
+    "Jin Huang",
+    "Yubao Tang",
+    "Liwei Wang",
+    "Kaiyue Wen",
+    "Xiangnan He",
+    "Andrew Yates",
+    "Zhewei Wei",
+    "Qingyao Ai",
+    "Weijie Su",
+    "Jiaye Teng",
+    "Jiaxin Mao",
+    "Jun Xu",
+    "Di He",
+    "Tianyu Gao",
+    "Danqi Chen",
+    "Maarten de Rijke",
+    "Zuyuan Zhang",
+    "Xueguang Ma",
+    "Greg Yang",
+    "Charles L.A. Clarke",
+    "Hamed Zamani",
+    "Zhao Song",
+    "Hansi Zeng",
+    "Omar Khattab",
+    "Jingtao Zhan",
+    "Sebastian Bruch"
+    "Sanjeev Arora",
     // my feed
-    "Julian McAuley", "J McAuley", "Atlas Wang", "Alexander M. Rush", "Steffen Rendle", "Ben Taskar", "Hongyuan Zha", "Ali Rahimi", "Zeyuan Allen-Zhu", "Aixin Sun", "Zhiyuan Li", "Tengyu Ma", "Sanjeev Arora", "Roger Grosse", "Qi Liu", "Geoffrey E. Hinton", "Hinton, G", "Yuanzhi Li", "Pascal Massart", "Yoshua Bengio", "Jian Li", "Greg Yang", "Zhihua Zhou", "Lijun Zhang", "Danqi Chen", "Maarten de Rijke", "Zhicheng Dou", "Qingyao Ai", "Zhao Song", "Zhewei Wei"
+    "Julian McAuley", "J McAuley",
+    "Steffen Rendle",
     ];
 
 let conferences = [
     // AI
-    "AAAI", "AAMAS", "ACM MM", "AISTATS", "ALT", "CEC", "ECAI", "FUZZ IEEE", "GECCO", "ICANN", "ICAPS", "ICCBR", "ICONIP", "ICRA", "ICTAI", "IJCAI", "IJCNN", "IROS", "KR", "KSEM", "SIGGRAPH", "STOC", "UAI", "PPSN", "PRICAI", "TAAI",
+    "AAAI", "AISTATS", "ALT",  "IJCAI", "STOC", "UAI",
     // CV
     // DM
-    "AKBC", "APWeb", "CIKM", "DASFAA", "ECML-PKDD", "ICDE", "ICDM", "ICDT", "KDD", "LREC", "MDM", "PAKDD", "PODS", "RecSys", "SDM", "SIGMOD", "VLDB", "WSDM", "WWW", "EDBT", "CIDR",
+    "KDD", "PODS", "RecSys","SIGMOD", "VLDB", "WSDM", "WWW",
     // IR
-    "ECIR", "ESWC", "ICMR", "ICTIR", "ISWC", "SIGIR",
+    "ECIR", "ICTIR", "SIGIR",
     // ML
-    "ACML", "AISTATS", "ECML", "ICLR", "ICML", "ML4H", "NeurIPS", "NIPS", "UAI",
-    // NLP
-    "AACL", "ACL", "CCL", "COLING", "COLT", "CoNLL", "EACL", "EMNLP", "ICASSP", "ICDAR", "ICONIP", "INTERSPEECH", "LREC", "NAACL", "NLPCC", "RepL4NLP", "SIGDIAL", "SemEval", "WANLP", "WASSA", "WOAH",
+    "AISTATS", "ICLR", "ICML","NeurIPS", "NIPS", "UAI",
+    "ACL","COLT","EMNLP",
     // Arch
 ];
 
