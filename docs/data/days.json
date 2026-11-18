@@ -1,0 +1,37 @@
+[
+ {
+  "date": "2026-11-18",
+  "n_core": 1,
+  "n_listed": 34,
+  "n_researcher": 0,
+  "n_picks": 3
+ },
+ {
+  "date": "2026-11-17",
+  "n_core": 4,
+  "n_listed": 29,
+  "n_researcher": 2,
+  "n_picks": 3
+ },
+ {
+  "date": "2026-11-16",
+  "n_core": 1,
+  "n_listed": 19,
+  "n_researcher": 0,
+  "n_picks": 3
+ },
+ {
+  "date": "2026-11-15",
+  "n_core": 1,
+  "n_listed": 4,
+  "n_researcher": 0,
+  "n_picks": 0
+ },
+ {
+  "date": "2026-11-14",
+  "n_core": 6,
+  "n_listed": 58,
+  "n_researcher": 4,
+  "n_picks": 3
+ }
+]

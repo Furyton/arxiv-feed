@@ -1,0 +1,125 @@
+{
+ "date": "2026-11-15",
+ "headline": "Quiet Sunday: no new arXiv batch, and all curator posts were already listed yesterday. Four older ICML 2026 papers surfaced via Scholar Inbox; the one to read is Schulz, Mitropolsky & Poggio's proof that LM loss on a CFG decomposes recursively over its subgrammars, with a capacity scaling law for implicit multi-hop reasoning (≈0.008 bits/parameter) as a skim.",
+ "stats": {
+  "arxiv_new": 0,
+  "scholar_inbox": 34,
+  "curated": 13,
+  "titles_read": 47,
+  "abstracts_read": 31
+ },
+ "daily_picks": [],
+ "researchers": [],
+ "papers": [
+  {
+   "title": "Unraveling Syntax: Language Modeling and the Substructure of Grammars",
+   "authors": [
+    "Laura Ying Schulz",
+    "Daniel Mitropolsky",
+    "Tomaso Poggio"
+   ],
+   "categories": [],
+   "comments": "",
+   "abstract": "While language models achieve impressive results, their learning dynamics are far from understood. Many domains of interest – such as natural language syntax, coding languages, arithmetic – are captured by context-free grammars (CFGs). In this work, we extend prior work on neural language modeling of CFGs in a novel direction: how language modeling behaves with respect to CFG substructure, namely subgrammars. We define subgrammars, and prove a set of fundamental theorems connecting language modeling and subgrammars. We show that language modeling loss recurses linearly over its top-level subgrammars; applied recursively, the loss decomposes into losses for \"irreducible\" subgrammars. Under additional assumptions, and empirically, parametrized models learn subgrammars in parallel, unlike children who first master simple substructures. We find that subgrammar pretraining can improve final performance, but only for tiny models relative to the grammar, while alignment analyses show that pretraining consistently leads to internal representations that better reflect the grammar’s substructure.",
+   "sources": [
+    "scholar-inbox"
+   ],
+   "arxiv": "2510.02524",
+   "tier": "core",
+   "tags": [
+    "LLM theory",
+    "training dynamics"
+   ],
+   "venue": "ICML 2026",
+   "summary": "Defines subgrammars of a context-free grammar and proves that the language-modeling loss recurses linearly over top-level subgrammars, so it decomposes into losses on irreducible subgrammars. Under further assumptions (and empirically) models learn subgrammars in parallel rather than simple-first; subgrammar pretraining only helps tiny models but makes internal representations align better with the grammar's structure.",
+   "why": "A clean, provable decomposition of LM loss along hierarchical structure, close in spirit to how a model learns a tree of identifiers.",
+   "ideas": [
+    1
+   ],
+   "zotero": "already in library"
+  },
+  {
+   "title": "Finding the Minimal Parameter Budget for Implicit Reasoning: A Data Complexity Driven Scaling Law for Language Models",
+   "authors": [
+    "Xinyi Wang",
+    "Shawn Tan",
+    "Shenbo Xu",
+    "Mingyu Jin",
+    "William Yang Wang",
+    "Rameswar Panda",
+    "Yikang Shen"
+   ],
+   "categories": [],
+   "comments": "",
+   "abstract": "Reasoning is a core capability of language models (LMs), yet it remains unclear how much model capacity is necessary to support reasoning during pretraining. In this work, we study the minimal parameter budget required for implicit reasoning, defined as the ability to infer new facts from learned knowledge without explicit chain-of-thought supervision. To isolate this phenomenon, we pretrain LMs from scratch in a controlled synthetic environment that mimics the structure and distribution of real-world knowledge graphs, and evaluate their ability to complete missing edges via multi-hop inference. From both a theoretical and an empirical perspective, we identify a scaling law linking this optimal parameter budget to a graph search entropy measure. Across a wide range of model sizes, training steps, and graph complexities, we show that an optimally sized language model can reliably reason over approximately 0.008 bits of information per parameter at most. Our results characterize the minimal sufficient capacity for implicit reasoning during pretraining. Our findings provide principled guidance for matching model size to data complexity and offer new insights into the scaling behavior of reasoning in large language models.",
+   "sources": [
+    "scholar-inbox"
+   ],
+   "arxiv": "2504.03635",
+   "tier": "interesting",
+   "tags": [
+    "memorization",
+    "scaling laws",
+    "CoT & reasoning"
+   ],
+   "venue": "ICML 2026",
+   "summary": "Pretrains LMs from scratch on synthetic knowledge graphs and measures the smallest model that can infer held-out edges by implicit multi-hop reasoning. The optimal parameter budget follows a scaling law in a graph search-entropy measure; an optimally sized model handles at most about 0.008 bits of reasoning information per parameter.",
+   "why": "A capacity law for what a transformer can store and compose, a quantitative counterpart to memorization-capacity results.",
+   "ideas": [
+    1
+   ]
+  },
+  {
+   "title": "Progressive Cramming: Reliable Token Compression and What It Reveals",
+   "authors": [
+    "Dmitrii Tarasov",
+    "Timofei Lashukov",
+    "Elizaveta Goncharova",
+    "Andrey Kuznetsov"
+   ],
+   "categories": [],
+   "comments": "",
+   "abstract": "Token cramming compresses sequences into learned embeddings with near-perfect reconstruction, but fixed token budgets and 99% accuracy thresholds leave it unclear whether residual errors reflect optimization failures or fundamental limits. We introduce progressive cramming, which grows the target prefix token-by-token, stopping only when reconstruction is no longer achievable within a fixed optimization budget. Progressive trajectories occupy low-dimensional structure in embedding space. Prepending a crammed embedding causes a moderate but consistent accuracy drop on multiple-choice benchmarks even with the original prefix in context, and collapses capability almost entirely under generative evaluation. Causal attention-knockout interventions trace this degradation to the embedding’s interactions in the model’s early layers. These results position progressive cramming as a tool for studying compression limits and show that perfect reconstruction - achievable through brittle steering rather than transferable semantics - is insufficient for meaningful compression.",
+   "sources": [
+    "scholar-inbox"
+   ],
+   "arxiv": "2607.21231",
+   "tier": "interesting",
+   "tags": [
+    "memorization",
+    "embeddings",
+    "phenomena"
+   ],
+   "venue": "ICML 2026",
+   "summary": "Grows the prefix crammed into a single learned input embedding token by token until reconstruction fails, to separate optimisation failures from capacity limits. Cramming trajectories lie in low-dimensional structure; prepending a crammed embedding degrades downstream generation sharply, traced to early-layer interactions, so perfect reconstruction works by brittle steering rather than transferable semantics.",
+   "why": "Probes how much text one embedding vector can encode for a frozen LM, a capacity question with an IR flavour.",
+   "ideas": []
+  },
+  {
+   "title": "Dimensional Collapse in Transformer Attention Outputs: A Challenge for Sparse Dictionary Learning",
+   "authors": [
+    "Junxuan Wang",
+    "Xuyang Ge",
+    "Wentao Shu",
+    "Zhengfu He",
+    "Xipeng Qiu"
+   ],
+   "categories": [],
+   "comments": "",
+   "abstract": "Transformer architectures, and their attention mechanisms in particular, form the foundation of modern large language models. While transformer models are widely believed to operate in high-dimensional hidden spaces, we show that attention outputs are confined to a surprisingly low-dimensional subspace, with an effective dimensionality of only about 60% of the full space—a phenomenon that is consistently observed across diverse model families and datasets, and arises from overlap among the output subspaces of different attention heads. Critically, we find this low-rank structure as a key factor of the prevalent dead feature problem in sparse dictionary learning, where it creates a mismatch between randomly initialized features and the intrinsic geometry of the activation space. Building on this insight, we propose a subspace-constrained training method for sparse autoencoders (SAEs), initializing feature directions into the active subspace of activations. Our approach reduces dead features from 87% to below 1% in Attention Output SAEs with 1M features, and can further extend to other sparse dictionary learning methods. Our findings provide both new insights into the geometry of attention and practical tools for improving sparse dictionary learning in large language models. Code is available at <a href='https://github.com/OpenMOSS/Llamascopium' target='_blank'>https://github.com/OpenMOSS/Llamascopium</a>.",
+   "sources": [
+    "scholar-inbox"
+   ],
+   "arxiv": "2508.16929",
+   "tier": "interesting",
+   "tags": [
+    "phenomena",
+    "interpretability"
+   ],
+   "venue": "ICML 2026",
+   "summary": "Attention outputs across model families occupy a subspace of only about 60% of the hidden dimension, caused by overlap among heads' output subspaces. This low rank explains most dead features in attention-output SAEs; initialising SAE features inside the active subspace cuts dead features from 87% to under 1%.",
+   "why": "A clean, model-agnostic geometric phenomenon of attention (rank deficiency) that a theorist could try to explain.",
+   "ideas": []
+  }
+ ]
+}

@@ -1,0 +1,954 @@
+[
+ {
+  "name": "Qingyao Ai",
+  "aff": "Tsinghua University",
+  "n": 72,
+  "co": [],
+  "co_auto": [
+   "Yiqun Liu",
+   "Weihang Su",
+   "Yujia Zhou",
+   "Haitao Li",
+   "Min Zhang",
+   "Yueyue Wu"
+  ]
+ },
+ {
+  "name": "Zeyuan Allen-Zhu",
+  "aff": "Meta FAIR",
+  "n": 10,
+  "co": [],
+  "co_auto": [
+   "Yuanzhi Li",
+   "Lorenzo Orecchia",
+   "Elad Hazan",
+   "Yang Yuan",
+   "Emily Wenger",
+   "Kristin Lauter"
+  ]
+ },
+ {
+  "name": "Sanjeev Arora",
+  "aff": "Princeton University",
+  "n": 44,
+  "co": [],
+  "co_auto": [
+   "Anirudh Goyal",
+   "Abhishek Panigrahi",
+   "Danqi Chen",
+   "Haoyu Zhao",
+   "Dingli Yu",
+   "Yinghui He"
+  ]
+ },
+ {
+  "name": "Sebastian Bruch",
+  "aff": "Northeastern University",
+  "n": 7,
+  "co": [],
+  "co_auto": [
+   "Franco Maria Nardini",
+   "Cosimo Rulli",
+   "Rossano Venturini",
+   "Jan Pfeifer",
+   "Amir Ingber",
+   "Thomas Vecchiato"
+  ]
+ },
+ {
+  "name": "Danqi Chen",
+  "aff": "Princeton University",
+  "n": 32,
+  "co": [],
+  "co_auto": [
+   "Mengzhou Xia",
+   "Tianyu Gao",
+   "Adithya Bhaskar",
+   "Howard Yen",
+   "Alexander Wettig",
+   "Sanjeev Arora"
+  ]
+ },
+ {
+  "name": "Charles L. A. Clarke",
+  "aff": "University of Waterloo",
+  "n": 26,
+  "co": [],
+  "co_auto": [
+   "Negar Arabzadeh",
+   "Amin Bigdeli",
+   "Ebrahim Bagheri",
+   "Radin Hamidi Rad",
+   "Siqing Huo",
+   "Nick Craswell"
+  ]
+ },
+ {
+  "name": "Kun Gai",
+  "aff": "Alibaba Group",
+  "n": 120,
+  "co": [
+   "Xuxin Zhang",
+   "Ben Chen",
+   "Yue Lv",
+   "Siyuan Wang",
+   "Yupeng Li",
+   "Yufei Ma"
+  ],
+  "co_auto": [
+   "Peng Jiang",
+   "Guorui Zhou",
+   "Han Li",
+   "Pengfei Wan",
+   "Lantao Hu",
+   "Di Zhang"
+  ]
+ },
+ {
+  "name": "Tianyu Gao",
+  "aff": "Meta",
+  "n": 4,
+  "co": [],
+  "co_auto": [
+   "Danqi Chen",
+   "Da‐Gang Yu",
+   "Jian‐Heng Ye",
+   "Yanze Wang",
+   "Wei Zhang",
+   "Chong‐Jian Tang"
+  ]
+ },
+ {
+  "name": "Jiafeng Guo",
+  "aff": "Institute of Computing Technology",
+  "n": 82,
+  "co": [],
+  "co_auto": [
+   "Xueqi Cheng",
+   "Keping Bi",
+   "Ruqing Zhang",
+   "Xiaolong Jin",
+   "Shenghua Liu",
+   "Yiwei Wang"
+  ]
+ },
+ {
+  "name": "Jitai Hao",
+  "aff": "Harbin Institute of Technology (Shenzhen)",
+  "n": 7,
+  "co": [],
+  "co_auto": [
+   "Qiang Huang",
+   "Jun Yu",
+   "Zhaochun Ren",
+   "Jinghao Pang",
+   "Hao Liu",
+   "Xinyan Xiao"
+  ]
+ },
+ {
+  "name": "Xiangnan He",
+  "aff": "University of Science and Technology of China",
+  "n": 60,
+  "co": [],
+  "co_auto": [
+   "Xiang Wang",
+   "Fuli Feng",
+   "Jiancan Wu",
+   "Chongming Gao",
+   "Wenjie Wang",
+   "Junkang Wu"
+  ]
+ },
+ {
+  "name": "Di He",
+  "aff": "Peking University",
+  "n": 30,
+  "co": [
+   "Jiayi Xu",
+   "Guolin Ke",
+   "Xinle Cheng",
+   "Tianyu He",
+   "Junliang Guo",
+   "Jiang Bian"
+  ],
+  "co_auto": [
+   "Liwei Wang",
+   "Zhenyu He",
+   "Shengjie Luo",
+   "Ruichen Li"
+  ]
+ },
+ {
+  "name": "Jixiang Hong",
+  "aff": "Renmin University of China",
+  "n": 3,
+  "co": [],
+  "co_auto": [
+   "Rui Yan"
+  ]
+ },
+ {
+  "name": "Jin Huang",
+  "aff": "University of Cambridge",
+  "n": 8,
+  "co": [
+   "Maarten de Rijke",
+   "Ziheng Chen",
+   "Fethiye Irmak Doğan",
+   "Hatice Gunes",
+   "Erencem Ozbey",
+   "Fethiye Irmak Dogan"
+  ],
+  "co_auto": []
+ },
+ {
+  "name": "Jingwei Kang",
+  "aff": "University of Amsterdam",
+  "n": 7,
+  "co": [],
+  "co_auto": [
+   "Maarten de Rijke",
+   "Harrie Oosterhuis",
+   "Santiago de Leon-Martinez"
+  ]
+ },
+ {
+  "name": "Omar Khattab",
+  "aff": "Massachusetts Institute of Technology",
+  "n": 20,
+  "co": [],
+  "co_auto": [
+   "Christopher Potts",
+   "Matei Zaharia",
+   "Keshav Santhanam",
+   "Dilara Soylu",
+   "Chelsea Finn",
+   "Lakshya A Agrawal"
+  ]
+ },
+ {
+  "name": "Xiaoyu Kong",
+  "aff": "University of Science and Technology of China",
+  "n": 5,
+  "co": [],
+  "co_auto": [
+   "Yuanpeng Xiong",
+   "Hairong Luo",
+   "Thomas A. Munroe",
+   "Yongyong Chen",
+   "Shuju Tu",
+   "Yongyang Wei"
+  ]
+ },
+ {
+  "name": "Jason D. Lee",
+  "aff": "UC Berkeley",
+  "n": 61,
+  "co": [],
+  "co_auto": [
+   "Eshaan Nichani",
+   "Zixuan Wang",
+   "Juno Kim",
+   "Siddharth Joshi",
+   "Haoli Yin",
+   "Rishabh Adiga"
+  ]
+ },
+ {
+  "name": "Zhiyuan Li",
+  "aff": "Toyota Technological Institute at Chicago",
+  "n": 32,
+  "co": [
+   "Maria-Florina Balcan",
+   "Avrim Blum",
+   "Kiriaki Fragkia",
+   "Dravyansh Sharma",
+   "Chenxiao Yang",
+   "Cai Zhou"
+  ],
+  "co_auto": [
+   "Zhiguo Gui",
+   "Yi Liu",
+   "Jiaqi Kang",
+   "Peng Feng",
+   "Tengyu Ma",
+   "Jing Lu"
+  ]
+ },
+ {
+  "name": "Yuanzhi Li",
+  "aff": "Carnegie Mellon University",
+  "n": 19,
+  "co": [
+   "Sumegha Garg",
+   "Songhua He",
+   "Periklis A. Papakonstantinou",
+   "Xin Yang"
+  ],
+  "co_auto": [
+   "Yue Wu",
+   "Sitan Chen",
+   "Samy Jelassi",
+   "Sébastien Bubeck",
+   "Yin Tat Lee",
+   "Ronen Eldan"
+  ]
+ },
+ {
+  "name": "Yongkang Li",
+  "aff": "University of Amsterdam",
+  "n": 11,
+  "co": [
+   "Dominykas Seputis",
+   "Karsten Langerak",
+   "Serghei Mihailov"
+  ],
+  "co_auto": [
+   "Panagiotis Eustratiadis",
+   "Evangelos Kanoulas",
+   "Zipei Fan",
+   "Xuan Song",
+   "Du Yin",
+   "Renhe Jiang"
+  ]
+ },
+ {
+  "name": "Jimmy Lin",
+  "aff": "University of Waterloo",
+  "n": 57,
+  "co": [],
+  "co_auto": [
+   "Xueguang Ma",
+   "Shengyao Zhuang",
+   "Nandan Thakur",
+   "Sahel Sharifymoghaddam",
+   "Ronak Pradeep",
+   "Nick Craswell"
+  ]
+ },
+ {
+  "name": "Kaifeng Lyu",
+  "aff": "Tsinghua University",
+  "n": 30,
+  "co": [],
+  "co_auto": [
+   "Sanjeev Arora",
+   "Zhiyuan Li",
+   "Haodong Wen",
+   "Kairong Luo",
+   "Wenguang Chen",
+   "Xinran Gu"
+  ]
+ },
+ {
+  "name": "Yougang Lyu",
+  "aff": "University of Amsterdam",
+  "n": 12,
+  "co": [],
+  "co_auto": [
+   "Zhaochun Ren",
+   "Maarten de Rijke",
+   "Xiaohui Yan",
+   "Zihan Wang",
+   "Pengjie Ren",
+   "Xiaoyu Zhang"
+  ]
+ },
+ {
+  "name": "Tengyu Ma",
+  "aff": "Stanford University",
+  "n": 30,
+  "co": [],
+  "co_auto": [
+   "Percy Liang",
+   "Kaiyue Wen",
+   "Zhiyuan Li",
+   "Kefan Dong",
+   "Sang Michael Xie",
+   "Ananya Kumar"
+  ]
+ },
+ {
+  "name": "Xueguang Ma",
+  "aff": "University of Waterloo",
+  "n": 22,
+  "co": [],
+  "co_auto": [
+   "Jimmy Lin",
+   "Shengyao Zhuang",
+   "Wenhu Chen",
+   "Luyu Gao",
+   "Guido Zuccon",
+   "Zhichao Xu"
+  ]
+ },
+ {
+  "name": "Xinyu Ma",
+  "aff": "Baidu",
+  "n": 31,
+  "co": [],
+  "co_auto": [
+   "Dawei Yin",
+   "Shuaiqiang Wang",
+   "Lixia Zhang",
+   "Tianyuan Yu",
+   "Zhaochun Ren",
+   "Weiwei Sun"
+  ]
+ },
+ {
+  "name": "Jiaxin Mao",
+  "aff": "Renmin University of China",
+  "n": 37,
+  "co": [
+   "Shengjie Ma",
+   "Chenlong Deng",
+   "Jiadeng Huang",
+   "Teng Wang",
+   "Junjie Wu",
+   "Changwang Zhang"
+  ],
+  "co_auto": [
+   "Yiqun Liu",
+   "Shaoping Ma",
+   "Yiqun Chen",
+   "Min Zhang",
+   "Qi Liu",
+   "Erhan Zhang"
+  ]
+ },
+ {
+  "name": "Julian McAuley",
+  "aff": "UC San Diego",
+  "n": 114,
+  "co": [],
+  "co_auto": [
+   "Tong Yu",
+   "Junda Wu",
+   "Sheldon Yu",
+   "Jingbo Shang",
+   "Rohan Surana",
+   "Xintong Li"
+  ]
+ },
+ {
+  "name": "Chuan Meng",
+  "aff": "University of Edinburgh",
+  "n": 9,
+  "co": [],
+  "co_auto": [
+   "Mohammad Aliannejadi",
+   "Fengran Mo",
+   "Negar Arabzadeh",
+   "Arian Askari",
+   "Maarten de Rijke",
+   "Jian‐Yun Nie"
+  ]
+ },
+ {
+  "name": "Fengran Mo",
+  "aff": "Rochester Institute of Technology",
+  "n": 52,
+  "co": [
+   "Yongan Yu",
+   "Qingchen Hu",
+   "Xianda Du",
+   "Jiayin Wang",
+   "Renee Sieber"
+  ],
+  "co_auto": [
+   "Jian‐Yun Nie",
+   "Kaiyu Huang",
+   "Kelong Mao",
+   "Zhan Su",
+   "Meng Jiang",
+   "Jinghan Zhang"
+  ]
+ },
+ {
+  "name": "Harrie Oosterhuis",
+  "aff": "University of Amsterdam",
+  "n": 13,
+  "co": [],
+  "co_auto": [
+   "Maarten de Rijke",
+   "Shashank Gupta",
+   "Rolf Jagerman",
+   "Jingwei Kang",
+   "Zhen Qin",
+   "Xuanhui Wang"
+  ]
+ },
+ {
+  "name": "Zhaochun Ren",
+  "aff": "Leiden University",
+  "n": 57,
+  "co": [],
+  "co_auto": [
+   "Zhumin Chen",
+   "Pengjie Ren",
+   "Maarten de Rijke",
+   "Xin Xin",
+   "Dawei Yin",
+   "Shuaiqiang Wang"
+  ]
+ },
+ {
+  "name": "Yi Ren",
+  "aff": "University of Oxford",
+  "n": 11,
+  "co": [
+   "Danica J. Sutherland",
+   "Wenlong Deng",
+   "Yushu Li",
+   "Boying Gong",
+   "Christos Thrampoulidis",
+   "Xiaoxiao Li"
+  ],
+  "co_auto": []
+ },
+ {
+  "name": "Steffen Rendle",
+  "aff": "Google",
+  "n": 3,
+  "co": [],
+  "co_auto": [
+   "Li Zhang",
+   "Walid Krichene",
+   "Nicolas Mayoraz",
+   "John Anderson",
+   "Dima Kuzmin",
+   "Yehuda Koren"
+  ]
+ },
+ {
+  "name": "Maarten de Rijke",
+  "aff": "University of Amsterdam",
+  "n": 78,
+  "co": [],
+  "co_auto": [
+   "Ruqing Zhang",
+   "Jiafeng Guo",
+   "Xueqi Cheng",
+   "Zhaochun Ren",
+   "Yubao Tang",
+   "Yixing Fan"
+  ]
+ },
+ {
+  "name": "Zhengliang Shi",
+  "aff": "Carnegie Mellon University",
+  "n": 17,
+  "co": [],
+  "co_auto": [
+   "Zhaochun Ren",
+   "Pengjie Ren",
+   "Shen Gao",
+   "Dawei Yin",
+   "Lingyong Yan",
+   "Weiwei Sun"
+  ]
+ },
+ {
+  "name": "Zhao Song",
+  "aff": "independent researcher (theoretical CS)",
+  "n": 71,
+  "co": [
+   "Xiaoyu Li",
+   "Yingyu Liang",
+   "Zhenmei Shi",
+   "Mingda Wan",
+   "Yekun Ke",
+   "Jiangxuan Long"
+  ],
+  "co_auto": [
+   "The Anh Han",
+   "Wen-Yu Dong",
+   "Qi Bi",
+   "Sheng Chen",
+   "Jiahao Zhang",
+   "Rui-Si Han"
+  ]
+ },
+ {
+  "name": "Weijie Su",
+  "aff": "Tsinghua University",
+  "n": 45,
+  "co": [],
+  "co_auto": [
+   "Qi Long",
+   "Xiang Li",
+   "Wenhai Wang",
+   "Buxin Su",
+   "Jifeng Dai",
+   "Xizhou Zhu"
+  ]
+ },
+ {
+  "name": "Weiwei Sun",
+  "aff": "Carnegie Mellon University",
+  "n": 25,
+  "co": [
+   "Zora Zhiruo Wang",
+   "Apurva Gandhi",
+   "Rulin Shao",
+   "Aspen Chen",
+   "Jonas Mueller",
+   "Zhiqi Liang"
+  ],
+  "co_auto": [
+   "Zhaochun Ren",
+   "Pengjie Ren",
+   "Xinyu Ma",
+   "Dawei Yin",
+   "Yiming Yang",
+   "Zhumin Chen"
+  ]
+ },
+ {
+  "name": "Taiji Suzuki",
+  "aff": "University of Tokyo",
+  "n": 62,
+  "co": [],
+  "co_auto": [
+   "Wei Huang",
+   "Andi Han",
+   "Atsushi Nitanda",
+   "Ryotaro Kawata",
+   "Rei Higuchi",
+   "Huanjian Zhou"
+  ]
+ },
+ {
+  "name": "Yubao Tang",
+  "aff": "University of Amsterdam",
+  "n": 8,
+  "co": [],
+  "co_auto": [
+   "Maarten de Rijke",
+   "Ruqing Zhang",
+   "Jiafeng Guo",
+   "Xueqi Cheng",
+   "Kidist Amde Mekonnen",
+   "Dawei Yin"
+  ]
+ },
+ {
+  "name": "Jiaye Teng",
+  "aff": "Shanghai University of Finance and Economics",
+  "n": 15,
+  "co": [],
+  "co_auto": [
+   "Yang Yuan",
+   "Zixuan Gong",
+   "Yong Liu",
+   "Zhen Zhang",
+   "Chuan Wen",
+   "Ziye Ma"
+  ]
+ },
+ {
+  "name": "Grigoris Velegkas",
+  "aff": "Google Research",
+  "n": 21,
+  "co": [],
+  "co_auto": [
+   "Amin Karbasi",
+   "Christopher Liaw",
+   "Aranyak Mehta",
+   "Yang Cai",
+   "Alkis Kalavasis",
+   "Felix Zhou"
+  ]
+ },
+ {
+  "name": "Zhewei Wei",
+  "aff": "Renmin University of China",
+  "n": 34,
+  "co": [
+   "Wenda Wang",
+   "Jinjia Feng",
+   "Zengfeng Huang",
+   "Zhongzheng Xiong",
+   "Xiaoyi Zhu"
+  ],
+  "co_auto": [
+   "Bolin Ding",
+   "Yaliang Li",
+   "Ji-Rong Wen",
+   "Runlin Lei",
+   "Hongteng Xu",
+   "Zhen Wang"
+  ]
+ },
+ {
+  "name": "Kaiyue Wen",
+  "aff": "Stanford University",
+  "n": 27,
+  "co": [],
+  "co_auto": [
+   "Tengyu Ma",
+   "Xingyu Dang",
+   "Percy Liang",
+   "Zhiyuan Li",
+   "Huaqing Zhang",
+   "Jingzhao Zhang"
+  ]
+ },
+ {
+  "name": "Xin Xin",
+  "aff": "Shandong University",
+  "n": 18,
+  "co": [],
+  "co_auto": [
+   "Zhaochun Ren",
+   "Zhumin Chen",
+   "Pengjie Ren",
+   "Xuri Ge",
+   "Alexandros Karatzoglou",
+   "Ioannis Arapakis"
+  ]
+ },
+ {
+  "name": "Jun Xu",
+  "aff": "Renmin University of China",
+  "n": 63,
+  "co": [],
+  "co_auto": [
+   "Xiao Zhang",
+   "Baohua Guo",
+   "Ji-Rong Wen",
+   "Zhenhua Dong",
+   "Sunhao Dai",
+   "Weijie Yu"
+  ]
+ },
+ {
+  "name": "Jiyuan Yang",
+  "aff": "Shandong University",
+  "n": 3,
+  "co": [],
+  "co_auto": [
+   "Jiyang Yu",
+   "Zhaochun Ren",
+   "Zhumin Chen",
+   "Xin Xin",
+   "Pengjie Ren",
+   "Junmin Peng"
+  ]
+ },
+ {
+  "name": "Andrew Yates",
+  "aff": "Johns Hopkins University",
+  "n": 40,
+  "co": [],
+  "co_auto": [
+   "Eugene Yang",
+   "Dawn Lawrie",
+   "Thong Nguyen",
+   "Evangelos Kanoulas",
+   "Maarten de Rijke",
+   "Jia-Huei Ju"
+  ]
+ },
+ {
+  "name": "Yixiao Yu",
+  "aff": "Nanjing University",
+  "n": 7,
+  "co": [],
+  "co_auto": [
+   "Yiyao Zhang",
+   "Jingcheng Liu",
+   "Weiming Feng",
+   "Chunyang Wang",
+   "Yitong Yin",
+   "Xiongxin Yang"
+  ]
+ },
+ {
+  "name": "Hamed Zamani",
+  "aff": "University of Massachusetts Amherst",
+  "n": 43,
+  "co": [],
+  "co_auto": [
+   "Alireza Salemi",
+   "Hansi Zeng",
+   "Julian Killingback",
+   "Chris Samarinas",
+   "Haw-Shiuan Chang",
+   "Michael Bendersky"
+  ]
+ },
+ {
+  "name": "Hansi Zeng",
+  "aff": "University of Massachusetts Amherst",
+  "n": 12,
+  "co": [],
+  "co_auto": [
+   "Hamed Zamani",
+   "Bowen Jin",
+   "Jiacheng Lin",
+   "Dakuo Wang",
+   "Zhenrui Yue",
+   "Julian Killingback"
+  ]
+ },
+ {
+  "name": "Luke Zettlemoyer",
+  "aff": "University of Washington",
+  "n": 68,
+  "co": [],
+  "co_auto": [
+   "Pang Wei Koh",
+   "Weijia Shi",
+   "Mike Lewis",
+   "Marjan Ghazvininejad",
+   "Shuyue Stella Li",
+   "Yulia Tsvetkov"
+  ]
+ },
+ {
+  "name": "Jingtao Zhan",
+  "aff": "Tsinghua University",
+  "n": 8,
+  "co": [],
+  "co_auto": [
+   "Yiqun Liu",
+   "Qingyao Ai",
+   "Jiaxin Mao",
+   "Shaoping Ma",
+   "Min Zhang",
+   "Jiafeng Guo"
+  ]
+ },
+ {
+  "name": "Yongfeng Zhang",
+  "aff": "Rutgers University",
+  "n": 33,
+  "co": [
+   "Xiang Zhang",
+   "Joshua Park",
+   "Jingyuan Huang",
+   "Dan Luo",
+   "Zihe Ye",
+   "Weixin Chen"
+  ],
+  "co_auto": [
+   "Wenyue Hua",
+   "Shuyuan Xu",
+   "Yingqiang Ge",
+   "Juntao Tan",
+   "Zelong Li",
+   "Mingyu Jin"
+  ]
+ },
+ {
+  "name": "Zuyuan Zhang",
+  "aff": "Yale University",
+  "n": 19,
+  "co": [
+   "Sizhe Tang",
+   "Zeyu Fang",
+   "Tian Lan",
+   "Fei Xu Yu",
+   "Mahdi Imani",
+   "Nathaniel D. Bastian"
+  ],
+  "co_auto": []
+ },
+ {
+  "name": "Xiaoyu Zhang",
+  "aff": "University College London",
+  "n": 6,
+  "co": [
+   "Emine Yilmaz",
+   "Yougang Lyu"
+  ],
+  "co_auto": []
+ },
+ {
+  "name": "Mengqi Zhang",
+  "aff": "Shandong University",
+  "n": 16,
+  "co": [
+   "Xiaotian Ye",
+   "Shu Wu",
+   "Chi Zhang",
+   "Runxi Cheng",
+   "Zisheng Zhou",
+   "Ying Zhou"
+  ],
+  "co_auto": []
+ },
+ {
+  "name": "Jujia Zhao",
+  "aff": "Leiden University",
+  "n": 11,
+  "co": [],
+  "co_auto": [
+   "Zhaochun Ren",
+   "Wenjie Wang",
+   "Suzan Verberne",
+   "Tat-Seng Chua",
+   "Fuli Feng",
+   "Chen Xu"
+  ]
+ },
+ {
+  "name": "Xinpeng Zhao",
+  "aff": "Shandong University",
+  "n": 2,
+  "co": [],
+  "co_auto": [
+   "Xiaowei Zhang",
+   "Yanwei Zheng",
+   "Chuanlin Lan",
+   "Dongxiao Yu",
+   "Xin Xin",
+   "Xiao Dou"
+  ]
+ },
+ {
+  "name": "Shengyao Zhuang",
+  "aff": "Amazon",
+  "n": 23,
+  "co": [],
+  "co_auto": [
+   "Guido Zuccon",
+   "Bevan Koopman",
+   "Xueguang Ma",
+   "Jimmy Lin",
+   "Shuai Wang",
+   "Zhichao Xu"
+  ]
+ },
+ {
+  "name": "Yuxuan Zong",
+  "aff": "Amazon Web Services",
+  "n": 7,
+  "co": [],
+  "co_auto": [
+   "Benjamin Piwowarski",
+   "Mathias Vast",
+   "Arthur Satouf",
+   "Pablo Piantanida",
+   "Basile Van Cooten",
+   "Laure Soulier"
+  ]
+ },
+ {
+  "name": "Difan Zou",
+  "aff": "University of Hong Kong",
+  "n": 62,
+  "co": [],
+  "co_auto": [
+   "Yujin Han",
+   "Xu Wang",
+   "Zichao Yu",
+   "Bingqing Jiang",
+   "Dechen Zhang",
+   "Xuan Tang"
+  ]
+ }
+]

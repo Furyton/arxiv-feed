@@ -1,0 +1,948 @@
+{
+ "date": "2026-11-17",
+ "headline": "Four theory papers worth reading today: an optimal, length-independent sample-complexity result for learning CoT generators by bagging; a matching-bounds analysis of overfitting when in-context examples are chosen adaptively (NeurIPS 2026); a sharp round-complexity analysis of parallel decoding in masked diffusion models; and a solvable linear-transformer model of how to weight atomic facts against reasoning traces in pretraining. For the GR side: CARE evaluates semantic IDs as partitions, without training a generator.",
+ "stats": {
+  "arxiv_new": 1566,
+  "scholar_inbox": 79,
+  "curated": 0,
+  "titles_read": 704,
+  "abstracts_read": 64
+ },
+ "daily_picks": [
+  {
+   "title": "Exact Fusion of Softmax Attention Heads Can Require Exponentially Many Atoms",
+   "authors": [
+    "Hiroyasu Usami",
+    "Keisuke Hara",
+    "Ayato Tsuboi",
+    "Naohiko Matsuda"
+   ],
+   "year": "2026",
+   "url": "https://arxiv.org/abs/2611.02943",
+   "zotero_key": "A9KUAESM",
+   "note_key": "9QCH3475",
+   "digest": "Setting and problem \n The object of study is a flat single-head softmax readout with $M$ atoms:\n$$B(q) \\;=\\; \\frac{\\sum_{i=1}^{M} m_i\\, e^{\\langle q, k_i\\rangle}\\, v_i}{\\sum_{i=1}^{M} m_i\\, e^{\\langle q, k_i\\rangle}}, \\qquad q \\in \\mathbb{R}^d,$$\nwith fixed keys $k_i \\in \\mathbb{R}^d$, scalar values $v_i \\in \\mathbb{R}$ and positive masses $0 < m_i < \\infty$. A mass is the same as a logit bias, since $m_i = e^{b_i}$. An atom is one key–value–mass triple. Atoms with the same key can be merged, so one can assume the keys are distinct. A fixed linear output projection can be folded into the values, and a query projection $Pq$ can be folded into the keys, since $\\langle Pq, k\\rangle = \\langle q, P^\\top k\\rangle$. Probabilistically, $B(q) = \\mathbb{E}_{p_q}[v]$, where $p_q(i) \\propto m_i e^{\\langle q, k_i\\rangle}$ is a finite exponential family on $M$ support points with sufficient statistic $k_i$.\n\n\n A multi-head model is a sum $\\sum_{h=1}^H A_h(q)$. Each head $A_h$ has its own projection $P_h$, its own $n_h$ atoms and its own normalizer. Proposition 1 is the standard product expansion. Multiplying out the denominators turns the sum of heads into one flat readout with at most $\\prod_h n_h$ atoms, one for each tuple $I = (i_1,\\dots,i_H)$. The tuple atom has key $k_I = \\sum_h P_h^\\top k_{h i_h}$, mass $m_I = \\prod_h m_{h i_h}$ and value $v_I = \\sum_h v_{h i_h}$. The fused keys …"
+  },
+  {
+   "title": "A Mirror Descent Perspective of Smoothed Sign Descent",
+   "authors": [
+    "Shuyang Wang",
+    "Diego Klabjan"
+   ],
+   "year": "2024",
+   "url": "http://arxiv.org/abs/2410.14158",
+   "zotero_key": "PMKCKDTM",
+   "note_key": "669PVP4K",
+   "digest": "Setting and problem \n Model. There are $N$ examples in $D > N$ dimensions, with data matrix $X \\in \\mathbb{R}^{N\\times D}$ and labels $y \\in \\mathbb{R}^N$. The regression vector is parameterized quadratically as a depth-2 diagonal linear network:\n$$\\beta = w^+ \\odot w^+ - w^- \\odot w^-, \\qquad L(w) = \\tfrac14 \\|X\\beta - y\\|_2^2,$$\nwith $w = (w^+, w^-) \\in \\mathbb{R}^{2D}$ and initialization $w(0) = \\alpha \\mathbf{1}$, so $\\beta(0) = 0$. This is the model of Woodworth et al. (2020).\n\n\n Algorithm. The paper studies smoothed sign descent, $w_{t+1} = w_t - \\eta \\, \\nabla_w L(w_t) / (|\\nabla_w L(w_t)| + \\varepsilon \\mathbf{1})$ with element-wise operations. This is Adam/RMSProp with momentum off and the second-moment EMA replaced by the instantaneous gradient, so it is the same as $\\nabla L / (\\sqrt{\\nabla L^2} + \\varepsilon)$. All analysis is in the gradient-flow limit $\\eta \\to 0$:\n$$\\dot w = -\\frac{\\nabla_w L(w)}{|\\nabla_w L(w)| + \\varepsilon \\mathbf{1}}.$$\nA modelling point worth flagging: in continuous time the adaptive step does not vanish as $\\eta \\to 0$. The coordinate-wise rescaling survives, and $\\varepsilon$ sets a gradient-magnitude threshold. Below it the flow is gradient flow scaled by $1/\\varepsilon$, and above it the flow is sign flow.\n\n\n Given and produced. Given $(X, y, \\alpha, \\varepsilon)$, the goal is a characterization of $\\beta^\\infty = \\lim_{t\\to\\infty} …"
+  },
+  {
+   "title": "Walk fast but be careful: Understanding Parallel Sampling in Masked Diffusion",
+   "authors": [
+    "Vansh Bansal",
+    "Cholyeon Cho",
+    "Syamantak Kumar",
+    "Sujay Sanghavi",
+    "Purnamrita Sarkar"
+   ],
+   "year": "2026",
+   "url": "https://arxiv.org/abs/2606.22976",
+   "zotero_key": "8TWR5TB7",
+   "note_key": "TNJ5HU8G",
+   "digest": "Setting and problem \n The object. A masked diffusion model (MDM) over sequences $X = (X_1,\\dots,X_L) \\sim \\nu$ with tokens in a vocabulary $V$ plus an absorbing $[\\mathrm{MASK}]$ symbol. Training corrupts each coordinate independently to $[\\mathrm{MASK}]$ and trains a denoiser with a weighted cross-entropy on masked positions. The paper uses the MDM purely as a black box for conditional marginals: given a revealed set $U \\subseteq [L]$ with values $x_U$, the network returns, for every masked $i \\in [L]\\setminus U$, a one-coordinate distribution\n$$p_i(\\cdot \\mid x_U) \\approx \\nu(X_i = \\cdot \\mid X_U = x_U).$$\nIt never returns a joint over several masked positions. That is the root of the problem.\n\n\n Sampling as a reveal policy. Generation starts from $U_0$ ($U_0 = \\emptyset$ unconditionally, or $U_0 = \\{1, L\\}$ for an endpoint-conditioned \"bridge\"). At round $r$, a policy picks a block $B_r \\subseteq M_r = [L]\\setminus U_r$, draws each $X_i \\sim p_i(\\cdot \\mid x_{U_r})$ for $i \\in B_r$ independently , and sets $U_{r+1} = U_r \\cup B_r$. The cost is the number of function evaluations (NFEs), i.e. rounds. With $|B_r| = 1$ and exact marginals, any order is exact by the chain rule (their Lemma 5). With $|B_r| > 1$, the true block conditional $\\nu(X_{B} \\mid x_U)$ is replaced by the product $\\prod_{i \\in B} \\nu(X_i \\mid x_U)$. The bound from Ben-Hamu et al. (2025) splits the …"
+  }
+ ],
+ "researchers": [
+  {
+   "title": "Exploration of Reinforcement Learning in Generative Recommendation Models",
+   "authors": [
+    "Pengfei Zheng",
+    "Wuchao Li",
+    "Shiyao Wang",
+    "Honghui Bao",
+    "Hongyi Xie",
+    "Jiaxin Deng",
+    "Xingmei Wang",
+    "Jinghao Zhang",
+    "Yufei Ye",
+    "Ruiming Tang",
+    "Guorui Zhou",
+    "Han Li",
+    "Kun Gai",
+    "Defu Lian"
+   ],
+   "categories": [
+    "cs.LG",
+    "cs.AI"
+   ],
+   "comments": "",
+   "abstract": "Traditional cascaded recommender systems balance accuracy and efficiency over large item spaces, but misaligned stage-wise objectives hinder end-to-end optimization. Generative recommendation unifies these stages in an autoregressive framework, providing a natural interface for reinforcement learning (RL) to optimize the entire generation process. However, directly applying RL often leads to unstable optimization and degraded recommendation quality. We revisit Group Relative Policy Optimization (GRPO) and other ratio-based objectives through a unified logit-gradient view. We identify three issues: (i) clipped surrogates create dead-gradient regions, under-utilizing samples; (ii) negative-advantage updates can become effectively unbounded as importance ratios grow, allowing a small subset of negatives to dominate optimization; and (iii) ratio-based control lacks sensitivity to absolute policy confidence, so updates on high-confidence cases may fail to vanish. Motivated by this diagnosis, we propose \\emph{Gradient-Bounded Policy Optimization} (GBPO), a simple objective with stop-gradient normalization that is simultaneously (a) fully gradient-active, (b) sign-symmetrically bounded for both positive and negative updates, and (c) explicitly confidence-weighted under current policy probabilities. This ensures that updates gracefully vanish for $\\pi\\!\\to\\!1$ positives and $\\pi\\!\\to\\!0$ negatives. Across the evaluated settings, GBPO achieves competitive recommendation performance with more stable training than competing RL methods.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.19742",
+   "researcher": "Kun Gai",
+   "verdict": "confirmed",
+   "evidence": "co-authors Guorui Zhou, Han Li, Jinghao Zhang (Kuaishou)",
+   "summary": "Gradient-Bounded Policy Optimization for RL in generative recommendation."
+  },
+  {
+   "title": "Learning to Reason with Predictive Gains for Generative Recommendation",
+   "authors": [
+    "Zhuoyang Li",
+    "Teng Shi",
+    "Jiakai Tang",
+    "Weijie Yu",
+    "Guofu Xie",
+    "Xiao Zhang",
+    "Lei Kou",
+    "Yang Yu",
+    "Lei Shen",
+    "Xin Chen",
+    "Bing Wang",
+    "Xiaoyi Zeng",
+    "Jun Xu"
+   ],
+   "categories": [
+    "cs.AI"
+   ],
+   "comments": "",
+   "abstract": "Reasoning-enhanced generative recommendation (GR) has attracted increasing attention for leveraging the reasoning capabilities of large language models (LLMs) to improve next-item prediction. However, existing methods primarily optimize reasoning through Group Relative Policy Optimization (GRPO) with rule-based rewards determined by final recommendation performance, which faces two key limitations: (i) unmeasured predictive contributions within reasoning, where the predictive contributions of individual reasoning steps are not directly reflected in optimization signals, and (ii) weakly discriminative learning signals within groups, where different reasoning trajectories within the group often receive indistinguishable rewards, limiting effective policy optimization. In this paper, we propose GainReason, a simple yet effective training framework that optimizes reasoning through Predictive Gain (PG). Specifically, PG measures changes in target Semantic ID (SID) log-likelihood induced by individual reasoning sentences, providing contribution-aware and discriminative rewards. We further theoretically establish the alignment between expected PG and the recommendation ranking objective. Building on this signal, we develop PG-based Reasoning Optimization (PGRO) to optimize reasoning generation with sentence-level rewards, supported by a custom causal attention mechanism for efficient PG computation. Additionally, an auxiliary PG-based Reasoning Utilization (PGRU) task adaptively strengthens reasoning-conditioned prediction to complement PGRO. Extensive experiments on three public benchmarks demonstrate that GainReason consistently outperforms competitive baselines and achieves substantial performance gains from reasoning.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.21441",
+   "researcher": "Jun Xu",
+   "verdict": "confirmed",
+   "evidence": "co-authors Teng Shi, Weijie Yu, Xiao Zhang (Renmin University)",
+   "summary": "Sentence-level predictive-gain rewards for reasoning in generative recommendation."
+  }
+ ],
+ "papers": [
+  {
+   "title": "Optimal Autoregressive Chain-of-Thought Learning via Bagging",
+   "authors": [
+    "Awni Altabaa",
+    "John Lafferty",
+    "Omar Montasser"
+   ],
+   "categories": [
+    "cs.LG",
+    "stat.ML"
+   ],
+   "comments": "",
+   "abstract": "We study how to learn an autoregressive next-token generator $f\\colon\\Sigma^\\star\\to\\Sigma$ from a class $\\mathcal{F}$, given chain-of-thought (CoT) demonstrations of length $T$ generated by $f$. We present a simple algorithm based on bagging, which outputs a majority vote of generators that are trained to be CoT-consistent on bootstrap samples of the training data. For binary token sets, it achieves the optimal sample complexity of $O((d_{\\mathrm{VC}}+\\log(1/\\delta))/\\epsilon)$, independent of the CoT length $T$, where $d_{\\mathrm{VC}}$ is the VC dimension of $\\mathcal{F}$. For finite token sets $\\Sigma$, the VC dimension is replaced by a multiclass analogue, the Graph dimension $d_{\\mathrm{G}}$, and the sample complexity is optimal up to a $\\log|\\Sigma|$ factor. The number of generators in the majority-vote ensemble is $O(\\log(T/\\delta))$, and we show that the ensemble can be distilled into a single generator in $\\mathcal{F}$ at the expense of $n\\log(nT)$ unlabeled prompts.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.21597",
+   "tier": "core",
+   "tags": [
+    "CoT & reasoning",
+    "learning theory"
+   ],
+   "venue": "",
+   "summary": "Learning an autoregressive next-token generator from a class F given length-T chain-of-thought demonstrations. A majority vote over O(log(T/delta)) CoT-consistent learners trained on bootstrap samples reaches the optimal O((d_VC + log(1/delta))/eps) sample complexity for binary tokens, independent of T; for finite alphabets the Graph dimension replaces VC, optimal up to log|Sigma|. The ensemble can be distilled into one generator in F using n log(nT) unlabeled prompts.",
+   "why": "Closes the T-dependence gap left by earlier CoT sample-complexity results (cf. 'Sample Complexity of Autoregressive Reasoning: CoT vs. End-to-End' in @study) with a simple algorithm.",
+   "ideas": [],
+   "zotero": "added"
+  },
+  {
+   "title": "The Price of Choosing Examples: Context Overfitting in Adaptive In-Context Learning",
+   "authors": [
+    "Xiaoyu Li",
+    "Jiangxuan Long"
+   ],
+   "categories": [
+    "cs.LG",
+    "cs.CL",
+    "stat.ML"
+   ],
+   "comments": "Accepted at NeurIPS 2026. Xiaoyu Li and Jiangxuan Long contributed equally. 31 pages, 8 figures, 5 tables",
+   "abstract": "In-context learning is usually analyzed as if the examples in the prompt were sampled before the learner is chosen. In deployed systems they are not: examples are retrieved, filtered, re-ranked, edited, and repeatedly tested after seeing the query and the data store. We formalize this gap by treating prompt construction as adaptive data analysis through a conditional stochastic-kernel calculus. Our main quantity is the context capacity, the mutual information or approximate max-information between the data store and the final prompt transcript. For any frozen in-context learner and any adaptive context pipeline with capacity $\\kappa$, we prove a finite-sample context generalization bound of order $\\sqrt{\\kappa/k}$, where $k$ is the number of selected examples whose losses form the reported score. We prove a matching lower bound, whose constant is exact when $\\log k\\ll\\kappa\\ll k$, and derive two PAC-Bayesian retrieval rules: a first-order Gibbs rule that charges data-dependent candidate gates their prior mass, and a self-normalized second-order rule. On Banking77 with 64 retrieval recipes and two model families, the certificates hold in all 24,000 resampled selection events, and from 64 (Qwen2.5-7B) or 128 (GPT-4.1-mini) reused validation queries the Gibbs rule certifies a risk below the zero-shot error in over 99% of validation draws. Finally, we instantiate the theory for Bayesian linear in-context regression, including an order-statistics analysis of query-aligned top-$k$ Gaussian retrieval. The results separate context quality from context certification: longer or more relevant contexts improve risk only when the procedure used to choose them is stable enough for selected-context evidence to transfer.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.21251",
+   "tier": "core",
+   "tags": [
+    "ICL",
+    "learning theory",
+    "retrieval"
+   ],
+   "venue": "NeurIPS 2026",
+   "summary": "Treats prompt construction (retrieve, filter, re-rank, re-test) as adaptive data analysis. With context capacity kappa = mutual information (or max-information) between the data store and the final prompt, any frozen in-context learner obeys a context generalization bound of order sqrt(kappa/k) over k selected examples, with a matching lower bound. Gives PAC-Bayesian retrieval rules and an order-statistics analysis of query-aligned top-k Gaussian retrieval in Bayesian linear in-context regression.",
+   "why": "Retrieval-for-ICL with a tight generalization theory: separates how good a retrieved context is from how much the selection procedure overfits.",
+   "ideas": [],
+   "zotero": "added"
+  },
+  {
+   "title": "The Price of Not Planning: Parallel Sampling Depth Peaks at the Reconstruction Threshold",
+   "authors": [
+    "Chuling Wen",
+    "Weijie Liang",
+    "Jian Lu"
+   ],
+   "categories": [
+    "cs.LG"
+   ],
+   "comments": "",
+   "abstract": "Masked diffusion models sample the tokens of one round independently. Planned decoders first generate a coarse plan, then fill in the tokens in parallel. We ask when a plan saves rounds, how many it saves, and how fine it must be. We study this on broadcast trees: the leaves are the tokens, the internal nodes are the plan, and the edge correlation $\\theta$ sets how strongly tokens depend on the plan. Errors are measured by the forward Kullback-Leibler divergence $\\varepsilon$, and the lower bounds hold for every deterministic value-adaptive rule, also with learned conditionals. We show that a decoder without the plan needs of order $\\min\\{n,(n/\\varepsilon)^{\\alpha}\\}$ rounds below the reconstruction threshold, where $\\alpha=\\log b/(4\\log(1/\\theta))$ rises to $1/2$ at the threshold, and that the exponent stays below $1/2$ above it (binary channel: $0.02\\le\\theta\\le0.98$). With the plan, $\\log_b n+1$ rounds suffice. In the binary model below the threshold, a plan with units of $m$ tokens needs of order $\\log_b(n/m)+\\min\\{m,(n/\\varepsilon)^{\\alpha}\\}$ rounds, so it gives logarithmic depth exactly when $m$ is logarithmic. A plan therefore helps most near the threshold, and only if its units are small. Exact divergence computations in the Gaussian model with up to $2^{20}$ leaves confirm these exponents below the threshold.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.21285",
+   "tier": "core",
+   "tags": [
+    "diffusion LMs",
+    "expressivity"
+   ],
+   "venue": "",
+   "summary": "On broadcast trees (leaves = tokens, internal nodes = a plan, edge correlation theta), a masked diffusion decoder that samples each round independently needs order min{n,(n/eps)^alpha} rounds below the reconstruction threshold, alpha = log b / (4 log(1/theta)), rising to 1/2 at the threshold; with the plan, log_b n + 1 rounds suffice. A plan with units of m tokens gives logarithmic depth only when m is logarithmic. Lower bounds hold for any deterministic adaptive unmasking rule, including learned conditionals.",
+   "why": "Sharp limits on parallel decoding in diffusion LMs, tied to a classical reconstruction threshold; a clean model of when coarse-to-fine generation pays.",
+   "ideas": [],
+   "zotero": "added"
+  },
+  {
+   "title": "Understanding the Role of Reasoning Data in Pretraining",
+   "authors": [
+    "Jianhao Huang",
+    "Allan Zhang",
+    "Ali Payani",
+    "Baharan Mirzasoleiman"
+   ],
+   "categories": [
+    "cs.LG",
+    "cs.AI"
+   ],
+   "comments": "",
+   "abstract": "Reasoning data expose models to multi-step reasoning, but reasoning traces may cover only a subset of the available facts. How should pretraining balance atomic facts with reasoning traces? We study this question by constructing a setting in which every fact provides an atomic training signal, while only a subset appears in reasoning supervision, enabling us to measure generalization to transitions observed atomically but never used in training traces. For a linear transformer, we derive the weight assigned to atomic training signals that minimizes held-transition squared error and show that its leading-order optimum increases with reasoning-chain length and decreases with the fraction of facts held out from reasoning traces. These trends persist in a full transformer layer with an MLP, softmax attention, and cross-entropy loss. We further validate the role of reasoning complexity and data coverage in two natural-language settings: controlled multi-hop reasoning and mathematical pretraining. Together, our results provide a principled view of how reasoning-chain structure and data coverage should shape the allocation of training data during pretraining.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.19042",
+   "tier": "core",
+   "tags": [
+    "LLM theory",
+    "CoT & reasoning",
+    "memorization"
+   ],
+   "venue": "",
+   "summary": "Every fact gives an atomic training signal but only a subset appears in reasoning traces; the question is how much weight atomic facts should get. For a linear transformer the held-transition-optimal weight is derived in closed form to leading order: it grows with reasoning-chain length and shrinks with the fraction of facts held out of traces. The trends persist in a full softmax+MLP layer with cross-entropy and in controlled multi-hop and math pretraining experiments.",
+   "why": "A solvable model of pretraining data mixture (atomic facts vs. traces), i.e. theory of what pretraining data teaches a transformer.",
+   "ideas": [],
+   "zotero": "added"
+  },
+  {
+   "title": "Conic Structure of the Cross-Entropy Loss at the Final Layer and Its Absence in Rectifier Backbones",
+   "authors": [
+    "Omer Nezih Gerek"
+   ],
+   "categories": [
+    "cs.LG",
+    "eess.SP"
+   ],
+   "comments": "14 pages, 2 figures, to be submitted",
+   "abstract": "Slices of the loss along lines and planes in parameter space are widely used to visualize deep networks. They often show a single basin with nearly straight walls, which raises the question of whether such a loss is a cone rounded at its apex, or a lower envelope of several cones that meet along creases. We answer this question for softmax cross-entropy at two levels of a classifier. Over the weights of an affine final layer, the loss equals a polyhedral cone plus an offset that decreases monotonically and exponentially along every ray, towards a limit in closed form. The distance at which the asymptotic wall reaches the height of the starting point, which we call the core radius, equals the mean surprisal of the classes that the direction favours, divided by the slope of the wall. Over the parameters of a rectifier backbone, the loss along a line has a kink wherever the activation pattern of a sample changes. Using the dimension theory of semialgebraic sets, we show that, along almost every line, the samples that switch at one point share an irreducible factor of their pre-activation polynomials. Under a coprimality condition, each kink therefore carries the share of one sample among $n$, so creases comparable to the slope do not form. Measurements on ResNet-18 and ResNet-56 trained on CIFAR-10 illustrate both results, with a test that bounds the size of any crease that sampled loss values can hide.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.20696",
+   "tier": "interesting",
+   "tags": [
+    "optimization",
+    "extracurricular"
+   ],
+   "venue": "",
+   "summary": "Over the weights of an affine final layer, softmax cross-entropy equals a polyhedral cone plus an offset that decays exponentially along every ray to a closed-form limit; the 'core radius' equals the mean surprisal of the favoured classes divided by the wall slope. Over ReLU backbone parameters, kinks along a line occur where one sample's activation pattern changes, and under a coprimality condition no large creases form.",
+   "why": "Exact landscape geometry of multiclass softmax regression, which is the object in the GR-memorization analysis.",
+   "ideas": [
+    1
+   ]
+  },
+  {
+   "title": "Syntax vs. Semantics: How Transformers Learn Deep Dependencies",
+   "authors": [
+    "Jiangrui Zhao",
+    "Xiaoting Du"
+   ],
+   "categories": [],
+   "comments": "",
+   "abstract": "Large Language Models demonstrate remarkable syntactic fluency, yet the optimization dynamics governing their acquisition of deep semantic dependencies remain poorly understood. We propose a mechanistic framework that models this learning process as a competition between Surface Statistics and Deep Semantics. Our theoretical analysis identifies a \"Gradient Starvation\" phenomenon where the error signals for sparse semantic dependencies are actively suppressed during early optimization. This suppression impedes the learning of structural reasoning and causes its emergence to manifest as a sudden phase transition. Furthermore, this framework offers a mechanistic basis for the effectiveness of Chain-of-Thought (CoT) strategies. By externalizing intermediate reasoning steps into concrete tokens, CoT effectively bypasses the suppression regime inherent to implicit reasoning. We validate these findings across scales ranging from toy transformers to production models (Llama-3.1-8B, Qwen2.5-Coder-7B). Finally, guided by this theory, we propose a topology-aligned contrastive objective that explicitly rectifies the gradient geometry. Experiments on variable binding tasks demonstrate that our method achieves an improvement that is over 2$\\times$ larger than that obtained via standard cross-entropy fine-tuning. Code will be publicly available at: <a href='https://github.com/jr-zhao/Deep-Dependencies/tree/main' target='_blank'>https://github.com/jr-zhao/Deep-Dependencies/tree/main</a>.",
+   "sources": [
+    "scholar-inbox"
+   ],
+   "arxiv": "2608.26139",
+   "tier": "interesting",
+   "tags": [
+    "training dynamics",
+    "CoT & reasoning"
+   ],
+   "venue": "ICML 2026",
+   "summary": "Models learning as a competition between surface statistics and sparse deep dependencies; argues that error signals for the sparse dependencies are suppressed early ('gradient starvation'), so their learning appears as a sudden transition, and that CoT bypasses the suppression by externalizing intermediate steps. Checked from toy transformers to 7-8B models; proposes a topology-aligned contrastive objective for variable binding.",
+   "why": "A training-dynamics account of delayed learning of long dependencies and why CoT helps; the analysis looks more heuristic than rigorous.",
+   "ideas": []
+  },
+  {
+   "title": "Equilibrium measures for anisotropic exponential interaction energies with applications to transformers",
+   "authors": [
+    "Oleksii Kachaiev",
+    "Martin Burger",
+    "Samira Kabri",
+    "Yury Korolev",
+    "Tim Roith"
+   ],
+   "categories": [
+    "math.AP",
+    "cs.LG",
+    "math.PR"
+   ],
+   "comments": "23 pages, 3 figures",
+   "abstract": "We study the minimization of anisotropic exponential interaction energies over probability measures on the sphere, motivated by mean-field models of self-attention in transformer architectures. For every symmetric positive definite interaction matrix, we relate the minimizer to a corresponding anisotropic Brownian motion and use the Feynman--Kac formula and elliptic regularity theory to show that it admits a smooth, strictly positive density on the sphere. We further show that it is the only stationary measure with full support for the dynamics considered. We use the stochastic viewpoint to derive an algorithm for sampling from the minimizer. In dimension two, we also propose a numerical scheme for approximating its density based on a Mathieu series expansion.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.19518",
+   "tier": "interesting",
+   "tags": [
+    "transformer theory"
+   ],
+   "venue": "",
+   "summary": "Minimizers of anisotropic exponential interaction energies on the sphere, the energy behind mean-field models of self-attention. For any SPD interaction matrix the minimizer has a smooth, strictly positive density (via an anisotropic Brownian motion and Feynman-Kac) and is the only fully supported stationary measure; gives a sampler and a Mathieu-series scheme in 2D.",
+   "why": "Extends the mean-field attention (token clustering) analysis to anisotropic query-key matrices.",
+   "ideas": []
+  },
+  {
+   "title": "Geometrically Disentangling Concept Learning from the Language Modeling Loss",
+   "authors": [
+    "Yupei Wang",
+    "Neil Mallinar",
+    "Mikhail Belkin",
+    "Alex Warstadt"
+   ],
+   "categories": [
+    "cs.LG",
+    "cs.CL"
+   ],
+   "comments": "Accepted at NeurIPS 2026. Code: https://github.com/YpLarryWang/concept-energy . Pretrained probes and research artifacts: https://huggingface.co/collections/disentangle-concept-learning/concept-energy-neurips-2026",
+   "abstract": "Language models acquire a vast array of concepts and abilities from next-token prediction alone. We introduce an interpretability framework that exposes how this single loss relates to the development of different concepts at different points during pretraining. We propose Concept Energy, a measure of the concept-specific alignment between a concept subspace and the average gradient outer product (AGOP) of the next-token-prediction loss. The concept subspace captures where the concept currently lives in the model's representation; AGOP captures the directions to which the loss is most sensitive. Across 19 checkpoints of Pythia-410M and -1B and 12 lexical, syntactic, and semantic concepts, we find that the first peak in Concept Energy generally occurs at or before the steepest increase in probe decodability. Furthermore, whereas probe performance usually increases monotonically throughout training, Concept Energy is not confined to a single peak; some concepts exhibit sustained or repeated engagement across pretraining, suggesting that concept learning may require continual reinforcement or occur at multiple points. Our results indicate that the loss contributes to concept learning in a myriad of ways that simple probe performance alone cannot reveal.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.18933",
+   "tier": "interesting",
+   "tags": [
+    "training dynamics",
+    "interpretability"
+   ],
+   "venue": "NeurIPS 2026",
+   "summary": "Concept Energy: alignment between a concept's probe subspace and the average gradient outer product (AGOP) of the next-token loss. Across 19 Pythia-410M/1B checkpoints and 12 concepts, the first Concept Energy peak comes at or before the steepest rise in probe accuracy, and some concepts show repeated engagement while probe accuracy only rises.",
+   "why": "Links the next-token loss geometry to when concepts are learned during pretraining (Belkin group, AGOP view).",
+   "ideas": []
+  },
+  {
+   "title": "Attention Sinks as Spectral Spikes: A Mechanism Analysis of Gated Attention",
+   "authors": [
+    "Seojin Kim",
+    "Yehjin Shin",
+    "Noseong Park"
+   ],
+   "categories": [
+    "cs.LG",
+    "cs.AI"
+   ],
+   "comments": "The 40th Conference on Neural Information Processing Systems (NeurIPS 2026)",
+   "abstract": "Transformer attention exhibits attention sinks, where a small subset of source tokens absorbs disproportionate attention mass across layers. Recent work shows that post-SDPA output gating strongly reduces attention-sink behavior, while separate studies link attention sinks to gradient sinks and massive activations through backward training dynamics. Yet how the same gate affects forward sink structure, backward gradient concentration, and training-time representation signatures remains unclear. We address this gap by formulating attention sinks as sink-induced low-rank modes in token-space covariance, with directions aligned to high-mass attention columns. Under this view, post-SDPA gating acts as a mode-dependent contraction: it attenuates sink-induced spectral energy in the forward pass and locally reduces value-path gradients routed through sink columns in the backward pass. Empirically, random-matrix diagnostics show that gating reduces outlier mass, weakens sink-subspace alignment, and increases effective rank, while backward analyses show active-gate attenuation of first-token value gradients. Training-time diagnostics further show that gating suppresses the co-emergence of attention concentration, value-gradient amplification, and representation dominance.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.20403",
+   "tier": "interesting",
+   "tags": [
+    "phenomena",
+    "architectures"
+   ],
+   "venue": "NeurIPS 2026",
+   "summary": "Formulates attention sinks as sink-induced low-rank spikes in token-space covariance aligned with high-mass attention columns. Post-SDPA output gating acts as a mode-dependent contraction: it reduces the sink spectral energy forward and the value-path gradients through sink columns backward; random-matrix diagnostics show lower outlier mass and higher effective rank.",
+   "why": "A spectral mechanism for why gated attention removes sinks.",
+   "ideas": []
+  },
+  {
+   "title": "A phase diagram for training and inference in language models",
+   "authors": [
+    "Zhuo-Yang Song",
+    "Zeyu Li",
+    "Qing-Hong Cao",
+    "Ming-xing Luo",
+    "Hua Xing Zhu"
+   ],
+   "categories": [
+    "cs.LG",
+    "cond-mat.dis-nn",
+    "cond-mat.stat-mech",
+    "cs.CL"
+   ],
+   "comments": "20 pages, 12 figures, 4 tables",
+   "abstract": "A language model is a complex system whose behavior is determined jointly by the Transformer and the corpus, yet how the representation geometry in the Transformer relates to the actual behavior of language models remains open. We analyze how the representation geometry changes along the forward propagation of actual language models and characterize the representation geometry of a document at a given layer by two collective coordinates, document distinguishability and document dimension. On the phase diagram spanned by these collective coordinates, inference is represented as a flow along depth. We find that, for untrained models, depending on their initialization scale, most of the 156 inference flows move toward the collapse and noise regions of the phase diagram. By contrast, the inference flows of 8 trained models from 5 architecture families all enter and reside in the central region of the phase diagram. Describing the evolution of the flows with a discrete Langevin equation, we find that the difference between the inference flows of untrained runs and those of trained models reduces to whether the effective force on the flows in this region is of saddle or stable-node type. On Pythia-1.4B, we interpret the training process as a phase transition. These results give a unified gateway to the relation between representation geometry and language-model behavior.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.19848",
+   "tier": "interesting",
+   "tags": [
+    "phenomena",
+    "embeddings"
+   ],
+   "venue": "",
+   "summary": "Describes a document's representation at each layer by two coordinates, distinguishability and dimension, and tracks inference as a flow over depth. Untrained models flow into collapse or noise regions depending on initialization scale; 8 trained models from 5 families settle in a central region, which a discrete Langevin fit attributes to a stable-node rather than saddle effective force. Training of Pythia-1.4B reads as a phase transition.",
+   "why": "Representation-geometry phenomenology across depth and training that a theorist could model.",
+   "ideas": []
+  },
+  {
+   "title": "Grokking Can Be Steered: Selecting Desirable Solutions By Choice Of Learning Rule",
+   "authors": [
+    "Pascal Sager",
+    "Benjamin Grewe",
+    "Pau Vilimelis Aceituno",
+    "Thilo Stadelmann"
+   ],
+   "categories": [
+    "cs.LG"
+   ],
+   "comments": "40 pages, 6 figures",
+   "abstract": "During grokking, a network transitions from memorization to generalization, yet what shapes the neural implementation (circuit) of the generalizing solution and specifically the number of participating neurons (its size) remains unclear. We find that the learning rule, the combination of credit assignment algorithm and optimizer, controls this: On modular addition, every learning rule we study that groks recovers the same Fourier-based algorithm, yet implemented by circuits that differ in size. Why? A neuron stays in use when its credit is large relative to the non-gradient term of its own update, and this single condition unifies three routes to unused neurons: the coupled weight decay, Adam's $\\epsilon$ and the decay of a trainable per-neuron gain. Equalizing the magnitude of credit assigned to each neuron, or scaling each neuron's weight decay by its credit, expands the effective circuit size, measured from the outgoing weights, from 60% to 99% of the layer's neurons at similar training and test accuracy. We vary which neurons share one equalization factor, from the whole layer to individual neurons, and find that the circuit stays concentrated for groups of eight or more and fully distributes only when every neuron has its own factor. Credit magnitudes are usually set by the normalization of standard optimizers: Nero, which normalizes per neuron, distributes the computation, whereas Adam and seven others, including RMSProp, Muon, and Shampoo, use other normalization schemes and retain small, concentrated circuits. Distributed circuits tolerate neuron deletion better, while concentrated circuits can be pruned further and transfer about twice as fast to a task that recombines the same features, largely by recruiting their unused neurons. Learning rule choice thus steers circuit size, trading robustness against compressibility and transfer speed without changing the learned algorithm.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.19477",
+   "tier": "interesting",
+   "tags": [
+    "phenomena",
+    "optimization"
+   ],
+   "venue": "",
+   "summary": "On modular addition every grokking learning rule finds the same Fourier algorithm, but circuit size varies: a neuron stays in use when its credit is large relative to the non-gradient part of its update (weight decay, Adam's eps, gain decay). Per-neuron normalisation (Nero) spreads the computation to 99% of neurons; Adam, Muon, Shampoo and others keep small circuits, which prune and transfer better but tolerate deletion worse.",
+   "why": "A single condition explaining which neurons survive weight decay under different optimisers.",
+   "ideas": [
+    1
+   ]
+  },
+  {
+   "title": "Embedding Cosine Measures Text Length Before It Measures Homogenization",
+   "authors": [
+    "Fengming Liu"
+   ],
+   "categories": [
+    "cs.CL",
+    "cs.CY",
+    "cs.SI"
+   ],
+   "comments": "11 pages, 10 figures, 2 tables. Re-measurement of arXiv:2608.13674",
+   "abstract": "Mean pairwise cosine similarity between transformer embeddings is a standard measure of whether online discourse is converging under generative AI. When the embeddings are mean-pooled outputs of an encoder never trained for sentence similarity, this measure mostly tracks text length. In 6.06 million Reddit comments, an uncentered DeBERTa-v3 measure had suggested that only conservative discourse broke toward homogeneity after late 2022. Truncating the same comments from 10 to 150 words raises their mean cosine by eight times the reported break. A placebo that swaps every comment for a random one of equal length reproduces 81% of the asymmetry, and a fixed-content simulation reproduces 78%. The leading principal direction carries 99.9% of raw DeBERTa homogeneity, and once length is handled the asymmetry disappears under every encoder. On 575,000 Stack Exchange answers the measure reports a post-ChatGPT homogenization of technical sites that the placebo fully reproduces, although answers grew longer. A census of 31 studies locates the risk where anisotropic encoders meet time-series or length-unequal designs. A reverse control on a well-known experiment shows that centering with renormalization can reverse a genuine effect. I propose a low-cost diagnostic protocol. Corrected measures show that the two political camps converged between 2019 and 2022 and stopped converging before ChatGPT. Cross-camp replies engage their targets more closely than same-camp replies.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.21519",
+   "tier": "interesting",
+   "tags": [
+    "embeddings",
+    "phenomena"
+   ],
+   "venue": "",
+   "summary": "Mean pairwise cosine of mean-pooled encoder embeddings (e.g. DeBERTa-v3) mostly measures text length: truncating comments raises mean cosine by eight times a reported 'homogenization' effect, a length-matched placebo reproduces 78-81% of it, and one principal direction carries 99.9% of raw homogeneity. Proposes a diagnostic protocol.",
+   "why": "A clean demonstration that anisotropy (one dominant direction) drives cosine statistics of untuned encoders.",
+   "ideas": [
+    1
+   ]
+  },
+  {
+   "title": "LECAT: Measuring LLM Category Learning from Pretraining Data",
+   "authors": [
+    "Jimin Mun",
+    "Maarten Sap",
+    "Yanai Elazar"
+   ],
+   "categories": [],
+   "comments": "",
+   "abstract": "Humans know that airplanes are fast, that this extends to red airplanes, but that it does not hold for broken airplanes. How do LLMs acquire category knowledge that humans learn and apply effortlessly? We introduce LeCat, a two-part framework to analyze LLM's Learning of Category knowledge. First, we use LeCat to evaluate models on their ability to learn category knowledge, distinguishing between three cases: memorization of in-domain category knowledge, generalization to unseen instances, and ability to flexibly use knowledge in appropriate contexts. Then, we use LeCat to trace how this knowledge can be learned in pretraining from text that may encode category knowledge in various ways, such as verbatim repetition or exceptions, which we refer to as forms of \"knowledge expression\". We first assess open-source pretrained models using 199 curated category-feature pairs and analyze their training data. Our findings suggest that strengthening context and category-feature co-occurrence likelihood (PMI) improve learning for larger models and verbatim rule-like statements diminish flexible category learning. To systematically isolate these effects, we then train a 68M model from scratch with precise control over the categorical information each sees in their training data, confirming that verbatim repetition reduces flexible learning but mixture of diverse knowledge expressions lead to more robust category learning. Together, our findings highlight that while contextual flexibility is persistently difficult for models, how category knowledge is expressed in pretraining greatly impacts models' acquisition of robust category knowledge.",
+   "sources": [
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.18419",
+   "tier": "interesting",
+   "tags": [
+    "memorization",
+    "phenomena"
+   ],
+   "venue": "",
+   "summary": "LeCat separates memorized category knowledge, generalization to unseen instances and context-dependent use. Pretraining-data analysis plus a 68M model trained from scratch with controlled data: verbatim rule-like repetition reduces flexible category learning, while diverse forms of expression and higher category-feature PMI improve it.",
+   "why": "Controlled pretraining experiment on memorization vs generalization of rules.",
+   "ideas": []
+  },
+  {
+   "title": "What Unlinked Aggregates Still Prove: Ranker Comparisons from Exact and Differentially Private Item Counts",
+   "authors": [
+    "Chang Xu",
+    "Hao Wang",
+    "Gedi Zhou"
+   ],
+   "categories": [
+    "cs.IR"
+   ],
+   "comments": "10 pages, 4 figures. Accepted for publication in the Privacy and Security of Big Data special session at IEEE BigData 2026. Code available at https://github.com/AnthonyXu109/psbd26-artifact",
+   "abstract": "Privacy controls can prevent an evaluator from linking purchases to the recommendations users received, while a merchant can still release complete item-level purchase counts for the evaluation cohort. We ask when these counts identify which recommender performs better. The counts constrain who could have bought each item. We bound the performance difference over all assignments consistent with the counts. A reduced transportation network handles full catalogs and can certify attainable endpoints. If the interval excludes zero, it identifies the better recommender for that cohort. With differentially private counts, one confidence guarantee applies jointly to all comparisons from the same release. In two e-commerce cohorts of about 20,000 and 100,000 users, exact counts narrowed every interval compared with bounds that ignored the counts. Most decisions involved a recommender that favors popular items. For NDCG@10, which rewards ranking purchased items higher, each setting combined one of three personalized pairs with a pattern and rate of missing links. Exact counts settled 14 of 168 settings in the smaller cohort and none of 81 in the larger cohort. In the smaller cohort, exact counts broken down by user group settled two personalized pairs when 90% of users remained linked, at the cost of revealing more about individual purchases. Whole-cohort private releases with one count per item retained much of the narrowing but settled no personalized pair in either cohort. Grouping less popular items into bins let private counts settle one personalized pair in the smaller cohort.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.20388",
+   "tier": "interesting",
+   "tags": [
+    "evaluation",
+    "recommendation"
+   ],
+   "venue": "",
+   "summary": "When purchases cannot be linked to the recommendations users saw, item-level purchase counts still constrain the comparison: bounds on the metric difference over all count-consistent assignments, computed with a reduced transportation network, with a joint confidence guarantee for differentially private counts. On two e-commerce cohorts the counts settle comparisons mostly when a popularity-favouring ranker is involved.",
+   "why": "Partial-identification bounds for ranking-metric comparisons from aggregate data, a less common angle on offline evaluation.",
+   "ideas": []
+  },
+  {
+   "title": "Generalization Bounds for Neural Networks with Sparse Connectivity",
+   "authors": [
+    "Nong Minh Hieu",
+    "Antoine Ledent"
+   ],
+   "categories": [
+    "stat.ML",
+    "cs.LG"
+   ],
+   "comments": "Accepted at NeurIPS 2026, 61 pages, 2 figures",
+   "abstract": "Empirical evidence suggests that large neural networks rarely make effective use of all available parameters, with learned solutions exhibiting pronounced sparsity. Despite this ubiquity, existing generalization theory only partially explains how such sparsity influences statistical performance. In this paper, we derive non-asymptotic generalization gap bounds for deep neural networks whose layer-wise weight matrices are restricted by $\\ell_p$ quasi-norm ($0<p\\leq 1$) constraints. Our analysis gives rise to a novel result that interpolates between classical norm-based generalization guarantees and parameter-counting bounds. Remarkably, in the extreme sparsity limit as the quasi-norm order $p$ approaches zero, our analysis reveals a transition to a square-root dependence on the number of \\emph{active} (non-zero) parameters, resulting in bounds that are strictly tighter than existing parameter-counting approaches. Experiments demonstrate that our bounds exhibit a milder dependence on initial architectural choice at the over-parametrization regime, effectively capturing the generalization benefit of the sparsity arising from training on natural data.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.19382",
+   "tier": "interesting",
+   "tags": [
+    "learning theory",
+    "extracurricular"
+   ],
+   "venue": "NeurIPS 2026",
+   "summary": "Generalization bounds for deep nets whose layer weights have l_p quasi-norm constraints (0<p<=1), interpolating between norm-based and parameter-counting bounds; as p->0 the bound scales with the square root of the number of active parameters, tighter than parameter counting.",
+   "why": "Clean statement of how sparsity enters generalization bounds.",
+   "ideas": []
+  },
+  {
+   "title": "High-dimensional limit theorems for adaptive variants of SGD I: Ballistic limits",
+   "authors": [
+    "Aukosh Jagannath",
+    "Varnan Sarangian"
+   ],
+   "categories": [
+    "stat.ML",
+    "cs.LG",
+    "math.PR",
+    "math.ST",
+    "stat.TH"
+   ],
+   "comments": "",
+   "abstract": "We develop the high-dimensional effective dynamics for adaptive, momentum-based variants of Stochastic Gradient Descent (SGD). These effective dynamics are given by a Markov process. They key observation is that the non-Markovianity in the algorithm due to the exponential moving average and preconditioning can be treated using the method of averaging. Our approach applies to a broad class of algorithms including to Adaptive momentum estimation (ADAM), Momentum orthogonalized by Newton-Schultz (MUON), and its variants. It also applies to a broad class of learning tasks, such at tensor PCA, Gaussian projective models, teacher-student networks, and a multi-layer neural network trained on the XOR problem using a hybrid of MUON and ADAM as commonly done in practice. We demonstrate how to this technique can give precise, quantitative comparisons between algorithms. In particular, we find interesting phenomena, such as the cross-over phenomenon where online SGD has better generalization than ADAM early in training until the learning curves cross and ADAM dominates. Furthermore, we prove a version of the Edge of Stability phenomenon. In particular, we introduce an analogue of the infinity Laplacian that sharply characterizes the Edge of Stability.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.19059",
+   "tier": "interesting",
+   "tags": [
+    "optimization",
+    "extracurricular"
+   ],
+   "venue": "",
+   "summary": "High-dimensional effective (ballistic) dynamics for Adam, Muon and variants, treating the moving averages and preconditioning by averaging. Applies to tensor PCA, Gaussian single/multi-index models, teacher-student and XOR; shows online SGD generalizing better than Adam early before the curves cross, and proves an Edge-of-Stability statement via an infinity-Laplacian analogue.",
+   "why": "Exact limiting dynamics for adaptive optimisers, comparable across algorithms.",
+   "ideas": []
+  },
+  {
+   "title": "On the Convergence of Continuous-Time AdamW",
+   "authors": [
+    "Bangjie Wang",
+    "Ning Ning"
+   ],
+   "categories": [
+    "math.OC",
+    "cs.LG"
+   ],
+   "comments": "55 pages, 9 figures",
+   "abstract": "Continuous-time AdamW provides a framework for understanding whether an optimizer widely used to train large-scale neural networks settles to an equilibrium or sustains persistent motion. We study this long-time behavior while retaining bias correction and fixed positive weight decay. Under suitable assumptions, we establish that the dynamics are well defined for all time and remain bounded when the decay is sufficiently small. Our main result connects their limiting behavior to the geometry of the objective: trajectories approach a locally invariant manifold whose dimension equals the Hessian nullity along the associated critical component. When critical points are isolated and have at most one such direction, the trajectory converges to a single equilibrium. With two degenerate directions, however, bounded persistent motion can occur even for a smooth, strictly convex objective with a unique minimum. We also quantify how close the long-time trajectory remains to the critical set as weight decay decreases, without assuming convergence to a point. These results identify objective geometry as a key to understanding when continuous-time AdamW converges and when persistent motion is possible.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.20437",
+   "tier": "interesting",
+   "tags": [
+    "optimization",
+    "extracurricular"
+   ],
+   "venue": "",
+   "summary": "Long-time behaviour of continuous-time AdamW with bias correction and fixed weight decay: trajectories are bounded for small decay and approach a locally invariant manifold of dimension equal to the Hessian nullity; with at most one degenerate direction they converge to a point, with two they can move persistently even for a strictly convex objective with a unique minimum.",
+   "why": "Sharp convergence/non-convergence dichotomy for AdamW in terms of objective geometry.",
+   "ideas": []
+  },
+  {
+   "title": "CARE: Contrastive-Anchored Residual Encoding with Listwise Reconstruction for Retrieval-Oriented Semantic IDs",
+   "authors": [
+    "Yuan Xu",
+    "Dawei Chen",
+    "Xiaoguang Lin",
+    "Xin Chen",
+    "Yulong Ou",
+    "Haijun Wu"
+   ],
+   "categories": [
+    "cs.IR"
+   ],
+   "comments": "18 pages, 8 figures, 5 tables",
+   "abstract": "Generative retrieval replaces nearest-neighbor search with the generation of a document's semantic ID (SID), so the SID tokenizer bounds what the retriever can recall. Common SID constructions (residual k-means, RQ-VAE, finite scalar quantization, capacity balancing) optimize criteria defined on document embeddings alone and do not control whether a query can still find its relevant documents after quantization. We propose two retrieval-oriented SID tokenizers. CARE-SID (Contrastive-Anchored Residual Encoding for Semantic IDs) quantizes in a retrieval-aligned space: a zero-initialized residual alignment network is trained with a query-document contrastive loss before quantization, an anchor loss and a reconstruction target fixed to the original embedding prevent drift and collapse, and reference-vector rating residual quantization assigns the codes. CARE-LR (CARE with Listwise Reconstruction) then distills, for each training query, the similarity distribution that the original embeddings induce over a candidate list into the SID reconstructions, through a function-preserving layer-resolved head. Both keep a document-only encoding interface. We judge SIDs without training a generator, by row-budget recall in a bucketing view (the partition) and a reconstruction view (the SID with its reconstruction). In offline evaluation on industrial video search data, both tokenizers achieve higher reconstruction-view recall than residual k-means, and CARE-LR improves further on CARE-SID, mainly through the listwise distillation. A comparison of two document embeddings shows that contrastive alignment helps most when the embedding has not been trained on search data, and that the embedding affects SID recall far more than the quantizer. CARE-SID is deployed in the generative retrieval stage of an industrial video search system.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.20721",
+   "tier": "aware",
+   "tags": [
+    "generative retrieval",
+    "retrieval"
+   ],
+   "venue": "",
+   "summary": "Two retrieval-oriented semantic-ID tokenizers: CARE-SID quantizes after a contrastively trained residual alignment with an anchor loss; CARE-LR also distills the query's similarity distribution over candidates into the SID reconstructions. SIDs are judged without training a generator, by recall when the SID is used as a partition (bucketing view) or as a reconstruction. The embedding matters far more than the quantizer. Deployed in an industrial video search GR stage.",
+   "ideas": [
+    1
+   ]
+  },
+  {
+   "title": "Keep it Simple! A Multiple-Choice Task can Benefit Generative Recommendation",
+   "authors": [
+    "Wei-Hsiang Huang",
+    "Jyun-Yu Jiang",
+    "Pu-Jen Cheng"
+   ],
+   "categories": [
+    "cs.IR"
+   ],
+   "comments": "",
+   "abstract": "Sequential recommendation has recently witnessed growing interest in generative retrieval. One of the most popular approaches is to autoregressively generate the semantic identifiers (SIDs) of items as recommendations. Existing efforts mainly rely on semantic alignment, sophisticated architectural designs, and extensive hyperparameter tuning. However, the conventional learning framework for generative models could have foundational limitations. Specifically, most generative models directly predict target items without explicitly learning negative compositions and relative ranking signals. This is not well aligned with the philosophy of Bayesian personalized ranking (BPR), which emphasizes the importance of relative rankings between positive and negative samples. In this paper, we show that adding a simple multiple-choice auxiliary task into the learning objective can effectively address this issue. With minimal adaptation, we introduce Task Identifiers and Candidate Constructions to synthesize training data for the multiple-choice auxiliary task. In addition, we provide theoretical analysis of the fundamental benefits of the multiple-choice auxiliary task from the perspectives of information theory and compositional generalization. Extensive experiments on four publicly available benchmark datasets show that our approach can improve TIGER, a conventional generative recommendation model, by 4.9% to 79% in NDCG@10.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.19320",
+   "tier": "aware",
+   "tags": [
+    "generative retrieval",
+    "recommendation"
+   ],
+   "venue": "",
+   "summary": "Adds a multiple-choice auxiliary task (pick the positive among sampled candidates) to TIGER-style semantic-ID generative recommendation, so the model sees negatives and relative rankings as in BPR; with an information-theoretic and compositional-generalization argument. Gains of 4.9-79% NDCG@10 over TIGER on four datasets.",
+   "ideas": [
+    1
+   ]
+  },
+  {
+   "title": "UniGraph: A Unified Graph-based Index for Dynamic Hybrid Dense-Sparse Vector Retrieval",
+   "authors": [
+    "Keyu Chen",
+    "Xiaoyao Zhong",
+    "Jiabao Jin",
+    "Peng Cheng",
+    "Wangze Ni",
+    "Jingkuan Song",
+    "Heng Tao Shen"
+   ],
+   "categories": [
+    "cs.IR",
+    "cs.DB"
+   ],
+   "comments": "Under ICDE 2027 Review, 14 pages",
+   "abstract": "Hybrid dense-sparse vector retrieval combines semantic signals from dense representations with lexical signals from sparse representations, typically ranking items by a query-dependent weighted sum of dense and sparse vector distances. Existing systems commonly search separate dense and sparse vector indexes and rerank the union of their candidates, incurring two retrieval passes and potentially discarding items that rank highly only after the semantic and lexical signals are combined. Constructing a graph-based index directly under a hybrid distance can mitigate this premature candidate loss. However, because varying the hybrid weight alters the underlying neighborhood relationships, a single static graph built at a fixed weight cannot accommodate dynamic query-specific weights. Therefore, we propose a Unified Hybrid Graph (UniGraph), which merges neighbor sets computed at multiple hybrid weights into a single bounded-degree graph index, enabling hybrid vector retrieval with different query-specific weights without index reconstruction. We further develop an adaptive weight-guided search framework that chooses between sparse- and dense-guided entry points according to the query weight, together with a dense-first hybrid distance pruning strategy that avoids unnecessary exact sparse distance computations. Extensive experiments show that UniGraph provides a favorable Recall-QPS trade-off across different query weights. In the mixed-weight setting, UniGraph delivers 27.6%~52.3% higher QPS than the fastest baseline on each dataset at Recall@100 greater than or equal to 0.95. UniGraph has been deployed at scale in Ant Group's production environment, where hybrid retrieval with query-dependent weights is in strong demand.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.20758",
+   "tier": "aware",
+   "tags": [
+    "vector search"
+   ],
+   "venue": "",
+   "summary": "UniGraph merges graph neighbour sets computed at several dense/sparse hybrid weights into one bounded-degree index, so a single graph serves query-specific hybrid weights; weight-guided entry points and dense-first pruning. 27.6-52.3% higher QPS at Recall@100>=0.95 in the mixed-weight setting; deployed at Ant Group.",
+   "ideas": []
+  },
+  {
+   "title": "HorizANN: Elastically Scaling Vector Search with Ghost Edges",
+   "authors": [
+    "Talika Gupta",
+    "Yunqi Li",
+    "Aditya Kunte",
+    "Claire Lin",
+    "Supawit Chockchowwat",
+    "Daniel Waddington",
+    "Hubertus Franke",
+    "Yongjoo Park"
+   ],
+   "categories": [
+    "cs.DB"
+   ],
+   "comments": "14 pages, 11 figures",
+   "abstract": "Approximate nearest neighbor search (ANNS) is fundamental to modern data-intensive AI applications such as retrieval-augmented generation, recommendation systems, and semantic search. Among existing indexing methods, graph-based indexes emerge as the state of the art due to their superior recall-throughput tradeoffs. Scaling these indexes to multiple machines requires partitioning the data and building indexes on each. However, when new machines are added or removed, the data must be repartitioned and the indexes reconstructed from scratch, making horizontal scaling costly at billion scale. In this work, we present HorizANN, a distributed graph-based ANNS system that scales horizontally without requiring full index reconstruction. To achieve this, we introduce ghost edges, a mechanism for preserving cross-partition connectivity as partition boundaries change during repartitioning. By reusing the structural information that would otherwise be discarded during repartitioning, HorizANN avoids costly full index reconstruction. As the index grows from 100M vectors on one worker to 1B vectors on ten workers, HorizANN inserts each 100M vectors within 2.5 hours and sustains 3.4--3.5K queries per second at 0.998 Recall@10.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.19077",
+   "tier": "aware",
+   "tags": [
+    "vector search"
+   ],
+   "venue": "",
+   "summary": "HorizANN: distributed graph-based ANN that repartitions without rebuilding indexes, keeping 'ghost edges' across moved partition boundaries; scales from 100M vectors on one worker to 1B on ten at ~3.4K QPS and 0.998 Recall@10.",
+   "ideas": []
+  },
+  {
+   "title": "CapCover Filter: Semantic Approximate Membership Queries over Embeddings",
+   "authors": [
+    "Dvir David Biton",
+    "Shay Hahiashvili",
+    "Nadav Keren",
+    "Gil Einziger",
+    "Roy Friedman"
+   ],
+   "categories": [
+    "cs.DB",
+    "cs.AI"
+   ],
+   "comments": "",
+   "abstract": "Determining whether an embedding is sufficiently similar to any vector in a vector store without performing a nearest-neighbor search can substantially improve query throughput in vector-store systems. We study Semantic Approximate Membership Queries (SAMQs), which allow queries to be rejected when no indexed vector meets the requested similarity threshold, while guaranteeing no false negatives. We introduce CapCover Filter, a geometric data structure that summarizes a set of embeddings using spherical caps. Its representation is independent of the query threshold, allowing a single filter to support arbitrary thresholds without reconstruction. We evaluate alternative construction and quantization methods, compare CapCover Filter with competing filters, and measure its impact on query throughput. Across five real-world datasets, at a cosine similarity threshold of 0.95, CapCover Filter eliminates approximately 20--100\\% of index accesses while using only 2\\% of the raw (FP32) embedding memory. When placed before a FAISS flat index, it improves query throughput by up to 382\\% and by approximately 116\\% on average across the five datasets, while returning the same range-search result. We also evaluate lower similarity thresholds. Our results show that CapCover Filter can substantially improve vector-store throughput when similarity thresholds are tight, retrieval is expensive, and indexed embeddings are highly clustered. We release an optimized implementation of CapCover Filter and its evaluation framework.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.20132",
+   "tier": "aware",
+   "tags": [
+    "vector search"
+   ],
+   "venue": "",
+   "summary": "CapCover Filter answers 'is any stored embedding within cosine threshold t?' without false negatives, by covering the set with spherical caps; one filter serves any threshold. At t=0.95 it skips 20-100% of index accesses with 2% of FP32 memory, up to 382% higher throughput in front of FAISS flat.",
+   "ideas": []
+  },
+  {
+   "title": "Embeddings vs. Grep: Rethinking the Dense Advantage in Code Search",
+   "authors": [
+    "Siqiao Xue",
+    "Ziyin Zhang",
+    "Zihan Liao",
+    "Jin Qin",
+    "Yixiang Mu",
+    "Hang Yu"
+   ],
+   "categories": [
+    "cs.SE"
+   ],
+   "comments": "hf: https://huggingface.co/datasets/hq-bench/repo-premium",
+   "abstract": "Code-search benchmarks show dense encoders well ahead of BM25, yet coding agents do well with \\texttt{grep}. What does this dense advantage measure? Existing benchmarks cannot tell: they use curated queries, old code and a handicapped BM25. To find out, we build Repo-Premium, a realistic repository-level code-search benchmark. It ranks files in real repositories, with curated and raw queries in Python, JavaScript, TypeScript, Go, Rust and Java, pull requests from 2022 to 2026, and a preregistered test pool over $91$ repositories. Our experiments trace the advantage to two sources: evaluation choices that favor dense retrieval, such as splitting files into chunks for BM25 and counting edited tests as relevant, and queries that lack the code's rare identifiers. Expanding the query with LLM-written identifiers (generate-then-grep) helps BM25 far more than dense retrieval, letting it match dense retrieval in every Python pool, even on pull requests opened after the LLM was released. No method we tried predicts which retriever will win on a given query. From these results we derive three guidelines: measure dense gains against a fair lexical baseline, fuse dense retrieval with BM25, and add the code's words to queries that lack them.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.20455",
+   "tier": "aware",
+   "tags": [
+    "retrieval",
+    "evaluation"
+   ],
+   "venue": "",
+   "summary": "Repo-Premium, a repository-level code-search benchmark (91 repos, PRs 2022-2026). The reported dense-over-BM25 advantage comes largely from evaluation choices (chunked BM25, counting edited tests) and from queries lacking the code's rare identifiers; LLM-generated identifiers plus grep lets BM25 match dense retrieval in every Python pool.",
+   "ideas": []
+  },
+  {
+   "title": "When Does Label-Free Deconfounding of Document Embeddings Work?",
+   "authors": [
+    "Anna Kiepura",
+    "Yingqiang Gao",
+    "Elliott Ash",
+    "Yu Fan"
+   ],
+   "categories": [
+    "cs.CL"
+   ],
+   "comments": "",
+   "abstract": "Document embeddings encode spurious attributes that can distort semantic comparisons; yet supervised erasure requires metadata that is often unavailable. We systematically investigate label-free deconfounding across corpora and embedding models. Our results show that label-free methods improve semantic utility over unprocessed embeddings, while simple geometric approaches recover much of the supervised benefit, sometimes matching metadata-supervised erasure in linear confounder recoverability and semantic utility. We identify two distinct causes of ineffective erasure: poor proxy-confounder alignment and insufficient intervention coverage. Crucially, confounder recoverability and semantic utility are distinct dimensions of deconfounding success: utility can improve despite residual confounder information, while stronger suppression does not necessarily improve utility. Moreover, reduced linear recoverability can coexist with substantial nonlinear recoverability. Together, these findings distinguish confounder discovery from intervention effectiveness and highlight the importance of evaluating nuisance suppression alongside semantic preservation.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.19350",
+   "tier": "aware",
+   "tags": [
+    "embeddings"
+   ],
+   "venue": "",
+   "summary": "Systematic study of label-free removal of spurious attributes from document embeddings: simple geometric methods recover much of supervised erasure; failures come from poor proxy-confounder alignment or insufficient coverage; reduced linear recoverability can coexist with high nonlinear recoverability.",
+   "ideas": []
+  },
+  {
+   "title": "Revisiting What Makes a Good Context Subset: A Sparse Latent Basis Perspective",
+   "authors": [
+    "Cen-Jhih Li",
+    "Siddhant Chaudhary",
+    "Aditya Bhaskara"
+   ],
+   "categories": [
+    "cs.CL",
+    "cs.AI",
+    "cs.IR"
+   ],
+   "comments": "17 pages, 2 figures. The format of ACL rolling review",
+   "abstract": "Selecting context subsets is increasingly important in modern LLM inference, yet what makes a subset effective remains unclear. We study this question in the controlled setting of few-shot demonstration selection. We examine a hypothesis that demonstrations should collectively provide task-relevant information needed by a target query. Assuming that the query representation provides a useful proxy for these requirements, we formulate selection as sparse reconstruction and instantiate it with Residual Explanation Search (RES), a Matching-Pursuit-style diagnostic procedure. Across seven benchmarks and eight open-weight LLMs, no retrieval objective is universally best. RES outperforms MMR in 34 of 56 model--dataset pairs, with its clearest advantage on sentiment tasks, suggesting that query-conditioned collective reconstruction may capture useful complementarity that pairwise dissimilarity misses. Relevance-based retrieval remains strong on template-heavy reasoning benchmarks, while all retrieval methods underperform zero-shot prediction on average on StrategyQA, where a solution-reconstruction analysis is consistent with the query not exposing the required external knowledge. Target-model hidden states further show that retrieval objectives interact differently with representation spaces: middle-layer representations generally favor similarity retrieval, whereas last-layer representations are often stronger for residual- and diversity-based selection. These findings support a conditional, representation-dependent account of context subset quality rather than a universally superior selector.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.19220",
+   "tier": "aware",
+   "tags": [
+    "retrieval",
+    "ICL"
+   ],
+   "venue": "",
+   "summary": "Demonstration selection as sparse reconstruction of the query representation (matching-pursuit style RES). Across 7 benchmarks and 8 LLMs no selector wins everywhere; RES beats MMR on 34/56 pairs, relevance retrieval stays strong on template-heavy tasks, and the best representation layer depends on the selector.",
+   "ideas": []
+  },
+  {
+   "title": "StaleBench: Isolating Stale Retrieval in Agent Memory, and Pricing the Fix",
+   "authors": [
+    "S M Mahbub Murshed"
+   ],
+   "categories": [
+    "cs.CL",
+    "cs.AI",
+    "cs.IR"
+   ],
+   "comments": "Accepted to Findings of EACL 2027. 39 pages, 3 figures. Code and data: https://github.com/thenexuslab/stalebench-release",
+   "abstract": "An agent that stores facts over time eventually stores several versions of the same fact. Asked a value-agnostic question - \"which team does X play for now?\" - a similarity retriever cannot prefer the current version, because every version matches the entity the query names. StaleBench isolates this stale-retrieval failure on 892 real updating facts, with currency labels from the source (Wikidata validity years via TempLAMA), never from a retrieval score. Our central result is that retrieval metrics can rank memory policies backwards: a retention policy and its retain-everything control return the identical statement at rank 1 for every test query, yet differ by 29.5 and 65.6 points in reader accuracy on two readers when no date is shown. Contamination@5, the metric we add, ranks them correctly where current@1 and current@5 do not. Withdrawing the lexical anchor that statements carry costs deployed keying mechanisms tens of points of freshness; entity resolution on both the write path and the query recovers most of the loss. Three deployed systems (Mem0, Graphiti, LangMem) and a reimplemented ERASE each handle supersession differently, and no single scoring convention describes all four. We release the data, a frozen evaluator, and reference baselines.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.19752",
+   "tier": "aware",
+   "tags": [
+    "RAG & agents",
+    "evaluation"
+   ],
+   "venue": "EACL 2027",
+   "summary": "StaleBench: 892 real updating facts (Wikidata validity via TempLAMA) to isolate retrieval of outdated versions in agent memory. Retrieval metrics can rank memory policies backwards (identical rank-1 results, 29.5-65.6 point reader-accuracy gaps); proposes Contamination@5 and compares Mem0, Graphiti, LangMem and ERASE.",
+   "ideas": []
+  },
+  {
+   "title": "Label-Free Detection of Structural Bias in LLM-Based Recommender Systems via Randomized Paraphrasing: The Case of Verbosity",
+   "authors": [
+    "Carlos Peláez-González",
+    "David Herrera-Poyatos",
+    "Francisco Herrera",
+    "Andrés Herrera-Poyatos"
+   ],
+   "categories": [
+    "cs.IR",
+    "cs.AI"
+   ],
+   "comments": "24 pages, 5 figures",
+   "abstract": "Large language models (LLMs) are increasingly deployed as recommenders in e-commerce and conversational shopping systems, where they select a product from a set of retrieved candidates described in natural language. Their decisions should depend on relevance to the user query, but may also be influenced by surface-level properties of the descriptions, such as their length. Detecting such structural biases is difficult because relevance labels are rarely available. We propose a label-free framework to audit LLM-based recommender systems for structural bias. Candidate descriptions are rewritten by randomly assigned paraphrasing models and presented in random order. We prove that, if the recommender's choice is invariant to these rewritings, every paraphraser is selected with equal probability, yielding a statistical test that requires no relevance labels. A four-step statistical pipeline tests this property and quantifies the contribution of each description feature while controlling for query-product relevance. We apply the framework to verbosity bias on 20{,}000 product queries and nine recommender LLMs from five model families. After controlling for the measured relevance signals, description length has a positive effect on selection in all nine models, increasing the odds of selection by up to 38% per standard deviation of length. Relevance remains the primary driver of recommendations, while verbosity acts as a consistent secondary signal whose strength depends on the model family. Since the framework needs only black-box access and no annotations, it can be run as a routine audit of deployed shopping assistants, and we provide an auditing protocol with cost and sample-size guidance.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.18878",
+   "tier": "aware",
+   "tags": [
+    "recommendation",
+    "evaluation"
+   ],
+   "venue": "",
+   "summary": "Label-free audit of LLM recommenders: candidate descriptions rewritten by randomly assigned paraphrasers; if choices are invariant, every paraphraser is chosen equally often, giving a test without relevance labels. Across 9 LLMs and 20k queries, longer descriptions raise selection odds by up to 38% per SD of length.",
+   "ideas": []
+  },
+  {
+   "title": "Exploration of Reinforcement Learning in Generative Recommendation Models",
+   "authors": [
+    "Pengfei Zheng",
+    "Wuchao Li",
+    "Shiyao Wang",
+    "Honghui Bao",
+    "Hongyi Xie",
+    "Jiaxin Deng",
+    "Xingmei Wang",
+    "Jinghao Zhang",
+    "Yufei Ye",
+    "Ruiming Tang",
+    "Guorui Zhou",
+    "Han Li",
+    "Kun Gai",
+    "Defu Lian"
+   ],
+   "categories": [
+    "cs.LG",
+    "cs.AI"
+   ],
+   "comments": "",
+   "abstract": "Traditional cascaded recommender systems balance accuracy and efficiency over large item spaces, but misaligned stage-wise objectives hinder end-to-end optimization. Generative recommendation unifies these stages in an autoregressive framework, providing a natural interface for reinforcement learning (RL) to optimize the entire generation process. However, directly applying RL often leads to unstable optimization and degraded recommendation quality. We revisit Group Relative Policy Optimization (GRPO) and other ratio-based objectives through a unified logit-gradient view. We identify three issues: (i) clipped surrogates create dead-gradient regions, under-utilizing samples; (ii) negative-advantage updates can become effectively unbounded as importance ratios grow, allowing a small subset of negatives to dominate optimization; and (iii) ratio-based control lacks sensitivity to absolute policy confidence, so updates on high-confidence cases may fail to vanish. Motivated by this diagnosis, we propose \\emph{Gradient-Bounded Policy Optimization} (GBPO), a simple objective with stop-gradient normalization that is simultaneously (a) fully gradient-active, (b) sign-symmetrically bounded for both positive and negative updates, and (c) explicitly confidence-weighted under current policy probabilities. This ensures that updates gracefully vanish for $\\pi\\!\\to\\!1$ positives and $\\pi\\!\\to\\!0$ negatives. Across the evaluated settings, GBPO achieves competitive recommendation performance with more stable training than competing RL methods.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.19742",
+   "tier": "aware",
+   "tags": [
+    "generative retrieval",
+    "post-training & RL"
+   ],
+   "venue": "",
+   "summary": "Logit-gradient view of GRPO-style objectives in generative recommendation: clipping creates dead gradients, negative-advantage updates can blow up with the ratio, and updates ignore absolute confidence. Gradient-Bounded Policy Optimization uses stop-gradient normalisation so updates are always active, sign-symmetrically bounded and vanish as pi->1 for positives / pi->0 for negatives.",
+   "ideas": []
+  },
+  {
+   "title": "Learning to Reason with Predictive Gains for Generative Recommendation",
+   "authors": [
+    "Zhuoyang Li",
+    "Teng Shi",
+    "Jiakai Tang",
+    "Weijie Yu",
+    "Guofu Xie",
+    "Xiao Zhang",
+    "Lei Kou",
+    "Yang Yu",
+    "Lei Shen",
+    "Xin Chen",
+    "Bing Wang",
+    "Xiaoyi Zeng",
+    "Jun Xu"
+   ],
+   "categories": [
+    "cs.AI"
+   ],
+   "comments": "",
+   "abstract": "Reasoning-enhanced generative recommendation (GR) has attracted increasing attention for leveraging the reasoning capabilities of large language models (LLMs) to improve next-item prediction. However, existing methods primarily optimize reasoning through Group Relative Policy Optimization (GRPO) with rule-based rewards determined by final recommendation performance, which faces two key limitations: (i) unmeasured predictive contributions within reasoning, where the predictive contributions of individual reasoning steps are not directly reflected in optimization signals, and (ii) weakly discriminative learning signals within groups, where different reasoning trajectories within the group often receive indistinguishable rewards, limiting effective policy optimization. In this paper, we propose GainReason, a simple yet effective training framework that optimizes reasoning through Predictive Gain (PG). Specifically, PG measures changes in target Semantic ID (SID) log-likelihood induced by individual reasoning sentences, providing contribution-aware and discriminative rewards. We further theoretically establish the alignment between expected PG and the recommendation ranking objective. Building on this signal, we develop PG-based Reasoning Optimization (PGRO) to optimize reasoning generation with sentence-level rewards, supported by a custom causal attention mechanism for efficient PG computation. Additionally, an auxiliary PG-based Reasoning Utilization (PGRU) task adaptively strengthens reasoning-conditioned prediction to complement PGRO. Extensive experiments on three public benchmarks demonstrate that GainReason consistently outperforms competitive baselines and achieves substantial performance gains from reasoning.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.21441",
+   "tier": "aware",
+   "tags": [
+    "generative retrieval",
+    "post-training & RL"
+   ],
+   "venue": "",
+   "summary": "GainReason: rewards each reasoning sentence in LLM-based generative recommendation by its Predictive Gain, the change in the target semantic ID's log-likelihood, shown to align in expectation with the ranking objective; sentence-level RL plus an auxiliary task to use the reasoning. Improves over GRPO-based baselines on three benchmarks.",
+   "ideas": []
+  }
+ ]
+}

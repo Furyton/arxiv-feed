@@ -1,0 +1,1772 @@
+{
+ "date": "2026-11-14",
+ "headline": "Trial run. A theory-heavy day: Kleinberg & Wei on breadth in language generation, Blondel et al. on why sequence-level losses for autoregressive LMs break, a representation-theory account of what diagonal SSMs cannot track, and a vector-search stopping rule with an exactness guarantee.",
+ "stats": {
+  "arxiv_new": 1399,
+  "scholar_inbox": 34,
+  "curated": 27,
+  "titles_read": 619,
+  "abstracts_read": 39
+ },
+ "daily_picks": [
+  {
+   "title": "Gradient Equilibrium in Online Learning: Theory and Applications",
+   "authors": [
+    "Anastasios N. Angelopoulos",
+    "Michael I. Jordan",
+    "Ryan J. Tibshirani"
+   ],
+   "year": "2025",
+   "url": "http://arxiv.org/abs/2501.08330",
+   "zotero_key": "MV89I2ML",
+   "note_key": "KU3Z96JD",
+   "digest": "Setting and problem \n The protocol is the standard adversarial online learning one, stripped of its usual objective. At each round $t=1,2,3,\\dots$ the environment fixes a loss $\\ell_t:\\mathbb{R}^d\\to(-\\infty,\\infty]$, assumed finite and subdifferentiable on a common domain $D\\subseteq\\mathbb{R}^d$; typically $\\ell_t$ is induced by a data point $(x_t,y_t)$, e.g. $\\ell_t(\\theta)=\\tfrac12(y_t-x_t^\\mathsf{T}\\theta)^2$, but that dependence is suppressed. The learner plays $\\theta_t\\in D$ using only information through round $t-1$, then $\\ell_t$ is revealed and a vector $g_t(\\theta_t)$ is computed. Crucially, $g_t(\\theta)$ is a generalized (Rockafellar–Wets \"regular\") subgradient: any $v$ with $\\liminf_{z\\to\\theta}\\big(\\ell(z)-\\ell(\\theta)-v^\\mathsf{T}(z-\\theta)\\big)/|z-\\theta|_2\\ge 0$. This covers convex subgradients and gradients of differentiable, possibly nonconvex losses. No convexity is assumed anywhere in the main theory, and no stochastic or generative model for the sequence : the guarantees are per-sequence, pathwise, and hold under arbitrary drift or adversarial play.\n\n\n Two criteria on the pair (loss sequence, iterate sequence). Regret is $\\mathrm{Regret} T=\\sum \\ell_t(\\theta)$, and the learner has }\\ell_t(\\theta_t)-\\inf_\\theta\\sum_{t\\le T no regret (NR) when $\\mathrm{Regret}_T/T\\to0$. Gradient equilibrium (GEQ) is\n\n\n …"
+  },
+  {
+   "title": "Approximate Top-$k$ for Increased Parallelism",
+   "authors": [
+    "Oscar Key",
+    "Luka Ribar",
+    "Alberto Cattaneo",
+    "Luke Hudlass-Galley",
+    "Douglas Orr"
+   ],
+   "year": "2024",
+   "url": "http://arxiv.org/abs/2412.04358",
+   "zotero_key": "CPHNQTRU",
+   "note_key": "GSR9ZA4I",
+   "digest": "Setting and problem \n The object of study is the top-$k$ primitive itself, viewed as a parallel kernel rather than as an algorithmic complexity question. Input: a batch of $m$ vectors of length $n$ (shape $(m,n)$, in float32 or bfloat16 on a GPU); output: $k$ (value, index) pairs. Exact top-$k$ requires the returned set to be $\\mathrm{argtop} k(x)$; this paper relaxes that and measures quality by recall $R(k,b,k_b)=Z(k,b,k_b)/k$, where $Z$ counts how many of the true top-$k$ values the approximate method returns. Cost is measured three ways: achieved memory bandwidth (minimum bytes that must move, divided by runtime), wall-clock duration, and a family of hand-built abstract operation-counting cost models $C $.}}, C_{\\mathrm{serial}}, C_{\\mathrm{parallel}\n\n\n The algorithm class is bucketed top-$k$ , two stages:\n\n\n \n Stage 1 : partition ${0,\\dots,n-1}$ into $b$ buckets via an assignment map $B$, take the largest $k_b$ values in each bucket independently, concatenate the $b\\cdot k_b$ survivors. \n Stage 2 : if $b\\cdot k_b > k$, run an exact top-$k$ on those $b\\cdot k_b$ candidates. \n \n Design parameters: $b\\in{1,\\dots,n}$, $k_b\\in{1,\\dots,\\min(k,n/b)}$, subject to $b\\cdot k_b\\ge k$; the over-collection ratio $b\\cdot k_b/k$ is the knob that trades cost for recall. Two further axes: the assignment map — contiguous , $B(i)=\\lfloor ib/n\\rfloor$, versus interleaved , $B(i)=i \\bmod b$ — …"
+  },
+  {
+   "title": "Tracing Attention Computation Through Feature Interactions",
+   "authors": [],
+   "year": "",
+   "url": "https://transformer-circuits.pub/2025/attention-qk/index.html",
+   "zotero_key": "Q2NPB563",
+   "note_key": "DMFTKZA2",
+   "digest": "Setting and problem \n The object of study is a single attention head's pre-softmax score. For residual-stream vectors $x_{p_q}, x_{p_k} \\in \\mathbb{R}^{d}$ at a query position $p_q$ and key position $p_k$, the head computes\n\n\n $$\\mathrm{score}(p_k, p_q) \\;=\\; x_{p_q}^{\\top} W_{QK}\\, x_{p_k}, \\qquad W_{QK} = W_Q^{\\top} W_K ,$$\n\n\n i.e. a bilinear form on the residual stream, with $W_{QK}$ the low-rank combined matrix from Elhage et al.'s A Mathematical Framework . The analyst is given a trained model — here Claude 3.5 Haiku — its activations on a prompt, and a dictionary of sparsely active features with decoder vectors, so that at each position $x_p = \\sum_f a_f(p) v_f + b + e_p$, where $a_f(p)$ are (mostly zero) feature activations, $v_f$ dictionary/decoder vectors, $b$ a bias, and $e_p$ the dictionary's reconstruction error. The method must output a human-readable account of why this head attended here and not elsewhere , and must plug that account into an existing attribution graph.\n\n\n The motivating gap is specific. Anthropic's attribution-graph line (circuit tracing / Biology of a Large Language Model ) built interpretable causal graphs on top of cross-layer transcoders that replace MLPs. To make edges linear and attribution well-defined, those graphs freeze the attention patterns and treat them as constants. Two things are thereby lost: (i) which head, or sequence of …"
+  }
+ ],
+ "researchers": [
+  {
+   "title": "Sketching Language Models for Context Attribution",
+   "authors": [
+    "Christopher Liaw",
+    "Aranyak Mehta",
+    "Grigoris Velegkas",
+    "Felix Zhou"
+   ],
+   "categories": [
+    "cs.DS",
+    "cs.AI",
+    "cs.LG",
+    "stat.ML"
+   ],
+   "comments": "",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.17313",
+   "researcher": "Grigoris Velegkas",
+   "verdict": "confirmed",
+   "evidence": "co-authors Aranyak Mehta, Christopher Liaw (Google)",
+   "summary": "Tight bounds for sketching leave-one-out context attribution."
+  },
+  {
+   "title": "Unbundling Multimodal Vision Encoding",
+   "authors": [
+    "Ellis Brown",
+    "Chris Hoang",
+    "Shengyi Qian",
+    "Shang-Wen Li",
+    "Mike Lewis",
+    "Marjan Ghazvininejad",
+    "Luke Zettlemoyer",
+    "Lucas Beyer",
+    "Mengye Ren",
+    "Jakob Verbeek",
+    "Saining Xie",
+    "Hu Xu"
+   ],
+   "categories": [
+    "cs.CV",
+    "cs.LG"
+   ],
+   "comments": "Project page: https://unbundling.github.io",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.17334",
+   "researcher": "Luke Zettlemoyer",
+   "verdict": "confirmed",
+   "evidence": "co-authors Marjan Ghazvininejad, Jakob Verbeek (Meta)",
+   "summary": "Unbundling multimodal vision encoding."
+  },
+  {
+   "title": "Measuring, Revealing and Mitigating Harmful Content Propagation in Recommender Systems",
+   "authors": [
+    "Xiaokun Zhang",
+    "Youlin Wu",
+    "Junyu Lu",
+    "Jiamin Chen",
+    "Zhaochun Ren",
+    "Hongfei Lin",
+    "Fenglong Ma",
+    "Xue Liu",
+    "Chen Ma"
+   ],
+   "categories": [
+    "cs.IR"
+   ],
+   "comments": "This work has been acceptted by IEEE TPAMI",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.15160",
+   "researcher": "Zhaochun Ren",
+   "verdict": "confirmed",
+   "evidence": "co-authors Chen Ma, Xiaokun Zhang",
+   "summary": "Measuring and mitigating harmful-content propagation in recommender systems (TPAMI)."
+  },
+  {
+   "title": "KuaiRecV2: Benchmarking Large-Scale Continual Learning for Diversified and Multi-task Recommendation",
+   "authors": [
+    "Chenxu Li",
+    "Shuchang Liu",
+    "Hantao Shu",
+    "Wei Yuan",
+    "Zhe Xu",
+    "Guoqing Hu",
+    "Yan Wang",
+    "Biao Yang",
+    "Xiang Li",
+    "Cheng Ling",
+    "Fan Yang",
+    "Yongqi Liu",
+    "Lantao Hu",
+    "Han Li",
+    "Kaiqiao Zhan",
+    "Kun Gai",
+    "An Zhang",
+    "Xiang Wang"
+   ],
+   "categories": [
+    "cs.IR"
+   ],
+   "comments": "This paper has been accepted to NeurIPS 2026",
+   "sources": [
+    "arxiv",
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Kuaishou releases a video benchmark for testing recommenders on continual learning, diversity, and multiple tasks.",
+   "arxiv": "2611.16795",
+   "researcher": "Kun Gai",
+   "verdict": "confirmed",
+   "evidence": "Kuaishou paper; co-authors Fan Yang, Han Li",
+   "summary": "KuaiRecV2 benchmark for continual multi-task recommendation."
+  }
+ ],
+ "papers": [
+  {
+   "title": "Characterizing Local Breadth in Language Generation",
+   "authors": [
+    "Jon Kleinberg",
+    "Fan Wei"
+   ],
+   "categories": [
+    "cs.DS",
+    "cs.FL",
+    "cs.LG",
+    "stat.ML"
+   ],
+   "comments": "",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.14887",
+   "tier": "core",
+   "tags": [
+    "theory",
+    "language generation in the limit"
+   ],
+   "summary": "In the Kleinberg–Mullainathan generation-in-the-limit model, measures breadth by lower Banach density and characterises the optimal achievable breadth exactly in 1-D; in d≥2 there is no single best generator, and the full region of achievable density profiles is characterised.",
+   "why": "Clean validity–breadth (hallucination vs. mode collapse) theory from Kleinberg; the 'no single best generator in d≥2' result is the surprise.",
+   "venue": "",
+   "ideas": [],
+   "zotero": "added"
+  },
+  {
+   "title": "On the Difficulty of Sequence-Level Supervised Learning for Autoregressive Language Models",
+   "authors": [
+    "Mathieu Blondel",
+    "Michaël E. Sander",
+    "Germain Vivier-Ardisson",
+    "Tianlin Liu",
+    "Vincent Roulet"
+   ],
+   "categories": [
+    "cs.LG",
+    "stat.ML"
+   ],
+   "comments": "",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.16736",
+   "tier": "core",
+   "tags": [
+    "theory",
+    "LM training objective"
+   ],
+   "summary": "Shows the two natural sequence-level losses that bake greedy decoding or sampling into training are unbounded below, links them via autoregressive Gumbel tricks, and proves the stop-gradient 'moment matching' direction is a valid descent direction for NLL in function space — but too noisy, so teacher forcing stays.",
+   "why": "A crisp negative result on exposure bias with a real proof; relevant to any sequence-level objective, including generative retrieval decoding.",
+   "venue": "",
+   "ideas": [],
+   "zotero": "added"
+  },
+  {
+   "title": "Symmetry in Time: A Representation Theory of Linear Recurrent Memory",
+   "authors": [
+    "Anif N. Shikder",
+    "Ramit Dey",
+    "Jan Minac",
+    "Lyle E. Muller"
+   ],
+   "categories": [
+    "cs.LG",
+    "cs.NE",
+    "math.RT"
+   ],
+   "comments": "",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.17162",
+   "tier": "core",
+   "tags": [
+    "theory",
+    "expressivity",
+    "SSM"
+   ],
+   "summary": "Treats an SSM's state update as a linear representation of the input monoid: an SSM tracks a group exactly when the group is a quotient of the group its transition matrices generate, so diagonal real/complex SSMs track only commutative groups; quaternion blocks (HyperSSM) fix S5 tracking.",
+   "why": "A neat algebraic characterisation of state-tracking limits, in the line of 'what can transformers/SSMs represent'.",
+   "venue": "",
+   "ideas": [],
+   "zotero": "added"
+  },
+  {
+   "title": "Sketching Language Models for Context Attribution",
+   "authors": [
+    "Christopher Liaw",
+    "Aranyak Mehta",
+    "Grigoris Velegkas",
+    "Felix Zhou"
+   ],
+   "categories": [
+    "cs.DS",
+    "cs.AI",
+    "cs.LG",
+    "stat.ML"
+   ],
+   "comments": "",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.17313",
+   "tier": "core",
+   "tags": [
+    "theory",
+    "sketching",
+    "attribution"
+   ],
+   "summary": "Estimates all leave-one-out context-attribution values of an n-token prompt with O(√log(1/ε)/ε) model calls under a stability assumption, with a matching lower bound, via sketching arithmetic circuits with decaying Taylor coefficients.",
+   "why": "Tight upper/lower bounds for an LM-querying problem, evaluated on a retrieval task; co-authored by Grigoris Velegkas (followed).",
+   "venue": "",
+   "ideas": [],
+   "zotero": "added"
+  },
+  {
+   "title": "Calibrated Early Termination with Bounded Optimality Gaps for Constrained Vector Search",
+   "authors": [
+    "Xinyu Zhang",
+    "Jingze Li",
+    "Baihua Zheng",
+    "Weiwei Sun"
+   ],
+   "categories": [
+    "cs.DB",
+    "cs.IR",
+    "cs.LG"
+   ],
+   "comments": "14 pages, 5 figures, 3 tables. Code available at https://github.com/zhangshea/CaST",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.16148",
+   "tier": "core",
+   "tags": [
+    "vector search",
+    "guarantees",
+    "graph index"
+   ],
+   "summary": "Early termination for (constrained) k-NN on graph indexes with a guarantee that the answer is exact with probability ≥1−ε; risk-constrained stopping becomes an LP over an order polytope whose Lagrangian minimisers are staircase rules computed by DP, then calibrated with fixed-sequence binomial tests, plus a lower bound on the optimum of the rule family.",
+   "why": "Rare vector-search paper with a provable exactness target instead of average recall, and an optimality lower bound.",
+   "venue": "",
+   "ideas": [],
+   "zotero": "added"
+  },
+  {
+   "title": "Two mathematical models of knowledge distillation",
+   "authors": [
+    "Audrey Xie",
+    "Ludwig Schmidt",
+    "John Duchi"
+   ],
+   "categories": [
+    "cs.LG"
+   ],
+   "comments": "",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.17230",
+   "tier": "interesting",
+   "tags": [
+    "theory",
+    "distillation",
+    "extracurricular"
+   ],
+   "summary": "Two analysable models of knowledge distillation (GLMs under SGD; rank-1 matrix approximation) showing distillation helps by making optimisation faster, not by generalising better.",
+   "why": "Duchi & Schmidt on a question behind much LLM post-training: what distillation actually buys.",
+   "venue": "",
+   "ideas": [],
+   "zotero": "added"
+  },
+  {
+   "title": "When and How SignSGD Outperforms SGD: A Functional Scaling Law Perspective",
+   "authors": [
+    "Zilin Wang",
+    "Binghui Li",
+    "Jia-Nan Wang",
+    "Lean Wang",
+    "Jinbo Wang",
+    "Lei Wu"
+   ],
+   "categories": [
+    "stat.ML",
+    "cs.LG"
+   ],
+   "comments": "Accepted at NeurIPS 2026 as a spotlight paper",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.16560",
+   "tier": "interesting",
+   "tags": [
+    "theory",
+    "scaling law",
+    "optimizer",
+    "extracurricular"
+   ],
+   "venue": "NeurIPS 2026 (spotlight)",
+   "summary": "Functional scaling law for SignSGD in power-law kernel regression: gradient noise smooths the sign, acting as a preconditioner that maps H to H^{1/2}; faster signal learning, slower noise forgetting, giving regime-dependent advantages over SGD.",
+   "why": "Scaling-law theory that explains batch-size behaviour of sign-based (Adam-like) optimisers.",
+   "ideas": [],
+   "zotero": "added"
+  },
+  {
+   "title": "Tokenization: Hardness and Bicriteria Approximation Algorithms",
+   "authors": [
+    "Atieh Bastan",
+    "Xiaoling He",
+    "A. Pavan",
+    "N. V. Vinodchandran"
+   ],
+   "categories": [
+    "cs.DS",
+    "cs.AI",
+    "cs.CC"
+   ],
+   "comments": "",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.15074",
+   "tier": "core",
+   "tags": [
+    "theory",
+    "tokenization",
+    "hardness"
+   ],
+   "summary": "Binary tokenization (choose ≤K substrings minimising token count) has no polynomial n^{1−ε}-approximation unless P=NP; gives (γ,γ)-bicriteria algorithms with γ=√M log n, and a storage-budget variant.",
+   "why": "Tokenization theory — inapproximability plus matching-style bicriteria algorithms.",
+   "venue": "",
+   "ideas": [],
+   "zotero": "added"
+  },
+  {
+   "title": "Finding the Farthest in High Dimensions: Dynamic Diameter and Farthest-Neighbor Search",
+   "authors": [
+    "Mohammad Hajiaghayi",
+    "Morteza Monemizadeh"
+   ],
+   "categories": [
+    "cs.DS"
+   ],
+   "comments": "",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.17050",
+   "tier": "interesting",
+   "tags": [
+    "vector search theory",
+    "farthest neighbor"
+   ],
+   "summary": "Dynamic c-approximate diameter and farthest-neighbour search in high dimensions with better update/space exponents than Indyk (SODA'03), robust to adaptive updates.",
+   "why": "Algorithmic, but the high-dimensional NN machinery is close to MIPS/ANN theory.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "From Link Prediction to Linear Community Detection: A Finite-Sample Guarantee for Graph Pretraining",
+   "authors": [
+    "Ying Chen",
+    "Zhangyang Wang",
+    "Yixuan He"
+   ],
+   "categories": [
+    "cs.LG",
+    "stat.ML"
+   ],
+   "comments": "Accepted at NeurIPS 2026. 47 pages, 8 figures. Code: https://github.com/YChen1103/LP-to-Linear-Community-Detection",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.15778",
+   "tier": "interesting",
+   "tags": [
+    "theory",
+    "embeddings",
+    "link prediction"
+   ],
+   "venue": "NeurIPS 2026",
+   "summary": "In a finite-sample SBM, small held-out link-prediction risk with a bilinear decoder implies small error for linear community classification on the learned embeddings, with explicit Õ(√(d/n)) terms.",
+   "why": "A theory of why an edge-level dot-product objective yields linearly useful embeddings — close to retrieval/recsys embedding questions.",
+   "ideas": []
+  },
+  {
+   "title": "Sharp Covering-Number Bounds for Feedforward ReLU Networks via Parameter Symmetries",
+   "authors": [
+    "Ruizhi Deng",
+    "Guohao Shen",
+    "Tangrui Xiong"
+   ],
+   "categories": [
+    "cs.LG",
+    "math.ST",
+    "stat.ML",
+    "stat.TH"
+   ],
+   "comments": "",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.15300",
+   "tier": "interesting",
+   "tags": [
+    "theory",
+    "generalization",
+    "extracurricular"
+   ],
+   "summary": "Characterises all parameter symmetries of (leaky) ReLU nets (positive channel scaling and permutation) and turns them into sharp covering-number bounds: exponent S−H and a G! divisor, with matching lower bounds.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "Towards a Theory of Learnability via Debate",
+   "authors": [
+    "Tosca Lechner",
+    "Vinayak Pathak",
+    "Sivan Sabato",
+    "Ruth Urner"
+   ],
+   "categories": [
+    "cs.LG"
+   ],
+   "comments": "",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.17303",
+   "tier": "interesting",
+   "tags": [
+    "learning theory",
+    "debate",
+    "extracurricular"
+   ],
+   "summary": "Formulates learning from a debate-judging human as online learning; shows adversarial debate is not always the best way to learn, and characterises a cooperative protocol's learnability by a combinatorial dimension.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "A Matching Lower Bound for Online Smooth Calibration",
+   "authors": [
+    "Kaixuan Ji",
+    "Quanquan Gu"
+   ],
+   "categories": [
+    "cs.LG",
+    "stat.ML"
+   ],
+   "comments": "",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.16097",
+   "tier": "interesting",
+   "tags": [
+    "learning theory",
+    "calibration",
+    "extracurricular"
+   ],
+   "summary": "Closes the gap for online smooth calibration: a new adversary forces Ω(√T) error, matching the known upper bound.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "Same-State Pairs Make One JEPA Proof of the Platonic Representation Hypothesis Vacuous",
+   "authors": [
+    "Xin Li"
+   ],
+   "categories": [
+    "cs.LG",
+    "cs.AI"
+   ],
+   "comments": "",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.16182",
+   "tier": "interesting",
+   "tags": [
+    "theory critique",
+    "representations"
+   ],
+   "summary": "Shows that with same-state positive pairs the JEPA proof of the Platonic Representation Hypothesis becomes vacuous (every whitened state function is a minimiser); one of four quantitative results survives.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "Trait Hitchhiking in LLM Post-Training",
+   "authors": [
+    "Adil Soubki",
+    "Elizabeth S.Z. Tan",
+    "Miles Cranmer"
+   ],
+   "categories": [
+    "cs.LG",
+    "cs.CL"
+   ],
+   "comments": "",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.14683",
+   "tier": "interesting",
+   "tags": [
+    "post-training",
+    "formal model"
+   ],
+   "summary": "Models how RL post-training amplifies or suppresses untargeted 'traits' using the Price equation from evolutionary biology; the Price estimate tracks trait dynamics under GRPO.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "Pretraining Data Statistics Shape the Phases of Learning Entity Comparison in Language Models",
+   "authors": [
+    "Yik Siu Chan",
+    "Jing Huang",
+    "Yanai Elazar",
+    "Atticus Geiger"
+   ],
+   "categories": [
+    "cs.CL",
+    "cs.LG"
+   ],
+   "comments": "29 pages, 20 figures. NeurIPS 2026",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.16882",
+   "tier": "interesting",
+   "tags": [
+    "phenomenon",
+    "training dynamics"
+   ],
+   "venue": "NeurIPS 2026",
+   "summary": "Small LMs learn entity comparison in three data-determined phases — pick by frequency, then by position, then correctly; Zipfian vs uniform entity frequency changes the phases.",
+   "ideas": []
+  },
+  {
+   "title": "Evaluating Compositional Generalization in Transformers: The Role of Composition Equivalence and Module Coverage",
+   "authors": [
+    "Purva Pruthi",
+    "Andrew Yuan",
+    "Alexander D'Amour",
+    "David Jensen"
+   ],
+   "categories": [
+    "cs.LG",
+    "cs.CL"
+   ],
+   "comments": "40th Conference on Neural Information Processing Systems (NeurIPS 2026). Track on Evaluations and Datasets",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.13498",
+   "tier": "interesting",
+   "tags": [
+    "phenomenon",
+    "compositional generalization"
+   ],
+   "venue": "NeurIPS 2026 (E&D)",
+   "summary": "Apparent compositional generalization of transformers mostly exploits 'composition equivalences' (different module sequences, same function); removing them collapses performance.",
+   "ideas": []
+  },
+  {
+   "title": "When Direction Matters: Diagnosing Relational Instruction Following in Dense Retrieval",
+   "authors": [
+    "Zhanyu Wu",
+    "Richong Zhang"
+   ],
+   "categories": [
+    "cs.IR"
+   ],
+   "comments": "",
+   "sources": [
+    "arxiv",
+    "scholar-inbox",
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Shows that dense retrievers follow keyword-based instructions but often fail when an instruction only reverses a relation over the same entities.",
+   "arxiv": "2611.15417",
+   "tier": "interesting",
+   "tags": [
+    "dense retrieval",
+    "instruction following",
+    "diagnostic"
+   ],
+   "summary": "SwitchIR: dense and late-interaction retrievers follow lexical/attribute instructions but fail when only the direction of a relation flips; an exact margin decomposition locates the failure.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "Search-by-Answer Bias in Retrieval Models",
+   "authors": [
+    "Adiel Avigad",
+    "Shauli Ravfogel",
+    "Yoav Goldberg"
+   ],
+   "categories": [],
+   "comments": "",
+   "sources": [
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Shows that dense retrievers can favor passages containing answers their backbone model already knows, even over passages stating the queried relation.",
+   "arxiv": "2611.11396",
+   "tier": "interesting",
+   "tags": [
+    "dense retrieval",
+    "bias"
+   ],
+   "summary": "Dense retrievers favour passages containing answers their backbone LM already knows, even over passages that state the answer — a 'search-by-answer' bias.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "ReSID: Rethinking Long-Tail Retrieval in Generative Recommendation through Item Reachability",
+   "authors": [
+    "Muyu Zou",
+    "Shunye Tang",
+    "Yi Xu",
+    "Haibo Xing",
+    "Yandong Wang",
+    "Lingyu Mu",
+    "Jinxin Hu"
+   ],
+   "categories": [
+    "cs.IR"
+   ],
+   "comments": "",
+   "sources": [
+    "arxiv",
+    "scholar-inbox",
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Alibaba helps generative recommenders reach long-tail items with parallel semantic IDs, debiased search, and partial matching.",
+   "arxiv": "2611.16404",
+   "tier": "aware",
+   "tags": [
+    "generative recommendation",
+    "semantic IDs"
+   ],
+   "summary": "Long-tail reachability in generative recommendation: parallel SIDs beat sequential ones on tail items; beam search pruning bounds recovery.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "RoutingTrie: Metadata Routing for Constrained Generative Retrieval",
+   "authors": [
+    "Darshan Fofadiya",
+    "Yang Liu",
+    "Shuying Sun",
+    "Kyumin Park",
+    "Juhana Kangaspunta"
+   ],
+   "categories": [],
+   "comments": "",
+   "sources": [
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Shopify applies metadata constraints before beam selection in generative retrieval, using compact per-field indexes on a shared semantic ID trie.",
+   "arxiv": "2611.11016",
+   "tier": "aware",
+   "tags": [
+    "generative retrieval",
+    "constrained decoding"
+   ],
+   "summary": "Shopify: metadata constraints applied before beam selection in generative retrieval.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "Not All Branches Are Equal: Adaptive Semantic ID Construction for Generative Recommendation",
+   "authors": [
+    "Guy Hadad",
+    "Haggai Roitman",
+    "Bracha Shapira"
+   ],
+   "categories": [],
+   "comments": "",
+   "sources": [
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Builds semantic IDs as tree paths, choosing each node's number of branches by maximizing the silhouette coefficient instead of using a fixed branching factor.",
+   "arxiv": "2611.11549",
+   "tier": "aware",
+   "tags": [
+    "generative recommendation",
+    "semantic IDs"
+   ],
+   "summary": "Semantic IDs as tree paths with an adaptive branching factor per node.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "TS-GEAR: Taobao Shangou GEnerative Ad Retrieval",
+   "authors": [
+    "Guofeng Tong",
+    "Xu Zhang",
+    "Guangliang Yu",
+    "Haiqiang Wang",
+    "Guannan Cong",
+    "Xing Guo",
+    "Yang Zhou",
+    "Jingjing Duan",
+    "Shuang Li",
+    "Feng Shi",
+    "Hualei Liu"
+   ],
+   "categories": [],
+   "comments": "",
+   "sources": [
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Alibaba proposes a generative retrieval framework for delivery search ads.",
+   "arxiv": "2611.12180",
+   "tier": "aware",
+   "tags": [
+    "generative retrieval",
+    "industry"
+   ],
+   "summary": "Alibaba generative ad retrieval for delivery search.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "RecoGEM: A Serving System for Production-Scale Generative Recommendation",
+   "authors": [
+    "Xiangrui Yang",
+    "Yunfeng Zhao",
+    "Jiawei Yang",
+    "Fangyu Zhang",
+    "Enrui Zhao",
+    "Liang Zeng",
+    "Cheng Peng",
+    "Minhui Xie",
+    "Jiaqiang Liu",
+    "Xiao Liang",
+    "Yiming Qiu"
+   ],
+   "categories": [],
+   "comments": "",
+   "sources": [
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Presents a production serving system for generative recommendation in which a runtime manages candidate state and live updates, and a separate engine speeds up attention and selection.",
+   "arxiv": "2611.12296",
+   "tier": "aware",
+   "tags": [
+    "generative recommendation",
+    "systems"
+   ],
+   "summary": "Production serving system for generative recommendation.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "From Tokens to Behaviors: Rethinking Generative Recommendation for User Trajectory Prediction",
+   "authors": [
+    "Jiaqi Wang",
+    "Hanchen Yang",
+    "Hengyu Zhang",
+    "Hongxu Ma",
+    "Wenqi Rao",
+    "Hongyang Wang",
+    "Zhongbo Sun",
+    "Renliang Qian",
+    "Weixin Chen",
+    "Wengen Li",
+    "Jihong Guan",
+    "Shuigeng Zhou",
+    "Qingpeng Cai",
+    "Peng Jiang",
+    "Hong Cheng"
+   ],
+   "categories": [
+    "cs.IR"
+   ],
+   "comments": "",
+   "sources": [
+    "arxiv",
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Proposes a generative recommender that predicts a user's future behavior sequence, not just the next item.",
+   "arxiv": "2611.16159",
+   "tier": "aware",
+   "tags": [
+    "generative recommendation"
+   ],
+   "summary": "Predicts a user's future behaviour sequence rather than only the next item.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "TriGen: A Generative Paradigm for Trigger-Induced Recommendation",
+   "authors": [
+    "Muyu Zou",
+    "Haibo Xing",
+    "Shunye Tang",
+    "Liyan Tie",
+    "Lingyu Mu",
+    "Yandong Wang",
+    "Jinxin Hu"
+   ],
+   "categories": [
+    "cs.IR"
+   ],
+   "comments": "",
+   "sources": [
+    "arxiv",
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Alibaba introduces a generative recommender for the e-commerce follow-up feed opened by a click.",
+   "arxiv": "2611.16395",
+   "tier": "aware",
+   "tags": [
+    "generative recommendation",
+    "industry"
+   ],
+   "summary": "Alibaba generative recommender for trigger-induced (click-opened) feeds.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "SepLRM: A Foundation Model Paradigm for Recommendation",
+   "authors": [
+    "Di Chen",
+    "Xijun Xiao",
+    "Qin Ren",
+    "Weijiang Lai",
+    "Zhijian Pan",
+    "Zhentao Pan",
+    "Pengfei Nie",
+    "Cheng Yuan",
+    "Zixuan Tan",
+    "Xuyang Liu",
+    "Tao Wang",
+    "Yunwen Huang",
+    "Hao Fang",
+    "Yichao Wang",
+    "Hao Zhang",
+    "Siyuan Wu",
+    "Hao Chen",
+    "Han Diao",
+    "Mingyu Yang",
+    "Yongkang Feng",
+    "Beihong Jin",
+    "Jinfeng Yang",
+    "Deping Xie",
+    "Peng Xu",
+    "Zheng Chai",
+    "Yuchao Zheng"
+   ],
+   "categories": [],
+   "comments": "",
+   "sources": [
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "ByteDance splits large recommendation models into one shared model that encodes long user histories once and exports a KV cache, plus vertical models that query it.",
+   "arxiv": "2611.10356",
+   "tier": "aware",
+   "tags": [
+    "recommendation",
+    "foundation model"
+   ],
+   "summary": "ByteDance splits large rec models into a shared long-history encoder and light task models.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "REWEAVE: Online Learning for Workload-Adaptive HNSW Indexes",
+   "authors": [
+    "Minghao Li",
+    "Nick Koudas",
+    "Raghav Mittal"
+   ],
+   "categories": [
+    "cs.DB",
+    "cs.IR",
+    "cs.LG"
+   ],
+   "comments": "20 pages, 9 figures, 5 tables. Full version with appendix",
+   "sources": [
+    "arxiv",
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Introduces an online method that learns which HNSW edges matter for the query workload and rewires them within the same per-node degree cap, improving recall on skewed or shifting queries.",
+   "arxiv": "2611.16060",
+   "tier": "aware",
+   "tags": [
+    "vector search",
+    "HNSW"
+   ],
+   "summary": "Online rewiring of HNSW edges for skewed or shifting query workloads under the same degree cap.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "HyperPage: Learned Page Layouts for Disk-Resident Graph Vector Indexes",
+   "authors": [
+    "Xinyu Zhang",
+    "Jingze Li",
+    "Baihua Zheng",
+    "Weiwei Sun"
+   ],
+   "categories": [
+    "cs.DB",
+    "cs.IR"
+   ],
+   "comments": "14 pages, 4 figures, 7 tables. Code available at: https://github.com/zhangshea/HyperPage",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.16149",
+   "tier": "aware",
+   "tags": [
+    "vector search",
+    "disk index"
+   ],
+   "summary": "Learned page layouts for disk-resident graph indexes (DiskANN-style) from traversal logs.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "Authenticated Approximate Nearest Neighbor Search in Outsourced Vector Databases",
+   "authors": [
+    "Yuanhang Zhou",
+    "Xinyi Zhang",
+    "Cheng Xu",
+    "Jianliang Xu"
+   ],
+   "categories": [
+    "cs.DB",
+    "cs.CR"
+   ],
+   "comments": "",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.16516",
+   "tier": "aware",
+   "tags": [
+    "vector search",
+    "security"
+   ],
+   "summary": "Authenticated graph-based ANN for outsourced vector DBs using vector commitments.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "VecDBLens: An Evaluatology-Based Framework for Vector Database Diagnosis",
+   "authors": [
+    "Yutong Zhou",
+    "Guoxin Kang",
+    "Wenxin Zhou",
+    "Haoyu He",
+    "Yuedong Zhu",
+    "Lei Wang",
+    "Wanling Gao",
+    "Fanda Fan",
+    "and Jianfeng Zhan"
+   ],
+   "categories": [
+    "cs.DB"
+   ],
+   "comments": "",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.15105",
+   "tier": "aware",
+   "tags": [
+    "vector database",
+    "evaluation"
+   ],
+   "summary": "Framework attributing vector-DB performance to embedding, index or query execution.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "e-means: outperforming k-means (in one-tenth the epochs)",
+   "authors": [
+    "Swann Bessa",
+    "Pierre-Emmanuel Mazaré",
+    "Gergely Szilvasy",
+    "Hugo Touvron",
+    "David Picard",
+    "Matthijs Douze",
+    "Hervé Jégou"
+   ],
+   "categories": [],
+   "comments": "",
+   "sources": [
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Meta introduces a mini-batch k-means with moving-average updates and scaling laws that set its hyperparameters, reaching lower loss than Lloyd's in far fewer epochs.",
+   "arxiv": "2611.09501",
+   "tier": "aware",
+   "tags": [
+    "clustering",
+    "industry"
+   ],
+   "summary": "Meta's mini-batch k-means variant with moving-average updates and scaling-law hyperparameters.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "AntEmbed: Dual-Mode Multimodal Embedding Model for Efficient and Fine-Grained Retrieval",
+   "authors": [
+    "Kehang Jia",
+    "Teng Liu",
+    "Juntao Li",
+    "Hua Chen",
+    "Jinxiong Chang",
+    "Xiaobo Liang",
+    "Min Zhang"
+   ],
+   "categories": [
+    "cs.IR"
+   ],
+   "comments": "13 pages",
+   "sources": [
+    "arxiv",
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Ant Group introduces a multimodal embedding model with fast and reasoning-enhanced modes in one shared space, distilling the reasoning gains into the fast mode.",
+   "arxiv": "2611.16405",
+   "tier": "aware",
+   "tags": [
+    "embedding model",
+    "multimodal"
+   ],
+   "summary": "Ant Group multimodal embedding model with fast and reasoning-enhanced modes.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "Yuanbao-Reranker: Document-Grounded Synthesis and Preference Distillation for Text Reranking",
+   "authors": [
+    "Hongyuan Xu",
+    "Dezhi Ye",
+    "Jiahao Cao",
+    "Jie Liu",
+    "Haijin Liang",
+    "Haibo Shi",
+    "Jin Ma"
+   ],
+   "categories": [],
+   "comments": "",
+   "sources": [
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Introduces 0.6B, 4B &8B text rerankers trained on document-grounded synthetic queries and teacher preferences.",
+   "arxiv": "2611.10405",
+   "tier": "aware",
+   "tags": [
+    "reranker",
+    "new model"
+   ],
+   "summary": "0.6B/4B/8B text rerankers trained on document-grounded synthetic data.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "MetaEncoder: Exploring the Limit of Bi-Encoders for Multimodal System One Decision Making with Natural Language Interface",
+   "authors": [
+    "Jianpeng Cheng",
+    "Guangyu Sun",
+    "Aashu Singh",
+    "Benyu Zhang",
+    "Haixing Dai",
+    "Hossein Mansour",
+    "Jiangfan Zhang",
+    "Shlok Kumar Mishra",
+    "Wei Sun",
+    "Xuanming Cui",
+    "Yanli Liu",
+    "Qi Guo",
+    "Max Xiangjun Fan",
+    "Jun Xiao"
+   ],
+   "categories": [],
+   "comments": "",
+   "sources": [
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Meta tests three scoring designs and builds a multimodal bi-encoder for decisions and retrieval.",
+   "arxiv": "2610.11316",
+   "tier": "aware",
+   "tags": [
+    "bi-encoder"
+   ],
+   "summary": "Meta compares scoring designs for bi-encoders in decision-making with a natural-language interface.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "Beyond Ranking: Are Decision Models Calibrated Relevance Scorers?",
+   "authors": [
+    "Shengyao Zhuang",
+    "Xueguang Ma",
+    "Matthias Petri",
+    "Jimmy Lin"
+   ],
+   "categories": [],
+   "comments": "",
+   "sources": [
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Finds that relevance probabilities from decision models like Jev are not calibrated to human judgments. A two-parameter calibration fixes much of the error and supports per-query cut-offs.",
+   "arxiv": "2611.11480",
+   "tier": "aware",
+   "tags": [
+    "relevance judgment",
+    "calibration"
+   ],
+   "summary": "Relevance probabilities from LLM decision models are not calibrated to human judgments.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "Process then Retrieve: Investigating the Origins of the Modality Gap in Vision-Language Models",
+   "authors": [
+    "Arpita Shanbhag",
+    "Julia Tran",
+    "Dhruv Mandala",
+    "Ayda Sultan"
+   ],
+   "categories": [],
+   "comments": "",
+   "sources": [
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Finds that vision tokens are much more semantically dense than text tokens, so early layers process text first.",
+   "arxiv": "2611.09897",
+   "tier": "aware",
+   "tags": [
+    "embeddings",
+    "modality gap"
+   ],
+   "summary": "Traces the VLM modality gap to vision tokens being much more semantically dense than text tokens.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "Exploiting Feature-invariant Scaling Laws for Efficient A/B Experimentation in Recommendation Systems",
+   "authors": [
+    "Zhiliang Chen",
+    "Sammy Nammari",
+    "Jiahao Su",
+    "Xiaoqiang Luo"
+   ],
+   "categories": [],
+   "comments": "",
+   "sources": [
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Meta uses scaling laws to predict full-scale A/B results for recommendation model changes from a few small-scale runs.",
+   "arxiv": "2611.13539",
+   "tier": "aware",
+   "tags": [
+    "recommendation",
+    "scaling law"
+   ],
+   "summary": "Meta predicts full-scale A/B results for rec models from feature-invariant scaling laws.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "Calibrating Document-Local Boundaries for Contextual Chunk Retrieval",
+   "authors": [
+    "Yuanxiang Wang",
+    "Hui Jiang",
+    "Da Zhu",
+    "Zhihua Chang"
+   ],
+   "categories": [],
+   "comments": "",
+   "sources": [
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Alibaba improves late chunking retrieval by separating the correct chunk from similar chunks in the same document, using an adaptive loss scale and chunk-aware attention during encoding.",
+   "arxiv": "2611.12097",
+   "tier": "aware",
+   "tags": [
+    "dense retrieval",
+    "chunking"
+   ],
+   "summary": "Improves late-chunking retrieval by separating the right chunk from similar ones in the same document.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "Hybrid Product Search Without the Copy: Lexical, Semantic and Filtered Retrieval Served Directly from a Data Lake",
+   "authors": [
+    "Raghvendra Yadav",
+    "Xiang Fu",
+    "Chinmay Soman"
+   ],
+   "categories": [],
+   "comments": "",
+   "sources": [
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Extends Apache Pinot with BM25 scoring and rank fusion, so hybrid search runs in SQL directly on Iceberg tables without a catalog copy.",
+   "arxiv": "2611.11031",
+   "tier": "aware",
+   "tags": [
+    "hybrid search",
+    "systems"
+   ],
+   "summary": "BM25 + semantic + filtered retrieval served directly from a data lake (Apache Pinot).",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "Proactive Dimension-Adaptive Denoising for Graph Collaborative Filtering via Representation Coherence",
+   "authors": [
+    "Wenjun Li",
+    "Dong Zhao",
+    "Jiaying Shi",
+    "Juan Zhang",
+    "Zhaoming Pan",
+    "Zhimin Zhang"
+   ],
+   "categories": [],
+   "comments": "",
+   "sources": [
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "NetEase flags noisy interactions by their deviation from a user's preference centroid in embedding space.",
+   "arxiv": "2611.11801",
+   "tier": "aware",
+   "tags": [
+    "collaborative filtering"
+   ],
+   "summary": "Denoising graph CF by flagging interactions that deviate from a user's representation coherence.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "Sheaf-Inspired Structured Scoring Extensions of LightGCN for Collaborative Filtering",
+   "authors": [
+    "Ksenia Belkovskaya",
+    "Timur Lidzhiev",
+    "Maria Stebliy",
+    "Alexander Tarakanov"
+   ],
+   "categories": [
+    "cs.IR",
+    "cs.CE",
+    "cs.CG",
+    "cs.LG"
+   ],
+   "comments": "",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.17226",
+   "tier": "aware",
+   "tags": [
+    "collaborative filtering"
+   ],
+   "summary": "Sheaf-inspired scoring extensions of LightGCN.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "KuaiRecV2: Benchmarking Large-Scale Continual Learning for Diversified and Multi-task Recommendation",
+   "authors": [
+    "Chenxu Li",
+    "Shuchang Liu",
+    "Hantao Shu",
+    "Wei Yuan",
+    "Zhe Xu",
+    "Guoqing Hu",
+    "Yan Wang",
+    "Biao Yang",
+    "Xiang Li",
+    "Cheng Ling",
+    "Fan Yang",
+    "Yongqi Liu",
+    "Lantao Hu",
+    "Han Li",
+    "Kaiqiao Zhan",
+    "Kun Gai",
+    "An Zhang",
+    "Xiang Wang"
+   ],
+   "categories": [
+    "cs.IR"
+   ],
+   "comments": "This paper has been accepted to NeurIPS 2026",
+   "sources": [
+    "arxiv",
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Kuaishou releases a video benchmark for testing recommenders on continual learning, diversity, and multiple tasks.",
+   "arxiv": "2611.16795",
+   "tier": "aware",
+   "tags": [
+    "benchmark",
+    "recommendation"
+   ],
+   "summary": "Kuaishou benchmark for large-scale continual multi-task recommendation.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "TRIAD: Multimodal Retrieval across Abstraction, Constraints, and State",
+   "authors": [
+    "Xiangyang Wu",
+    "Chen Ju",
+    "Xu Chen",
+    "Likang Peng",
+    "Jinsong Lan",
+    "Haihong Tang",
+    "Yang Hu"
+   ],
+   "categories": [],
+   "comments": "",
+   "sources": [
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Introduces a multimodal retrieval benchmark on concept hierarchies, joint constraints, and multi-turn revisions. No system leads across all subsets.",
+   "arxiv": "2611.12364",
+   "tier": "aware",
+   "tags": [
+    "benchmark",
+    "multimodal retrieval"
+   ],
+   "summary": "Multimodal retrieval benchmark over concept hierarchies, joint constraints and state.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "DocFS: File Systems as Agentic Reasoning Environments for Complex Multimodal Document Question Answering",
+   "authors": [
+    "Bingdian Zhang",
+    "Zixuan Li",
+    "Long Bai",
+    "Xiaolong Jin",
+    "Jiafeng Guo",
+    "Xueqi Cheng"
+   ],
+   "categories": [],
+   "comments": "",
+   "sources": [
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Turns documents into file systems with folders mirroring sections, so VLM agents find evidence using standard navigation, search, and read tools.",
+   "arxiv": "2611.12957",
+   "tier": "aware",
+   "tags": [
+    "RAG",
+    "agents"
+   ],
+   "summary": "Documents turned into file systems as an agentic environment for multimodal document QA.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "CURATOR: Scalable Fine-grained Evidence Selection for Retrieval-Augmented Generation using Decision Models",
+   "authors": [
+    "Shib Dasgupta",
+    "Bandish Parikh",
+    "Rashmi Gangadharaiah"
+   ],
+   "categories": [
+    "cs.IR"
+   ],
+   "comments": "",
+   "sources": [
+    "arxiv",
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Amazon presents a fine-tuned decision model that selects supporting spans from retrieved passages for RAG and stays reliable as candidates grow.",
+   "arxiv": "2611.16366",
+   "tier": "aware",
+   "tags": [
+    "RAG"
+   ],
+   "summary": "Amazon fine-tunes a decision model to select fine-grained evidence for RAG.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "From Search to Decision: How Post-Training Shapes Information-Seeking Capabilities in Large Language Models",
+   "authors": [
+    "Haohang Huang",
+    "Xuan Lu",
+    "Mingjin Kuai",
+    "Yuxuan Zhang",
+    "Wei Ji",
+    "Haiyang Zhang"
+   ],
+   "categories": [],
+   "comments": "",
+   "sources": [
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Surveys how post-training teaches LLMs to decide when to search, write queries, and weigh evidence across six information-seeking skills.",
+   "arxiv": "2611.14149",
+   "tier": "aware",
+   "tags": [
+    "survey",
+    "search agents"
+   ],
+   "summary": "Survey of how post-training teaches LLMs when and how to search.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "RMIT-ADM+S at TREC RAG 2026: Research Agents, Retriever Ablations, and Open-Weight Replication",
+   "authors": [
+    "Oleg Zendel",
+    "Kun Ran",
+    "Chenglong Ma",
+    "Nguyen Khoi Vo",
+    "and Shuai Wang"
+   ],
+   "categories": [
+    "cs.IR",
+    "cs.AI",
+    "cs.CL"
+   ],
+   "comments": "",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.16425",
+   "tier": "aware",
+   "tags": [
+    "TREC",
+    "RAG"
+   ],
+   "summary": "RMIT at TREC RAG 2026: research agents, retriever ablations, open-weight replication.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "Lost in Delegation: Studying the Effectiveness of Task Orchestration in Generative Search",
+   "authors": [
+    "Tamara Stojanovska",
+    "Elisabeth Kirsten",
+    "Leon Swazinna",
+    "Muhammad Bilal Zafar"
+   ],
+   "categories": [
+    "cs.AI",
+    "cs.CL"
+   ],
+   "comments": "",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.16526",
+   "tier": "aware",
+   "tags": [
+    "generative search",
+    "agents"
+   ],
+   "summary": "Studies task orchestration/delegation in generative search systems.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "Active Learning of Approximate LLM Ranking for Energy-Efficient Retrieval of Long Queries",
+   "authors": [
+    "Ohad Porat",
+    "Elad Yom-Tov"
+   ],
+   "categories": [
+    "cs.IR"
+   ],
+   "comments": "",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.16488",
+   "tier": "aware",
+   "tags": [
+    "LLM ranking",
+    "efficiency"
+   ],
+   "summary": "Active learning of an approximate LLM ranker for energy-efficient retrieval of long queries.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "SurvEval: Listwise Re-Ranking Evaluator via Survival-Based Exposure and Multi-Objective Value Modeling",
+   "authors": [
+    "YaChen Yan",
+    "Liubo Li"
+   ],
+   "categories": [
+    "cs.IR"
+   ],
+   "comments": "5 Pages, 3 figures, ACM conference format",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.15434",
+   "tier": "aware",
+   "tags": [
+    "reranking",
+    "evaluation"
+   ],
+   "summary": "Listwise re-ranking evaluator built on survival-based exposure modelling.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "ReAlign: Reward-Guided Preference Alignment for Generative Re-Ranking",
+   "authors": [
+    "YaChen Yan",
+    "Liubo Li"
+   ],
+   "categories": [
+    "cs.IR"
+   ],
+   "comments": "9 pages, 3 figures, ACM conference format",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.15445",
+   "tier": "aware",
+   "tags": [
+    "generative reranking"
+   ],
+   "summary": "Reward-guided preference alignment for generative re-ranking.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "SimRec: Learning to Search, Ask, and Recommend from Simulated Interaction",
+   "authors": [
+    "Yaxin Zhang",
+    "Xingyu Wu",
+    "Yuchen Yan",
+    "Yuqin Dai",
+    "Hong Zhao",
+    "Lixing Shen",
+    "Zhan Chen",
+    "Jian Shao",
+    "Yongliang Shen"
+   ],
+   "categories": [
+    "cs.CL",
+    "cs.AI",
+    "cs.IR"
+   ],
+   "comments": "19 pages,5 figures,16 tables. Code: https://github.com/ZJU-REAL/SimRec",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.15426",
+   "tier": "aware",
+   "tags": [
+    "conversational recommendation"
+   ],
+   "summary": "Learning to search, ask and recommend from simulated interaction.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "When Does a Recommendation Spark Curiosity? Theory, Measurement, and Field Evidence",
+   "authors": [
+    "Pan Li",
+    "Alexander Tuzhilin"
+   ],
+   "categories": [
+    "econ.GN",
+    "cs.IR",
+    "cs.LG",
+    "q-fin.EC"
+   ],
+   "comments": "",
+   "sources": [
+    "arxiv",
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Proposes a measure of the curiosity an item evokes and a recommender based on it.",
+   "arxiv": "2611.14938",
+   "tier": "aware",
+   "tags": [
+    "recommendation",
+    "axiomatic measure"
+   ],
+   "summary": "Axiomatises the information-gap theory of curiosity into a computable measure for recommendation, validated in a survey and field data.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "Characterizing Predictive Multiplicity in Ranking and Its Fairness Implications",
+   "authors": [
+    "Ainhize Barrainkua",
+    "Mikel Malagón"
+   ],
+   "categories": [
+    "cs.LG"
+   ],
+   "comments": "32 pages, 6 figures",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.15705",
+   "tier": "aware",
+   "tags": [
+    "ranking",
+    "fairness"
+   ],
+   "summary": "Formal definitions and guarantees for predictive multiplicity in score-based ranking.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "Rethinking \"RL Generalizes, SFT Memorizes\": The Role of SFT Data",
+   "authors": [
+    "Yunlong Hou",
+    "Fengzhuo Zhang",
+    "Yuan Cheng",
+    "Jiachun Pan",
+    "Xingyao Li",
+    "Zhuoran Yang"
+   ],
+   "categories": [
+    "cs.LG",
+    "cs.AI"
+   ],
+   "comments": "Accepted to NeurIPS 2026. 39 pages, 12 figures",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.14912",
+   "tier": "aware",
+   "tags": [
+    "post-training",
+    "SFT vs RL"
+   ],
+   "venue": "NeurIPS 2026",
+   "summary": "With the right data mix and matched rollout budget, SFT generalises as well as or better than RL.",
+   "ideas": []
+  },
+  {
+   "title": "Rectified Looped Transformer",
+   "authors": [
+    "Musheng Li",
+    "Jiawei Zhang",
+    "Ziyuan Liu",
+    "Yuantao Gu"
+   ],
+   "categories": [
+    "cs.LG",
+    "cs.AI"
+   ],
+   "comments": "",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.16265",
+   "tier": "aware",
+   "tags": [
+    "looped transformer"
+   ],
+   "summary": "Interpolation between loops keeps hidden-state norms bounded in looped transformers; lower perplexity.",
+   "venue": "",
+   "ideas": []
+  },
+  {
+   "title": "Classical Energies Learn to Reason 1,000x Faster than Looped Models",
+   "authors": [
+    "Benjamin Hoover",
+    "Hugh Blayney",
+    "James C. R. Whittington"
+   ],
+   "categories": [
+    "cs.AI",
+    "cs.LG"
+   ],
+   "comments": "",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.17309",
+   "tier": "aware",
+   "tags": [
+    "reasoning",
+    "energy models"
+   ],
+   "summary": "A learned Hopfield–Tank energy solves Sudoku-Extreme/Maze ~1000× faster than looped models — a caution about these benchmarks.",
+   "venue": "",
+   "ideas": []
+  }
+ ]
+}

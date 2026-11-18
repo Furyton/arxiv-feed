@@ -1,0 +1,583 @@
+{
+ "date": "2026-11-16",
+ "headline": "Quiet Monday for theory. The one ★ is a NeurIPS paper proving why hierarchical concept structure appears in CLIP text embeddings under a flat contrastive loss. For the GR paper's related work: large-step GD on logistic/multiclass cross-entropy, with explicit iterate bounds and a transient implicit bias.",
+ "stats": {
+  "arxiv_new": 598,
+  "scholar_inbox": 0,
+  "curated": 9,
+  "titles_read": 251,
+  "abstracts_read": 35
+ },
+ "daily_picks": [
+  {
+   "title": "Mechanism and Emergence of Stacked Attention Heads in Multi-Layer Transformers",
+   "authors": [
+    "Tiberiu Mușat"
+   ],
+   "year": "2024",
+   "url": "https://openreview.net/forum?id=rUC7tHecSQ",
+   "zotero_key": "Q22S3UHY",
+   "note_key": "7ZPGFPZG",
+   "digest": "Setting and problem \n The object of study is what Mușat calls the retrieval problem: a synthetic in-context pointer-chasing task that generalises Olsson et al.'s induction task from one hop to $D$ hops. Fix an alphabet of symbols and a difficulty parameter $D \\in \\mathbb{N}$. A single retrieval chain is a set of $D$ ordered pairs over $D+1$ distinct symbols $x_0, x_1, \\dots, x_D$, presented in the input as the pairs $(x_{k-1}, x_k)$ for $k = 1, \\dots, D$, scattered through the sequence, with the query symbol $x_0$ appended at the end. Schematically the input looks like\n\n\n $$\\dots\\; x_{D-1} x_D \\;\\dots\\; x_1 x_2 \\;\\dots\\; x_0 x_1 \\;\\dots\\; x_0$$\n\n\n and the model must output $x_D$, i.e. the terminal symbol of the chain reached by following $x_0 \\mapsto x_1 \\mapsto \\dots \\mapsto x_D$. Setting $D = 1$ recovers the induction problem (predict $b$ from $\\dots ab \\dots a$) exactly. The paper also writes the chain in capitals, $A = x_0$, $B = x_1$, $C = x_2$, and so on, which is the notation used in all the circuit figures. A generalisation, the conditional retrieval problem, replaces the linear chain by a directed acyclic graph: each step may depend on several previously retrieved values, e.g. from $\\dots xyz \\dots ay \\dots ax \\dots a$ one must output $z$, which requires combining two independently retrieved pointers before the final lookup.\n\n\n Crucially, the symbols carry no …"
+  },
+  {
+   "title": "The Impossibility Triangle of Long-Context Modeling",
+   "authors": [
+    "Yan Zhou"
+   ],
+   "year": "2026",
+   "url": "https://arxiv.org/abs/2605.05066",
+   "zotero_key": "FAGUEMHI",
+   "note_key": "S8DP84WE",
+   "digest": "Setting and problem \n Yan Zhou's \"The Impossibility Triangle of Long-Context Modeling\" (arXiv:2605.05066, v1 submitted 2026-05-06, withdrawn in v2 on 2026-08-06; DOI 10.48550/arXiv.2605.05066) proposes a single abstraction meant to cover every causal sequence model and then asks whether three resource desiderata can hold at once.\n\n\n The abstraction is the Online Sequence Processor (OSP), a seven-tuple $P = (\\mathcal{S}, \\mathcal{X}, \\mathcal{Q}, \\mathcal{A}, \\delta, \\rho, s_0)$ in which $\\mathcal{X}$ is a finite input alphabet with $|\\mathcal{X}| = V$ (the vocabulary size), $\\mathcal{S}$ is a measurable state space with initial state $s_0 \\in \\mathcal{S}$, $\\mathcal{Q}$ and $\\mathcal{A}$ are query and answer spaces, $\\delta : \\mathcal{S} \\times \\mathcal{X} \\to \\mathcal{S}$ is the transition map, and $\\rho : \\mathcal{S} \\times \\mathcal{Q} \\to \\Delta(\\mathcal{A})$ is a randomized readout into the simplex over answers. On input $x = (x_1, \\dots, x_T) \\in \\mathcal{X}^T$ the state evolves by the online recursion\n$$s_t = \\delta(s_{t-1}, x_t), \\qquad t = 1, \\dots, T,$$\nand the model answers a query $q$ by sampling from $\\rho(s_T, q)$. Two axioms constrain the class: Causality (the state $s_t$ is a deterministic function of $(s_0, x_1, \\dots, x_t)$ alone, hence conditionally independent of the future given the past), and Numerical Stability ($\\delta$ is $L$-Lipschitz, $\\lVert …"
+  },
+  {
+   "title": "On Computational Hardness of Mistake-Bounded Language Generation: A Random-Oracle Query Separation",
+   "authors": [
+    "Xiaoyu Li",
+    "Andi Han",
+    "Dai Shi",
+    "Jiaojiao Jiang",
+    "Junbin Gao"
+   ],
+   "year": "2026",
+   "url": "https://arxiv.org/abs/2608.05029",
+   "zotero_key": "PF2942SC",
+   "note_key": "UHIZMKGA",
+   "digest": "Setting and problem \n The backdrop is the language-generation-in-the-limit model of Kleinberg and Mullainathan [KM24], which is best understood as a deliberate weakening of Gold-style identification. Fix a countable collection $\\mathcal{L} = \\{L_1, L_2, \\dots\\}$ of languages over a countable universe $\\mathcal{X}$. An adversary secretly selects a target $L^\\star \\in \\mathcal{L}$ and a complete, distinct enumeration $\\sigma = (x_1, x_2, \\dots)$ of it — complete meaning every element of $L^\\star$ appears eventually, distinct meaning no repeats. At each round $t$ the adversary reveals $x_t$, and the generator, having seen only the prefix $(x_1, \\dots, x_t)$, must emit a string $a_t$. The generator is not asked to name $L^\\star$ (that is identification, and it is impossible for even mildly rich families from positive data alone [Gol67, Ang80]); it is asked only to produce a valid unseen element. Formally $a_t$ is a mistake if $a_t \\notin L^\\star \\setminus \\{x_1, \\dots, x_t\\}$ — i.e. if it is either not in the target at all, or is a stale string already revealed. Generation in the limit asks only that mistakes cease after some finite round. KM24's striking theorem is that this is always achievable when every $L \\in \\mathcal{L}$ is infinite, for every countable $\\mathcal{L}$ and every enumeration — with no computational restriction whatsoever on the search for $a_t$.\n\n\n This paper …"
+  }
+ ],
+ "researchers": [],
+ "papers": [
+  {
+   "title": "Provable Cross-Modal Transfer of Hierarchical Concept Structure in CLIP Embeddings",
+   "authors": [
+    "Nghia Nguyen",
+    "Tianjiao Ding",
+    "Lachlan Ewen MacDonald",
+    "René Vidal"
+   ],
+   "categories": [
+    "cs.CV",
+    "cs.LG"
+   ],
+   "comments": "NeurIPS 2026",
+   "abstract": "Contrastive vision-language models such as CLIP are trained to align images and text, not to represent taxonomies. Yet empirical studies show that CLIP embeddings exhibit hierarchical structure aligned with the hierarchy of semantic concepts. A theoretical characterization of why such hierarchy emerges from a non-hierarchical objective remains open. In this paper, we formalize this phenomenon as Hierarchical Angular Separation (HAS), a geometric property whereby each non-leaf concept embedding is more similar to its descendants than to off-branch concepts. Empirically, we show that HAS holds approximately in raw images and randomly initialized CLIP image embeddings, while in text embeddings it holds approximately only after contrastive learning. To theoretically explain this asymmetry, we analyze an unconstrained features model in which the image embeddings are fixed and only the text embeddings are trained. At the global minimizer, the text-side HAS violation percentage at each node is at most the image-side HAS violation and near-violation percentage. The key mechanism is the hierarchical co-occurrence structure of image-text pairs, which biases text embeddings toward root-centered image prototypes. For a linear contrastive loss, we derive a closed-form solution that makes this mechanism explicit. We extend the analysis to the InfoNCE loss and establish analogous guarantees under sufficient regularization. Synthetic experiments validate the theory and show that HAS is transferred even beyond the regimes covered by our analysis.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.17671",
+   "tier": "core",
+   "tags": [
+    "embeddings",
+    "learning theory"
+   ],
+   "venue": "NeurIPS 2026",
+   "summary": "Defines Hierarchical Angular Separation (a parent concept embedding is closer to its descendants than to off-branch concepts) and analyses an unconstrained-features model with fixed image embeddings and trained text embeddings. At the global minimizer, text-side HAS violations are bounded by image-side violations; the driver is the hierarchical co-occurrence of image-text pairs, which pulls text embeddings toward root-centred image prototypes. Closed form for a linear contrastive loss, analogous guarantees for InfoNCE with enough regularization.",
+   "why": "A clean solvable model of how a flat contrastive objective induces tree geometry in embeddings, close to how a GR model might come to encode the docid hierarchy.",
+   "ideas": [
+    1
+   ],
+   "zotero": "error"
+  },
+  {
+   "title": "Classification with Large-Step Gradient Descent: Unifying Self-Stabilization and Convergence Rates",
+   "authors": [
+    "Salma Tarmoun",
+    "Lachlan Ewen MacDonald",
+    "Konstantinos Emmanouilidis",
+    "Ziqing Xu",
+    "René Vidal"
+   ],
+   "categories": [
+    "cs.LG",
+    "math.OC"
+   ],
+   "comments": "",
+   "abstract": "Neural networks are often trained with gradient descent (GD) using step sizes that exceed classical stability thresholds, a regime where standard convergence theory no longer applies. Despite exhibiting non-monotonic loss and oscillatory dynamics, this regime frequently leads to faster convergence and better generalization. Existing theoretical perspectives offer complementary but incomplete insights: one identifies a self-stabilization mechanism that drives GD toward flat regions but does not yield convergence rates; another derives rigorous rates for specific losses but does not explain the underlying stabilization mechanism; and a third unifies these views for overparameterized least squares, but relies on the existence of a minimizer manifold, which is absent in classification settings. In this work, we extend this unified geometric perspective to exponential-tail losses, including logistic and cross-entropy losses in separable linear classification, where the loss infimum is not attained at any finite parameter. We identify a curvature-defined reference subspace that replaces the role of the minimizer manifold, yielding a coupled dynamical system in which orthogonal oscillations are damped by parallel progress along directions of decreasing sharpness. Under regularity conditions, which we verify for logistic and multiclass cross-entropy losses on symmetric data models, we derive explicit bounds for the iterates, not just the loss, covering both the unstable and stable regimes, and revealing a three-phase damping structure in the latter. Our analysis further uncovers a transient implicit bias induced by large step sizes: although GD converges asymptotically to the max-margin direction, large steps can leave persistent orthogonal residuals and, in certain geometries, amplify them, affecting finite-time alignment with the max-margin direction.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.17459",
+   "tier": "interesting",
+   "tags": [
+    "optimization",
+    "training dynamics",
+    "extracurricular"
+   ],
+   "venue": "",
+   "summary": "Extends the self-stabilization view of large-step GD from least squares to separable linear classification with logistic and multiclass cross-entropy, where no finite minimizer exists. A curvature-defined reference subspace replaces the minimizer manifold, giving iterate bounds in both unstable and stable regimes (three-phase damping). Large steps leave orthogonal residuals that can delay alignment with the max-margin direction.",
+   "why": "Learning dynamics of multiclass softmax regression with explicit iterate bounds, directly in the toolbox of the GR-memorization paper.",
+   "ideas": [
+    1
+   ]
+  },
+  {
+   "title": "Offline KL-Regularized Reinforcement Learning with Stochastic Transitions",
+   "authors": [
+    "Andrew Liu"
+   ],
+   "categories": [
+    "cs.LG"
+   ],
+   "comments": "",
+   "abstract": "KL-regularized reinforcement learning is the objective behind RL fine-tuning of language models, and its data are often collected by the reference policy itself. However, beyond bandits and deterministic transitions, little is known about how much offline data it needs. In this work, we study finite discounted Markov decision processes with unknown stochastic transitions, $K$ state-action pairs and effective horizon $H$. For data that cover the regularized optimum with concentrability $C\\geq 4$, every estimator needs $\\Omega(KCH^3/(\\epsilon\\max\\{\\epsilon,\\beta\\}))$ samples on some instances when $\\epsilon$ is small, where $\\beta$ is the temperature. Under a fixed design, pessimistic soft value iteration with a variance-aware penalty attains this rate with high probability, up to logarithmic factors, when $\\beta\\geq 1.4H$. When the data come from the reference policy itself, we show that it covers the optimum up to a power law whose exponent grows as $H/\\beta$; in the same temperature range, this power law alone gives the estimator a sample complexity polynomial in $1/\\epsilon$, with no coverage assumption. For $\\beta\\geq H$ the power can also increase the sample size needed by a factor polynomial in $1/\\epsilon$. Finally, the plug-in estimator, which is minimax optimal with a generative model, can fail on reference data at small temperatures when many actions are rarely seen, while the pessimistic estimator does not.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.17603",
+   "tier": "interesting",
+   "tags": [
+    "post-training & RL",
+    "learning theory"
+   ],
+   "venue": "",
+   "summary": "Sample complexity of offline KL-regularized RL in finite discounted MDPs with stochastic transitions: a lower bound Omega(KCH^3/(eps*max(eps,beta))) under concentrability C, matched by pessimistic soft value iteration when beta >= 1.4H. Data from the reference policy itself cover the regularized optimum up to a power law in H/beta, so no coverage assumption is needed; the plug-in estimator can fail at small temperature.",
+   "why": "Sharp rates for the objective behind RL fine-tuning, including the case where data come from the reference policy.",
+   "ideas": []
+  },
+  {
+   "title": "Delayed Effects of Temporary Weight Decay in Muon Pretraining",
+   "authors": [
+    "Md Rifat Arefin",
+    "Ravid Shwartz-Ziv",
+    "Ernie Chang",
+    "Chinnadhurai Sankar",
+    "Rylan Conway",
+    "Aristide Baratin",
+    "Irina Rish",
+    "Adithya Sagar",
+    "Patrick Huber"
+   ],
+   "categories": [
+    "cs.LG",
+    "cs.CL"
+   ],
+   "comments": "",
+   "abstract": "A temporary optimization intervention can increase validation loss when it ends yet reduce it at the final training budget. We demonstrate this with temporary weight decay in Muon-trained decoder-only Transformers with 162M, 405M, 1.4B, and 3.4B parameters. For models up to 1.4B parameters, moving a fixed-duration decay window from early to late training reverses its final effect. At 162M, changing window duration alters final loss even at approximately matched total shrinkage. Most strikingly, a schedule selected at 162M and transferred without retuning to 1.4B is 0.26 nats worse than no decay when removed, overtakes it only after 73% of training, and ultimately finishes 0.028 nats better while also outperforming the best sampled constant-decay baseline. Early decay leaves a persistent weight-norm deficit, which keeps relative steps larger after the intervention ends. An approximate norm-dynamics recurrence captures the slow convergence of these relative steps, and fixed-norm replays of the measured trajectories reproduce the performance ordering and a similar loss difference. At 162M and 405M, norm-reset experiments show that smaller weight norms at the end of the decay window explain most of the final loss improvement. A separate Gram intervention exhibits related post-removal norm and relative-step dynamics. These results show that temporary optimization schedules can have delayed effects long after removal and should therefore be evaluated at the intended final training budget, not only at removal.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.17876",
+   "tier": "interesting",
+   "tags": [
+    "training dynamics",
+    "phenomena"
+   ],
+   "venue": "",
+   "summary": "In Muon-trained decoder-only transformers (162M to 3.4B), a temporary weight-decay window can raise validation loss when removed yet lower final loss; moving the window from early to late reverses its effect. The mechanism is a persistent weight-norm deficit that keeps relative step sizes larger, captured by an approximate norm-dynamics recurrence and fixed-norm replays.",
+   "why": "Controlled phenomenon with a simple norm-dynamics explanation that a theorist could model.",
+   "ideas": []
+  },
+  {
+   "title": "Deep Latents, Long Memory: Latent persistence explains temporal correlations in transformer activations",
+   "authors": [
+    "Francesco Cagnetta",
+    "Santiago Acevedo"
+   ],
+   "categories": [
+    "cs.LG",
+    "cs.CL"
+   ],
+   "comments": "",
+   "abstract": "The hidden layers of Large Language Models (LLMs) are believed to encode representations of the data whose abstraction increases with depth. However, in the absence of an operational notion of abstraction, this statement is hard to test quantitatively. Here, we propose an alternative view, building on the principle that the correlations of a sequence reflect the structure of the process that generated it. We define the autocorrelation function of a layer as the average dot product between its activations at two context positions separated by a lag. Latent variables encoded persistently along the context create slowly decaying tails in the autocorrelation, and we find these tails to grow across layers in both synthetic and natural data. In synthetic data with controlled hierarchical latent structure, this growth stems from the encoding of abstract latent variables, which govern long stretches of the input. Indeed, the persistence of latent codes predicts the qualitative structure of autocorrelations and accounts for most of the empirical measures. In real text, we take sparse-autoencoder features as proxies for latent variables, and find that their persistence correlates strongly with the magnitude of autocorrelations across datasets and LLMs. In particular, the persistence time increases with depth, as do autocorrelations, implying that deeper latent features persist for longer context spans. We complement this analysis by explicitly ablating the persistent sparse-autoencoder features and observing a consequent decrease in the autocorrelations.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.18089",
+   "tier": "interesting",
+   "tags": [
+    "phenomena",
+    "interpretability"
+   ],
+   "venue": "",
+   "summary": "Measures per-layer autocorrelation of activations across context positions; slowly decaying tails grow with depth. In synthetic data with hierarchical latent structure this comes from encoding persistent abstract latents; in LLMs, SAE-feature persistence time grows with depth and tracks the autocorrelation, and ablating persistent features lowers it.",
+   "why": "Operational, testable notion of abstraction-with-depth tied to hierarchical generative models (Cagnetta, random-hierarchy-model line).",
+   "ideas": []
+  },
+  {
+   "title": "From Local Prediction Error to Final Outputs: A Theory of Expert Sharing in Multi-Step Reasoning",
+   "authors": [
+    "Tiantong Wang",
+    "Zhiren Gong",
+    "Yixin Wang",
+    "Tiantong Wu",
+    "Wei Yang Bryan Lim"
+   ],
+   "categories": [
+    "cs.LG",
+    "cs.AI"
+   ],
+   "comments": "96 pages, 3 figures, 28 tables",
+   "abstract": "Mixture-of-experts (MoE) models can share experts across layers or computational steps, pooling training information from different contexts. This can reduce local prediction error, but multi-step systems are ultimately evaluated by their final outputs. We study when these local gains survive composition. In specified linear regression models, we derive exact sharing and merging criteria by balancing variance savings against bias from sharing across roles with different target behavior. Under a common fixed linear propagation map, we characterize expected squared final-output risk, retaining error directions and correlations. We construct cases where sharing lowers average local error yet increases final-output error. Within this setting, we also identify when orthogonal full pooling with isotropic noise preserves every local improvement at the final output. For general routed computations, we derive conditional end-to-end error bounds that account for distribution shifts, errors in surrounding components, and changes in expert selection. Separately, we show that correct predictions and route labels alone do not establish that individual experts implement the attributed operations. Controlled experiments realize a strict local-to-final risk reversal. In low-data symbolic settings, trained Transformers exhibit statistically supported teacher-forced one-step gains without statistically resolved free-running final-output gains. Separate intervention tests distinguish successful multi-layer actions from single-expert attribution and generalization to unseen transitions. Together, these results distinguish when sharing improves local estimation, when those gains survive to the final output, and what evidence is needed to attribute reusable operations to individual experts.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.17879",
+   "tier": "interesting",
+   "tags": [
+    "learning theory",
+    "architectures"
+   ],
+   "venue": "",
+   "summary": "When does sharing MoE experts across steps help the final output, not just local error? In linear regression models it derives exact sharing/merging criteria (variance saved vs bias across roles) and builds cases where sharing lowers local error but raises final-output error; gives end-to-end bounds for routed computations and shows correct routes do not certify that an expert implements the attributed operation.",
+   "why": "Clean local-to-final risk reversal for multi-step composition; relevant to how errors propagate through step-wise decoding.",
+   "ideas": []
+  },
+  {
+   "title": "Adversarially Batched Online Learning",
+   "authors": [
+    "Mingda Qiao",
+    "Kerui Wu"
+   ],
+   "categories": [
+    "cs.LG",
+    "cs.DS"
+   ],
+   "comments": "",
+   "abstract": "We introduce adversarially batched online learning, where the learner may update its decision rule only at a restricted set of time steps. Equivalently, the time horizon is partitioned into batches, within which the learner must use a fixed policy. We study this model for four canonical problems: stochastic bandits, online convex optimization, prediction with expert advice, and adversarial bandits. For stochastic bandits, we identify a universal complexity measure based on relative batch growth and establish both gap-dependent and gap-independent regret bounds. We show that the multiplicative penalty relative to the standard gap-dependent complexity can grow superlinearly in batch hardness. For the remaining three, we show that the optimal regret is tightly characterized by the 2-norm of the batch-length sequence. The upper bound is achieved by a batch-oblivious learner who does not know the batch structure, via a generic adaptive doubling trick tailored to this complexity measure. In contrast, the lower bound holds even for batch-aware learners.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.17500",
+   "tier": "interesting",
+   "tags": [
+    "learning theory",
+    "extracurricular"
+   ],
+   "venue": "",
+   "summary": "Online learning where the learner may only update at adversarially chosen batch boundaries. For OCO, experts and adversarial bandits the optimal regret is characterized by the 2-norm of the batch-length sequence, achieved by a batch-oblivious adaptive doubling trick; stochastic bandits get a relative-batch-growth complexity measure with gap-dependent and gap-independent bounds.",
+   "why": "Clean question with a tight one-parameter answer.",
+   "ideas": []
+  },
+  {
+   "title": "Muon Attains $\\mathcal{O}(\\varepsilon^{-3})$ Iteration Complexity under Shuffling",
+   "authors": [
+    "Kun Huang",
+    "Shi Pu",
+    "Karl Henrik Johansson"
+   ],
+   "categories": [
+    "math.OC",
+    "cs.LG"
+   ],
+   "comments": "25 pages, 14 figures",
+   "abstract": "Muon is a stochastic first-order optimizer for matrix-valued parameters. It maintains an exponential moving average of stochastic gradients in a momentum buffer with coefficient $\\beta$, and orthogonalizes the buffer to obtain the update direction. Muon has been reported to accelerate and stabilize the training of large language models. In practice, it is often used with shuffling (sampling without replacement), where each epoch visits the components of a finite-sum objective in a permuted order. However, its iteration complexity in this setting remains open. We analyze Muon under shuffling, with the momentum buffer orthogonalized by the polar map. For smooth nonconvex finite-sum problems, we establish an $\\mathcal{O}(\\varepsilon^{-3})$ iteration complexity for finding an $\\varepsilon$-stationary point. This guarantee holds for every sequence of permutations, covering random reshuffling, shuffle once, and the incremental gradient method. This complexity matches that of stochastic gradient descent under shuffling in its dependence on $\\varepsilon$, and improves on Muon's $\\mathcal{O}(\\varepsilon^{-4})$ complexity under sampling with replacement. Our guarantee requires a problem-dependent $\\beta$ that approaches one as the number of components grows. In contrast, no fixed $\\beta$ guarantees convergence to stationarity for every number of components. We show this by constructing a family of smooth convex problems on which, for any fixed $\\beta\\in[0,1)$, Muon remains bounded away from stationarity once the number of components is sufficiently large. This failure occurs for every sequence of permutations and persists even with small stepsizes. These results suggest two practical tuning rules: if the training loss stops decreasing even after reducing the stepsize, increase $\\beta$; when increasing $\\beta$, reduce the stepsize accordingly.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.18124",
+   "tier": "interesting",
+   "tags": [
+    "optimization",
+    "extracurricular"
+   ],
+   "venue": "",
+   "summary": "Muon with polar-map orthogonalization under any shuffling scheme reaches an eps-stationary point in O(eps^-3) iterations on smooth nonconvex finite sums, matching shuffled SGD and improving on O(eps^-4) with replacement, provided beta tends to 1 with the number of components. For any fixed beta there are smooth convex problems where Muon stays away from stationarity.",
+   "why": "Sharp upper bound plus a matching failure construction for a widely used LM optimizer.",
+   "ideas": []
+  },
+  {
+   "title": "Analyzing Learning-Dynamics Across Loss and Prediction Choices for Diffusion Models",
+   "authors": [
+    "Dongwoo Kim"
+   ],
+   "categories": [
+    "cs.LG"
+   ],
+   "comments": "NuerIPS2026",
+   "abstract": "Denoising generative models predict clean data ($x$), noise ($\\epsilon$), or velocity ($v$), while training losses can be measured in any of these spaces. Although the resulting nine combinations are algebraically related, they can yield substantially different denoising accuracy and sample quality. We disentangle the effects of prediction and loss spaces. For a fixed prediction target, we show that changing the loss space is exactly equivalent to timestep reweighting and provide a heuristic analysis of how this reweighting affects generation quality. We then show that a rank-$m$ linear bottleneck compressing a $D$-dimensional noisy input imposes an irreducible squared-error floor of $D-m$ on noise and velocity prediction, whereas clean-data prediction can exploit low-dimensional data structure. Combining this bound with prediction-dependent error conversion yields distinct necessary conditions on bottleneck capacity. Experiments with U-Net and JiT across CIFAR-10, Imagenette, and ImageNet-256 support these theoretical predictions. Under compression, prediction choice strongly affects both denoising accuracy and sample quality, with noise-prediction errors closely matching the theoretical lower bound. Our results provide a quantitative understanding of how architectural bottlenecks interact with prediction and loss choices in denoising generative models.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.17967",
+   "tier": "interesting",
+   "tags": [
+    "training dynamics",
+    "extracurricular"
+   ],
+   "venue": "NeurIPS 2026",
+   "summary": "For denoisers, changing the loss space at fixed prediction target is exactly a timestep reweighting. A rank-m linear bottleneck on a D-dimensional input forces an irreducible error floor D-m for noise and velocity prediction, while x-prediction can exploit low-dimensional data; experiments on U-Net/JiT match the bound.",
+   "why": "Short, sharp capacity argument about prediction targets in diffusion models.",
+   "ideas": []
+  },
+  {
+   "title": "The Polyak-{\\L}ojasiewicz Paper: A 10-Year Retrospective",
+   "authors": [
+    "Hamed Karimi",
+    "Julie Nutini",
+    "Mark Schmidt"
+   ],
+   "categories": [
+    "math.OC",
+    "cs.LG",
+    "stat.ML"
+   ],
+   "comments": "20 pages, 6 figures",
+   "abstract": "In 2016, we wrote a paper introducing the phrase \"Polyak-Lojasiewicz (PL) condition\" for an old idea, unsure of how readers would react. The paper ultimately had a larger impact than we expected, and we are surprised and honoured to receive the 2026 PKDD ECML Test of Time Award. With 10 years of hindsight, this note offers an informal and candid retrospective on the PL condition. We take a look back at the origins of the paper, give an AI-assisted refined version of the main theorem, review criticisms of the work, and discuss a variety of related ideas and extensions.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.17745",
+   "tier": "interesting",
+   "tags": [
+    "optimization",
+    "extracurricular"
+   ],
+   "venue": "",
+   "summary": "The authors of the 2016 PL-condition paper look back after its ECML-PKDD test-of-time award: origins, a refined main theorem, criticisms, and extensions.",
+   "why": "Readable retrospective on a tool used throughout training-dynamics proofs.",
+   "ideas": []
+  },
+  {
+   "title": "Neural Classifiers as Error-Correcting Codes",
+   "authors": [
+    "Sergey Salishev",
+    "Anton Makarov",
+    "Oleg Granichin",
+    "Renata Avros",
+    "Zeev Volkovich"
+   ],
+   "categories": [
+    "cs.LG",
+    "cs.IT",
+    "math.IT"
+   ],
+   "comments": "40 pages, 6 figures. Submitted version. Published in Information Sciences 766 (2027) 124394",
+   "abstract": "A unified framework is proposed that characterizes supervised deep classification as the decoding of error-correcting codes in the Shannon sense. Cross-entropy optimization is shown to align softmax classifiers with maximum-likelihood decoding, where logits map to Hamming distances to class-specific codewords. This correspondence explains the emergence of standard divergence objectives (e.g., Kullback-Leibler, Jeffreys) and provides a geometric basis for the stability of decision boundaries. Furthermore, the geometries of Neural Collapse and LeJEPA are identified as optimal constellations for decoding under isotropic noise. Unlike classical Error-Correcting Output Codes, deep networks are shown to learn effective codebooks in the feature space implicitly. This insight is leveraged to derive novel criteria for lossless quantization, improved knowledge distillation, and architectural regularization based on code redundancy. Finally, this perspective is extended to self-supervised encoders, offering a cohesive explanation for the geometry of latent representations in modern neural models.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.18239",
+   "tier": "interesting",
+   "tags": [
+    "learning theory",
+    "embeddings"
+   ],
+   "venue": "",
+   "summary": "Frames softmax classification as maximum-likelihood decoding of an error-correcting code: cross-entropy aligns logits with Hamming distances to learned class codewords, and neural-collapse geometry is an optimal constellation under isotropic noise. Derives criteria for lossless quantization and distillation from code redundancy.",
+   "why": "Coding-theory lens on classifier heads; conceptual rather than sharp.",
+   "ideas": [
+    1
+   ]
+  },
+  {
+   "title": "Contrastive latent representation learning with denoising score matching",
+   "authors": [
+    "Christopher Marouani",
+    "Grigory Bartosh",
+    "Christian A. Naesseth"
+   ],
+   "categories": [
+    "stat.ML",
+    "cs.LG"
+   ],
+   "comments": "20 pages, 2 figures, 12 tables. Code: https://github.com/chris-mrn/ScoreCLR_code",
+   "abstract": "Contrastive representation learning methods operate by pulling different views of the same data sample together while pushing them away from views of different samples. A fundamental challenge is the estimation of the repulsive force, which typically requires large batch sizes, can exhibit high variance, and is susceptible to the curse of dimensionality. We introduce ScoreCLR, a contrastive representation learning method that offers a novel way to estimate this repulsion term. We consider the framework of representation learning by maximizing the mutual information between two latent views of a sample. By deriving the gradient of the Shannon entropy with respect to the encoder parameters, we obtain an equivalent objective that involves the score of the latent representation. We then use denoising score matching techniques to estimate this score with a lightweight network that is trained jointly with the encoder. We further propose regularization techniques using different noise levels and a Gaussian prior on the latent representation. ScoreCLR replaces the batch of explicit negative samples in contrastive methods with a learned repulsion whose cost is linear in the batch size rather than quadratic. On CIFAR-10 and ImageNet-100 it does so with minimal loss of linear-probe accuracy compared to SimCLR under a shared recipe, while producing projector outputs of higher effective rank, closer to the Gaussian prior.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.18469",
+   "tier": "aware",
+   "tags": [
+    "embeddings"
+   ],
+   "venue": "",
+   "summary": "ScoreCLR replaces the explicit negatives in contrastive learning with a learned repulsion: the entropy gradient is written via the score of the latent distribution, estimated by denoising score matching with a small network. Cost linear in batch size; near-SimCLR linear-probe accuracy with higher effective rank.",
+   "ideas": [
+    1
+   ]
+  },
+  {
+   "title": "Tight Bounds for k-Median++ and Improved Bounds for k-Means++",
+   "authors": [
+    "Haim Kaplan",
+    "David Naori"
+   ],
+   "categories": [
+    "cs.DS"
+   ],
+   "comments": "46 pages, 2 figures",
+   "abstract": "The popular $k$-means++ algorithm, or $D^\\ell$-sampling, is a fundamental primitive in both the theory and practice of clustering. In the bi-criteria setting, the algorithm samples $k+\\Delta$ centers ($\\Delta\\ge0$), and its cost is compared with the optimum using $k$ centers. Despite extensive study over the past two decades, its exact approximation ratio and tight bi-criteria guarantees remain unknown. We give a unified analysis for every distance exponent $\\ell>0$, every $k\\ge1$, and every $\\Delta\\ge0$. For metric $k$-median, our bounds are tight for all $k$ and $\\Delta$. Without extra centers, the exact approximation ratio is $2(1+H_{k-1})$ (also in Euclidean space), improving the previous upper bound by a factor of $2$ ($H_j$ denotes the $j$th harmonic number). This tight analysis reveals that even one extra center improves the approximation ratio by an additive $\\Theta(\\log\\log k)$, whereas previous bounds show no improvement. For every $\\ell>0$, our analysis gives upper bounds with the same dependence on $k$ and $\\Delta$ as our tight bound for metric $k$-median, with leading constants depending only on $\\ell$ and whether the metric is Euclidean. Beyond the improved dependence on $\\Delta$, our leading constants are smaller than those in previous analyses. In particular, for the widely used Euclidean $k$-means objective, our upper bound without extra centers is $(1+\\varphi)(1+H_{k-1})$, where $\\varphi\\approx1.618$ is the golden ratio, improving upon the previous constant of $5$. With oversampling, a constant fraction of extra centers is known to provide a constant-factor approximation. For example, with $10\\%$ extra centers, our guarantee is $5.7$, compared with the best previous guarantee of $25.9$.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.18544",
+   "tier": "aware",
+   "tags": [
+    "vector search"
+   ],
+   "venue": "",
+   "summary": "Tight analysis of k-means++ / D^l sampling: exact ratio 2(1+H_{k-1}) for k-median, (1+phi)(1+H_{k-1}) for Euclidean k-means (was 5), and sharper bi-criteria bounds (10% extra centres gives 5.7).",
+   "ideas": [
+    1
+   ]
+  },
+  {
+   "title": "Small Is Not Dead: Distance-Aware Cluster Revival for e-means",
+   "authors": [
+    "Eyal Weiss"
+   ],
+   "categories": [
+    "cs.LG",
+    "stat.ML"
+   ],
+   "comments": "",
+   "abstract": "e-means (Bessa et al., 2026) is a recent mini-batch k-means algorithm, now part of the FAISS library, that reaches the error of Lloyd's algorithm about an order of magnitude faster on large embedding datasets. Every five mini-batches, it removes every cluster whose running point count falls below a tenth of the average and reuses its centre to split a large cluster. In the authors' ablation, removing this mechanism, called dead-cluster revival, raises the error more than removing any other component added to the moving-average update. The rule, however, considers only cluster size: it cannot distinguish a cluster that is small because it is redundant from one that covers a rare, isolated group of points, and on data with such groups it repeatedly removes centres whose removal is costly. We add a second condition, based on the distance between centres: a small cluster is removed only if its centre is close to another centre, relative to a running estimate of the mean squared error. When a centre equals the mean of its points, this squared distance is an upper bound on the average increase in squared error, per point of the cluster, caused by removing the centre. The condition costs one nearest-centre search for the small clusters every five mini-batches and adds no measurable running time. On the e-means paper's embedding benchmarks, it never prevents a removal, so the results are identical to those of FAISS. On datasets with small isolated groups not used during development, it reduces the test error after two epochs by roughly 10% to 80% relative to count-based revival, and it preserves the advantage of k-means++ initialization; on the other evaluation datasets, it stays within about 1% of the better of revival enabled and disabled. We also report two failure modes that the analysis predicts. This is a CPU proof of concept; GPU implementations are left to future work.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.18238",
+   "tier": "aware",
+   "tags": [
+    "vector search"
+   ],
+   "venue": "",
+   "summary": "Adds a centre-distance condition to the dead-cluster revival of e-means (mini-batch k-means in FAISS), so small but isolated clusters are not removed; identical on the original embedding benchmarks, 10-80% lower error on data with rare isolated groups.",
+   "ideas": []
+  },
+  {
+   "title": "WETW: Learning Pair-Specific Weighted Euclidean Distances for Efficient DTW Search",
+   "authors": [
+    "Christos Panourgias",
+    "Qitong Wang",
+    "George Tzagkarakis",
+    "Themis Palpanas"
+   ],
+   "categories": [
+    "cs.LG",
+    "cs.AI"
+   ],
+   "comments": "",
+   "abstract": "Dynamic Time Warping (DTW) is the standard distance for similarity search over time series that are misaligned in time, but its cost is quadratic in the series length and lower bounds often prune few candidates, so search over large collections of long series is slow. Learned approximations embed the series to make comparisons cheap, yet compare every pair with the same fixed rule, usually the Euclidean distance, although DTW aligns each pair differently. We observe that, once a pair is aligned, DTW is a Euclidean distance over coordinates selected for that pair. Building on this view, we propose Weighted Euclidean Time Warping (WETW), a learned distance that adapts the comparison of fixed-length embeddings to each pair. A small symmetric network predicts one weight per embedding di- mension and pair without computing an alignment, which halves the error of the best static distance on the same embeddings. The embeddings come from the Weighted Euclidean SEries Encoder (WESEE), whose multi-scale Temporal Feature Extractor keeps the timing information that global pooling removes and raises recall@1 from 0.90 to 0.95, although WETW works with any encoder. We also show that fitting DTW distances is not enough for search, as regression alone misorders the closest neighbours, and that ranking regularization raises recall@1 from 0.79 to 0.95. Our filter-and-verify pipeline, WETW-FV, uses WETW to build a shortlist and exact DTW to check it, so the search is approximate but every returned distance is exact. Over eight datasets, WETW-FV is 11.4x faster than the fastest exact method among the UCR Suite, lower bounds and MESSI-DTW, at a mean recall@10 of 0.93, while the best learned baseline reaches 0.59 at the same speed. On 48K-point series, WETW- FV remains 40x faster than the UCR Suite at a recall@10 of 0.91.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.17412",
+   "tier": "aware",
+   "tags": [
+    "vector search"
+   ],
+   "venue": "",
+   "summary": "Learned pair-specific weighted Euclidean distance approximating DTW for time-series similarity search, used as a filter before exact DTW verification; 11x faster than the fastest exact method at recall@10 0.93. Notes that regression to DTW distances alone misorders nearest neighbours without a ranking regularizer.",
+   "ideas": []
+  },
+  {
+   "title": "StreamEmbed: Real-Time Indexing from Pixels for Screenshot Retrieval",
+   "authors": [
+    "Dayoon Ko",
+    "Yichuan Wang",
+    "Soyeong Jeong",
+    "Joseph E. Gonzalez",
+    "Gunhee Kim",
+    "Sewon Min"
+   ],
+   "categories": [
+    "cs.CV",
+    "cs.IR",
+    "cs.LG"
+   ],
+   "comments": "",
+   "abstract": "Screen history can serve as searchable visual memory for people and agents, but unlike an offline corpus, it must be encoded and indexed as each screenshot arrives. OCR-based indexing is fast but loses visual information; visual encoding takes over two seconds. Yet screens change incrementally: most pixels repeat within and across screenshots. This raises a question: do visual encoders need to recompute their representations from scratch for every new screenshot? We present StreamEmbed, a system for incremental visual embedding that exploits this redundancy. Guided solely by pixel differences, it combines spatial token pruning, which skips blocks that repeat a neighbor, with temporal KV reuse, which reuses cached keys and values for blocks unchanged across screenshots. A small learned adapter compensates for pruning and reuse to preserve fidelity to full-screenshot embeddings. On ScreenMemEval, our benchmark of 10,426 questions over 184 hours of screen histories from two humans and a computer-use agent, StreamEmbed sets a new accuracy-latency Pareto frontier on an M2 Pro GPU: it encodes up to 3.7x faster than full-screenshot encoding without sacrificing accuracy and improves accuracy over OCR-based indexing by up to 6.3 Recall@10 points at matched latency. A memory-efficient vector index stores a simulated year of screenshots in 0.13 GB of RAM. Together, these results make real-time indexing of screen history in its native visual form practical, laying a foundation for fully local visual assistants.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.18516",
+   "tier": "aware",
+   "tags": [
+    "retrieval",
+    "embeddings"
+   ],
+   "venue": "",
+   "summary": "Incremental visual embedding for screenshot streams (token pruning plus KV reuse for unchanged blocks) with a benchmark of 10k questions over 184 hours of screen history; up to 3.7x faster encoding than full screenshots at equal accuracy.",
+   "ideas": []
+  },
+  {
+   "title": "RecMem: Recurrent Memory Compression for Long-Sequence Generative Recommendation",
+   "authors": [
+    "Haoyi Hu",
+    "Gaoyang Guo",
+    "Yunjia Xi",
+    "Wen Chen",
+    "Weiwen Liu",
+    "Jian Wu",
+    "Yuning Jiang",
+    "Weinan Zhang"
+   ],
+   "categories": [
+    "cs.AI",
+    "cs.IR"
+   ],
+   "comments": "Accepted at NeurIPS 2026",
+   "abstract": "Generative recommendation benefits from long interaction histories, but the cost of processing them directly grows with history length. We propose RecMem, a recurrent memory compression framework guided by three desiderata: space invariance, semantic fidelity, and lifelong evolvability. RecMem compresses historical segments into a fixed set of memory slots using a bifurcated encoder-decoder with shared lower layers and slot-wise forget-gated updates. Recommendation supervision trains the memory to preserve predictive information, while stream-consistency training aligns predictions from sequential and packed processing. By construction, the memory state and decoder context are independent of history length; under contraction and approximate semigroup consistency, we further derive a horizon-independent bound on the state discrepancy between these two processing orders. On MerRec, RecMem uses 16 memory slots and a 216-token decoder context, compared with 1,200 tokens for HSTU-1200, while retaining 87.9% of HSTU-1200's Recall@10 and 97.0% of its Recall@200. It outperforms PHSTU and the evaluated recent-only and retrieval baselines, and analyses of distant history show that archived interactions contribute predictive signal.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.17921",
+   "tier": "aware",
+   "tags": [
+    "generative retrieval",
+    "recommendation"
+   ],
+   "venue": "NeurIPS 2026",
+   "summary": "Compresses long user histories for generative recommendation into a fixed set of memory slots with forget-gated updates; keeps 87.9% of HSTU-1200's Recall@10 with a 216-token context, with a horizon-independent bound on the discrepancy between sequential and packed processing.",
+   "ideas": []
+  },
+  {
+   "title": "RACE: Ranking-Uncertainty Aware Capacity-Adaptive Customization for Efficient Sequential Recommendation",
+   "authors": [
+    "Tianqi Liu",
+    "Kaipu Sun",
+    "Kairui Fu",
+    "Wenkai Wang",
+    "Sihao Liu",
+    "Hui Zang",
+    "Ran Chen",
+    "Tao Wang",
+    "Shengyu Zhang"
+   ],
+   "categories": [
+    "cs.IR",
+    "cs.AI"
+   ],
+   "comments": "Accepted by WSDM 2027 (Main Conference)",
+   "abstract": "Efficient sequential recommendation has emerged as a promising paradigm for providing real-time personalized service. To deploy models under resource-constrained environment, model compression becomes a necessity, yet existing methods typically apply uniform compression ratios, overlooking the heterogeneity in user intent complexity. This \"one-size-fits-all\" approach leads to a fundamental Capacity-Complexity Mismatch, where computational resources are either wasted on simple instances or insufficient for complex ones. To address this, we propose RACE (Ranking-uncertainty Aware Capacity-Adaptive Customization for Efficient Sequential Recommendation), a framework that dynamically adapts both model structures and input sequences with uncertainty-aware compression ratios. To ensure capacity-adaptive inference, RACE captures the model's intrinsic uncertainty of its predictions and transforms it into a proactive resource allocator. Specifically, we derive a list-wise ranking-uncertainty metric from the distributional stability of top-$K$ predictions, which serves as a measurable proxy for instance complexity. A lightweight predictor is then trained via self-supervision to anticipate this uncertainty from early-layer features. Guided by this signal, RACE performs instance-specific slimming in two dimensions: a hypernetwork-style channel sensitivity extractor identifies parameter redundancy, while importance-aware progressive sequence filtering mitigates data redundancy. Extensive experiments on four popular datasets demonstrate that RACE outperforms state-of-the-art baselines on accuracy, efficiency, and adaptability.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.18244",
+   "tier": "aware",
+   "tags": [
+    "recommendation"
+   ],
+   "venue": "WSDM 2027",
+   "summary": "Instance-adaptive compression for sequential recommenders: a list-wise ranking-uncertainty score predicted from early layers decides per-instance channel and sequence pruning.",
+   "ideas": []
+  },
+  {
+   "title": "Explanations that Transfer: Interpreting Medical Retrieval with Sparse AutoEncoders",
+   "authors": [
+    "Diane Bouchacourt",
+    "Gaëtan Brison"
+   ],
+   "categories": [
+    "cs.IR",
+    "cs.LG"
+   ],
+   "comments": "Proceedings of Machine Learning Research 346, 2026 (Machine Learning for Health, ML4H 2026). Code: https://github.com/doctolib-lab/medsae",
+   "abstract": "Medical AI systems that answer users' queries rely on retrieving medical knowledge from large document collections. In this context, finetuning general models on medical datasets can improve retrieval relevance. Yet the dense embeddings underlying modern retrieval systems remain largely opaque, making it difficult to understand the mechanics behind their results. Moreover, adapting to a specific medical dataset risks losing transferability to new clinical corpora. In this work, we tackle these issues by applying Sparse Autoencoders (SAEs) to medical information retrieval, transforming dense text embeddings into semantically interpretable representations. To do so, our model combines a reconstruction objective with an InfoNCE contrastive loss that directly preserves query-document relevance. We evaluate three embedding models across six medical retrieval datasets, both in-domain and out-of-domain. Trained on a medical corpus, our sparse codes improve in-domain retrieval over the original embeddings, and lose less out-of-domain performance than their dense counterparts, especially when the target corpus is distant from the training one. Importantly, our experiments show that the method yields interpretable features whose semantic content can be inferred from the queries and documents that activate them most strongly. The interpretation of these features sheds light on why a particular document was retrieved, and transfers beyond the training distribution.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.18179",
+   "tier": "aware",
+   "tags": [
+    "retrieval",
+    "interpretability"
+   ],
+   "venue": "ML4H 2026",
+   "summary": "Sparse autoencoders on dense text embeddings for medical retrieval, trained with reconstruction plus InfoNCE; sparse codes improve in-domain retrieval and lose less out of domain than the dense embeddings.",
+   "ideas": []
+  }
+ ]
+}

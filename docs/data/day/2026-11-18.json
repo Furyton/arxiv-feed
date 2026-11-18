@@ -1,0 +1,1098 @@
+{
+ "date": "2026-11-18",
+ "headline": "A light theory day. Worth reading: closed-form margin dynamics that explain why DPO margins grow without bound while IPO's settle, and a NeurIPS 2026 paper that turns what a trained ICL transformer does to XX^T into a provable preconditioner. On the IR side: a proof that round-robin dealing is the best way to split candidates for parallel listwise reranking, and a GR finding that RL post-training buys top-K accuracy at the cost of recall at large K.",
+ "stats": {
+  "arxiv_new": 843,
+  "scholar_inbox": 100,
+  "curated": 27,
+  "titles_read": 403,
+  "abstracts_read": 83
+ },
+ "daily_picks": [
+  {
+   "title": "Learnability Gaps of Strategic Classification",
+   "authors": [
+    "Lee Cohen",
+    "Yishay Mansour",
+    "Shay Moran",
+    "Han Shao"
+   ],
+   "year": "2024",
+   "url": "http://arxiv.org/abs/2402.19303",
+   "zotero_key": "869TTC7N",
+   "note_key": "ZP429N6G",
+   "digest": "Setting and problem \n Objects. There is a feature space $\\mathcal{X}$, labels $\\mathcal{Y}=\\{0,1\\}$, and a hypothesis class $\\mathcal{H}\\subseteq\\mathcal{Y}^{\\mathcal{X}}$. Agents are pairs $(x,y)$. The feasible manipulations are given by a directed manipulation graph $G=(\\mathcal{X},E)$. An arc $(x,x')$ means \"an agent at $x$ can present itself as $x'$\". Write $N_G(x)$ for the out-neighbourhood, $N_G[x]=\\{x\\}\\cup N_G(x)$ for the closed one, and $k$ for the maximum out-degree of the true graph $G^\\star$. Bounded degree is a real assumption. The paper notes that without it impossibility results appear even for trivial classes.\n\n\n Best response. Given a published $h$, an agent with $h(x)=0$ moves to some positive neighbour if one exists. Otherwise it stays put. So $v=\\pi_{G,h}(x)\\in X_{h,+}\\cap N_G(x)$ when that set is nonempty and $h(x)=0$, and $v=x$ otherwise. Ties are broken arbitrarily, except in the unknown-graph PAC part, where they are uniformly random. The induced label is $h_G(x)=h(\\pi_{G,h}(x))$. This simplifies to\n\n\n $$h_G(x)=\\max_{z\\in N_G[x]} h(z),$$\n\n\n so the strategic classifier is an OR of $h$ over the closed neighbourhood. The strategic loss is $\\ell^{\\mathrm{str}}_G(h,(x,y))=\\mathbf{1}(h_G(x)\\neq y)$. The true label $y$ does not change when the agent moves. One modelling choice is subtle here. $y$ is not a function of $x$ alone. It can depend on the agent's …"
+  },
+  {
+   "title": "Understanding the Role of Reasoning Data in Pretraining",
+   "authors": [
+    "Jianhao Huang",
+    "Allan Zhang",
+    "Ali Payani",
+    "Baharan Mirzasoleiman"
+   ],
+   "year": "2026",
+   "url": "https://arxiv.org/abs/2611.19042",
+   "zotero_key": "3QWUT64H",
+   "note_key": "FHQTPH8J",
+   "digest": "Setting and problem \n The world. There are $N$ entities and $M$ relations; relation $r$ acts as a fixed permutation $\\pi_r:[N]\\to[N]$. The fact table is $A=[N]\\times[M]$, with $D=NM$ facts $(e,r)\\mapsto \\pi_r(e)$. A length-$L$ chain $\\chi=(r_1,\\dots,r_L,e_0)$ induces states $e_\\ell=\\pi_{r_\\ell}(e_{\\ell-1})$, and its $\\ell$-th transition is the fact $(e_{\\ell-1},r_\\ell)$. A random held set $H\\subset A$ with $|H|=m=qD$ is drawn once; $S=A\\setminus H$ is the retained set, $q$ is the held fraction and $p=1-q$ the reasoning coverage.\n\n\n Two data sources. Both use the same prompt $[r_1,\\dots,r_L,e_0]$.\n\n\n \n Atomic examples: $\\chi\\sim D_{\\mathrm{at}}=\\mathrm{Unif}([M]^L\\times[N])$, supervising only $e_1$. Every fact, including held ones, gets atomic signal. \n Reasoning examples: $\\chi\\sim D_{\\mathrm{rea}}=\\mathrm{Unif}(C_L(S))$, where $C_L(S)=\\{\\chi: (e_{\\ell-1},r_\\ell)\\in S \\ \\forall \\ell\\}$, supervising the whole teacher-forced trace $e_1,\\dots,e_L$. \n \n A held fact is therefore not an unseen fact. It is a known fact that has never been used inside a chain. Evaluation is on chains where a later transition is held.\n\n\n Objective. With atomic weight $\\beta\\in[0,1]$ and $\\lambda=1-\\beta$, the reasoning loss is averaged over its $L$ positions:\n$$\n\\mathcal L_\\beta(\\theta)=\\beta\\,\\mathbb E_{D_{\\mathrm{at}}}\\ell_1(\\theta;\\chi)+\\lambda\\,\\mathbb …"
+  },
+  {
+   "title": "Transformers in the Dark: Navigating Unknown Search Spaces via Bandit Feedback",
+   "authors": [
+    "Jungtaek Kim",
+    "Thomas Zeng",
+    "Ziqian Lin",
+    "Minjae Lee",
+    "Chungpa Lee",
+    "Jy-yong Sohn",
+    "Hyung Il Koo",
+    "Kangwook Lee"
+   ],
+   "year": "2026",
+   "url": "https://arxiv.org/abs/2603.24780",
+   "zotero_key": "X65ZMPSA",
+   "note_key": "AJFUCH9M",
+   "digest": "Setting and problem \n The paper asks whether a Transformer can itself act as the selection component of a tree-search algorithm such as MCTS, rather than calling an external search routine. To test this in isolation, the other two parts of LLM-guided search (expanding states and evaluating them) are handed to the environment.\n\n\n Formal object. A problem instance is a finite rooted tree $\\mathcal{T} = (S, N)$ of maximum depth $D$, with successor map $N : S \\to 2^{S}$ and a bounded reward $r : S \\to [0,1]$. Goal states $S_{\\text{goal}} = \\{ s \\in S : r(s) > 0 \\}$ are leaves and are sparse, $|S_{\\text{goal}}| \\ll |S|$. The tree is hidden. The natural target for feedback is the value of a state under a uniformly random rollout,\n\n\n $$\nV(s) = \\mathbb{E}_{\\pi_{\\text{unif}}}\\left[ r(s_{\\text{leaf}}) \\mid s_{\\text{start}} = s \\right],\n$$\n\n\n but the agent only sees a noisy realization $v_t \\sim \\widehat{V}(s_t)$, for example a $k$-rollout Monte Carlo estimate, or in the LLM experiments a score the LLM gives itself.\n\n\n Protocol. Starting at the root $s_0$, at each step $t$ the environment reveals the children $N(s_t)$ and a value $v_t$. The agent must choose $s_{t+1}$ from the frontier\n\n\n $$\nF_t = \\Big( \\bigcup_{i=0}^{t} N(s_i) \\Big) \\setminus \\{ s_0, \\dots, s_t \\},\n$$\n\n\n using a policy $\\pi(\\cdot \\mid s_0, v_0, N(s_0), \\dots, s_t, v_t, N(s_t))$, under a budget $T \\ll |S|$. The …"
+  }
+ ],
+ "researchers": [],
+ "papers": [
+  {
+   "title": "Margin Dynamics for Large Language Model Alignment",
+   "authors": [
+    "Xingzi Xu",
+    "Mehmet Saygin Seyfioglu",
+    "Karim Bouyarmane"
+   ],
+   "categories": [
+    "cs.LG",
+    "cs.AI"
+   ],
+   "comments": "",
+   "abstract": "Practitioners choose among LLM alignment methods largely by trial and error. We provide a theoretical foundation: each pairwise method defines a vector field on the probability simplex that governs how the model redistributes mass between preferred and dispreferred completions. Projecting onto a single preferred/dispreferred pair reduces this to a one-dimensional margin ODE with a closed-form solution. These solutions reveal that DPO margins grow without bound (logarithmically as $O(\\log t)$ in the gradient-flow limit) while IPO margins converge to a finite $1/(2\\tau)$; that label noise induces a qualitative phase transition in DPO (unbounded $\\to$ bounded) but affects IPO only quantitatively; and that gradient concentration under asymmetric weighting governs trainability at scale. We confirm all three predictions across five model families spanning four benchmarks. The closed-form solutions also enable principled method design: we prove that adding any label smoothing $\\varepsilon > 0$ to SimPO creates a finite margin attractor at $\\Delta^* = \\beta^{-1}\\log((1-\\varepsilon)/\\varepsilon)$, while $\\varepsilon = 0$ (standard SimPO) has no attractor. We test this across three models (8B-9B) and confirm the prediction: the theory-derived configuration (TPO-S, $\\varepsilon = 0.05$) is competitive with the strongest baselines, attaining the highest mean IFEval score among the compared methods on all three, validating that the predicted finite attractor is a usable operating point rather than proposing a new state-of-the-art loss.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.21766",
+   "tier": "core",
+   "tags": [
+    "post-training & RL",
+    "training dynamics",
+    "LLM theory"
+   ],
+   "venue": "",
+   "summary": "Each pairwise preference loss defines a vector field on the simplex. Projecting onto one preferred/dispreferred pair gives a 1-D margin ODE with closed-form solutions: DPO margins grow like log t, IPO margins converge to 1/(2 tau), label noise turns DPO's margin bounded (a phase transition), and label smoothing gives SimPO a finite attractor. The predictions are checked on five model families.",
+   "why": "Solvable learning-dynamics model of post-training objectives: softmax-margin dynamics in closed form, the same style of analysis as his GR training-dynamics work.",
+   "ideas": [],
+   "zotero": "added"
+  },
+  {
+   "title": "A Transformer-Derived Iterative Preconditioner",
+   "authors": [
+    "Patrick Lutz",
+    "Themistoklis Haris",
+    "Aditya Gangrade",
+    "Venkatesh Saligrama"
+   ],
+   "categories": [
+    "cs.LG"
+   ],
+   "comments": "Accepted at NeurIPS 2026",
+   "abstract": "Transformers trained on in-context prediction problems can learn known numerical algorithms, e.g., gradient descent. We go further, showing that their internal computations can reveal new algorithms with provable guarantees. A softmax-attention transformer trained to solve linear systems $Xw=y$ implicitly improves matrix conditioning. Tracing $XX^\\top$ reveals an iterative preconditioning primitive, which we develop into RAPID, a standalone algorithm requiring no learned components. RAPID is an anytime preconditioner for symmetric positive definite (SPD) matrices, using randomized mixing and sparse local corrections to improve conditioning. Proof-of-concept experiments on synthetic and real-world problems consistently improve conditioning and reduce conjugate gradient iterations needed to reach a target accuracy. For a Haar-mixing idealization, we prove convergence to any fixed target condition number regardless of spectral distribution, with only logarithmic dependence on initial conditioning. Together, these results show how a transformer can discover a broadly applicable numerical algorithm.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.22941",
+   "tier": "interesting",
+   "tags": [
+    "ICL",
+    "transformer theory"
+   ],
+   "venue": "NeurIPS 2026",
+   "summary": "A softmax-attention transformer trained in context to solve Xw=y implicitly improves the conditioning of XX^T. The authors extract this into RAPID, a standalone anytime preconditioner for SPD matrices (randomized mixing plus sparse local corrections), and prove convergence to any target condition number in a Haar-mixing idealization, with only logarithmic dependence on the initial conditioning.",
+   "why": "Extends 'transformers implement GD in context' by reading a new algorithm out of a trained model. The guarantees are about the extracted algorithm, not about the transformer.",
+   "ideas": []
+  },
+  {
+   "title": "Latent Fact Composition under Next-Token Training",
+   "authors": [
+    "Tianyi Zhang",
+    "Feiying Chen"
+   ],
+   "categories": [
+    "cs.CL",
+    "cs.LG"
+   ],
+   "comments": "21 pages, 5 figures, 23 tables",
+   "abstract": "Controlled studies of latent two-hop reasoning train transformers to predict only the answer, whereas language models are trained to predict every token. We ask whether a model trained on every token learns to answer two-hop questions whose intermediate entity appears in no two-hop training example. We build a synthetic corpus with such questions. On this corpus every term of the loss can be computed exactly. A looped transformer, a standard transformer and DiscoLoop answer almost none of these questions. We therefore introduce the Baton family of looped transformers. They pass the intermediate entity to the second loop as a token embedding. When trained to predict only the answer, two of its three variants answer these questions almost perfectly. We then relate the success and failure of each model to three design conditions. Experiments that change one condition at a time agree with this hypothesis. When Baton is trained on every token, however, its accuracy on these questions rises and then declines. We further split the gradient of the next-token loss into three terms. Removing the two terms that depend on the particular training set raises the peak accuracy but does not remove the decline. The decline arises in the second hop while the model still recalls both facts.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.21921",
+   "tier": "interesting",
+   "tags": [
+    "memorization",
+    "CoT & reasoning",
+    "phenomena"
+   ],
+   "venue": "",
+   "summary": "Synthetic corpus where every term of the next-token loss can be computed exactly, testing latent two-hop questions whose bridge entity never appears in two-hop training data. Standard and looped transformers fail. A looped 'Baton' variant that passes the bridge entity as a token embedding succeeds under answer-only training, but under full next-token training its accuracy rises and then falls. Splitting the gradient into three terms shows the decline comes from the second hop while both facts are still recalled.",
+   "why": "Controlled study of how next-token training on memorized facts helps or hurts composition, with an exact gradient decomposition.",
+   "ideas": [
+    1
+   ]
+  },
+  {
+   "title": "Deal With It: On Better Schedules for Listwise Reranking",
+   "authors": [
+    "Benjamin Clavié",
+    "Herumb Shandilya",
+    "Hanna Lichtenberg",
+    "Aamir Shakir",
+    "Makoto P. Kato"
+   ],
+   "categories": [
+    "cs.IR",
+    "cs.AI"
+   ],
+   "comments": "",
+   "abstract": "Listwise LLM rerankers cannot reliably rank hundreds of documents in a single call, and rely on schedules to orchestrate their calls. Parallel schedules split candidates into groups and advance a fixed quota from each. When a group holds more of the top passages than its quota, some are cut, and expensive repair calls become required. We show that the way candidates are split matters where such a quota can bind, and that, in expected cuts, the best split there deals them round-robin by retriever rank, like cards. Although not conceptually new, dealing has remained unanalyzed. We prove that, under a simple retriever model, no split with equal quotas cuts fewer of the true top ten on average, and that contiguous chunks cut more as the retriever improves. DealRank, the simplest schedule our analysis allows, is on average within 0.1 nDCG@10 points of the best schedules over six LLMs, in two rounds. It is consistently 1.1 to 1.4 times faster than BlitzRank with concurrent first calls up to a thousand candidates. There, it needs three rounds and is eleven times faster than the sliding window. In existing schedules such as BlitzRank, dealing reduces repair calls from 59% of queries to 14%, improving latency with no significant change in quality. Random partitioning appears equivalent at a quota of four, as predicted, but ties results to the seed and trails by 1.3 nDCG@10 points at a quota of one over a dense retriever.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox",
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Mixedbread shows that dealing documents round-robin by retriever rank, like cards, is the best split for parallel LLM reranking calls.",
+   "arxiv": "2611.22392",
+   "tier": "interesting",
+   "tags": [
+    "ranking",
+    "IR theory"
+   ],
+   "venue": "",
+   "summary": "Parallel listwise LLM reranking splits candidates into groups with fixed quotas. Under a simple retriever model, dealing candidates round-robin by retriever rank cuts the fewest true top-10 documents of any equal-quota split, and contiguous chunks get worse as the retriever improves. DealRank is within 0.1 nDCG@10 of the best schedules, and dealing cuts BlitzRank's repair calls from 59% to 14% of queries.",
+   "why": "A small, clean optimality result in ranking-pipeline design, with a matching empirical check.",
+   "ideas": []
+  },
+  {
+   "title": "Better Rankers, Worse Retrievers: The Hidden Cost of RL Post-Training in Generative Recommendation",
+   "authors": [
+    "Yuheng Chen",
+    "Fan Zhang",
+    "Yixuan Xu",
+    "Chao Yang",
+    "Yang Xiang",
+    "Can Yang"
+   ],
+   "categories": [
+    "cs.IR",
+    "cs.AI"
+   ],
+   "comments": "",
+   "abstract": "Generative recommenders decode the semantic ID of a user's next item with a language model, and post-training them with reinforcement learning (RL) after supervised fine-tuning (SFT) has become standard practice. The gains are mostly reported on the first ten results, yet in deployment such models hand hundreds of candidates to a downstream ranker or reward model. We show that RL post-training has a hidden cost: it improves accuracy at the top of the list (hit@K for small K) but, on all five datasets we study, lowers the recall of the candidate list (hit@K for K in the hundreds). The model becomes a better ranker and a worse retriever. Controlled experiments trace the loss to the negative advantages that RL assigns to the candidates it samples, the rollout. The root cause is that only one next item is logged per user, so RL treats every other candidate as wrong. Yet these candidates are the model's most plausible alternatives, and often the next items of other users with similar histories. Penalising them pushes down exactly what similar users choose next, and these items drop out of those users' candidate lists. This diagnosis points directly to a remedy: out-of-rollout anchoring, a single additional loss term that preserves the SFT model's ordering of the items outside the rollout. It keeps the gain at the top and restores recall to the SFT level on all five datasets, and it is effective under other RL configurations as well. To our knowledge, this is the first systematic study of this recall loss: we measure it, identify its cause, and show that, once the cause is known, a simple remedy suffices.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox",
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Finds that RL post-training helps top results in generative recommenders but lowers recall on long candidate lists.",
+   "arxiv": "2611.22838",
+   "tier": "interesting",
+   "tags": [
+    "generative retrieval",
+    "recommendation",
+    "post-training & RL"
+   ],
+   "venue": "",
+   "summary": "On five datasets, RL post-training of semantic-ID generative recommenders raises hit@K for small K but lowers recall at K in the hundreds. Controlled experiments trace this to negative advantages on sampled rollout items: with only one logged next item, RL penalises the model's most plausible alternatives, often other similar users' next items. An 'out-of-rollout anchoring' loss that keeps the SFT ordering outside the rollout restores recall.",
+   "why": "A clean GR phenomenon about ranking versus retrieval in SID decoding, with a mechanism a theorist could model.",
+   "ideas": [
+    1
+   ]
+  },
+  {
+   "title": "NONSENSE: Non-Semantic Strings Expose Semanticity Gaps in Dense Retrieval",
+   "authors": [
+    "Ankit Gupta"
+   ],
+   "categories": [
+    "cs.IR",
+    "cs.CL"
+   ],
+   "comments": "Accepted to EACL 2027 (Main Conference). 15 pages",
+   "abstract": "Dense retrieval is central to modern search, question answering, and retrieval-augmented generation, where high similarity is often treated as evidence of semantic relevance. We examine how far this assumption can be stressed. NONSENSE is a black-box sparse-edit probe that constructs visibly non-semantic strings while forbidding query-term copying, optimizing only the dense similarity between a query and the string. Across five BEIR-style datasets and three popular single-vector retrievers, these strings frequently outscore the retriever's own best judged query-relevant passage (QRP), and often rank first in the full corpus. The result indicates a semanticity gap in the evaluated dense retrievers: nearest-neighbor status can be separated from passage-like meaning. These findings highlight the importance of evaluating dense retrievers not only by whether they retrieve relevant documents, but also by how reliably their similarity scores reflect semantic evidence.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.22353",
+   "tier": "interesting",
+   "tags": [
+    "embeddings",
+    "retrieval",
+    "evaluation"
+   ],
+   "venue": "EACL 2027",
+   "summary": "A black-box sparse-edit attack builds visibly non-semantic strings, with no query-term copying, that maximise dense similarity to a query. On five BEIR-style datasets and three single-vector retrievers, these strings often outscore the best relevant passage and rank first in the whole corpus. Nearest-neighbour status can be separated from meaning.",
+   "why": "Concrete evidence on what inner-product similarity in dense retrievers does and does not encode.",
+   "ideas": [
+    1
+   ]
+  },
+  {
+   "title": "Proximal Targets: Training Looped Refiners on Problems with Many Correct Answers",
+   "authors": [
+    "Syed Affan Daimi"
+   ],
+   "categories": [
+    "cs.AI",
+    "cs.LG"
+   ],
+   "comments": "",
+   "abstract": "Looped refiners such as HRM and TRM apply one small network repeatedly to a draft answer, and deep supervision trains every pass toward one stored answer per puzzle. We prove that when a puzzle has many correct answers this target sets a loss floor that no model capacity removes, and that the loss-minimising pass blends the answers into an invalid grid. We propose the proximal target: train each pass toward the correct answer nearest to its own input, found by scanning a list of answers, by a search solver started at the draft, or within a band of quality set by a knob; correct answers become fixed points, and a pass only has to make fewer errors than its input has for the loop to converge, which its training loss bounds. With the same 1.7M-parameter network and 5 seeds, the proximal target solves 98.8% of Sudoku puzzles with 2-64 answers (standard target: 2.5%), 93.8% of sparse puzzles with more than 10,000 answers without any list of answers (0.0%), and 90.9% of 200-node 3-colourings after training on graphs of at most 50 nodes (36.9%), and different random starts end at different answers. Against GRAM, a stochastic-latent reasoner, a single run is correct far more often (98.8% vs. 57.7%) and twenty runs find more of the answers (53.6% vs. 37.4%), while GRAM is slightly ahead on its own 10-node colouring benchmark; in Scrabble the knob becomes a calibrated strength dial.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.22737",
+   "tier": "interesting",
+   "tags": [
+    "CoT & reasoning",
+    "learning theory"
+   ],
+   "venue": "",
+   "summary": "For looped refiners (HRM/TRM-style) with deep supervision toward one stored answer, the paper proves that puzzles with many valid answers create a loss floor no capacity removes, and that the loss minimiser blends answers into an invalid output. Training each pass toward the nearest correct answer makes correct answers fixed points with a convergence guarantee. Sudoku with 2–64 solutions goes from 2.5% to 98.8% solved.",
+   "why": "Simple, sharp argument about why one-target supervision fails on multi-solution reasoning tasks.",
+   "ideas": []
+  },
+  {
+   "title": "What's in a Tree ? Hierarchical $n$-gram models as controlled approximators of language",
+   "authors": [
+    "Aritra Das",
+    "Francesco Cagnetta",
+    "Darshil Doshi",
+    "Victor V. Albert",
+    "Maissam Barkeshli",
+    "Andrey Gromov"
+   ],
+   "categories": [
+    "cs.CL",
+    "cond-mat.dis-nn",
+    "cs.AI",
+    "cs.LG"
+   ],
+   "comments": "7+13 figures, 10+30 pages",
+   "abstract": "Hierarchical models have been proposed as synthetic settings for studying language. However, their relevance to realistic language corpora remains underexplored. In this work, we introduce tree-grams, autoregressive generative $n$-gram models that build the conditional probability tensor $p(x_n \\mid x_{1:n-1})$ through a hierarchical composition of order-2 and order-3 tensors. $n$ controls the maximal context window, whereas a rank hyperparameter $d$ controls model capacity, yielding an interpretable and systematically scalable family of approximators of language. We show how tree-grams outperform existing $n$-gram baselines, while remaining competitive with deep transformer-based language models. We demonstrate the utility of such controlled approximations by using tree-grams as generative models. In particular, we show that hyperparameter transfer under $\\mu$P can be made more robust when narrower models are tuned on simpler data, generated by tree-grams with moderate $n$ and $d$. In addition, we show that entropy and effective range of correlations control performance gap after fine-tuning. This is because tree-grams allow us to explicitly control horizon and capacity. When allowed to route across candidate topologies, we observe emergent sparsity in tree-grams. Such concentrated routing permits pruning upto 95\\% of topologies without significant change in performance.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.23093",
+   "tier": "interesting",
+   "tags": [
+    "LLM theory",
+    "phenomena"
+   ],
+   "venue": "",
+   "summary": "'Tree-grams' are n-gram language models whose conditional tensor is a hierarchical composition of order-2/3 tensors, with context n and rank d as explicit knobs. They beat n-gram baselines and come close to transformers. Used as data generators, they make muP hyperparameter transfer more robust, and their entropy and correlation range control post-fine-tuning gaps.",
+   "why": "A controllable hierarchical surrogate for natural language (Cagnetta, Barkeshli, Gromov), useful as a theory testbed.",
+   "ideas": []
+  },
+  {
+   "title": "A Log-Timescale Perturbation Bound for Selective State Space Models at Every Sequence Length",
+   "authors": [
+    "Jack Humphries",
+    "Daniel Midgley"
+   ],
+   "categories": [
+    "cs.LG"
+   ],
+   "comments": "22 pages, 3 figures, 1 table. Code and recorded runs: https://github.com/jackdoesjava/mamba-v-lob",
+   "abstract": "Mamba models deployed on streaming data, such as limit order book updates, run far past the sequence lengths they were trained on. A guarantee on how much a small change of input can move the hidden state therefore has to hold at every length. The closest existing bound we know of measures the change of the timescale additively, and it grows linearly with the sequence length unless the timescale is bounded away from zero. In this paper, we measure the change on a log scale instead. The key observation is that the decay factor of each step then moves by at most a fixed fraction of that step's input weight, so the per-step errors cannot pile up. Using this, we prove that two runs of a selective-scan cell from a common start stay within a bound that holds at every length, shrinks to zero with the size of the change and needs no lower bound on the timescale. We give a construction showing that, for small changes, this bound is within a factor of about 2 of the best possible, and we extend it to the update used in Mamba's released code when the timescale is bounded above. We then evaluate block-level bounds built from the theorem on two small models trained on one day of order book data. With a bounded timescale, a bound built on the existing analysis is tighter than ours for at most the first 8 steps. With Mamba's softplus timescale, whose certified lower bound is as small as $10^{-21}$, it is looser at every length. Our bounds hold for every input to a block, but they remain more than five orders of magnitude above the changes that gradient attacks find.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.21952",
+   "tier": "interesting",
+   "tags": [
+    "architectures",
+    "transformer theory"
+   ],
+   "venue": "",
+   "summary": "Measuring timescale perturbations on a log scale gives a hidden-state perturbation bound for selective-scan (Mamba) cells that holds at every sequence length, needs no lower bound on the timescale, and is tight within a factor of about 2. It extends to Mamba's released update when the timescale is bounded above.",
+   "why": "Length-uniform stability result for selective SSMs, a clean technical tool.",
+   "ideas": []
+  },
+  {
+   "title": "SOTA or Luck? The Winner's Curse in LLM Leaderboards",
+   "authors": [
+    "Sikun Xu",
+    "Raphael Thomadsen",
+    "Dennis J. Zhang",
+    "Heng Zhang"
+   ],
+   "categories": [
+    "cs.LG",
+    "cs.CL",
+    "stat.ME",
+    "stat.ML"
+   ],
+   "comments": "",
+   "abstract": "Public LLM leaderboards guide model evaluation and adoption, yet the reported performance of top-ranked models can be systematically overstated. This leaderboard winner's curse arises because ranking noisy benchmark scores rewards sampling luck alongside genuine ability. The same selection effect can distort scores throughout the leaderboard, a phenomenon we call the rank-induced bias. We develop an $m$-out-of-$N$ bootstrap to correct for this bias. It assumes a fixed model pool with independent, identically distributed bounded tasks while allowing arbitrary within-task correlation among models. Under exact population tiers separated by positive gaps, we prove that the bootstrap reduces $\\Theta(N^{-1/2})$ ranking bias to expected residual bias $o(N^{-1/2})$. Across 14 benchmarks from 5 benchmark families, the rank-1 adjustments range from approximately 0.09 to 3.86 percentage points. In our SWE-bench Verified snapshot, the tied leaders receive an adjustment of 0.90 percentage points. Such overstatement is large enough to make the apparent winner statistically fragile. Thus, we use the same bootstrap to further quantify the intervals of plausible rank positions for each model and group models into tiers. We establish sufficient conditions for consistent recovery of population tiers. On SWE-bench Verified, this procedure places 13 of 173 models in the leading tier. We combine the score adjustment and rank intervals in the Rank Uncertainty and Leaderboard Evaluation Report (RULER). We validate its finite-sample performance using sample splitting and calibrated simulations, and advocate publishing RULER alongside raw rankings so readers can assess both reported performance and the precision of the ordering. RULER also provides guidance for benchmark design that accounts for selection effects and ranking uncertainty.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.22227",
+   "tier": "interesting",
+   "tags": [
+    "evaluation",
+    "extracurricular"
+   ],
+   "venue": "",
+   "summary": "Ranking noisy benchmark scores overstates the leaders (a winner's curse). An m-out-of-N bootstrap reduces Theta(N^{-1/2}) ranking bias to o(N^{-1/2}) under separated tiers, and gives rank intervals and consistent tier recovery. On SWE-bench Verified, 13 of 173 models land in the leading tier.",
+   "why": "Selection-bias theory for leaderboards; the same issue applies to IR benchmark tables.",
+   "ideas": []
+  },
+  {
+   "title": "On the Kissing Number of Craig's Lattice and Spherical List Decoding",
+   "authors": [
+    "Léo Ducas",
+    "Julian Nowakowski",
+    "Ailsa Robertson"
+   ],
+   "categories": [
+    "cs.IT",
+    "math.IT"
+   ],
+   "comments": "",
+   "abstract": "Craig's lattices $A_{p-1}^k$ are a family of lattices with large kissing numbers, i.e., relative to their dimension $n = p-1$, they contain a large number of shortest nonzero vectors. Specifically, for small $k = o(\\log p / \\log \\log p)$, a lower bound of Bacher (2015) shows that $A_{p-1}^k$ has a super-polynomial kissing number of $\\omega(n^k)$. Craig's lattices are therefore attractive candidates for the construction of spherical codes. In this work, we introduce a polynomial-time list decoder for spherical codes obtained from Craig's lattices for angular distance below $45^\\circ$. Our second main result shows that Bacher's lower bound is asymptotically tight for $k = o(\\log p / \\log \\log p)$. Finally, we introduce an efficient algorithm for computing the kissing number of $A_{p-1}^k$. Using this algorithm, we compute their kissing number in dimensions up to 521. Based on this data, we pose the open question whether the kissing number of $A_{p-1}^k$ with $k \\approx \\sqrt{p}$ grows like $e^{\\Theta(\\sqrt{n})}$ in dimension $n=p-1$. Concurrent work by Laarhoven and Kominers as well as Bennett, Hhan, Li and Stephens-Davidowitz proves such a bound for very closely related lattices.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.22441",
+   "tier": "interesting",
+   "tags": [
+    "vector search",
+    "extracurricular"
+   ],
+   "venue": "",
+   "summary": "Polynomial-time list decoding of spherical codes from Craig's lattices for angles below 45 degrees. Bacher's omega(n^k) kissing-number lower bound is tight for small k, and an algorithm computes kissing numbers up to dimension 521 (Ducas et al.).",
+   "why": "Decodable dense spherical codes are the structured-codebook building block behind lattice and spherical LSH.",
+   "ideas": []
+  },
+  {
+   "title": "SIMQ: A Single Graph-based Index for Multi-Vector Query",
+   "authors": [
+    "Yifan Lu",
+    "Jiabao Jin",
+    "Xiaoyao Zhong",
+    "Peng Cheng",
+    "Xiangyu Wang",
+    "Haotian Li",
+    "Hua Chen",
+    "Junqing Chen",
+    "Wei Xi",
+    "Heng Tao Shen"
+   ],
+   "categories": [
+    "cs.IR",
+    "cs.DB"
+   ],
+   "comments": "under ICDE 2027 review, 13 pages",
+   "abstract": "Multi-vector retrieval models such as ColBERT achieve state-of-the-art effectiveness by representing documents as sets of token-level vectors and scoring via MaxSim, but their high computational cost limits scalability to large corpora. Existing approximate methods face fundamental bottlenecks: centroid interaction matrix approaches require computing a full matrix at every query and rely on GPU-accelerated clustering, while data-oblivious compression methods yield unstable recall that requires repeated compensation. We propose SIMQ (Single graph Index for Multi-vector Query), a framework that bridges single-vector graph indices and multi-vector retrieval through data-aware sampling-based clustering and per-token graph navigation, simultaneously bypassing all aforementioned bottlenecks. SIMQ organizes all token vectors into fine-grained clusters via data-aware sampling, builds a single graph index over cluster centroids independently of PLAID's residual representation, and approximates the MaxSim score through per-token graph search without materializing any interaction matrix or relying on GPU acceleration. We provide theoretical analysis showing that, under a manifold assumption and successful cell retrieval, data-aware partitioning has a smaller expected approximation error than a data-oblivious partition. Building on this foundation, SIMQ+ further introduces count-based scoring and a dynamic candidate set to improve robustness across varying query conditions. Experiments on five benchmarks compare recall, throughput, and construction time against several baselines, primarily on CPU; large-scale PLAID k-means centroids are built on a separate GPU machine. SIMQ has been integrated into VSAG, an Ant Group's open-source vector search library.",
+   "sources": [
+    "arxiv",
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Introduces a single graph index for multi-vector retrieval. It approximates MaxSim via per-token graph search over data-aware clusters, with no interaction matrix.",
+   "arxiv": "2611.22079",
+   "tier": "aware",
+   "tags": [
+    "vector search",
+    "retrieval"
+   ],
+   "venue": "",
+   "summary": "A single graph index over data-aware cluster centroids of ColBERT token vectors approximates MaxSim through per-token graph search, with no centroid interaction matrix. Includes an argument that data-aware partitions have lower expected approximation error than data-oblivious ones, under a manifold assumption. Integrated into VSAG.",
+   "ideas": []
+  },
+  {
+   "title": "Pelorus: Warped-Product Graph Indexing for Hyperbolic Vector Search",
+   "authors": [
+    "Wenxuan Xiao",
+    "Xu Cao"
+   ],
+   "categories": [
+    "cs.DB"
+   ],
+   "comments": "30 pages, 6 figures. Full version with proofs and supplementary experiments. Code and artifacts available at https://github.com/Astrmira/Pelorus",
+   "abstract": "Hyperbolic embeddings capture hierarchical relations, but million-scale approximate nearest neighbor search must reconcile geodesic fidelity with memory efficiency. Flat inner-product indices distort order across radial shells, while native hyperbolic graphs repeatedly access full-precision vectors or quantize coordinates with singular conformal scales. We present Pelorus, a warped-product proximity-graph index for hyperbolic vector search. Pelorus separates unquantized FP32 radial and conformal scalars from scale-invariant 2-bit spherical directional codes and defers full-vector FP64 evaluation to a compact reranking tail. A conformal distortion analysis motivates orthogonal-projection debiasing, purity-gated tangent-cone residuals, and Conformal Jacobian gating. QuadriPrune allocates edges across geodesic fibers, same-shell rings, and radial elevators, with spanning-tree chord swaps restoring entry reachability. A single-page record layout and carry-save AVX2 kernel accelerate traversal. Across eight real and synthetic benchmarks on AMD EPYC 9654, Pelorus builds Cohere-1M indices 5.44x faster than full-precision polar graphs on 32 threads, reducing hot navigation memory to 517.0 MB. At 99% Recall@10, it improves Cohere-1M throughput by 4.30x on one thread and 6.31x on 24 threads, and delivers 53,483 QPS on MERU-1M. On clustered narrow shells, tangent-cone residuals raise recall from 34.22% to 99.385%, while isotropic narrow-shell stress tests expose remaining recall limits.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.22159",
+   "tier": "aware",
+   "tags": [
+    "vector search"
+   ],
+   "venue": "",
+   "summary": "Warped-product proximity graph for hyperbolic ANN. It keeps radial/conformal scalars in FP32, uses 2-bit spherical direction codes, and adds conformal-distortion-motivated debiasing. Reports 4.3–6.3x throughput at 99% Recall@10 on Cohere-1M over full-precision polar graphs.",
+   "ideas": []
+  },
+  {
+   "title": "Errpedia: Is Your Exact $k$-NN Vector Search Really Exact?",
+   "authors": [
+    "Yinuo Deng",
+    "Ying Zhang",
+    "Hanchen Wang",
+    "Wenjie Zhang"
+   ],
+   "categories": [
+    "cs.DB"
+   ],
+   "comments": "",
+   "abstract": "Exact $k$-nearest-neighbor ($k$-NN) vector search is a common feature of vector libraries and database systems. It serves applications that require exact results and provides the ground truth for evaluating approximate search. However, floating-point rounding and overflow can cause an exact search to return mathematically incorrect top-$k$ result sets. These errors can go unnoticed and affect downstream tasks that rely on exact results. We present Errpedia, a purpose-built dataset for testing the numerical correctness of exact vector search. Errpedia contains 1,616 queries across 21 error categories, with ground truth independently verified using exact rational arithmetic. We evaluate 20 widely used library and database configurations and find that every tested configuration returns mathematically incorrect top-10 result sets on at least 1 applicable query. Failures include misranking nearly equidistant vectors and returning incomplete results: 1 library omits all 10 exact matches to a query, and several systems return fewer than $k$ neighbors. We release Errpedia as a reproducible benchmark for developers and researchers to test their implementations. The dataset is publicly available at https://github.com/dynos01/errpedia.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox",
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Introduces a dataset for testing numerical correctness of exact k-NN search; every tested library and database returns wrong top-10 results on some queries.",
+   "arxiv": "2611.22474",
+   "tier": "aware",
+   "tags": [
+    "vector search",
+    "evaluation"
+   ],
+   "venue": "",
+   "summary": "Errpedia: 1,616 queries in 21 error categories, with ground truth from exact rational arithmetic, testing whether 'exact' k-NN search is exact. All 20 tested library and database configurations return wrong top-10 sets on some queries, from floating-point rounding and overflow.",
+   "ideas": []
+  },
+  {
+   "title": "Efficient Wide-Beam Generative Retrieval with Model-Native Trie Decoding and Shared-Context Attention",
+   "authors": [
+    "Vedant Jhaveri",
+    "Arashpreet Singh Mor",
+    "Satyam Kumar",
+    "Alex Tsun",
+    "Qing Lan",
+    "Shaunak Mishra",
+    "Sriram Vasudevan"
+   ],
+   "categories": [
+    "cs.AI"
+   ],
+   "comments": "",
+   "abstract": "Generative retrieval (GR) predicts catalog entries as short semantic identifiers (SIDs). Trie-constrained beam search keeps these identifiers valid, but wide beams expose two serving costs: vocabulary-wide score tensors that are mostly discarded, and repeated attention over the same prompt. We present Trie-Head, a model-native output interface that stores the identifier trie as validated GPU tensors. Compared with a Python custom logit processor (CLP), it reduces CPU--GPU coordination and memory traffic by avoiding Python constraint callbacks and vocabulary-wide candidate buffers. It scores compact codebook candidates and streams the full-vocabulary normalizer, preserving the original model's valid-token scores in real arithmetic without retraining. Shared-context attention complements this output path by reusing prompt key/value blocks across beams while preserving their private decode tails. We implement both mechanisms in SGLang and evaluate candidate sourcing for LinkedIn Hiring Assistant and qualification retrieval for the Qualification Retrieval Platform. The combined system improves closed-loop throughput by up to 5.57x over the CLP baseline and up to 2.63x over BF16 FlashRec at a common beam width of 200 on the Qualification Retrieval Platform workload.",
+   "sources": [
+    "arxiv",
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "LinkedIn replaces Python constraint callbacks with a GPU-native ID trie and shares prompt attention across beams, speeding up wide-beam retrieval.",
+   "arxiv": "2611.22309",
+   "tier": "aware",
+   "tags": [
+    "generative retrieval"
+   ],
+   "venue": "",
+   "summary": "LinkedIn serves wide-beam trie-constrained GR with a GPU-native trie output head and attention over shared prompt KV across beams. Up to 5.6x throughput at beam width 200 over a Python logit-processor baseline.",
+   "ideas": [
+    1
+   ]
+  },
+  {
+   "title": "IntentGR: Enhancing Intent for End-to-End Personalized Generative Retrieval in Search",
+   "authors": [
+    "Gefan Ye",
+    "Yanjing Wu",
+    "Yinfu Feng",
+    "Zhiqiang Wang",
+    "Liang Li",
+    "Jun Xiao",
+    "Rong Xiao",
+    "Xiaoyi Zeng"
+   ],
+   "categories": [
+    "cs.IR"
+   ],
+   "comments": "11 pages, 3 figures; Accepted by WSDM 2027 Findings",
+   "abstract": "Personalized generative retrieval in search should jointly satisfy the user's immediate search intent and long-term preference. Recent end-to-end approaches, primarily explored in recommendation, unify item tokenization and sequence generation within a single model, allowing semantic identifiers (SIDs) to be optimized toward the downstream generation objective. However, these methods often treat the query merely as an input feature, without explicitly leveraging it to guide either identifier learning or sequence generation. This leaves intent guidance weak in both the tokenization and the generation stage, causing generated semantic identifiers to drift toward high-frequency token patterns rather than the current search intent. In this work, we find that incorporating additional query-related evidence into the framework of end-to-end generative retrieval is important. Based on this finding, we propose IntentGR, an intent-enhanced end-to-end framework that strengthens query semantics at four complementary stages of the retrieval pipeline. Query-Aware Semantic Behavior Representation (QBR) introduces query-level behavioral evidence as a new input signal; Query-Semantic Alignment (QSA), Long-Tail Query Enrichment (LQE), and Query-conditioned Attention Modulation (QAM) then serve as integration mechanisms at the optimization, training-distribution, and decoding stages to fully exploit this evidence. Experiments on the public AOL4PS benchmark and AE, a large-scale industrial e-commerce dataset, show that IntentGR improves Recall@10 by 8.11% and 11.96% over the strongest baseline, with strong gains on long-tail queries. These results suggest that enriched query-related input evidence, together with effective integration mechanisms, is beneficial for building intent-aware end-to-end generative search systems.",
+   "sources": [
+    "arxiv",
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Alibaba proposes an end-to-end generative retrieval framework for personalized search that strengthens query intent at four stages, with gains on long-tail queries.",
+   "arxiv": "2611.22788",
+   "tier": "aware",
+   "tags": [
+    "generative retrieval"
+   ],
+   "venue": "WSDM 2027",
+   "summary": "End-to-end personalized GR for search that injects query-level behavioural evidence into SID learning, alignment, long-tail enrichment and decoding. +8–12% Recall@10 on AOL4PS and an industrial dataset, with the largest gains on long-tail queries.",
+   "ideas": []
+  },
+  {
+   "title": "Fair Bubble Sort: Provably Optimal Fair Ranking with Continuous Sensitive Attributes",
+   "authors": [
+    "Antonio Ferrara",
+    "Fabio Vitale",
+    "Atsushi Miyauchi",
+    "Francesco Bonchi"
+   ],
+   "categories": [
+    "cs.LG",
+    "cs.CY",
+    "cs.DS"
+   ],
+   "comments": "35 pages, 9 figures, 4 tables. Accepted at NeurIPS 2026. Code: https://github.com/Ambress92/FairBubbleSort",
+   "abstract": "Most fair-ranking methods assume categorical protected attributes, requiring continuous attributes such as age or income to be discretized into groups. This introduces arbitrary thresholds, loses fine-grained information, and ignores the natural ordering of the attribute. In this paper, we study the problem of fair ranking with continuous protected attributes without relying on thresholding. We introduce Continuous Pairwise Parity (CPP), a fairness notion based on Kendall correlation between ranking positions and the protected attribute, and seek rankings that satisfy a prescribed CPP constraint while minimizing their Kemeny distance from an initial score-based ranking. To solve this problem, we propose Fair Bubble Sort (FBS), an efficient post-processing algorithm based on targeted adjacent swaps. We prove that FBS is exactly optimal for the unweighted Kemeny distance and provide approximation guarantees for the score-weighted setting. FBS is output-sensitive, with running time determined by the number of swaps required to meet the fairness constraint. Experiments on synthetic and real-world datasets show that FBS is scalable and consistently outperforms discretization-based baselines, achieving a superior fairness-accuracy Pareto front.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.22352",
+   "tier": "aware",
+   "tags": [
+    "ranking"
+   ],
+   "venue": "NeurIPS 2026",
+   "summary": "Fair ranking with a continuous protected attribute, using a Kendall-correlation parity constraint and minimal Kemeny distance. An adjacent-swap algorithm is exactly optimal for unweighted Kemeny distance and approximate in the score-weighted case.",
+   "ideas": []
+  },
+  {
+   "title": "When the tail is earned by its companions: measuring label dependence in long-tailed multi-label classification",
+   "authors": [
+    "Christoffer Löffler"
+   ],
+   "categories": [
+    "cs.LG",
+    "cs.CL",
+    "cs.IR"
+   ],
+   "comments": "27 pages, 3 figures, 13 tables. Submitted to Information Sciences",
+   "abstract": "A rare label seldom occurs alone, and a classifier can recover it from the frequent labels it co-occurs with, its companions, without having learned the label itself. Existing diagnostics of this need a trained model: none says before training whether a corpus admits the failure, or what the standard aggregate hides. Macro-F1, like any measure built from per-label confusion counts, is unchanged by how a label's recall divides between occurrences with and without a companion. We introduce a within-label estimand of that division, a reading rule under which a fall in dependence counts only if companion-free recall rises, and a statistic of training labels that bounds, before training, how far reported recall can exceed companion-free recall. Across 23 corpora, 7 training objectives and five families of label-correlation mechanisms, companion-free recall falls short on all six corpora where the estimand is defined. Up to 18.4% of the tail true positives macro-F1 credits would vanish at the companion-free rate, within the training-label bound on every corpus. No long-tail objective reduces the dependence, but architecture moves it. Models whose tail score is computed from other labels' predictions are strongly dependent.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.22859",
+   "tier": "aware",
+   "tags": [
+    "phenomena",
+    "evaluation"
+   ],
+   "venue": "",
+   "summary": "In long-tailed multi-label classification, rare labels are often recovered from frequent co-occurring 'companion' labels rather than learned. The paper defines a within-label estimand of this dependence and a training-label statistic that bounds, before training, how much reported recall can exceed companion-free recall. Up to 18% of credited tail true positives depend on companions.",
+   "ideas": [
+    1
+   ]
+  },
+  {
+   "title": "Lost in the Funnel: Selection-Induced Miscalibration in Ranking and Decision Systems",
+   "authors": [
+    "Aditya Somani",
+    "Rahul Ragesh",
+    "Vikas Joshi",
+    "Amit Singh"
+   ],
+   "categories": [
+    "cs.LG"
+   ],
+   "comments": "Under Review",
+   "abstract": "Modern ranking and decision systems combine components with divergent objectives, and scores calibrated at the model boundary are used as calibrated probabilities throughout the funnel, across filtering, reranking, business-rule enforcement, and auctions. Yet calibration is typically validated only where the score is produced, so its breakdown where the score is used is routinely overlooked. We ask when calibration survives this selection, how inherited error differs from selection effects, and what can fail for a perfectly calibrated score at a component boundary. We study these questions through a boundary-wise diagnostic framework of residual identities. We target rubric-judged relevance rather than presentation-dependent metrics such as CTR, so calibration is measurable at every funnel layer of interest. We first present an industry-wide case study that applies our diagnosis to settings where calibration deteriorates at decision time, tracing the degradation to selection rather than model error. This diagnosis motivates Funnel-Aware Recalibration (FAR): post-hoc, selection-policy-aware recalibration at the boundary where scores drive decisions. In a live two-region production A/B test, FAR cuts decision-time expected calibration error (ECE) by 60-80% and improves auction efficiency. We further adapt two public datasets to simulate industry settings, providing additional evidence for the mechanism. We plan to release the adapted datasets and their generation pipeline to support further research. Finally, we distill these findings into practical operating principles for calibrating multi-stage scoring systems.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.22595",
+   "tier": "aware",
+   "tags": [
+    "ranking"
+   ],
+   "venue": "",
+   "summary": "Scores calibrated where a model produces them lose calibration after selection in multi-stage ranking funnels. A boundary-wise residual-identity diagnosis attributes this to selection, not model error, and selection-aware recalibration at the decision boundary cuts decision-time ECE by 60–80% in production.",
+   "ideas": []
+  },
+  {
+   "title": "KVUse: Reusable-KV User Memory for Efficient LLM Recommenders",
+   "authors": [
+    "Xin Guo",
+    "Qiang Zhang",
+    "Xiang Zhou",
+    "Arushi Rai",
+    "Siyu Lin",
+    "Yifan Wu",
+    "Xiang Shen",
+    "Lei Huang",
+    "Qunshu Zhang",
+    "Xiangjun Fan",
+    "Lizhu Zhang"
+   ],
+   "categories": [
+    "cs.LG"
+   ],
+   "comments": "",
+   "abstract": "Memory-augmented recommenders built on large language models (LLMs) maintain a natural-language profile of each user. These profiles are updated by a user profile update path that revises the profile as new interactions arrive and are consumed by downstream task paths like ranking. Because these user profiles are stored as text in the user memory, every ranking LLM call that consumes them must splice them in the prompt and calculate the KV cache of them during the prefill phase. Given these ranking LLM calls are prefill heavy (long prompt but short decoded output) and repeatedly called, these repeated prefill of user profile text dominates the serving. Prefix caching cannot remove it, because these user profiles are preceded by different text in different calls. We present KVUse, which stores the user profiles as reusable key-value (KV) caches instead of text. KVUse trains lightweight LoRA writers by self-distillation, so that the user profile update call produces the reusable KV of the user profile while decoding it, and the LLM can read these reusable KV at new positions and behind new context without recomputation. KVUse also has a customized KV scheduler that uploads the stored reusable KV of the next batch while the current batch is computed, hiding the KV transfer from host memory behind GPU computation. On four InstructRec datasets with Llama-3.1-8B-Instruct, KVUse shows no statistically significant difference in ranking quality from full prefill over continuous memory update rounds. Under saturated load, KVUse raises the throughput of the downstream scoring path by 4.0x-4.5x and of the profile update path by 1.4x-1.9x.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox",
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Meta introduces a method that stores user profiles as reusable KV caches instead of text, so LLM ranking calls skip re-reading them, raising throughput without hurting ranking quality.",
+   "arxiv": "2611.21920",
+   "tier": "aware",
+   "tags": [
+    "recommendation"
+   ],
+   "venue": "",
+   "summary": "Meta stores LLM-recommender user profiles as reusable KV caches, written by LoRA writers trained by self-distillation, instead of text. Ranking calls skip re-prefilling them: 4–4.5x scoring throughput with no significant quality change.",
+   "ideas": []
+  },
+  {
+   "title": "Cluster-Guided Decoding with Trust-Region Constraints for Personalized Recommendation",
+   "authors": [
+    "Gezheng Wen",
+    "Chao Shen",
+    "Raviteja Anantha",
+    "Tan Shen Cliff Chung",
+    "Layne C. Price"
+   ],
+   "categories": [
+    "cs.IR"
+   ],
+   "comments": "5 pages, 2 tables",
+   "abstract": "Most recommenders score each item in the catalog separately, and do not explicitly model which semantic region of the catalog a recommendation belongs to. Models expressive enough to offer that control are often too slow to run over a full catalog for online inference. In this paper, we present Cluster-Guided Generative Reconstruction (CG2R), which learns a hierarchy of semantic clusters and uses a cluster-level prior to steer item ranking for personalized recommendations. Unlike existing systems that only use clusters to pre-select candidates, CG2R adds the cluster prior directly to the item scoring rule, so that the learned cluster structure shapes the ranking itself. Because the prior is assembled from cluster centroids rather than per-item statistics, it remains defined even for cold-start users when no history is available. Across the three benchmark datasets evaluated, CG2R outperforms classical, neural, and LLM-based baselines in terms of Recall and nDCG, with its performance gains widening as the catalog grows sparser. In addition, CG2R serves recommendations in milliseconds, suggesting potential as low-latency first-stage retrieval.",
+   "sources": [
+    "arxiv",
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Amazon adds a learned semantic cluster prior to item scores.",
+   "arxiv": "2611.22163",
+   "tier": "aware",
+   "tags": [
+    "recommendation"
+   ],
+   "venue": "",
+   "summary": "Amazon learns a hierarchy of semantic item clusters and adds a cluster-level prior directly to item scores. The prior stays defined for cold-start users. Gains in Recall and nDCG over classical, neural and LLM baselines.",
+   "ideas": []
+  },
+  {
+   "title": "RAG in a Trenchcoat: When Minimal Memory Is Enough for Agentic Systems, and When It Isn't",
+   "authors": [
+    "Jingyu Liu",
+    "Zongze Li",
+    "Zach Xu",
+    "Zhanhui Zhou",
+    "Tahseen Rabbani",
+    "Dawn Song",
+    "Ce Zhang"
+   ],
+   "categories": [
+    "cs.AI"
+   ],
+   "comments": "40th Conference on Neural Information Processing Systems (NeurIPS 2026), Main Conference",
+   "abstract": "Agentic memory research has accumulated extraction, supersession, reflection, and graph synthesis on top of retrieval-augmented generation. However, we found that almost none of those primitives earn their cost in our tested memory benchmarks: we show this with BRIDGE, a deliberately minimal RAG memory with chained observation notes, hybrid BM25 with cosine retrieval, and chronological rendering, which reaches parity within bootstrap CI with the prior SOTA on LongMemEval-S and BEAM, and beats the best memory baseline on EverMemBench by 5.7-6.3 points at matched reader. It runs at ~5-7K reader-prompt tokens per query, using a single LLM call for each ingestion or query. We argue that this parity is itself the result: standard benchmarks score what memory retrieves, not what memory enables when the agent acts. To test the latter, we introduce five adversarial probes (Rule Application +-, Pattern Induction Style / Procedural, Dynamic Multiturn) judged at generation time by a cross vendor verification chain, where each query can only be solved by applying a remembered rule or pattern it never mentions. Across 5 probes x 20 scenarios, no architecture wins universally: atomic fact extractors (LangMem) win rule application, while BRIDGE's block-summary memory wins pattern induction. This result holds across four domains, three graders, and three reader families. Each design fails where the other wins, for reasons a recall benchmark cannot see: atomic-fact extractors discard the form a demonstrated pattern takes, while block-summary memory retrieves the rule but the reader does not act on it, a gap that presenting the rule more prominently largely closes. What separates memory designs is not what they retrieve but what they enable an agent to do, and that is what agentic memory should be evaluated on.",
+   "sources": [
+    "arxiv",
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Shows simple RAG memory matches complex agentic memory on popular benchmarks, but no design wins everywhere at applying memories.",
+   "arxiv": "2611.22179",
+   "tier": "aware",
+   "tags": [
+    "RAG & agents",
+    "evaluation"
+   ],
+   "venue": "NeurIPS 2026",
+   "summary": "A minimal RAG memory (hybrid BM25+cosine, chronological notes) matches prior state of the art on LongMemEval-S and BEAM. New probes where the agent must apply a remembered rule show that no memory design wins everywhere.",
+   "ideas": []
+  },
+  {
+   "title": "More Than a Score: Reinforcement Learning with Verbalized Feedback for Generative Recommendation",
+   "authors": [
+    "Zipeng Chen",
+    "Xinyu Lin",
+    "Yuliang Sun",
+    "Sheng Zhang",
+    "Zeyu Wang",
+    "Xiaowen Shi",
+    "Junwei Pan",
+    "Chengguo Yin"
+   ],
+   "categories": [
+    "cs.IR"
+   ],
+   "comments": "10 pages, 11 figures and tables",
+   "abstract": "Large language models (LLMs) are increasingly used for generative recommendation, where recommended items are generated directly from users' interaction histories. To further improve recommendation quality, reinforcement learning (RL) has been applied to align these models with recommendation objectives. However, existing RL methods rely on scalar rewards to implicitly guide exploration. These rewards do not specify which aspects of a candidate conflict with the user's preferences or how the next candidate should differ. To address this gap, we propose VerRec, a verbalized feedback-guided RL framework for generative recommendation. Specifically, a user simulator generates personalized verbalized feedback based on the user's historical preferences and the candidate item profile. The policy uses this feedback to produce refined recommendations. Original and refined candidates form an expanded group and are jointly optimized with group relative policy optimization. The user simulator is only required during training and is removed at inference time. Experiments on three Amazon review datasets with two generative recommendation backbones demonstrate that VerRec improves recommendation accuracy and ranking quality. Further analyses show that verbalized guidance encourages exploration of more diverse candidates and helps the policy discover more rewarding recommendations during training.",
+   "sources": [
+    "arxiv",
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Tencent introduces a system where a simulated user critiques each recommendation in words and the model refines its picks, going beyond scalar rewards.",
+   "arxiv": "2611.22410",
+   "tier": "aware",
+   "tags": [
+    "generative retrieval",
+    "recommendation"
+   ],
+   "venue": "",
+   "summary": "Tencent's VerRec: during RL for generative recommendation, a simulated user writes feedback in words on each candidate. The policy refines its pick, and original and refined candidates are trained jointly with GRPO.",
+   "ideas": []
+  },
+  {
+   "title": "From Relevance to Utility: Rubric Alignment in Yuanbao Search",
+   "authors": [
+    "Yu Lu",
+    "Lixin Zou",
+    "Yangqi Chen",
+    "Hui Xu",
+    "Qiaolin Xia",
+    "Hao Wang",
+    "Qianwen Ma",
+    "Reed Li",
+    "Shuang Zeng",
+    "Haijin Liang",
+    "and Haibo Shi"
+   ],
+   "categories": [
+    "cs.IR"
+   ],
+   "comments": "10 pages, 5 figures, 5 tables, accepted at KDD 2027",
+   "abstract": "Agentic search demands that a search engine move beyond per document relevance ranking to assemble document sets optimized for downstream LLM reasoning. Prior work addresses this either by improving individual pipeline stages in isolation or by applying RL based selection on top of relevance trained upstream modules, leaving the full stack unaligned to utility for reasoning. We propose rubric aligned search, a framework that unifies the traditional search pipeline under a single supervision surface. For each query, we derive a rubric from coarse to fine, specifying weighted positive criteria that the document set must satisfy and negative criteria that it must avoid. From this rubric we derive two training signals. First, a lightweight labeler distills rubric grounded judgments into per document utility labels, which supervise a contrastive dual encoder for retrieval and a multi task ranker trained with four rubric aligned scoring heads. Second, a rubric conditioned evaluator produces a set level reward that drives a dual branch RL selector, combining GRPO with best rollout distillation to resolve credit assignment in subset optimization. Deployed in Yuanbao Search, the pipeline improves end to end answer quality by 8.52% over the online production baseline.",
+   "sources": [
+    "arxiv",
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Tencent proposes rubric-aligned search, which trains retrieval, ranking, and document selection against one per-query rubric so LLMs get useful document sets.",
+   "arxiv": "2611.22503",
+   "tier": "aware",
+   "tags": [
+    "retrieval",
+    "ranking"
+   ],
+   "venue": "KDD 2027",
+   "summary": "Tencent Yuanbao trains retrieval, ranking and document-set selection against one per-query rubric, aiming for documents that are useful to an LLM rather than relevant one at a time. +8.5% end-to-end answer quality online.",
+   "ideas": []
+  },
+  {
+   "title": "MIPR: A Benchmark for Reasoning-Intensive Multimodal Intent-to-Product Retrieval with Multi-Category Solutions",
+   "authors": [
+    "Qiang Li",
+    "Xuan Lu",
+    "Jian Ruan",
+    "Manxi Lin",
+    "Jiacheng Chen",
+    "Wen Shen",
+    "Zhihua Wei",
+    "Xiaoyu Shen",
+    "Dan Ou",
+    "Xiangheng Kong",
+    "Junjun Zheng"
+   ],
+   "categories": [
+    "cs.IR"
+   ],
+   "comments": "14 pages, 8 figures",
+   "abstract": "Real-world e-commerce queries often express user intent without naming a target product, and a single intent may be fulfilled by products from multiple categories. However, existing multimodal retrieval benchmarks typically assume a relatively well-defined target, leaving retrieval for intents with multi-category solutions less explored. To fill this gap, we introduce MIPR, a benchmark for Multimodal Intent-to-Product Retrieval comprising 3,522 multimodal queries and a shared corpus of 30,731 products. MIPR features reasoning-intensive retrieval, multi-category solutions, and fine-grained relevance labels. Experiments show that the best embedding-based retriever achieves 49.23% nDCG@10 on the full query set, and 55.86% solution-category recall@10 on queries with multiple solution categories. Reranking improves these scores to 60.11% and 67.00%, respectively, yet substantial gaps to the candidate-pool oracle remain. These results establish MIPR as a challenging and diagnostic benchmark for evaluating multimodal intent-to-product retrieval. The data and code are publicly available at https://huggingface.co/datasets/leequeue/MIPR.",
+   "sources": [
+    "arxiv",
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Alibaba presents a benchmark for finding products that solve a shopper's need across multiple categories.",
+   "arxiv": "2611.22509",
+   "tier": "aware",
+   "tags": [
+    "retrieval",
+    "evaluation"
+   ],
+   "venue": "",
+   "summary": "MIPR: an Alibaba benchmark of 3,522 multimodal shopping-intent queries over 30k products, where one intent can be met by several product categories. The best embedding retriever reaches 49% nDCG@10.",
+   "ideas": []
+  },
+  {
+   "title": "When Does Reusing Layers Help Multimodal Embeddings?",
+   "authors": [
+    "Zhizhang Hu",
+    "Yue Zhang"
+   ],
+   "categories": [],
+   "comments": "",
+   "abstract": "We ask whether a compact universal multimodal embedding models can produce better search embeddings by running the same layers again. Looped transformers add computation with nearly unchanged model size, making them an appealing alternative to a larger encoder. Their success in language-model reasoning and recent use for retrieval motivate the idea, but higher retrieval scores alone do not reveal what an extra pass contributes. We study eleven loop designs and training variants on three checkpoints of one vision-language architecture. Our protocol distinguishes whether a model uses its extra pass, whether its image states respond to the query, and whether those updates improve retrieval. We prove that an image placed before the query remains query-independent through repeated layers when information only travels forward. We then open a query-to-image path in three ways, including order-alternating recurrence, which places the query first on the next pass. Each path produces query-sensitive image states. For bidirectional attention and order alternation, freezing later visual updates does not lower accuracy. On all 78 datasets of the Massive Multimodal Embedding Benchmark version 2 (MMEB-V2), a standard added loop loses 0.46 points against its trained control; an intermediate generative stage changes the effect to +0.36. A model pretrained with recurrence gains +4.23 points over its own loop-removed control and benefits from query-conditioned image updates when answering visual questions or locating objects from text.",
+   "sources": [
+    "scholar-inbox",
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Tests whether running the same layers again improves multimodal embeddings, finding little to no gain from adding a loop to a standard model but larger gains from a model pretrained with recurrence.",
+   "arxiv": "2611.19827",
+   "tier": "aware",
+   "tags": [
+    "embeddings",
+    "architectures"
+   ],
+   "venue": "",
+   "summary": "Running a multimodal embedding model's layers again helps little unless information can flow from query to image. The paper proves that an image placed before the query stays query-independent under forward-only recurrence. A model pretrained with recurrence gains +4.2 on MMEB-V2.",
+   "ideas": []
+  },
+  {
+   "title": "Intrinsic Attention as Navigator: A Non-Generative Retrieval Method for Multi-Hop Queries",
+   "authors": [
+    "Linwei Song",
+    "Weijie Zhang",
+    "WeiDi Chen",
+    "Huixia Lai",
+    "Shi Zhang",
+    "Ruliang Xiao"
+   ],
+   "categories": [],
+   "comments": "",
+   "sources": [
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Introduces a training-free retriever that reads bridging clues from embedding model attention and removes them from the query vector to find next-hop documents.",
+   "arxiv": "2611.18617",
+   "tier": "aware",
+   "tags": [
+    "retrieval",
+    "RAG & agents"
+   ],
+   "venue": "",
+   "summary": "Training-free multi-hop retriever. It reads bridging clues from the embedding model's attention, subtracts revealed clues from the query vector, and reranks toward the next-hop evidence.",
+   "ideas": []
+  },
+  {
+   "title": "TokenFormer V2: Breaking the Resolution-Complexity Dilemma in Unified Recommendation",
+   "authors": [
+    "Kaihui Wu",
+    "Guoming Li",
+    "Liang Guo",
+    "Yifeng Zhou",
+    "Yuehong Hu",
+    "Junwei Pan",
+    "Zhixiang Feng",
+    "Chengguo Yin",
+    "Wenqi Fan",
+    "Haijie Gu",
+    "Jie Jiang"
+   ],
+   "categories": [],
+   "comments": "",
+   "sources": [
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Tencent introduces a unified recommender that keeps a token for every user behavior, attends in local groups, and lets the final prediction read each token directly.",
+   "arxiv": "2611.19074",
+   "tier": "aware",
+   "tags": [
+    "recommendation"
+   ],
+   "venue": "",
+   "summary": "Tencent's TokenFormer V2 keeps a token for every user behaviour, attends within groups merged hierarchically, and lets the final readout access each token directly. 5x fewer FLOPs than baselines and +2.3% GMV online.",
+   "ideas": []
+  },
+  {
+   "title": "CLEAR: Legible and Steerable Recommendation via Grounded Natural-Language Interests",
+   "authors": [
+    "Qi Guo",
+    "Reza Mirghaderi",
+    "Iordanis Fostiropoulos",
+    "David Fan",
+    "Yuchen Liu",
+    "Shiliang Tang",
+    "Lukasz Korycki",
+    "Golnaz Ghasemiesfeh",
+    "Xinzhu Bei",
+    "Sasha Vorontsov",
+    "Hanchao Yu",
+    "Brendan Quinlivan",
+    "Khoi Pham",
+    "Jigar Gada",
+    "Hao Yu",
+    "Felix Li",
+    "Hang Gao",
+    "Boyu Fang",
+    "Yang Gao",
+    "Yale Thomas",
+    "Xiaomeng Jin",
+    "Avishek Dutta",
+    "Hong Hong",
+    "Janet Xia",
+    "Ethan Zhu",
+    "Ellie Pan",
+    "Xiang Shen",
+    "Jawwad Zakaria",
+    "Jinfeng Lin",
+    "Jonathan Rush",
+    "Ruixue Lian",
+    "Noah Kennedy",
+    "Brian Vanover",
+    "Jas Pyneni",
+    "Daniel Thiyagu",
+    "Apoorv Saxena",
+    "Sanyogeeta Lawande",
+    "Huayu Ding",
+    "Hima Cherukuru",
+    "Yang Liu",
+    "Chen Kovacs",
+    "Qunshu Zhang",
+    "Lizhu Zhang",
+    "Benyu Zhang",
+    "Kate Chen",
+    "Ashish Singal",
+    "Danny Kanoff",
+    "Zhiyu Liu",
+    "Jiayi Liu",
+    "Jianyu Wang",
+    "Fei Liu",
+    "Xiangjun Fan",
+    "Abhishek Kumar",
+    "Hong Yan"
+   ],
+   "categories": [],
+   "comments": "",
+   "sources": [
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Meta presents a recommender that shows users inferred interests in plain language and carries their additions and removals through retrieval, ranking, and delivery.",
+   "arxiv": "2611.19110",
+   "tier": "aware",
+   "tags": [
+    "recommendation"
+   ],
+   "venue": "",
+   "summary": "Meta's CLEAR exposes inferred user interests as editable natural-language objects. Each interest drives lexical, behavioural and embedding retrieval, ranking and exposure control. Deployed on Instagram and Facebook.",
+   "ideas": []
+  },
+  {
+   "title": "Reflection Is Not Always Worth It: Budgeted Reflection Allocation for Recommendation Agents",
+   "authors": [
+    "Jinfeng Xu",
+    "Zheyu Chen",
+    "Ziyue Peng",
+    "Jianheng Tang",
+    "Zheng Lin",
+    "Wenhao Yuan",
+    "Jian Chen",
+    "Shujie Li",
+    "Victor Leung"
+   ],
+   "categories": [],
+   "comments": "",
+   "sources": [
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Uses cheap uncertainty signals to decide which users get costly LLM reflection in recommendation agents.",
+   "arxiv": "2611.19847",
+   "tier": "aware",
+   "tags": [
+    "recommendation",
+    "RAG & agents"
+   ],
+   "venue": "",
+   "summary": "Uses cheap uncertainty signals to decide which users get costly training-time LLM reflection in recommendation agents.",
+   "ideas": []
+  },
+  {
+   "title": "DetouR: Plugging Association Routes into Search Agents for Multi-hop Question Answering",
+   "authors": [
+    "Tingwei Chen",
+    "Yunxiao Shi",
+    "Zhendong Chu",
+    "Zhiying Deng",
+    "Min Xu",
+    "Qingsong Wen"
+   ],
+   "categories": [],
+   "comments": "",
+   "sources": [
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Introduces a plug-in that lets search agents follow hyperlinks from retrieved pages to reach evidence the question never names, with no extra search or LLM calls.",
+   "arxiv": "2611.19967",
+   "tier": "aware",
+   "tags": [
+    "RAG & agents",
+    "retrieval"
+   ],
+   "venue": "",
+   "summary": "DetouR lets search agents follow hyperlinks from retrieved pages, using a learned link scorer and personalized PageRank context selection. It reaches evidence the question never names, with no extra search or LLM calls. +4 EM on 2Wiki.",
+   "ideas": []
+  },
+  {
+   "title": "EchoSpec: Training Search Agents to Weigh Evidence Above Echoes",
+   "authors": [
+    "Shihao Yang",
+    "Can Zeng",
+    "Xinzhe Li"
+   ],
+   "categories": [],
+   "comments": "",
+   "sources": [
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Shows RL search agents treat paraphrased copies of a false claim as independent sources, then trains them to seek primary evidence and abstain without it.",
+   "arxiv": "2611.20034",
+   "tier": "aware",
+   "tags": [
+    "RAG & agents"
+   ],
+   "venue": "",
+   "summary": "RL-trained search agents treat paraphrased copies of a false claim as independent sources: eight echoes overturn 58–73% of correct answers. EchoSpec trains agents to seek primary evidence and to abstain without it.",
+   "ideas": []
+  },
+  {
+   "title": "Jetriever: Shifting Agent Memory Retrieval from Similarity to Utility",
+   "authors": [
+    "Ruizhe Li",
+    "Licheng Zhang",
+    "Mingxuan Du",
+    "Zhendong Mao"
+   ],
+   "categories": [],
+   "comments": "",
+   "sources": [
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Ranks stored agent memories by usefulness to the question rather than similarity.",
+   "arxiv": "2611.21478",
+   "tier": "aware",
+   "tags": [
+    "RAG & agents",
+    "retrieval"
+   ],
+   "venue": "",
+   "summary": "Ranks stored agent memories by an LLM's judgement of usefulness to the question instead of embedding similarity. Gold memory is ranked first in 85% of InMind indirect queries, against 0–2% for BM25 and MiniLM.",
+   "ideas": []
+  },
+  {
+   "title": "RAG-FGO: Dynamic Optimization of Query-Rewriting Agents for Generative RAG",
+   "authors": [
+    "Qigan Sun",
+    "Xudong Wang",
+    "Chaoning Zhang",
+    "Chenghao Li",
+    "Jiaquan Zhang",
+    "Jiehui Xie",
+    "Sungyoung Lee",
+    "Jie Zou",
+    "Ning Xie",
+    "Peng Wang",
+    "Yang Yang",
+    "Heng Tao Shen"
+   ],
+   "categories": [],
+   "comments": "",
+   "sources": [
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Treats query rewriting in RAG as an optimization problem over prompt templates and decoding settings, using global and local search plus a memory of the best strategies so far.",
+   "arxiv": "2611.17788",
+   "tier": "aware",
+   "tags": [
+    "RAG & agents"
+   ],
+   "venue": "",
+   "summary": "Treats RAG query rewriting as black-box optimisation over prompt templates and decoding settings, using global and local search plus an elite memory pool.",
+   "ideas": []
+  }
+ ]
+}
