@@ -4269,6 +4269,617 @@
   "note": ""
  },
  {
+  "id": "2611.23397",
+  "arxiv": "2611.23397",
+  "url": "",
+  "title": "Which Tokens, in What Order, and How Fast? A Theoretical Analysis of On-Policy Distillation Objectives",
+  "authors": [
+   "Hubert Strauss",
+   "Liam Fowl",
+   "Noam Razin"
+  ],
+  "tier": "core",
+  "tags": [
+   "LLM theory",
+   "training dynamics",
+   "post-training & RL"
+  ],
+  "summary": "Theory of on-policy distillation objectives. Sequence-level OPD has a 'future agreement bias' that makes it fit the teacher at later token positions first and can push early positions toward tokens the teacher finds improbable; token-level objectives avoid this. Forward KL gives a well-behaved landscape, while reverse KL and other f-divergences can have vanishing gradients even far from the teacher.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-19",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.24032",
+  "arxiv": "2611.24032",
+  "url": "",
+  "title": "Test-Time Symmetrization: Scaling Laws for Model-Agnostic Learning under Structure",
+  "authors": [
+   "Behrooz Tahmasebi",
+   "Melanie Weber"
+  ],
+  "tier": "core",
+  "tags": [
+   "CoT & reasoning",
+   "LLM theory",
+   "scaling laws"
+  ],
+  "summary": "Test-time symmetrization: run the model on rewritings of the input (a group G of equivalent representations, e.g. node relabelings) and aggregate. Proves that repeated sampling from one representation cannot replace rewriting, that O(log|G|) random rewritings recover the information of all |G| (uniformly over models, decoders and traces), and that log scaling is optimal; confirmed on four 7-14B models.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-19",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.23630",
+  "arxiv": "2611.23630",
+  "url": "",
+  "title": "What Interpolators Store and What They Express: An Information-Theoretic Framework for Benign Overfitting and Label-Free Model Selection",
+  "authors": [
+   "Nikolaos Nikolaou"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "memorization",
+   "learning theory",
+   "extracurricular"
+  ],
+  "summary": "Splits what an interpolating learner does with its sample into storage (information about training labels kept in the model) and expression (information that reaches predictions at fresh inputs). Every interpolator stores exactly nH(Y|X) bits of label noise, so storage-based (incl. CMI) bounds cannot separate interpolators; excess risk is bounded above and below by expressed information, and benign overfitting is vanishing expression. The quantity also gives a label-free model-selection rule.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-19",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.23427",
+  "arxiv": "2611.23427",
+  "url": "",
+  "title": "Stability Does Not Mirror Plasticity: A Module-Level View of Declarative and Procedural Learning in Transformers",
+  "authors": [
+   "Jinjun Peng",
+   "Wailiang Zhao",
+   "Baishakhi Ray",
+   "Zhou Yu",
+   "Jufeng Yang"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "transformer theory",
+   "memorization",
+   "phenomena"
+  ],
+  "summary": "In a controlled synthetic setup, MLPs are the most plastic modules for declarative memorization and QK/VO projections for procedural tasks. Stability does not mirror this: learning a new procedure by updating QK keeps over half of the stored facts, updating MLPs keeps far less, updating VO loses about four fifths. Reset-and-recovery experiments explain the asymmetry by how other modules depend on each one.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-19",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.24844",
+  "arxiv": "2611.24844",
+  "url": "",
+  "title": "General progress substitutes for specific training data in language models",
+  "authors": [
+   "Mark Marosi",
+   "Peter Antal"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "training dynamics",
+   "phenomena"
+  ],
+  "summary": "Withholding the training signal for one skill (chess check responses, Othello, bracket languages, molecular strings, a programming language in a 7B model) only delays it: general progress on the rest of the data substitutes for the withheld data, the delay in large models is predictable from small ones, and the data needed to acquire the skill later shrinks as the model improves. A control rule of equal difficulty is learned much more slowly.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-19",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.21486",
+  "arxiv": "2611.21486",
+  "url": "",
+  "title": "Differentiable Exact Learning",
+  "authors": [
+   "Hristo Papazov",
+   "Francesco D'Angelo",
+   "Nicolas Flammarion"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "expressivity",
+   "learning theory"
+  ],
+  "summary": "Couples a state-tracking neural controller (differentiable finite-state transducers, also RNNs/GRUs) with an unbounded external environment, trained on traces that expose observations and actions but hide states. Tiny datasets give extreme length generalization on arithmetic and universal simulation, and argmax over transitions provably yields controllers that exactly implement the target algorithms (under stated assumptions).",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-19",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.23626",
+  "arxiv": "2611.23626",
+  "url": "",
+  "title": "Two is better than one: optimizing binary rating scales for online platforms",
+  "authors": [
+   "Liren Shan",
+   "Alec Sun",
+   "Jingyan Wang"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "learning theory",
+   "recommendation",
+   "ranking"
+  ],
+  "summary": "Designing binary rating questions to rank items under inflated feedback: splitting one rating scale into two always improves item ranking; the optimal set of scales is a series of 0-1 step functions with evenly spaced thresholds; adaptive scales chosen from earlier responses give exponentially greater distinguishing power.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-19",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.23801",
+  "arxiv": "2611.23801",
+  "url": "",
+  "title": "Improved Leverage Score Sampling for Constrained Active Linear Regression",
+  "authors": [
+   "Aarshvi Gajjar",
+   "Syamantak Kumar",
+   "Aditya Makkar",
+   "Christopher Musco",
+   "Joey Zhou"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "learning theory",
+   "extracurricular"
+  ],
+  "summary": "Active constrained least squares: ellipsoid-regularized leverage scores give query complexity O(d_eff(C) log d / eps^2), with d_eff(C) an anisotropic effective dimension of the constraint set, improved to 1/eps for convex constraints; matching lower bounds show d/eps^2 is unavoidable without convexity.",
+  "venue": "NeurIPS 2026 (spotlight)",
+  "src": [
+   "Conference"
+  ],
+  "date": "2026-11-19",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.24908",
+  "arxiv": "2611.24908",
+  "url": "",
+  "title": "Decomposing SGD Dynamics in Neural Networks: Teacher-Induced Spikes and Variance Inflation",
+  "authors": [
+   "Samet Demir",
+   "Zafer Dogan"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "training dynamics",
+   "learning theory",
+   "extracurricular"
+  ],
+  "summary": "Two-layer networks trained by SGD on a multi-index teacher in the proportional limit: first-layer weights orthogonal to the teacher subspace develop teacher-dependent spectral spikes in their Gram matrix, which inflate representation variance and hurt generalization. A tractable surrogate ('Decomposed Dynamics') has the same asymptotic test error as SGD; freezing the orthogonal part helps.",
+  "venue": "NeurIPS 2026",
+  "src": [
+   "Conference",
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-19",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.23617",
+  "arxiv": "2611.23617",
+  "url": "",
+  "title": "Error accumulation in reverse diffusion with an imperfect score: beyond path-space analyses",
+  "authors": [
+   "George Giapitzakis",
+   "Ankur Moitra",
+   "Andrej Risteski",
+   "Dhruv Rohatgi"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "learning theory",
+   "extracurricular"
+  ],
+  "summary": "Avoiding path-space analysis, the error of a diffusion sampler with an imperfect score need not accumulate polynomially with the horizon when the target satisfies a Poincare inequality; more generally the error is controlled in a weaker metric for any target. Given a score-error bound and a Poincare constant, the sampler is nearly information-theoretically optimal in TV.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-19",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.24181",
+  "arxiv": "2611.24181",
+  "url": "",
+  "title": "Rare-Tail Statistics For Learning Biased Gaussian Halfspaces with Label Noise",
+  "authors": [
+   "Arya Mazumdar",
+   "Prateeti Mukherjee",
+   "Harsh Vardhan"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "learning theory",
+   "extracurricular"
+  ],
+  "summary": "Learning biased Gaussian halfspaces under label noise: averaging only the minority class (rare-tail mean) recovers the direction at the information-theoretic sample rate in the large-bias regime, where global first-moment methods are provably suboptimal, under probit and slowly decaying margin noise.",
+  "venue": "NeurIPS 2026",
+  "src": [
+   "Conference"
+  ],
+  "date": "2026-11-19",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.24881",
+  "arxiv": "2611.24881",
+  "url": "",
+  "title": "Monoculture Robust Learning",
+  "authors": [
+   "Lee Cohen",
+   "Jon Kleinberg",
+   "and Omer Reingold"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "learning theory",
+   "extracurricular"
+  ],
+  "summary": "Monoculture robustness in PAC learning: from one dataset, output k accurate hypotheses whose joint failure is comparable to training on k independent datasets. If the base learner is rho-replicable, k independent runs on the same sample drive the individual conjunctive error down exponentially in k; a lower bound shows a sample-size multiplier Omega(log 1/gamma) can be necessary.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-19",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.24151",
+  "arxiv": "2611.24151",
+  "url": "",
+  "title": "Nearly Tight Almost Sure Convergence Rates for the Last iterate of SGD",
+  "authors": [
+   "Weiming Ou",
+   "Andrea Paudice",
+   "Xiao Wang"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "optimization",
+   "extracurricular"
+  ],
+  "summary": "Almost-sure last-iterate rates for SGD on convex objectives: k^{-1/3} for smooth objectives with a stationary minimizer, k^{-1/4} otherwise and for nonsmooth objectives, with anytime step sizes, and matching lower bounds up to logs.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-19",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.23431",
+  "arxiv": "2611.23431",
+  "url": "",
+  "title": "The Spectral Distribution of Matrix Least Squares Solutions, and the Ellipsoid Fitting Problem",
+  "authors": [
+   "Afonso S. Bandeira",
+   "Yue M. Lu",
+   "Petar Nizić-Nikolac"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "learning theory",
+   "extracurricular"
+  ],
+  "summary": "Closed-form support of the spectral distribution of the least-squares solution to a random linear system in a symmetric matrix. Application to ellipsoid fitting through n Gaussian points in R^d: the least-squares candidate is PSD only up to n ~ d^2/10 (proving a statistical-physics prediction) and its dual certificate up to n ~ 2d^2/5, below the true threshold d^2/4.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-19",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.20980",
+  "arxiv": "2611.20980",
+  "url": "",
+  "title": "Copying along Arithmetic Progressions Cannot Simulate Interleaving with Polylogarithmic Loss",
+  "authors": [
+   "Matthias G. Mayer"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "learning theory",
+   "extracurricular"
+  ],
+  "summary": "Answers Kosoy's question on compressing words by interleaving: arithmetic repetition systems are within a factor 2n^{1/4} of the smallest zipline program, and some binary words need n^{1/4-o(1)}, so the optimal exponent is 1/4, not 1/3. This rules out a polylog mistake bound for Kosoy's polynomial-time next-letter predictor via this route.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-19",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.24849",
+  "arxiv": "2611.24849",
+  "url": "",
+  "title": "Can Programs Replace LLM Judges? Executable Program Judges for Scalable and Efficient Relevance Labeling",
+  "authors": [
+   "Eugene Agichtein",
+   "Charles L. A. Clarke",
+   "Kaustubh Dhole",
+   "William Stern"
+  ],
+  "tier": "aware",
+  "tags": [
+   "retrieval",
+   "evaluation"
+  ],
+  "summary": "ExecJudges: a frontier LLM writes, per TREC topic, an executable lexical program that labels relevance. Agreement with NIST assessors matches LLM judges on TREC DL 2019-2021, ranks official runs with Kendall's tau 0.87-0.94, at $0.17-0.49 per topic once.",
+  "venue": "",
+  "src": [
+   "Followed researcher",
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-19",
+  "listed": true,
+  "who": [
+   "Charles L. A. Clarke"
+  ],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.23339",
+  "arxiv": "2611.23339",
+  "url": "",
+  "title": "Optimize the Cob, Then the Kernel: Optimizing Beam Search for Generative Recommendation Inference",
+  "authors": [
+   "Shing Wai Pun",
+   "Kai Wu",
+   "Pengfei Xia",
+   "Hui Zang",
+   "Wei Guo",
+   "Yong Liu"
+  ],
+  "tier": "aware",
+  "tags": [
+   "generative retrieval",
+   "recommendation"
+  ],
+  "summary": "Serving generative recommenders: tree attention over beams to avoid repeated KV reads of the shared prefix, static KV allocation, unrolled generation and constrained decoding give up to 25x lower latency than vLLM on Ascend NPUs without custom kernels.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-19",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.23710",
+  "arxiv": "2611.23710",
+  "url": "",
+  "title": "CONCORD-Rec: Catalog-Conditioned Modality Utility for Semantic-ID Diffusion Recommendation",
+  "authors": [
+   "Haopeng Jin",
+   "Bingkang Shi",
+   "Tao Yu",
+   "Yifei Ma",
+   "Hao Liu",
+   "Hongzhu Yi",
+   "Jinwen Luo"
+  ],
+  "tier": "aware",
+  "tags": [
+   "generative retrieval",
+   "recommendation"
+  ],
+  "summary": "Discrete-diffusion recommender over semantic IDs with a reliability gate on modalities, trained from counterfactual catalog-partition utility; robust to missing or conflicting modalities (+4% NDCG overall, +14.6% under 30% conflict).",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-19",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.23606",
+  "arxiv": "2611.23606",
+  "url": "",
+  "title": "VIBRA: Backward-Compatible Cross-Modal Retrieval with Consensus Barycenters",
+  "authors": [
+   "Shubing Yang",
+   "Xutong Liu",
+   "Dongfang Zhao"
+  ],
+  "tier": "aware",
+  "tags": [
+   "embeddings",
+   "retrieval"
+  ],
+  "summary": "Backward-compatible cross-modal retrieval: train the new encoder to match a barycenter of several old-space views, with a margin argument for when the barycenter helps; best compatible method in 50 upgrade settings among CLIP/SigLIP2 backbones.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-19",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.24283",
+  "arxiv": "2611.24283",
+  "url": "",
+  "title": "X-split Argus: Learning Reusable History Tokens for Efficient CTR Prediction",
+  "authors": [
+   "Alexander Ploshkin",
+   "Nikita Stepanov",
+   "Alexey Pismenny",
+   "Viacheslav Ovchinnikov",
+   "Nikolay Savushkin"
+  ],
+  "tier": "aware",
+  "tags": [
+   "recommendation"
+  ],
+  "summary": "Ad ranking that compresses long user histories offline into reusable tokens and scores candidates by cross-attention, trained end to end with distillation from an uncompressed teacher; online gains in a production bidding system.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-19",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.23454",
+  "arxiv": "2611.23454",
+  "url": "",
+  "title": "LusoClin: A Synthetic Clinical Note Dataset for Medical Information Retrieval in European Portuguese",
+  "authors": [
+   "Carla Teixeira Lopes",
+   "Daniel Félix"
+  ],
+  "tier": "aware",
+  "tags": [
+   "retrieval",
+   "evaluation"
+  ],
+  "summary": "Synthetic clinical notes in European Portuguese, generated by a fine-tuned Llama 3.2 3B and annotated with entities, released for medical IR research; evaluated for utility, fidelity, diversity and privacy.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-19",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.23702",
+  "arxiv": "2611.23702",
+  "url": "",
+  "title": "KnowMe Paper Radar: Lightweight Discovery of Promising Papers in the Age of Autoresearch",
+  "authors": [
+   "Zhuo Chen",
+   "Jian Wang",
+   "Jinjie Gu",
+   "Lijun Wu"
+  ],
+  "tier": "aware",
+  "tags": [
+   "recommendation",
+   "retrieval"
+  ],
+  "summary": "KnowMe Paper Radar: a paper-recommendation tool combining topical relevance, recency, author histories and collaboration paths with inspectable score components; cached abstracts raise NDCG@10 from 0.41 to 0.60 on expert-judged tasks.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-19",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
   "id": "t:on the feasibility of forgetting in data streams",
   "arxiv": "",
   "url": "https://dl.acm.org/doi/10.1145/3651603",

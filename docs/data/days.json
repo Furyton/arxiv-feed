@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-11-19",
+  "n_core": 2,
+  "n_listed": 22,
+  "n_researcher": 1,
+  "n_picks": 3
+ },
+ {
   "date": "2026-11-18",
   "n_core": 1,
   "n_listed": 34,
