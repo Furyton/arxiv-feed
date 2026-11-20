@@ -16,7 +16,7 @@
  {
   "name": "Zeyuan Allen-Zhu",
   "aff": "Meta FAIR",
-  "n": 10,
+  "n": 11,
   "co": [],
   "co_auto": [
    "Yuanzhi Li",
@@ -421,7 +421,7 @@
  {
   "name": "Julian McAuley",
   "aff": "UC San Diego",
-  "n": 114,
+  "n": 115,
   "co": [],
   "co_auto": [
    "Tong Yu",
@@ -651,7 +651,7 @@
  {
   "name": "Grigoris Velegkas",
   "aff": "Google Research",
-  "n": 21,
+  "n": 22,
   "co": [],
   "co_auto": [
    "Amin Karbasi",

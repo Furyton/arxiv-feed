@@ -1,0 +1,933 @@
+{
+ "date": "2026-11-20",
+ "headline": "A solvable multi-head attention model where head specialization is a phase transition in sample size (Zdeborová), a unified approximation bound for adaptive beam search on DiskANN-style graphs, and a Bayesian account of task descriptions in ICL. Also: sample compression of size O(d^2 log^2 d) for every VC class, and a late-quantization semantic-ID recommender with a ranking-drop bound.",
+ "stats": {
+  "arxiv_new": 919,
+  "scholar_inbox": 100,
+  "curated": 37,
+  "titles_read": 417,
+  "abstracts_read": 64
+ },
+ "daily_picks": [
+  {
+   "title": "Make Sparse Rewards Count: Density-Aware Reward Aggregation for Multi-Reward RL",
+   "authors": [
+    "Tong Zheng",
+    "Skylar Zhai",
+    "Zhan Cheng",
+    "TianMing Sha",
+    "Youling Huang",
+    "Shuo Zhou",
+    "Shaotong Qi",
+    "Jingcheng Liang",
+    "Xuwei Ding",
+    "Pengcheng Xu"
+   ],
+   "year": "2026",
+   "url": "http://arxiv.org/abs/2610.00574",
+   "zotero_key": "3IPNXUUF",
+   "note_key": "QAKM2Z94",
+   "digest": "Setting and problem \n The object of study is GRPO-style policy optimization of an LLM policy $\\pi_\\theta$ with several reward functions. A rollout batch holds $B$ prompts $\\{x_i\\}_{i=1}^B$. For each prompt the policy samples a group of $G$ responses $\\{y^{(i,j)}\\}_{j=1}^G$, and each response gets $K$ sequence-level rewards $\\{r_k^{(i,j)}\\}_{k=1}^K$ (for example format and correctness, or correctness and a length cap). With $\\mu_{i,k}$ and $\\sigma_{i,k}$ the group mean and sample standard deviation of reward $k$, there are two known aggregation schemes:\n\n\n \n GRPO sums first and then normalizes: $r_{\\text{sum}}^{(i,j)}=\\sum_k r_k^{(i,j)}$ and $A_{\\text{GRPO}}^{(i,j)}=(r_{\\text{sum}}^{(i,j)}-\\mu_{i,\\text{sum}})/(\\sigma_{i,\\text{sum}}+\\epsilon)$. Different reward combinations can collapse to the same advantage. \n GDPO normalizes each reward first, $A_k^{(i,j)}=(r_k^{(i,j)}-\\mu_{i,k})/(\\sigma_{i,k}+\\epsilon)$, then sums $S^{(i,j)}=\\sum_k A_k^{(i,j)}$ and whitens over the batch: $\\hat A^{(i,j)}=(S^{(i,j)}-\\mu_B(S))/(\\sigma_B(S)+\\epsilon)$. \n \n The resulting scalar advantage is broadcast to every token and used in the usual clipped PPO/DAPO surrogate. What goes in is the $K$ reward channels of a rollout batch. What comes out is a per-response advantage. The paper changes only the aggregation step.\n\n\n The key modelling choice is how sparsity is formalised. Reward $k$ is active in …"
+  },
+  {
+   "title": "Which Tokens, in What Order, and How Fast? A Theoretical Analysis of On-Policy Distillation Objectives",
+   "authors": [
+    "Hubert Strauss",
+    "Liam Fowl",
+    "Noam Razin"
+   ],
+   "year": "2026",
+   "url": "https://arxiv.org/abs/2611.23397",
+   "zotero_key": "4SEN8TZF",
+   "note_key": "3EKI5DDH",
+   "digest": "Setting and problem \n The object of study is on-policy distillation (OPD) of an autoregressive student $\\pi_\\theta$ toward a fixed teacher $\\pi_T$. Both are distributions over length-$L$ outputs $y \\in \\mathcal{V}^L$ given a prompt $x$. The student factorizes as\n$$\\pi_\\theta(y \\mid x) = \\prod_{l=1}^{L} \\mathrm{softmax}(z[x, y_{<l}])_{y_l},$$\nwhere $z[x,c] \\in \\mathbb{R}^{|\\mathcal{V}|}$ is the logit vector at prefix $c$. The teacher is assumed to put positive mass on every sequence. \"On-policy\" means the training sequences are sampled from the student itself, not from the teacher, which removes the train/test (exposure-bias) mismatch of classical off-policy, sequence-level KD.\n\n\n OPD objectives differ along two axes.\n\n\n \n Granularity. Sequence-level OPD (the MiniLLM form) minimizes the reverse KL over whole sequences:\n$$\\mathcal{L}_{\\mathrm{seq}}(\\theta;x) = \\mathrm{KL}\\big(\\pi_\\theta(\\cdots\\mid x)\\,\\|\\,\\pi_T(\\cdots\\mid x)\\big) = \\mathbb{E}_{y\\sim\\pi_\\theta}\\Big[\\ln \\tfrac{\\pi_\\theta(y\\mid x)}{\\pi_T(y\\mid x)}\\Big].$$\n In practice it is optimized as a policy gradient with sequence \"reward\" $-\\ln(\\pi_\\theta(y|x)/\\pi_T(y|x))$. Token-level OPD (the GKD form) is myopic. It sums a per-prefix divergence along a student rollout, with a stop-gradient on the sampling distribution:\n$$\\mathcal{L}_{\\mathrm{tok}\\text{-}D}(\\theta;x) = \\mathbb{E}_{y\\sim\\pi_{\\mathrm{sg}(\\theta)}}\\sum_{l=1}^{L} …"
+  },
+  {
+   "title": "Test-Time Symmetrization: Scaling Laws for Model-Agnostic Learning under Structure",
+   "authors": [
+    "Behrooz Tahmasebi",
+    "Melanie Weber"
+   ],
+   "year": "2026",
+   "url": "https://arxiv.org/abs/2611.24032",
+   "zotero_key": "UAA23SMB",
+   "note_key": "CHTFCNI6",
+   "digest": "Setting and problem \n The object of study is a frozen language model used at inference time on tasks with a known symmetry. Let $\\mathcal{X}$ be the space of prompts, $\\mathcal{C}$ a finite set of $C$ answer classes, and $y^\\star : \\mathcal{X} \\to \\mathcal{C}$ the target. A finite group $G$ acts on prompts, $(g, x) \\mapsto g \\cdot x$, by semantically neutral rewritings: node relabelings and edge reorderings of a serialized graph ($G = S_n \\times S_{|E|}$), permutations of multiple-choice options, reorderings of premises or few-shot demonstrations. The task is assumed invariant, $y^\\star(g \\cdot x) = y^\\star(x)$. Equivariant outputs (e.g. the correct letter moves when options are permuted) are reduced to this case by mapping answers back with $\\rho(g)^{-1}$.\n\n\n For one prompt there are two independent sources of randomness. The rewriting coordinate $g \\in G$ picks a representation $g \\cdot x$. The decoding coordinate is a reasoning trace $\\omega \\sim p_{\\theta,\\tau}(\\cdot \\mid g \\cdot x)$, with $\\tau$ the sampling temperature. A response field $V_x(g,\\omega)$ records what we read off a trace: an answer, logits, a verifier score. A distribution-level decoding rule $D$ maps the whole conditional trace distribution at one rewriting to a point in a real Hilbert space $\\mathcal{H}$, giving the decoded orbit field\n\n\n $$F^D_x(g) = D\\big(p_{\\theta,\\tau}(\\cdot \\mid g\\cdot x), …"
+  }
+ ],
+ "researchers": [
+  {
+   "title": "Near-Quadratic Sample Compression for All VC Classes",
+   "authors": [
+    "Yang Cai",
+    "Vineet Gupta",
+    "Yanchen Jiang",
+    "Christopher Liaw",
+    "Aranyak Mehta",
+    "Shay Moran",
+    "Grigoris Velegkas",
+    "Di Wang",
+    "Manfred K. Warmuth"
+   ],
+   "categories": [
+    "cs.LG",
+    "cs.AI",
+    "cs.DS",
+    "math.CO",
+    "stat.ML"
+   ],
+   "comments": "",
+   "abstract": "The sample compression conjecture is a longstanding open problem in learning theory, originating in the work of Littlestone and Warmuth in the 1980s. At its heart is a connection between simplification and generalization: if a predictor consistent with a training sample is defined using only a small part of that sample, then it is likely to generalize. Sample compression schemes formalize this idea, and many natural learning algorithms can be analyzed this way. The sample compression conjecture of Floyd and Warmuth (1995) asserts that every binary concept class of VC dimension $d$ admits a sample compression scheme of size $O(d)$; a weaker conjecture asks only for size polynomial in $d$. Both have remained open: the first bound depending only on $d$, due to Moran and Yehudayoff (2016), is exponential in $d$. We prove the weaker conjecture by constructing a sample compression scheme of size $O(d^2 \\log^2 d)$.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.25011",
+   "researcher": "Grigoris Velegkas",
+   "verdict": "confirmed",
+   "evidence": "Google; co-authors Aranyak Mehta, Christopher Liaw, Yang Cai, Shay Moran",
+   "summary": "Sample compression scheme of size O(d^2 log^2 d) for all VC classes."
+  },
+  {
+   "title": "LQ-Rec: Late Quantization for Sequential Recommendation",
+   "authors": [
+    "Satoshi Koide",
+    "Yueqi Wang",
+    "Julian McAuley"
+   ],
+   "categories": [
+    "cs.IR"
+   ],
+   "comments": "",
+   "abstract": "Generative retrieval (GR) for sequential recommendation compresses each item into a short semantic ID and trains an autoregressive decoder to generate next-item codes from a user history. While appealing for cold-start handling and storage, au- toregressive GR suffers a structural scaling limit: typically, longer semantic IDs reduce quantization error in principle but degrade ranking quality and quadratic memory usage against semantic ID length. We propose Late Quantization (LQ), a non-autoregressive paradigm that confines discretization to the output (item) side of the pipeline. The encoder and scoring rule operate in continuous space, while items are stored and matched as semantic IDs produced by an end-to-end-trained residual quantizer. This architectural shift permits an additive error decomposition and a pairwise ordering theorem that jointly bound the quantization- induced ranking drop, a structural guarantee absent in prior semantic-ID recommenders. Across four public benchmarks, the resulting recommender, LQ-Rec, delivers three capabilities simultaneously: ranking quality improves monotonically with the semantic-ID length and outperforms existing baselines; a single trained model supports anytime compression, tuning ranking quality against inference cost without retraining; and LQ-Rec shows superior generalization on a memorization/generalization partition.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox",
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Proposes a recommender that stores items as semantic IDs but keeps the encoder in continuous space, so longer IDs improve ranking, and one model supports anytime compression.",
+   "arxiv": "2611.25256",
+   "researcher": "Julian McAuley",
+   "verdict": "confirmed",
+   "evidence": "UC San Diego",
+   "summary": "LQ-Rec: late quantization for semantic-ID sequential recommendation."
+  }
+ ],
+ "papers": [
+  {
+   "title": "Attention Head Specialization: Phase Transitions in Sample Complexity",
+   "authors": [
+    "Léo Catteau",
+    "O. Duranthon",
+    "Lenka Zdeborová"
+   ],
+   "categories": [
+    "cs.LG",
+    "cond-mat.dis-nn",
+    "stat.ML"
+   ],
+   "comments": "",
+   "abstract": "Attention heads specialize into distinct functions during training, often emerging in stages together with sharp changes in model behavior. While this phenomenon has mostly been studied as a function of training time, we ask how head specialization depends on the amount of available training data. Empirically, we find that heads specialized to syntactic relations in BERT emerge as the dataset size increases. We then study this phenomenon in a solvable high-dimensional model of multi-head attention and establish that, in this model, head specialization is a genuine phase transition in sample complexity, corresponding to a non-analyticity in the test error and other observables. Depending on data structure and regularization, specialization can follow uninformative head differentiation or occur through a cascade of phase transitions that progressively recover weaker latent features, providing a statistical form of simplicity bias. Finally, we relate these statistical transitions to the stagewise emergence of specialized heads during online learning, disentangling statistical from dynamical origins of head specialization.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.26228",
+   "tier": "core",
+   "tags": [
+    "transformer theory",
+    "training dynamics",
+    "learning theory"
+   ],
+   "venue": "",
+   "summary": "In a solvable high-dimensional model of multi-head attention, head specialization is a true phase transition in the number of samples (a non-analyticity of the test error). Depending on data structure and regularization it can go through an uninformative differentiation phase or a cascade of transitions that recover progressively weaker latent features; the paper links these statistical transitions to the stagewise emergence of heads in online training. BERT syntactic heads also appear only above a data-size threshold.",
+   "why": "A sharp, staged-learning result for attention: a cascade that recovers stronger features before weaker ones is the statistical analogue of learning a docid tree level by level.",
+   "ideas": [
+    1,
+    1
+   ],
+   "zotero": "already in library"
+  },
+  {
+   "title": "Variants of Beam Search for DiskANN",
+   "authors": [
+    "Viraj Agrawal",
+    "Kirankumar Shiragur"
+   ],
+   "categories": [
+    "cs.DS",
+    "cs.DB",
+    "cs.IR"
+   ],
+   "comments": "22 pages, 1 figure, 9 tables",
+   "abstract": "Graph-based data structures such as DiskANN, HNSW, and NSG constitute the state of the art for large-scale approximate nearest-neighbor (ANN) search. Indyk and Xu introduced the notion of $\\alpha$-reachable graphs, which include graphs built by DiskANN's slow-preprocessing construction, and proved that greedy search achieves an approximation factor of $\\tfrac{\\alpha+1}{\\alpha-1}$. Independently, Al-Jazzazi et al. proposed adaptive beam search (ABS) with a relaxation parameter $\\gamma > 0$, showing a $\\tfrac{2}{\\gamma}$ approximation on navigable graphs ($\\alpha \\approx 1$), where greedy search admits no guarantees. In this work, we unify and generalize these results by proving that ABS with parameter $\\gamma$ on $\\alpha$-reachable graphs achieves an approximation of $\\tfrac{\\alpha+1}{\\alpha(\\gamma+1)-1}$ for any metric. Moreover, on sorted $\\alpha$-reachable graphs (introduced by Gollapudi et al.) under the $\\ell_2$ metric, we obtain the tighter bound $\\max\\bigl(\\tfrac{\\alpha}{\\alpha(\\gamma+1)-1}, \\tfrac{\\alpha^{2}+1}{\\alpha^{2}(\\gamma+1)-1}\\bigr)$. Beyond these theoretical results, we design a beam predictor using features inspired by fine-grained analysis of ABS, trained via a constrained objective that minimizes mean distance computations subject to a target recall. On three 100-million-point benchmarks, using graphs built by DiskANN's practical construction, beam predictor lowers mean query latency on SSD-resident indices at matched recall by up to $29.6\\%$ relative to classical beam search (CBS). Relative to ABS, it is faster in $11$ of $15$ settings, by up to $6.5\\%$, and at most $1.4\\%$ slower in the other $4$; at $95\\%$ recall, its advantage over ABS grows from $0.8$--$4.2\\%$ for $100$ neighbors to $4.6$--$5.6\\%$ for $500$ neighbors. In memory, it needs $1.3$--$23.7\\%$ fewer distance computations than CBS and $0.0$--$3.9\\%$ fewer than ABS.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.26609",
+   "tier": "core",
+   "tags": [
+    "vector search"
+   ],
+   "venue": "",
+   "summary": "Proves that adaptive beam search with relaxation gamma on alpha-reachable graphs (DiskANN slow preprocessing) is an (alpha+1)/(alpha(gamma+1)-1)-approximation in any metric, unifying Indyk-Xu (greedy, gamma=0) and Al-Jazzazi et al. (navigable graphs); a tighter bound holds on sorted alpha-reachable graphs in l2. A learned beam predictor built on the analysis cuts SSD query latency by up to 30% versus classical beam search at matched recall on 100M-point sets.",
+   "why": "Closes the gap between the two existing guarantees for graph ANN search with one formula; direct follow-up to the Distance Adaptive Beam Search paper already in @study.",
+   "ideas": [],
+   "zotero": "added"
+  },
+  {
+   "title": "Is a Description Worth a Thousand Demonstrations? Specificity and Reliability of Task Descriptions in In-Context Learning",
+   "authors": [
+    "Bruce Nguyen",
+    "Bei Jiang",
+    "Linglong Kong"
+   ],
+   "categories": [
+    "cs.LG"
+   ],
+   "comments": "39 pages, 6 figures, 17 tables",
+   "abstract": "A prompt for in-context learning (ICL) can describe a task in addition to, or instead of, demonstrating it through examples. Yet how task descriptions work remains poorly understood theoretically. Through the Bayesian view of ICL, we model descriptions as informative priors characterized by their specificity and reliability. We adapt the effective sample size (ESS) from Bayesian statistics, quantifying a description's predictive value as an equivalent number of demonstrations. For in-context linear regression, we show that a reliable description's ESS grows with its specificity and with the task's dimension. A description that may be irrelevant, however, gains little from its specificity unless demonstrations are given. In practice, do in-context learners use descriptions as a Bayes-optimal predictor would? Our experiments show that meta-trained Transformers come close to the Bayes-optimal ESS when tested on their training distribution. Pretrained language models, however, make too little use of highly specific descriptions when answering without reasoning; most of them closely match the Bayes-optimal predictor only when reasoning is enabled. These results extend the Bayesian analysis of ICL from demonstrations to descriptions.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.25560",
+   "tier": "core",
+   "tags": [
+    "ICL",
+    "LLM theory"
+   ],
+   "venue": "",
+   "summary": "Models a task description in ICL as an informative prior with a specificity and a reliability, and measures its value as an effective sample size (number of demonstrations it is worth). For in-context linear regression, a reliable description's ESS grows with its specificity and with the task dimension, while a possibly irrelevant one gains little from specificity unless demonstrations are present. Meta-trained transformers come close to the Bayes-optimal ESS; pretrained LMs underuse specific descriptions unless reasoning is enabled.",
+   "why": "Extends the Bayesian ICL picture from demonstrations to instructions with a concrete, checkable quantity (descriptions measured in demonstrations).",
+   "ideas": [],
+   "zotero": "added"
+  },
+  {
+   "title": "LQ-Rec: Late Quantization for Sequential Recommendation",
+   "authors": [
+    "Satoshi Koide",
+    "Yueqi Wang",
+    "Julian McAuley"
+   ],
+   "categories": [
+    "cs.IR"
+   ],
+   "comments": "",
+   "abstract": "Generative retrieval (GR) for sequential recommendation compresses each item into a short semantic ID and trains an autoregressive decoder to generate next-item codes from a user history. While appealing for cold-start handling and storage, au- toregressive GR suffers a structural scaling limit: typically, longer semantic IDs reduce quantization error in principle but degrade ranking quality and quadratic memory usage against semantic ID length. We propose Late Quantization (LQ), a non-autoregressive paradigm that confines discretization to the output (item) side of the pipeline. The encoder and scoring rule operate in continuous space, while items are stored and matched as semantic IDs produced by an end-to-end-trained residual quantizer. This architectural shift permits an additive error decomposition and a pairwise ordering theorem that jointly bound the quantization- induced ranking drop, a structural guarantee absent in prior semantic-ID recommenders. Across four public benchmarks, the resulting recommender, LQ-Rec, delivers three capabilities simultaneously: ranking quality improves monotonically with the semantic-ID length and outperforms existing baselines; a single trained model supports anytime compression, tuning ranking quality against inference cost without retraining; and LQ-Rec shows superior generalization on a memorization/generalization partition.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox",
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Proposes a recommender that stores items as semantic IDs but keeps the encoder in continuous space, so longer IDs improve ranking, and one model supports anytime compression.",
+   "arxiv": "2611.25256",
+   "tier": "interesting",
+   "tags": [
+    "generative retrieval",
+    "recommendation"
+   ],
+   "venue": "",
+   "summary": "Late Quantization: keep the sequential-recommendation encoder and scoring in continuous space and quantize only the item side into semantic IDs from an end-to-end residual quantizer, decoded non-autoregressively. An additive error decomposition and a pairwise-ordering theorem bound the ranking drop caused by quantization; ranking improves monotonically with SID length (unlike autoregressive GR) and one model supports anytime compression.",
+   "why": "States a structural scaling limit of autoregressive SID generation (longer IDs hurt) and removes it by moving discretization to the output side, with a bound on the ranking loss.",
+   "ideas": [
+    1,
+    1
+   ]
+  },
+  {
+   "title": "Near-Quadratic Sample Compression for All VC Classes",
+   "authors": [
+    "Yang Cai",
+    "Vineet Gupta",
+    "Yanchen Jiang",
+    "Christopher Liaw",
+    "Aranyak Mehta",
+    "Shay Moran",
+    "Grigoris Velegkas",
+    "Di Wang",
+    "Manfred K. Warmuth"
+   ],
+   "categories": [
+    "cs.LG",
+    "cs.AI",
+    "cs.DS",
+    "math.CO",
+    "stat.ML"
+   ],
+   "comments": "",
+   "abstract": "The sample compression conjecture is a longstanding open problem in learning theory, originating in the work of Littlestone and Warmuth in the 1980s. At its heart is a connection between simplification and generalization: if a predictor consistent with a training sample is defined using only a small part of that sample, then it is likely to generalize. Sample compression schemes formalize this idea, and many natural learning algorithms can be analyzed this way. The sample compression conjecture of Floyd and Warmuth (1995) asserts that every binary concept class of VC dimension $d$ admits a sample compression scheme of size $O(d)$; a weaker conjecture asks only for size polynomial in $d$. Both have remained open: the first bound depending only on $d$, due to Moran and Yehudayoff (2016), is exponential in $d$. We prove the weaker conjecture by constructing a sample compression scheme of size $O(d^2 \\log^2 d)$.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.25011",
+   "tier": "interesting",
+   "tags": [
+    "learning theory",
+    "extracurricular"
+   ],
+   "venue": "",
+   "summary": "Constructs a sample compression scheme of size O(d^2 log^2 d) for every binary class of VC dimension d, proving the weak (polynomial) form of the Floyd-Warmuth sample compression conjecture; the previous best bound depending only on d (Moran-Yehudayoff 2016) was exponential.",
+   "why": "A decades-old learning-theory question gets a polynomial answer; worth reading for the construction.",
+   "ideas": []
+  },
+  {
+   "title": "Physics of Language Models: Part 4.2, Canon Layers at Scale where Synthetic Pretraining Resonates in Reality",
+   "authors": [
+    "Zeyuan Allen-Zhu"
+   ],
+   "categories": [],
+   "comments": "",
+   "abstract": "Do standard benchmarks see the architectural differences that matter? We study it with 64 from-scratch pretraining runs of Transformers and three linear-model families at 1.3-8B parameters on 1-2T Nemotron-CC tokens, at a cost of roughly 100k USD per 8B run. In academic-scale pretraining (1.3B parameters, 100B tokens), architectural differences can all but disappear when the models are carefully tuned. Instead, at 1-2T tokens they become measurable: Canon layers, which add local token mixing, consistently improve Transformers, saving about 30% of pretraining tokens for the same MMLU accuracy at 8B. We also introduce GLA5 and GDN2, which improve gated linear attention and Gated DeltaNet with low-rank output gates. Surprisingly, with Canon, the simplest linear model, gated linear attention, matches Gated DeltaNet and outperforms Mamba2 even at 8B/1T. Therefore, the extra machinery of Gated DeltaNet and Mamba2 may do little more than mix neighboring tokens. Even at 8B/1T, however, high scores on standard benchmarks can hide weaknesses in basic in-context skills. In particular, linear models that match or beat Transformers on these benchmarks cannot, in fact, reliably retrieve information from a short 500-token context. Moreover, no model, Transformer or linear, reliably beats random guessing on arguably the simplest two-hop question, stated in a few short sentences, even at this scale. These findings $\\textbf{challenge traditional architecture research}$ based primarily on standard benchmark scores. In contrast, small synthetic playgrounds, which predicted the architectural differences above at <100M parameters, can reveal what these benchmarks miss. For practitioners, one lesson is to include in-context reasoning examples in pretraining data from an early stage, rather than reserve them for later mid-training, let alone post-training.",
+   "sources": [
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.24963",
+   "tier": "interesting",
+   "tags": [
+    "architectures",
+    "phenomena"
+   ],
+   "venue": "",
+   "summary": "64 from-scratch pretraining runs (1.3-8B parameters, 1-2T tokens) of transformers and linear models. Canon layers (local token mixing) save about 30% of tokens at 8B; with Canon, plain gated linear attention matches Gated DeltaNet and beats Mamba2. Linear models that match transformers on benchmarks still fail to retrieve from a 500-token context, and no model reliably solves a short two-hop question; small synthetic playgrounds predicted these differences at <100M parameters.",
+   "why": "Large-scale check that synthetic-task conclusions transfer, and that in-context retrieval separates architectures that benchmarks do not.",
+   "ideas": []
+  },
+  {
+   "title": "A Model of Diverse Sampling from Language Models",
+   "authors": [
+    "Manuel Prada-Corral",
+    "Yahya Emara",
+    "Timothy J. O'Donnell",
+    "Ryan Cotterell",
+    "Tim Vieira"
+   ],
+   "categories": [
+    "cs.LG",
+    "cs.AI",
+    "cs.CL",
+    "cs.FL",
+    "stat.ML"
+   ],
+   "comments": "NeurIPS 2026 paper",
+   "abstract": "Language models often produce high-quality individual samples but poor sets, with repeated samples clustering around the same semantic modes. We formalize diverse generation as sampling a size-$K$ subset of complete strings from a determinantal point process (DPP), where the likelihood encodes item quality, and the embedding geometry encodes repulsion between similar outputs. Exact inference over all strings is intractable, so we propose PoolDPP: draw a finite candidate pool from a tractable proposal, importance-weight the candidates toward the target quality, and run a $K$-DPP sampler on the induced pool kernel; a greedy MAP variant provides deterministic selection. We prove a finite-sample bound with an explicit constant: the KL divergence between the sampler's output and the target $K$-DPP decays as O(1/N) in the pool size. Empirically, PoolDPP extends the quality--diversity frontier on open-ended generation and the precision--recall frontier on ambiguous text-to-SQL (Ambrosia), and on mathematical reasoning (GSM8K), it raises diversity at about the same pass@$K$.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.25003",
+   "tier": "interesting",
+   "tags": [
+    "LLM theory"
+   ],
+   "venue": "NeurIPS 2026",
+   "summary": "Formalizes diverse generation as sampling a K-subset of strings from a determinantal point process (quality from the LM likelihood, repulsion from embedding geometry). PoolDPP importance-weights a finite candidate pool and runs a K-DPP on it; the KL to the target K-DPP decays as O(1/N) in the pool size with an explicit constant. Improves quality-diversity and precision-recall frontiers on open-ended generation and ambiguous text-to-SQL.",
+   "why": "A clean probabilistic model of set-level sampling from LMs with a finite-sample guarantee.",
+   "ideas": []
+  },
+  {
+   "title": "Generative News Recommendation Reproduces Popularity: A Memorization-Based Analysis",
+   "authors": [
+    "Shotaro Ishihara"
+   ],
+   "categories": [
+    "cs.IR",
+    "cs.CL"
+   ],
+   "comments": "The 11th International Workshop on Application of Big Data for Computational Social Science (ABCSS2026 @ IEEE BigData 2026)",
+   "abstract": "Text-based generative recommenders can go beyond ranking existing items by directly generating item titles or other textual representations. In the news domain, this raises a societal concern that models may repeatedly surface already popular articles and thereby narrow the diversity of information to which users are exposed. We investigate training-data memorization as one mechanism behind this concentration. Using approximately 20 million browsing sessions from a Japanese news service, we continually trained an instruction-tuned Llama 3 8B model to generate the next article title in a session. The generated-title distribution was more concentrated and less diverse than the distribution of titles observed in the browsing logs. Frequently repeated target titles exhibited greater verbatim and approximate memorization, and more strongly memorized titles were generated in response to a wider range of prompts. These findings support a pathway in which popularity in behavioral logs becomes repeated training text, is preferentially memorized, and is subsequently reproduced by a generative recommender. An exploratory target-level deduplication condition reduced both memorization and output concentration, while substantially reducing the training-set size and recommendation accuracy. Our results suggest that popularity bias in generative recommendation may arise not only from user preferences or ranking objectives, but also from the model's tendency to reproduce frequently encountered strings, with important implications for information diversity on news platforms.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.25606",
+   "tier": "interesting",
+   "tags": [
+    "recommendation",
+    "memorization"
+   ],
+   "venue": "IEEE BigData 2026 (ABCSS workshop)",
+   "summary": "Continually trains Llama 3 8B on ~20M Japanese news sessions to generate the next article title. Generated titles are more concentrated than the logs; frequently repeated target titles are memorized more (verbatim and approximately), and more memorized titles are produced for a wider range of prompts. Target-level deduplication lowers both memorization and concentration, at a large accuracy cost.",
+   "why": "Evidence for a memorization pathway to popularity bias in generative recommendation, distinct from preference or ranking-objective explanations.",
+   "ideas": [
+    1
+   ]
+  },
+  {
+   "title": "When Do Rankings Beat Signs? Gradient Direction Recovery under Even Nuisance",
+   "authors": [
+    "Zhuangzhuang Pan",
+    "Yan Xia",
+    "Chee Seng Chan"
+   ],
+   "categories": [
+    "cs.LG"
+   ],
+   "comments": "51 pages, 7 figures, 14 tables, including appendices",
+   "abstract": "Can ranking a batch of antipodal query pairs recover a gradient direction with fewer evaluations than using within-pair signs alone? We study fixed-center recovery in $d$ dimensions for a linear signal plus an unknown differentiable even nuisance, counting function evaluations and feedback rounds separately. Shared pair offsets create an information hierarchy: Mirror retains within-pair signs, Reverse couples reversed cross-pair orders to cancel offsets, and Full enforces all ranking inequalities. Relative shell variation is the nuisance range over the query sphere normalized by the linear-signal scale. When it is at most $c\\varepsilon/\\sqrt{d}$, Reverse localizes every consistent direction to angular accuracy $\\varepsilon$ using $\\widetilde{O}(d+\\sqrt{d/\\varepsilon})$ evaluations in one round at fixed confidence, without a variation bound supplied to the decoder. This matches a lower bound up to logarithmic factors, versus the $\\Theta(d/\\varepsilon)$ one-round sign-only minimax cost on the same class. Over well-conditioned positive-definite quadratics with no common relative-curvature bound, the $R$-round minimax cost is instead $\\Theta(dR(\\varepsilon^{-1/R}-1))$, even with cumulative rankings. We extend validity beyond exact evenness under supplied error bounds. Matched-endpoint experiments certify information beyond signs and short cycles. On two ridge tasks under joint evaluation and round caps, short-cycle recovery attains lower terminal mean gaps than the tested batch-capable controls. An additional optimization benefit from fitting the complete ranking remains unestablished.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.26055",
+   "tier": "interesting",
+   "tags": [
+    "optimization",
+    "learning theory",
+    "extracurricular"
+   ],
+   "venue": "",
+   "summary": "Asks when ranking a batch of antipodal query pairs recovers a gradient direction with fewer evaluations than within-pair signs, for a linear signal plus an unknown even nuisance. Under small relative shell variation, a reversed-order decoder reaches angular accuracy eps with O~(d + sqrt(d/eps)) evaluations in one round, matching a lower bound, versus Theta(d/eps) for sign-only feedback; multi-round minimax rates are given for quadratics.",
+   "why": "Sharp minimax separation between ranking and sign feedback for zeroth-order direction recovery.",
+   "ideas": []
+  },
+  {
+   "title": "Sequential Probability Assignment against Smoothed Adversaries with Unknown Base Measure",
+   "authors": [
+    "Ziyi Liu",
+    "Daniel M. Roy"
+   ],
+   "categories": [
+    "cs.LG",
+    "stat.ML"
+   ],
+   "comments": "NeurIPS 2026",
+   "abstract": "Smoothed online learning has recently been studied as a way to bypass hardness results for the fully adversarial setting, which can be overly pessimistic. In this framework, the adversary is constrained to generate contexts from distributions having a bounded density with respect to some fixed base measure $\\mu$. Prior work makes the strong assumption that $\\mu$ is known to the learner, with notable exceptions including Block et al. (2024) and Blanchard (2025). In this paper, we study sequential probability assignment (a.k.a., online learning with log loss) with smooth, well-specified data in the more general setting where $\\mu$ is \\emph{unknown}, without the Lipschitz condition imposed in the work of Block et al. (2024) and Blanchard (2025). We prove regret upper bounds against both adaptive and oblivious smoothed adversaries: the adaptive bound is controlled by empirical $\\ell_\\infty$ Hellinger entropy, while the oblivious bound improves this dependence to empirical $\\ell_2$ Hellinger entropy, the notion that has been shown to characterize the complexity of learning with i.i.d. data (Bilodeau et al., 2023). Both bounds are obtained through algorithms based on truncated empirical Hellinger covers. We complement these results with a general lower bound, showing that our upper bounds are essentially tight for some natural classes, which implies a separation in the difficulty of smoothed online learning between regimes where $\\mu$ is known and where it is unknown.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.25514",
+   "tier": "interesting",
+   "tags": [
+    "learning theory",
+    "extracurricular"
+   ],
+   "venue": "NeurIPS 2026",
+   "summary": "Sequential probability assignment (online log loss) against smoothed adversaries when the base measure is unknown, without Lipschitz assumptions. Regret bounds use empirical l_inf Hellinger entropy (adaptive adversary) and l_2 Hellinger entropy (oblivious), via truncated empirical Hellinger covers; a lower bound shows tightness for natural classes and separates the known- and unknown-base-measure regimes.",
+   "why": "Clean characterization of what not knowing the base measure costs in smoothed online learning.",
+   "ideas": []
+  },
+  {
+   "title": "The low-degree sample complexity of clustering Gaussian mixtures with more groups than dimensions",
+   "authors": [
+    "Alexandra Carpentier",
+    "Nicolas Verzelen"
+   ],
+   "categories": [
+    "math.ST",
+    "cs.CC",
+    "stat.ML",
+    "stat.TH"
+   ],
+   "comments": "",
+   "abstract": "We study the computational limits of clustering $n$ observations drawn from a mixture of $K$ isotropic Gaussian distributions in $\\mathbb R^d$, when the number $K$ of groups is much larger than the dimension $d$. In this regime, distance-based and spectral procedures require a squared separation $\\Delta^2$ of order $\\sqrt d$. In contrast, tensor-based procedures cluster at a polylogarithmic separation but need a sample size that is a large polynomial of $dK$, and the low-degree lower bounds known for random centers only show that $n$ must exceed $dK^2$. Focusing on normally distributed centers, we characterize the minimal separation for clustering with low-degree polynomials in the regime $K>d$, through a low-degree lower bound and a matching upper bound, up to subpolynomial factors. In particular, for $K=d^{p/2}$ with $p> 2$ a real number, we show that a sample size of the order of $K^3 d^{(\\lceil p\\rceil-p)/2}$ is required to recover the clustering with subpolynomial separation, and that it suffices when $p$ is not an integer.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.25163",
+   "tier": "interesting",
+   "tags": [
+    "learning theory",
+    "extracurricular"
+   ],
+   "venue": "",
+   "summary": "Characterizes, up to subpolynomial factors, the minimal separation for clustering a mixture of K isotropic Gaussians in R^d with low-degree polynomials when K > d (normally distributed centers). For K = d^{p/2}, recovering the clustering at subpolynomial separation needs about K^3 d^{(ceil(p)-p)/2} samples, and this suffices when p is not an integer.",
+   "why": "Sharp computational-statistical picture for the many-clusters regime, relevant background for clustering-based indexes with more centroids than dimensions.",
+   "ideas": []
+  },
+  {
+   "title": "Learning from Context: Leave-One-Out Prediction in Jump Diffusions",
+   "authors": [
+    "Christian Wald"
+   ],
+   "categories": [
+    "cs.LG"
+   ],
+   "comments": "",
+   "abstract": "Continuous diffusion models generate discrete data through stochastic dynamics in an embedding space. We consider jump diffusions that additionally reset coordinates to embeddings of categorical values. A coordinate's own corrupted state can make prediction easy, potentially reducing the pressure to learn dependencies between coordinates. We study leave-one-out (LOO) prediction, in which each coordinate is predicted from the corrupted states of the other coordinates. We show that, under stated assumptions, jump diffusions with complete coordinate resets and state-independent clocks preserve the prescribed marginals when reset destinations use exact LOO probabilities and the drift uses the full endpoint posterior. We further show that this drift can be constructed from LOO probabilities by analytic likelihood completion without additional network evaluations. We evaluate unrestricted, LOO, and completed predictions on Text8 and LM1B text generation and ZINC250k molecular graph generation. LOO-based variants improve key generation metrics over matched unrestricted controls on all three datasets. Controlled interventions assess reliance on local inputs and context, and we analyze the effect of analytic likelihood completion.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.26359",
+   "tier": "interesting",
+   "tags": [
+    "diffusion LMs"
+   ],
+   "venue": "",
+   "summary": "For jump diffusions on embeddings of categorical data, studies leave-one-out prediction (each coordinate predicted from the corrupted others). Proves that with complete coordinate resets and state-independent clocks, exact LOO reset probabilities plus the full endpoint-posterior drift preserve the prescribed marginals, and that the drift can be completed analytically from LOO probabilities. LOO variants improve generation on Text8, LM1B and ZINC250k.",
+   "why": "A correctness result for a design choice in continuous diffusion over discrete tokens.",
+   "ideas": []
+  },
+  {
+   "title": "Represented but misread: Post-training changes how language models read out what they represent",
+   "authors": [
+    "Jochen Laubrock"
+   ],
+   "categories": [
+    "cs.CL",
+    "cs.LG"
+   ],
+   "comments": "64 pages, 7+2 figures, 4+6 tables",
+   "abstract": "Does post-training change what a language model represents, or how this representation is read out into an answer? We compared linear probes with the models' own answers, analyzed with signal detection theory, in six open-weight base models and their post-trained versions. For judgments of whether German texts were written by a human or an AI, probes and word n-gram classifiers separated the classes well, but the answers did not and often ordered the texts inversely. Post-training lowered the sensitivity of the answers on average ($\\Delta d' = -0.34$ across model families; -0.29 across three prompts). It also changed the use of a stated base rate: Base models shifted their log-odds by less than the stated change in prior odds, most post-trained models by more. In two models with stage-wise checkpoints, the change occurred during supervised fine-tuning, model stitching implicated the early layers, and from mid-depth on internal states at positions after the text, not those of the text, transferred the change between checkpoints. Our corpora cannot be shared, so we add a case reproducible from public data, the truth of negated statements. Here, post-training acted in the opposite direction: Probes decoded truth at or near ceiling in every model, the answers of several base models did not use it, and post-training repaired them; by mid-depth the repair resided at the positions after the statement; below it, the representation of the statement contributed, strongly in one of four models. In a training study, adding 2,000 correctly labeled authorship judgments of news texts to otherwise identical fine-tuning data improved the answers on our newspaper and textbook corpora and inverted them on the chats, where they followed a news-trained probe of the base model. Post-training thus changed how a judgment is read out of what a model represents, and a small training signal can set its direction.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.26584",
+   "tier": "interesting",
+   "tags": [
+    "interpretability",
+    "post-training & RL",
+    "phenomena"
+   ],
+   "venue": "",
+   "summary": "Compares linear probes with models' own answers (signal detection theory) in six base/post-trained pairs. On human-vs-AI authorship judgments, probes separate the classes while answers do not and post-training lowers answer sensitivity; on negation truth, post-training instead repairs readout. The change happens in SFT and sits at positions after the text from mid-depth on; 2,000 labelled examples can set the readout direction.",
+   "why": "A clean separation of 'represented' from 'read out' and of where post-training acts.",
+   "ideas": []
+  },
+  {
+   "title": "Standardized Tolerance for Adaptive Reuse and Repair: A Method for HNSW Migration Under Embedding Model Change Scenarios",
+   "authors": [
+    "Hengzhao Ma",
+    "Chenyang Zhu",
+    "Bin Wang",
+    "Xiaochun Yang"
+   ],
+   "categories": [
+    "cs.DB"
+   ],
+   "comments": "",
+   "abstract": "When an embedding model changes, the same collection is re-encoded, and its vector index must be adapted to the new embedding space. Because the source and target vectors represent the same objects, suitable connections in the source index can be reused. We propose STARR (Standardized Tolerance for Adaptive Reuse and Repair) to migrate HNSW indexes after an embedding model change. STARR compares standardized edge lengths over the same source neighbor lists in both embedding spaces and uses the correlation between their distance profiles to set the allowable increase in standardized edge length. It reconnects affected vertices by searching the partially migrated graph and shares the resulting candidates with their neighbors. We bound edge rejection under local distance distortion, characterize migration work, and prove that a final repair pass makes every vertex reachable from the entry point at the base layer while respecting degree limits. Single-threaded experiments on MS MARCO, Wikipedia, and CC3M, each with one million objects, show that STARR achieves 5.25--44.54$\\times$ construction speedups over Fresh and migrates faster than both DGM variants on all 15 selected transitions. Recall@10 remains within one percentage point of Fresh in 10 cases, and query throughput exceeds DGM-Local in 14 cases. Parameter sweeps on three transitions further demonstrate favorable migration-time--recall tradeoffs beyond the default settings. Across all 240 directed transitions among 16 MS MARCO models, STARR achieves a median construction speedup of 16.71$\\times$ with a median recall loss of 1.0 percentage point.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.25416",
+   "tier": "aware",
+   "tags": [
+    "vector search"
+   ],
+   "venue": "",
+   "summary": "STARR migrates an HNSW index after an embedding-model change by reusing source edges whose standardized length stays within a tolerance, with bounds on edge rejection under local distortion and a repair pass guaranteeing reachability. Median 16.7x faster than rebuilding across 240 MS MARCO model transitions, about 1 point recall loss.",
+   "ideas": []
+  },
+  {
+   "title": "CACO: Coverage-Aware Coordinated Optimization for Continuous Generative Retrieval",
+   "authors": [
+    "Pan Zhang",
+    "Nan Zhuang",
+    "Yongkang Zhang",
+    "Kun Xú",
+    "Zhongtao Jiang",
+    "Zhiwei Wang",
+    "Kun Xǔ",
+    "Youhuan Li"
+   ],
+   "categories": [
+    "cs.IR"
+   ],
+   "comments": "21 pages, 16 figures, 12 tables",
+   "abstract": "Continuous generative retrievers powered by flow matching and diffusion sample multiple queries in item embedding space for parallel approximate nearest-neighbor (ANN) search under fixed retrieval budgets. However, optimizing distribution diversity or target-level interest separation ignores set-level retrieval geometry: sampled queries collapse onto overlapping ANN neighborhoods, while discrete top-K lookup and single-target supervision block end-to-end coverage optimization. We introduce CACO (Coverage-Aware Coordinated Optimization), a lightweight self-supervised post-training framework that coordinates queries from frozen flow-matching and diffusion retrievers toward complementary item coverage with negligible additional inference latency. CACO uses empirical retrieval frequencies across sampled reference queries as a relevance proxy, formulating a label-free coverage objective that improves recall across all 30 backbone-dataset settings in offline greedy selection experiments. To avoid the inference overhead of generating a large query pool, CACO employs a coordinated query adjustment network that combines inter-query bidirectional attention with gated relative directions, finally updating queries by bounded tangent-space projection and spherical retraction. During training, CACO applies tangential antithetic perturbations and measures each query's marginal gain via counterfactual single-query replacement, yielding an unbiased gradient estimator of smoothed set coverage across non-differentiable ANN search. On eight public benchmarks and an in-house 24-partition streaming industrial dataset, CACO improves Recall@100 by up to 23.7% and Recall@400 by up to 23.9% over the strongest baseline, cuts inter-query overlap by 53.3%-64.9%, and adds only 0.5%-3.0% inference latency.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.25738",
+   "tier": "aware",
+   "tags": [
+    "generative retrieval",
+    "vector search"
+   ],
+   "venue": "",
+   "summary": "CACO post-trains flow-matching/diffusion generative retrievers so that the multiple sampled ANN queries cover complementary items, using a label-free coverage objective and an unbiased gradient estimator through non-differentiable ANN search. Up to +24% Recall@100/400 and half the inter-query overlap at 0.5-3% extra latency.",
+   "ideas": []
+  },
+  {
+   "title": "Efficient Privacy-Preserving High-Dimensional Approximate Nearest Neighbor Search",
+   "authors": [
+    "Lyu Xu",
+    "Guozhong Li",
+    "Qichen Wang"
+   ],
+   "categories": [
+    "cs.DS"
+   ],
+   "comments": "",
+   "abstract": "In the AI era, approximate nearest neighbor (ANN) search on vector databases is critical as it supports similarity retrieval over high-dimensional vectors, which is essential for many large language model (LLM) applications. To reduce costs and improve scalability, vector databases are often outsourced to cloud servers, raising privacy concerns for users whose query vectors contain sensitive information. In this work, we study the problem of asymmetric privacy-preserving ANN search, where the vector database is public but user queries must remain private from an untrusted cloud server. To solve this problem, we propose ObliSC, an efficient privacy-preserving search framework that protects query privacy against access-pattern leakage. ObliSC consists of (i) a search base that retrieves ANNs with a strong privacy guarantee of full obliviousness; and (ii) parallel optimization strategies that accelerate candidate retrieval and refinement while preserving full obliviousness and retrieval quality. Experiments on six standard ANN benchmarks show that ObliSC not only achieves efficiency and result quality competitive with baseline methods but also maintains a lightweight index compared with the evaluated privacy-preserving approaches.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.25374",
+   "tier": "aware",
+   "tags": [
+    "vector search"
+   ],
+   "venue": "",
+   "summary": "ObliSC: ANN search over a public vector database with private queries, fully oblivious to access patterns, with parallel optimizations; competitive efficiency and recall with a light index on six benchmarks.",
+   "ideas": []
+  },
+  {
+   "title": "CAIMS: Scalable Cross-Array In-Memory Search",
+   "authors": [
+    "Yi-Chun Liao",
+    "Liu Liu",
+    "Ruiyang Qin",
+    "Yiran Chen",
+    "and X. Sharon Hu"
+   ],
+   "categories": [
+    "cs.AR",
+    "cs.ET",
+    "cs.LG"
+   ],
+   "comments": "",
+   "abstract": "Search, especially top-k similarity search, plays a vital role in many applications, but its performance can be severely limited by memory access overhead. In-memory search (IMS), an alternative to CPU/GPU-based approaches, exploits massive parallelism within a content-addressable memory (CAM) array to perform search in situ and provides both low latency and high energy efficiency. However, the capacity of a single CAM array is often insufficient for modern workloads, requiring data to be distributed across multiple arrays. Deploying scalable top-k similarity search across multiple CAM arrays poses a fundamental problem that existing designs fail to address: how to accurately and efficiently reduce local binary match results to global top-k results. This work introduces CAIMS, a cross-array IMS framework that is agnostic to memory technologies and applications, enabling scalable and efficient top-k similarity search while preserving accuracy. To enable accurate top-k result reduction, CAIMS leverages the existing threshold match functionality with a combined offline and online parameter selection approach to transform local binary match results that lack globally comparable similarity information into global coarse-grained similarity scores. To further improve efficiency, CAIMS conducts hierarchical reduction and transfers only the selection results and necessary control signals with lightweight local peripherals. Implemented on a 3D NAND Flash model and demonstrated using the retrieval phase of retrieval-augmented generation, CAIMS improves throughput by up to $22.3\\times/10.1\\times$ and energy efficiency by $426.6\\times/23.7\\times$ compared to the server-class CPU baseline and prior 3D NAND Flash accelerators, respectively, while maintaining comparable accuracy.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.25141",
+   "tier": "aware",
+   "tags": [
+    "vector search"
+   ],
+   "venue": "",
+   "summary": "CAIMS: top-k similarity search across many content-addressable memory arrays by turning local threshold matches into global coarse scores and reducing hierarchically; on a 3D NAND model for RAG retrieval, up to 22x throughput and 427x energy efficiency over a server CPU.",
+   "ideas": []
+  },
+  {
+   "title": "DiLE: Discrimination-Aware Latent-Space Learning for Universal Multimodal Embeddings",
+   "authors": [
+    "Ben Kang",
+    "Junda Wang",
+    "Yuxuan Yuan",
+    "Hang Li",
+    "Yuhan Liu",
+    "Xin Chen",
+    "Wanting Geng",
+    "Tong Lin",
+    "Pei Fu",
+    "Dong Wang",
+    "Jian Luan",
+    "Huchuan Lu"
+   ],
+   "categories": [
+    "cs.CV"
+   ],
+   "comments": "",
+   "abstract": "Multimodal large language models have greatly improved input understanding in universal multimodal embedding models. However, this understanding does not ensure that their embeddings preserve the evidence needed to distinguish relevant items from confusable alternatives. To preserve essential discriminative evidence in embeddings, this paper proposes DiLE, a discrimination-aware latent-space learning framework that combines task guidance with on-policy retrieval feedback. Specifically, a few learnable queries are used to encode task-relevant information in a compact latent space. Reasoning instructions and auxiliary answer-generation supervision shape these representations to support both task understanding and retrieval discrimination. To address task-specific discriminative needs, we design shared-private expert adaptation that integrates cross-task knowledge sharing with task-specific representation learning. Building on this, the on-policy hard-negative distillation is introduced: the student retrieves confusable candidates, and a reverse KL divergence objective aligns its embedding-based similarity distribution with the teacher's fine-grained relevance distribution over these candidates. Candidates are periodically refreshed using updated student snapshots, tying teacher supervision to the student's evolving retrieval behavior and confusions. Across four model configurations that span two backbone generations, DiLE achieves state-of-the-art performance on MMEB-v2, UVRB, and MRMR, demonstrating its effectiveness across modalities and tasks.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.25419",
+   "tier": "aware",
+   "tags": [
+    "embeddings"
+   ],
+   "venue": "",
+   "summary": "DiLE: universal multimodal embedding model with learnable latent queries, shared-private experts and on-policy hard-negative distillation (reverse KL to a teacher over the student's own confusable candidates); state of the art on MMEB-v2, UVRB and MRMR.",
+   "ideas": []
+  },
+  {
+   "title": "Learning Generative Ranking Policies for Whole-Page Optimization",
+   "authors": [
+    "Chen Qiu",
+    "Zhigang Hua",
+    "Qi Xu",
+    "Jizhe Zhang",
+    "Sha Hua",
+    "Ren Mao",
+    "Luke Simon"
+   ],
+   "categories": [
+    "cs.IR",
+    "cs.AI",
+    "cs.LG"
+   ],
+   "comments": "",
+   "abstract": "A recommendation page is consumed as a whole: the items on it compete for attention and complement one another, so the best page is not simply the individually best items placed side by side. We study whole-page optimization, which selects and orders the items on a page jointly to maximize the score of the page. The number of possible pages grows combinatorially, so good pages must be generated rather than enumerated. Some generative re-ranking methods use the same page-level training signal for every choice in a sampled page. Others imitate target pages built before training, which remain largely fixed as the generator improves. We address both limitations with one local page-level objective, which repeatedly moves the current generator toward pages with higher score. This objective splits exactly into one training target per position, and each target compares candidates at the same partial page by the scores of the complete pages they lead to. Every position therefore learns to choose the item that is better for the whole page, rather than the item that looks best on its own. We call this procedure whole-page policy improvement. On two public datasets, KuaiRand-1K and RL4RS-SeqSlate, which cover multi-objective item selection and constrained ordering, and on an industrial dataset of logged pages, our method outperforms the evaluated generative re-ranking baselines. On a synthetic benchmark with a known optimal page, it also comes closest to the optimum, showing that its improvements come from better whole-page decisions.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.25527",
+   "tier": "aware",
+   "tags": [
+    "recommendation",
+    "ranking"
+   ],
+   "venue": "",
+   "summary": "Meta: whole-page generative re-ranking trained with a local page-level policy-improvement objective that splits exactly into one target per position, each comparing candidates by the score of the complete page they lead to; beats generative re-ranking baselines on KuaiRand, RL4RS and logged industrial pages.",
+   "ideas": []
+  },
+  {
+   "title": "DNA: Unlocking Depth Scaling in CTR Models",
+   "authors": [
+    "Caiyuan Li",
+    "Wenjie Wu",
+    "Yuheng Huang",
+    "Xiao Zhou",
+    "Silu Zhou",
+    "Ke Chen",
+    "Zinan Zhao",
+    "Xinrui Zeng",
+    "Hanmo Xu",
+    "Chaoqun Song",
+    "Hua Zong",
+    "Zongyuan Wu",
+    "Hongbin Zhou",
+    "Huimin Yi",
+    "Zhixuan Zhang",
+    "Dan Ou",
+    "Haihong Tang"
+   ],
+   "categories": [
+    "cs.IR"
+   ],
+   "comments": "10 pages, 5 figures",
+   "abstract": "Long user behavior sequences are among the strongest signals for click-through rate (CTR) prediction. Cross-attention makes these sequences practical for industrial ranking by keeping compute linear in sequence length. Yet the gains from stacking cross-attention layers taper off: on Taobao search, growing a cross-attention stack from 16 to 28 layers adds only 0.02 percentage points (pt) of AUC. We argue that the key-value side is the bottleneck. Each layer projects the same behavior sequence into keys and values, so adding depth gives the model more reads of a fixed sequence. We propose DNA (Dual-stream Nexus Attention), which lets the sequence itself evolve with depth. At each layer, the request representation (the search query, user features and scene) first reads the sequence. Each behavior token then attends to the updated request representation and uses what it reads to update itself, so the next layer reads a sequence shaped by the current request. The update runs once per request, all candidates share the resulting sequence, and both the reads and the update keep linear complexity in sequence length. At comparable forward FLOPs, DNA improves AUC over cross-attention stacks by 0.08 to 0.26 pt and keeps improving in the depth range where those stacks level off. DNA-4 is deployed in Taobao search. In an online A/B test against the production model, it improves CTR by 0.8% and GMV by 0.5%.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.25659",
+   "tier": "aware",
+   "tags": [
+    "recommendation"
+   ],
+   "venue": "",
+   "summary": "Taobao: stacking cross-attention layers over user behavior sequences saturates because every layer reads the same keys/values; DNA lets the behavior sequence update from the request at each layer (still linear in length), giving +0.08-0.26 AUC at equal FLOPs and +0.8% CTR online.",
+   "ideas": []
+  },
+  {
+   "title": "LINEAGE: A Benchmark for Empirical Lineage Retrieval in AI Scientific Literature",
+   "authors": [
+    "Pangjing Wu",
+    "Xu Yuan",
+    "Wenqi Fan",
+    "Qing Li"
+   ],
+   "categories": [
+    "cs.IR",
+    "cs.AI"
+   ],
+   "comments": "",
+   "abstract": "Current research agents are moving beyond academic search toward literature synthesis and experiment planning. These workflows increasingly rely on literature retrieval systems, which serve as standalone systems or as components of research agents. However, existing scientific literature retrieval benchmarks mainly evaluate these methods using topical relevance or citation links as supervision, which cannot capture which prior methods are used for empirical comparison. To address this gap, we introduce Lineage, a benchmark for empirical lineage retrieval in AI scientific literature. An empirical lineage relation links a prior paper to a source paper that explicitly uses its method as an empirical comparison baseline. These relations form lineage graphs whose multi-hop neighborhoods provide retrieval ground truth for structural evaluation. To construct these graphs at scale, we develop Lineage-Constructor, which converts heterogeneous paper records and full-paper empirical baseline evidence into calibrated lineage graphs. Built from 121,048 papers across 17 top AI venues from 2018 to 2025, Lineage contains 3,950 graph components, 67,502 paper nodes, 164,948 lineage edges, and 80,000 multi-facet retrieval queries. Experiments with 19 representative retrieval systems show that empirical lineage retrieval remains challenging. Performance drops sharply with lineage distance, while structural metrics reveal that isolated retrieval hits often fail to recover closely connected empirical comparison neighborhoods.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.25845",
+   "tier": "aware",
+   "tags": [
+    "retrieval",
+    "evaluation"
+   ],
+   "venue": "",
+   "summary": "LINEAGE: benchmark for retrieving the prior papers a paper uses as empirical baselines, built as lineage graphs over 121k AI papers (165k edges, 80k queries); 19 retrievers degrade sharply with lineage distance.",
+   "ideas": []
+  },
+  {
+   "title": "Intelligent Embedding Pruning for Large-Scale Recommendation Models",
+   "authors": [
+    "Anish Khazane",
+    "Alex Saad-Falcon",
+    "Guanchu Wu",
+    "Marcio Porto",
+    "Jasper Shan",
+    "Fei Yu",
+    "Eugene Shulga",
+    "Intaik Park",
+    "Yongzhe Zhang",
+    "Xiaoyu Deng",
+    "Sheng Luo",
+    "Xiaoya Wang"
+   ],
+   "categories": [
+    "cs.LG",
+    "cs.AI"
+   ],
+   "comments": "",
+   "abstract": "Modern recommendation systems face substantial memory pressure, largely from the sparse embedding layer that maps high-cardinality categorical features into dense vectors. In-training embedding pruning (ITEP) removes less important embedding rows during training, yielding end-to-end memory savings but sometimes degrading accuracy because per-table pruning ratios are set by size-based heuristics. We use feature importance (FI) to guide these ratios (FI-ITEP), assigning higher pruning to tables tied to less important features. Across three large-scale recommendation models, FI-ITEP achieves 20--40% total memory reduction while matching or improving accuracy relative to percentile-based ITEP. Because the feature-importance signal requires minimal resources to compute, these memory savings translate into concrete systems benefits: the same models train on fewer GPU trainers (e.g., 112 to 80) with higher per-GPU throughput, saving 1,000+ GPU-hours per model launch. We reproduce these trends on the open-source DLRM (Criteo 1TB) and quantify the end-to-end training-time and GPU-cost tradeoff---including the burden of computing FI---offering practical guidance for embedding pruning in real-world systems.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox",
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Meta uses feature importance to decide how much to prune each embedding table in large recommendation models, cutting more memory than size-based pruning at equal or better accuracy.",
+   "arxiv": "2611.25288",
+   "tier": "aware",
+   "tags": [
+    "recommendation",
+    "embeddings"
+   ],
+   "venue": "",
+   "summary": "Meta: sets per-table pruning ratios for in-training embedding pruning from feature importance instead of table size, cutting 20-40% of embedding memory at equal or better accuracy and saving 1,000+ GPU-hours per launch; reproduced on DLRM/Criteo.",
+   "ideas": []
+  },
+  {
+   "title": "AutoRAGBench: A Benchmark for LLM Agents Automating RAG System Development",
+   "authors": [
+    "Hang Zhang",
+    "Yuzhi Pan",
+    "Ziyao Zhong",
+    "Chaokun Wang",
+    "Shuo Cao",
+    "Zeyu Huang",
+    "Yue Xue",
+    "Fang Niu",
+    "Bofan Xie",
+    "Guanchen Ge",
+    "Zecheng Li",
+    "Leqi Zheng",
+    "Ziyang Liu",
+    "Wei Wang",
+    "Miao Gu"
+   ],
+   "categories": [
+    "cs.CL",
+    "cs.AI",
+    "cs.IR"
+   ],
+   "comments": "",
+   "abstract": "Retrieval-augmented generation (RAG) is a well-established paradigm for augmenting large language models (LLMs) with information retrieved from external corpora. However, developing effective RAG systems requires substantial engineering effort and iterative experimentation, as effective design choices vary across tasks and domains. With rapid advances in LLM agent capabilities, we ask how well these agents can autonomously build RAG systems and how effectively they can improve them through iteration. In this paper, we propose AutoRAGBench, the first benchmark to evaluate how well LLM agents develop RAG systems from scratch in an open code space. It comprises nine RAG system development tasks. For each task, agents build RAG systems from scratch without starter code or prescribed strategies, under a six-hour budget on a single H800 GPU. They analyze task data, implement RAG pipelines, and iteratively refine their designs based on experimental feedback. We evaluate nine agent configurations and analyze both the effectiveness of the resulting RAG systems and their development trajectories. GPT-6.1 Sol with Codex CLI achieves the highest average score of 56.1. The composite Human-SOTA baseline averages 44.4. These results show that LLM agents can automate effective RAG system development. When starting from a human-designed system on each of seven tasks, GPT-6.1 Sol with Codex CLI improves the score by 16.6 points on average.",
+   "sources": [
+    "arxiv",
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Introduces a benchmark that tests how well LLM agents can build RAG systems from scratch and improve them through iteration across nine tasks.",
+   "arxiv": "2611.25582",
+   "tier": "aware",
+   "tags": [
+    "RAG & agents",
+    "evaluation"
+   ],
+   "venue": "",
+   "summary": "AutoRAGBench: nine tasks where LLM agents build RAG systems from scratch in six H800-hours; the best agent configuration averages 56.1 against a composite human-SOTA of 44.4.",
+   "ideas": []
+  },
+  {
+   "title": "Cost-Aware Agentic Feature Optimization System for Fleet-Scale Ranking Models",
+   "authors": [
+    "Chang Yang",
+    "Yao Xuan",
+    "Wendan Yan",
+    "Nhat Le",
+    "Jiang Liu",
+    "Longhao Jin",
+    "Zhen Peggy Yao",
+    "Alireza Vahdatpour",
+    "Djordje Gligorijevic"
+   ],
+   "categories": [
+    "cs.IR",
+    "cs.AI",
+    "cs.LG"
+   ],
+   "comments": "",
+   "abstract": "Large Web platforms operate large fleets of ranking models, each selecting features from a shared pool of tens of thousands. We present an end-to-end agentic system that optimizes features across the fleet under resource constraints shared across models and those set per model, such as feature pipeline cost and serving throughput (QPS), respectively. In this system, LLM agents propose hypotheses, and deterministic tools execute experiments and verify them. For each model, an LLM generates and shortlists cross features from a combinatorial candidate space, and all features are then ranked by several importance methods. Feature blending mixes these rankings into a single selection, using Pareto fronts across tasks for multi-task models. An LLM Researcher agent then tunes the feature selection in 10--25 asynchronous trials under resource caps, and a trimming step keeps the pipeline cost within budget. Across production models, the system improves normalized entropy by 0.31% on average within each model's budget, and the trimming step cuts pipeline cost by 2.3% with no regression beyond measurement noise. The optimized models were launched, and in online A/B tests they improved a primary online metric by 0.20%.",
+   "sources": [
+    "arxiv",
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Meta presents an LLM agent system that selects features for a whole fleet of ads ranking models while keeping serving cost and shared feature pipeline cost within budget.",
+   "arxiv": "2611.26531",
+   "tier": "aware",
+   "tags": [
+    "recommendation",
+    "RAG & agents"
+   ],
+   "venue": "",
+   "summary": "Meta: LLM agents propose and tune feature selections for a fleet of ads ranking models under shared pipeline-cost and per-model QPS budgets; +0.31% normalized entropy offline, 2.3% lower pipeline cost, +0.20% online.",
+   "ideas": []
+  },
+  {
+   "title": "Evidence-Based Credit Assignment for Search-Augmented Language Models",
+   "authors": [
+    "Wen Wang",
+    "Jindong Wang",
+    "Jiahua Bao",
+    "Tu Yongsiqi",
+    "Yihao Liu",
+    "Junwei He",
+    "Wenkui Fan"
+   ],
+   "categories": [],
+   "comments": "",
+   "sources": [
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Introduces a training-only reward crediting each search by how much its retrieved documents raise the likelihood of the correct answer, so agents learn even when all rollouts fail.",
+   "arxiv": "2611.23824",
+   "tier": "aware",
+   "tags": [
+    "RAG & agents",
+    "post-training & RL"
+   ],
+   "venue": "",
+   "summary": "Evidence-based credit assignment for RL-trained search agents: a training-only reward scoring each search by how much its retrieved documents raise the likelihood of the reference answer under an evidence-only prompt, so learning continues when all rollouts fail; +1 to +4.8 EM over GRPO on seven search-QA sets.",
+   "ideas": []
+  },
+  {
+   "title": "MLE Agents: Autonomous ML Engineering in Large-scale Recommendation Systems",
+   "authors": [
+    "Matthew Li",
+    "Albert Liang",
+    "Dilip Raj"
+   ],
+   "categories": [],
+   "comments": "",
+   "abstract": "The typical workflow for improving large-scale ranking and recommendation models is slow and tedious: an engineer forms a hypothesis, implements it as a code change, trains a model, and evaluates it both offline and online, often relying on their own intuition and experience along the way. Autonomous LLM agents promise to speed this up by running the loop on their own, but it is still unclear whether they can do this in industry-scale systems rather than on benchmarks or small proxy tasks. We build human-on-the-loop machine learning engineer (MLE) agents that propose, implement, train, and evaluate model changes on large-scale search rankers. Engineers retain control over objective design, search direction, and final-model review. We identify three obstacles that make this industry setting challenging: feedback takes hours per experiment, offline metrics do not always predict online impact, and improvements saturate after the early wins. We address these with parallel training runs, an objective calibrated to match online impact, and careful context engineering. In one campaign, the system ran 1,097 completed candidate experiments and accepted 325, a 29.6\\% acceptance rate compared with 15.6\\% in the earlier campaign under a different objective and search constraint. Its best model increases search volume by 0.23\\% in an A/B test of large scale. Several improvements were architectural changes the team had never tried, drawn from the broader industry and literature, suggesting that MLE agents can explore regions of the design space that human intuition overlooks. We find that the design of the harness around the model matters: intuition suggests that a stronger underlying model is enough, but in our experience, the design of the loop around it is just as critical. More broadly, our work shows that autonomous agents can do real machine-learning engineering in industry-scale systems.",
+   "sources": [
+    "scholar-inbox",
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Meta uses LLM agents that propose, train, and evaluate changes to a large search ranker, guided by engineers.",
+   "arxiv": "2611.23910",
+   "tier": "aware",
+   "tags": [
+    "recommendation",
+    "RAG & agents"
+   ],
+   "venue": "",
+   "summary": "Meta: human-on-the-loop LLM agents propose, implement, train and evaluate changes to large search rankers; one campaign ran 1,097 experiments, accepted 325, and its best model raised search volume by 0.23% online.",
+   "ideas": []
+  },
+  {
+   "title": "MARS Technical Report",
+   "authors": [
+    "Tong Liu",
+    "Chaoqun Hou",
+    "Longxiang Xiong",
+    "Junhong Lou",
+    "Jiaqi Zheng",
+    "Qixin Li",
+    "Zixin Zhao",
+    "Yong Duan",
+    "Xiannian Hu",
+    "Fengze Jiang",
+    "Yu Zhu",
+    "Cheng Guo",
+    "Xinyuan Qi",
+    "Zi Zhuang",
+    "Ping Liu",
+    "Lv Shao",
+    "Zongwei Wang"
+   ],
+   "categories": [],
+   "comments": "",
+   "sources": [
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Taobao presents an LLM agent that periodically sets user-specific retrieval quotas, model choices and score fusion weights across the whole recommendation pipeline, replacing one fixed configuration shared by all users.",
+   "arxiv": "2611.24006",
+   "tier": "aware",
+   "tags": [
+    "recommendation",
+    "RAG & agents"
+   ],
+   "venue": "",
+   "summary": "Taobao MARS: a fine-tuned 0.6B LLM sets per-user pipeline configurations (retrieval quotas, model choice, fusion weights, reranker settings) near-line, trained with SFT, preference optimization and sandboxed GRPO; up to +7.3% GMV in A/B tests.",
+   "ideas": []
+  }
+ ]
+}

@@ -4294,7 +4294,7 @@
   "who": [],
   "has_abs": true,
   "zotero": true,
-  "note": ""
+  "note": "3EKI5DDH"
  },
  {
   "id": "2611.24032",
@@ -4321,7 +4321,7 @@
   "who": [],
   "has_abs": true,
   "zotero": true,
-  "note": ""
+  "note": "CHTFCNI6"
  },
  {
   "id": "2611.23630",
@@ -4873,6 +4873,822 @@
    "Others"
   ],
   "date": "2026-11-19",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.26228",
+  "arxiv": "2611.26228",
+  "url": "",
+  "title": "Attention Head Specialization: Phase Transitions in Sample Complexity",
+  "authors": [
+   "Léo Catteau",
+   "O. Duranthon",
+   "Lenka Zdeborová"
+  ],
+  "tier": "core",
+  "tags": [
+   "transformer theory",
+   "training dynamics",
+   "learning theory"
+  ],
+  "summary": "In a solvable high-dimensional model of multi-head attention, head specialization is a true phase transition in the number of samples (a non-analyticity of the test error). Depending on data structure and regularization it can go through an uninformative differentiation phase or a cascade of transitions that recover progressively weaker latent features; the paper links these statistical transitions to the stagewise emergence of heads in online training. BERT syntactic heads also appear only above a data-size threshold.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-20",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.26609",
+  "arxiv": "2611.26609",
+  "url": "",
+  "title": "Variants of Beam Search for DiskANN",
+  "authors": [
+   "Viraj Agrawal",
+   "Kirankumar Shiragur"
+  ],
+  "tier": "core",
+  "tags": [
+   "vector search"
+  ],
+  "summary": "Proves that adaptive beam search with relaxation gamma on alpha-reachable graphs (DiskANN slow preprocessing) is an (alpha+1)/(alpha(gamma+1)-1)-approximation in any metric, unifying Indyk-Xu (greedy, gamma=0) and Al-Jazzazi et al. (navigable graphs); a tighter bound holds on sorted alpha-reachable graphs in l2. A learned beam predictor built on the analysis cuts SSD query latency by up to 30% versus classical beam search at matched recall on 100M-point sets.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-20",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.25560",
+  "arxiv": "2611.25560",
+  "url": "",
+  "title": "Is a Description Worth a Thousand Demonstrations? Specificity and Reliability of Task Descriptions in In-Context Learning",
+  "authors": [
+   "Bruce Nguyen",
+   "Bei Jiang",
+   "Linglong Kong"
+  ],
+  "tier": "core",
+  "tags": [
+   "ICL",
+   "LLM theory"
+  ],
+  "summary": "Models a task description in ICL as an informative prior with a specificity and a reliability, and measures its value as an effective sample size (number of demonstrations it is worth). For in-context linear regression, a reliable description's ESS grows with its specificity and with the task dimension, while a possibly irrelevant one gains little from specificity unless demonstrations are present. Meta-trained transformers come close to the Bayes-optimal ESS; pretrained LMs underuse specific descriptions unless reasoning is enabled.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-20",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.25256",
+  "arxiv": "2611.25256",
+  "url": "",
+  "title": "LQ-Rec: Late Quantization for Sequential Recommendation",
+  "authors": [
+   "Satoshi Koide",
+   "Yueqi Wang",
+   "Julian McAuley"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "generative retrieval",
+   "recommendation"
+  ],
+  "summary": "Late Quantization: keep the sequential-recommendation encoder and scoring in continuous space and quantize only the item side into semantic IDs from an end-to-end residual quantizer, decoded non-autoregressively. An additive error decomposition and a pairwise-ordering theorem bound the ranking drop caused by quantization; ranking improves monotonically with SID length (unlike autoregressive GR) and one model supports anytime compression.",
+  "venue": "",
+  "src": [
+   "Followed researcher",
+   "Scholar Inbox",
+   "Sumit (X / Bluesky)"
+  ],
+  "date": "2026-11-20",
+  "listed": true,
+  "who": [
+   "Julian McAuley"
+  ],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.25011",
+  "arxiv": "2611.25011",
+  "url": "",
+  "title": "Near-Quadratic Sample Compression for All VC Classes",
+  "authors": [
+   "Yang Cai",
+   "Vineet Gupta",
+   "Yanchen Jiang",
+   "Christopher Liaw",
+   "Aranyak Mehta",
+   "Shay Moran",
+   "Grigoris Velegkas",
+   "Di Wang",
+   "Manfred K. Warmuth"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "learning theory",
+   "extracurricular"
+  ],
+  "summary": "Constructs a sample compression scheme of size O(d^2 log^2 d) for every binary class of VC dimension d, proving the weak (polynomial) form of the Floyd-Warmuth sample compression conjecture; the previous best bound depending only on d (Moran-Yehudayoff 2016) was exponential.",
+  "venue": "",
+  "src": [
+   "Followed researcher",
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-20",
+  "listed": true,
+  "who": [
+   "Grigoris Velegkas"
+  ],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.24963",
+  "arxiv": "2611.24963",
+  "url": "",
+  "title": "Physics of Language Models: Part 4.2, Canon Layers at Scale where Synthetic Pretraining Resonates in Reality",
+  "authors": [
+   "Zeyuan Allen-Zhu"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "architectures",
+   "phenomena"
+  ],
+  "summary": "64 from-scratch pretraining runs (1.3-8B parameters, 1-2T tokens) of transformers and linear models. Canon layers (local token mixing) save about 30% of tokens at 8B; with Canon, plain gated linear attention matches Gated DeltaNet and beats Mamba2. Linear models that match transformers on benchmarks still fail to retrieve from a 500-token context, and no model reliably solves a short two-hop question; small synthetic playgrounds predicted these differences at <100M parameters.",
+  "venue": "",
+  "src": [
+   "Followed researcher",
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-20",
+  "listed": true,
+  "who": [
+   "Zeyuan Allen-Zhu"
+  ],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.25003",
+  "arxiv": "2611.25003",
+  "url": "",
+  "title": "A Model of Diverse Sampling from Language Models",
+  "authors": [
+   "Manuel Prada-Corral",
+   "Yahya Emara",
+   "Timothy J. O'Donnell",
+   "Ryan Cotterell",
+   "Tim Vieira"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "LLM theory"
+  ],
+  "summary": "Formalizes diverse generation as sampling a K-subset of strings from a determinantal point process (quality from the LM likelihood, repulsion from embedding geometry). PoolDPP importance-weights a finite candidate pool and runs a K-DPP on it; the KL to the target K-DPP decays as O(1/N) in the pool size with an explicit constant. Improves quality-diversity and precision-recall frontiers on open-ended generation and ambiguous text-to-SQL.",
+  "venue": "NeurIPS 2026",
+  "src": [
+   "Conference",
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-20",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.25606",
+  "arxiv": "2611.25606",
+  "url": "",
+  "title": "Generative News Recommendation Reproduces Popularity: A Memorization-Based Analysis",
+  "authors": [
+   "Shotaro Ishihara"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "memorization",
+   "recommendation"
+  ],
+  "summary": "Continually trains Llama 3 8B on ~20M Japanese news sessions to generate the next article title. Generated titles are more concentrated than the logs; frequently repeated target titles are memorized more (verbatim and approximately), and more memorized titles are produced for a wider range of prompts. Target-level deduplication lowers both memorization and concentration, at a large accuracy cost.",
+  "venue": "IEEE BigData 2026 (ABCSS workshop)",
+  "src": [
+   "Conference",
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-20",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.26055",
+  "arxiv": "2611.26055",
+  "url": "",
+  "title": "When Do Rankings Beat Signs? Gradient Direction Recovery under Even Nuisance",
+  "authors": [
+   "Zhuangzhuang Pan",
+   "Yan Xia",
+   "Chee Seng Chan"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "optimization",
+   "learning theory",
+   "extracurricular"
+  ],
+  "summary": "Asks when ranking a batch of antipodal query pairs recovers a gradient direction with fewer evaluations than within-pair signs, for a linear signal plus an unknown even nuisance. Under small relative shell variation, a reversed-order decoder reaches angular accuracy eps with O~(d + sqrt(d/eps)) evaluations in one round, matching a lower bound, versus Theta(d/eps) for sign-only feedback; multi-round minimax rates are given for quadratics.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-20",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.25514",
+  "arxiv": "2611.25514",
+  "url": "",
+  "title": "Sequential Probability Assignment against Smoothed Adversaries with Unknown Base Measure",
+  "authors": [
+   "Ziyi Liu",
+   "Daniel M. Roy"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "learning theory",
+   "extracurricular"
+  ],
+  "summary": "Sequential probability assignment (online log loss) against smoothed adversaries when the base measure is unknown, without Lipschitz assumptions. Regret bounds use empirical l_inf Hellinger entropy (adaptive adversary) and l_2 Hellinger entropy (oblivious), via truncated empirical Hellinger covers; a lower bound shows tightness for natural classes and separates the known- and unknown-base-measure regimes.",
+  "venue": "NeurIPS 2026",
+  "src": [
+   "Conference"
+  ],
+  "date": "2026-11-20",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.25163",
+  "arxiv": "2611.25163",
+  "url": "",
+  "title": "The low-degree sample complexity of clustering Gaussian mixtures with more groups than dimensions",
+  "authors": [
+   "Alexandra Carpentier",
+   "Nicolas Verzelen"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "learning theory",
+   "extracurricular"
+  ],
+  "summary": "Characterizes, up to subpolynomial factors, the minimal separation for clustering a mixture of K isotropic Gaussians in R^d with low-degree polynomials when K > d (normally distributed centers). For K = d^{p/2}, recovering the clustering at subpolynomial separation needs about K^3 d^{(ceil(p)-p)/2} samples, and this suffices when p is not an integer.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-20",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.26359",
+  "arxiv": "2611.26359",
+  "url": "",
+  "title": "Learning from Context: Leave-One-Out Prediction in Jump Diffusions",
+  "authors": [
+   "Christian Wald"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "diffusion LMs"
+  ],
+  "summary": "For jump diffusions on embeddings of categorical data, studies leave-one-out prediction (each coordinate predicted from the corrupted others). Proves that with complete coordinate resets and state-independent clocks, exact LOO reset probabilities plus the full endpoint-posterior drift preserve the prescribed marginals, and that the drift can be completed analytically from LOO probabilities. LOO variants improve generation on Text8, LM1B and ZINC250k.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-20",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.26584",
+  "arxiv": "2611.26584",
+  "url": "",
+  "title": "Represented but misread: Post-training changes how language models read out what they represent",
+  "authors": [
+   "Jochen Laubrock"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "interpretability",
+   "phenomena",
+   "post-training & RL"
+  ],
+  "summary": "Compares linear probes with models' own answers (signal detection theory) in six base/post-trained pairs. On human-vs-AI authorship judgments, probes separate the classes while answers do not and post-training lowers answer sensitivity; on negation truth, post-training instead repairs readout. The change happens in SFT and sits at positions after the text from mid-depth on; 2,000 labelled examples can set the readout direction.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-20",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.25416",
+  "arxiv": "2611.25416",
+  "url": "",
+  "title": "Standardized Tolerance for Adaptive Reuse and Repair: A Method for HNSW Migration Under Embedding Model Change Scenarios",
+  "authors": [
+   "Hengzhao Ma",
+   "Chenyang Zhu",
+   "Bin Wang",
+   "Xiaochun Yang"
+  ],
+  "tier": "aware",
+  "tags": [
+   "vector search"
+  ],
+  "summary": "STARR migrates an HNSW index after an embedding-model change by reusing source edges whose standardized length stays within a tolerance, with bounds on edge rejection under local distortion and a repair pass guaranteeing reachability. Median 16.7x faster than rebuilding across 240 MS MARCO model transitions, about 1 point recall loss.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-20",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.25738",
+  "arxiv": "2611.25738",
+  "url": "",
+  "title": "CACO: Coverage-Aware Coordinated Optimization for Continuous Generative Retrieval",
+  "authors": [
+   "Pan Zhang",
+   "Nan Zhuang",
+   "Yongkang Zhang",
+   "Kun Xú",
+   "Zhongtao Jiang",
+   "Zhiwei Wang",
+   "Kun Xǔ",
+   "Youhuan Li"
+  ],
+  "tier": "aware",
+  "tags": [
+   "vector search",
+   "generative retrieval"
+  ],
+  "summary": "CACO post-trains flow-matching/diffusion generative retrievers so that the multiple sampled ANN queries cover complementary items, using a label-free coverage objective and an unbiased gradient estimator through non-differentiable ANN search. Up to +24% Recall@100/400 and half the inter-query overlap at 0.5-3% extra latency.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-20",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.25374",
+  "arxiv": "2611.25374",
+  "url": "",
+  "title": "Efficient Privacy-Preserving High-Dimensional Approximate Nearest Neighbor Search",
+  "authors": [
+   "Lyu Xu",
+   "Guozhong Li",
+   "Qichen Wang"
+  ],
+  "tier": "aware",
+  "tags": [
+   "vector search"
+  ],
+  "summary": "ObliSC: ANN search over a public vector database with private queries, fully oblivious to access patterns, with parallel optimizations; competitive efficiency and recall with a light index on six benchmarks.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-20",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.25141",
+  "arxiv": "2611.25141",
+  "url": "",
+  "title": "CAIMS: Scalable Cross-Array In-Memory Search",
+  "authors": [
+   "Yi-Chun Liao",
+   "Liu Liu",
+   "Ruiyang Qin",
+   "Yiran Chen",
+   "and X. Sharon Hu"
+  ],
+  "tier": "aware",
+  "tags": [
+   "vector search"
+  ],
+  "summary": "CAIMS: top-k similarity search across many content-addressable memory arrays by turning local threshold matches into global coarse scores and reducing hierarchically; on a 3D NAND model for RAG retrieval, up to 22x throughput and 427x energy efficiency over a server CPU.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-20",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.25419",
+  "arxiv": "2611.25419",
+  "url": "",
+  "title": "DiLE: Discrimination-Aware Latent-Space Learning for Universal Multimodal Embeddings",
+  "authors": [
+   "Ben Kang",
+   "Junda Wang",
+   "Yuxuan Yuan",
+   "Hang Li",
+   "Yuhan Liu",
+   "Xin Chen",
+   "Wanting Geng",
+   "Tong Lin",
+   "Pei Fu",
+   "Dong Wang",
+   "Jian Luan",
+   "Huchuan Lu"
+  ],
+  "tier": "aware",
+  "tags": [
+   "embeddings"
+  ],
+  "summary": "DiLE: universal multimodal embedding model with learnable latent queries, shared-private experts and on-policy hard-negative distillation (reverse KL to a teacher over the student's own confusable candidates); state of the art on MMEB-v2, UVRB and MRMR.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-20",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.25527",
+  "arxiv": "2611.25527",
+  "url": "",
+  "title": "Learning Generative Ranking Policies for Whole-Page Optimization",
+  "authors": [
+   "Chen Qiu",
+   "Zhigang Hua",
+   "Qi Xu",
+   "Jizhe Zhang",
+   "Sha Hua",
+   "Ren Mao",
+   "Luke Simon"
+  ],
+  "tier": "aware",
+  "tags": [
+   "recommendation",
+   "ranking"
+  ],
+  "summary": "Meta: whole-page generative re-ranking trained with a local page-level policy-improvement objective that splits exactly into one target per position, each comparing candidates by the score of the complete page they lead to; beats generative re-ranking baselines on KuaiRand, RL4RS and logged industrial pages.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-20",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.25659",
+  "arxiv": "2611.25659",
+  "url": "",
+  "title": "DNA: Unlocking Depth Scaling in CTR Models",
+  "authors": [
+   "Caiyuan Li",
+   "Wenjie Wu",
+   "Yuheng Huang",
+   "Xiao Zhou",
+   "Silu Zhou",
+   "Ke Chen",
+   "Zinan Zhao",
+   "Xinrui Zeng",
+   "Hanmo Xu",
+   "Chaoqun Song",
+   "Hua Zong",
+   "Zongyuan Wu",
+   "Hongbin Zhou",
+   "Huimin Yi",
+   "Zhixuan Zhang",
+   "Dan Ou",
+   "Haihong Tang"
+  ],
+  "tier": "aware",
+  "tags": [
+   "recommendation"
+  ],
+  "summary": "Taobao: stacking cross-attention layers over user behavior sequences saturates because every layer reads the same keys/values; DNA lets the behavior sequence update from the request at each layer (still linear in length), giving +0.08-0.26 AUC at equal FLOPs and +0.8% CTR online.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-20",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.25845",
+  "arxiv": "2611.25845",
+  "url": "",
+  "title": "LINEAGE: A Benchmark for Empirical Lineage Retrieval in AI Scientific Literature",
+  "authors": [
+   "Pangjing Wu",
+   "Xu Yuan",
+   "Wenqi Fan",
+   "Qing Li"
+  ],
+  "tier": "aware",
+  "tags": [
+   "retrieval",
+   "evaluation"
+  ],
+  "summary": "LINEAGE: benchmark for retrieving the prior papers a paper uses as empirical baselines, built as lineage graphs over 121k AI papers (165k edges, 80k queries); 19 retrievers degrade sharply with lineage distance.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-20",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.25288",
+  "arxiv": "2611.25288",
+  "url": "",
+  "title": "Intelligent Embedding Pruning for Large-Scale Recommendation Models",
+  "authors": [
+   "Anish Khazane",
+   "Alex Saad-Falcon",
+   "Guanchu Wu",
+   "Marcio Porto",
+   "Jasper Shan",
+   "Fei Yu",
+   "Eugene Shulga",
+   "Intaik Park",
+   "Yongzhe Zhang",
+   "Xiaoyu Deng",
+   "Sheng Luo",
+   "Xiaoya Wang"
+  ],
+  "tier": "aware",
+  "tags": [
+   "embeddings",
+   "recommendation"
+  ],
+  "summary": "Meta: sets per-table pruning ratios for in-training embedding pruning from feature importance instead of table size, cutting 20-40% of embedding memory at equal or better accuracy and saving 1,000+ GPU-hours per launch; reproduced on DLRM/Criteo.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox",
+   "Sumit (X / Bluesky)"
+  ],
+  "date": "2026-11-20",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.25582",
+  "arxiv": "2611.25582",
+  "url": "",
+  "title": "AutoRAGBench: A Benchmark for LLM Agents Automating RAG System Development",
+  "authors": [
+   "Hang Zhang",
+   "Yuzhi Pan",
+   "Ziyao Zhong",
+   "Chaokun Wang",
+   "Shuo Cao",
+   "Zeyu Huang",
+   "Yue Xue",
+   "Fang Niu",
+   "Bofan Xie",
+   "Guanchen Ge",
+   "Zecheng Li",
+   "Leqi Zheng",
+   "Ziyang Liu",
+   "Wei Wang",
+   "Miao Gu"
+  ],
+  "tier": "aware",
+  "tags": [
+   "RAG & agents",
+   "evaluation"
+  ],
+  "summary": "AutoRAGBench: nine tasks where LLM agents build RAG systems from scratch in six H800-hours; the best agent configuration averages 56.1 against a composite human-SOTA of 44.4.",
+  "venue": "",
+  "src": [
+   "Sumit (X / Bluesky)"
+  ],
+  "date": "2026-11-20",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.26531",
+  "arxiv": "2611.26531",
+  "url": "",
+  "title": "Cost-Aware Agentic Feature Optimization System for Fleet-Scale Ranking Models",
+  "authors": [
+   "Chang Yang",
+   "Yao Xuan",
+   "Wendan Yan",
+   "Nhat Le",
+   "Jiang Liu",
+   "Longhao Jin",
+   "Zhen Peggy Yao",
+   "Alireza Vahdatpour",
+   "Djordje Gligorijevic"
+  ],
+  "tier": "aware",
+  "tags": [
+   "recommendation",
+   "RAG & agents"
+  ],
+  "summary": "Meta: LLM agents propose and tune feature selections for a fleet of ads ranking models under shared pipeline-cost and per-model QPS budgets; +0.31% normalized entropy offline, 2.3% lower pipeline cost, +0.20% online.",
+  "venue": "",
+  "src": [
+   "Sumit (X / Bluesky)"
+  ],
+  "date": "2026-11-20",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.23824",
+  "arxiv": "2611.23824",
+  "url": "",
+  "title": "Evidence-Based Credit Assignment for Search-Augmented Language Models",
+  "authors": [
+   "Wen Wang",
+   "Jindong Wang",
+   "Jiahua Bao",
+   "Tu Yongsiqi",
+   "Yihao Liu",
+   "Junwei He",
+   "Wenkui Fan"
+  ],
+  "tier": "aware",
+  "tags": [
+   "post-training & RL",
+   "RAG & agents"
+  ],
+  "summary": "Evidence-based credit assignment for RL-trained search agents: a training-only reward scoring each search by how much its retrieved documents raise the likelihood of the reference answer under an evidence-only prompt, so learning continues when all rollouts fail; +1 to +4.8 EM over GRPO on seven search-QA sets.",
+  "venue": "",
+  "src": [
+   "Sumit (X / Bluesky)"
+  ],
+  "date": "2026-11-20",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.23910",
+  "arxiv": "2611.23910",
+  "url": "",
+  "title": "MLE Agents: Autonomous ML Engineering in Large-scale Recommendation Systems",
+  "authors": [
+   "Matthew Li",
+   "Albert Liang",
+   "Dilip Raj"
+  ],
+  "tier": "aware",
+  "tags": [
+   "recommendation",
+   "RAG & agents"
+  ],
+  "summary": "Meta: human-on-the-loop LLM agents propose, implement, train and evaluate changes to large search rankers; one campaign ran 1,097 experiments, accepted 325, and its best model raised search volume by 0.23% online.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox",
+   "Sumit (X / Bluesky)"
+  ],
+  "date": "2026-11-20",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.24006",
+  "arxiv": "2611.24006",
+  "url": "",
+  "title": "MARS Technical Report",
+  "authors": [
+   "Tong Liu",
+   "Chaoqun Hou",
+   "Longxiang Xiong",
+   "Junhong Lou",
+   "Jiaqi Zheng",
+   "Qixin Li",
+   "Zixin Zhao",
+   "Yong Duan",
+   "Xiannian Hu",
+   "Fengze Jiang",
+   "Yu Zhu",
+   "Cheng Guo",
+   "Xinyuan Qi",
+   "Zi Zhuang",
+   "Ping Liu",
+   "Lv Shao",
+   "Zongwei Wang"
+  ],
+  "tier": "aware",
+  "tags": [
+   "recommendation",
+   "RAG & agents"
+  ],
+  "summary": "Taobao MARS: a fine-tuned 0.6B LLM sets per-user pipeline configurations (retrieval quotas, model choice, fusion weights, reranker settings) near-line, trained with SFT, preference optimization and sandboxed GRPO; up to +7.3% GMV in A/B tests.",
+  "venue": "",
+  "src": [
+   "Sumit (X / Bluesky)"
+  ],
+  "date": "2026-11-20",
   "listed": true,
   "who": [],
   "has_abs": true,
@@ -7016,7 +7832,7 @@
   "who": [],
   "has_abs": true,
   "zotero": true,
-  "note": ""
+  "note": "QAKM2Z94"
  },
  {
   "id": "2609.39440",
