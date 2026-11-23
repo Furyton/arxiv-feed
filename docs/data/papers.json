@@ -2439,7 +2439,7 @@
   "who": [],
   "has_abs": true,
   "zotero": true,
-  "note": ""
+  "note": "6B2TCUEN"
  },
  {
   "id": "2611.21285",
@@ -5689,6 +5689,900 @@
    "Sumit (X / Bluesky)"
   ],
   "date": "2026-11-20",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.27666",
+  "arxiv": "2611.27666",
+  "url": "",
+  "title": "Can pretrained Transformers deliver semiparametrically efficient inference?",
+  "authors": [
+   "Han Yan",
+   "Jin Zhu",
+   "Chengchun Shi",
+   "Tengyao Wang"
+  ],
+  "tier": "core",
+  "tags": [
+   "ICL",
+   "learning theory"
+  ],
+  "summary": "A Transformer pretrained on simulated datasets, with the true parameter as label, learns the posterior mean and covariance of a queried estimand. They prove that under locally flat priors of slowly growing complexity the posterior mean is semiparametrically efficient for every estimand, and the Transformer inherits efficiency with asymptotically exact Wald coverage, even under distribution shift; a fixed data-generating distribution makes pretraining much harder.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-23",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.26935",
+  "arxiv": "2611.26935",
+  "url": "",
+  "title": "Self-similar Organization of Information in Language",
+  "authors": [
+   "Leon Lufkin",
+   "Cutter Dawes",
+   "Kamesh Krishnamurthy"
+  ],
+  "tier": "core",
+  "tags": [
+   "LLM theory",
+   "scaling laws"
+  ],
+  "summary": "Develops a theory of how predictive information is distributed over a text's history via the scaling of a family of information measures; self-similar organization predicts a collapse of these measures across lengths, which they observe in long documents. Predictive information is present at every measured scale, a stronger statement than long-range dependence.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-23",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.27889",
+  "arxiv": "2611.27889",
+  "url": "",
+  "title": "Renormalized Entropy from Symmetries: Simplicity Bias and Neural Heat Death",
+  "authors": [
+   "Vasco Portilheiro",
+   "Samuel Liebana",
+   "Andrew Saxe",
+   "Peter Orbanz"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "learning theory",
+   "extracurricular"
+  ],
+  "summary": "Computes the equilibrium distribution over represented functions under Langevin dynamics with vanishing Gaussian regularization, isolating the effect of parameter symmetries. A renormalized entropy appears at positive temperature: for linear networks it favors singular and low-rank functions, for homogeneous activations it favors dead neurons, up to a 'heat death' of vanishing output.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-23",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.26797",
+  "arxiv": "2611.26797",
+  "url": "",
+  "title": "Memorization and Generalization in Generative Models: A Perspective From Energy-based Modeling and Associative Memory",
+  "authors": [
+   "Bao Pham"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "memorization",
+   "diffusion LMs"
+  ],
+  "summary": "PhD thesis: diffusion models behave as associative memories whose per-sample basins shrink as data grows, with spurious attractors marking the onset of generation; uniform-state discrete diffusion LMs show basins around unseen sentences expanding while training-sample basins contract, and conditional entropy locates a model on this transition.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-23",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.26920",
+  "arxiv": "2611.26920",
+  "url": "",
+  "title": "Partially canonical axes in large language model representations",
+  "authors": [
+   "Andrea Gregor de Varda",
+   "Ferdinando D'Elia",
+   "Greta Tuckute",
+   "Evelina Fedorenko",
+   "Meenakshi Khosla"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "phenomena",
+   "embeddings"
+  ],
+  "summary": "Across 12 LLMs, native coordinate axes align better with other models, brain responses and linguistic features than random rotations with the same geometry, but well short of the best rotation: LLM axes are partially canonical.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-23",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.26863",
+  "arxiv": "2611.26863",
+  "url": "",
+  "title": "LLMs Memorize Their Own Hallucinations During Post-Training",
+  "authors": [
+   "Anirudh Atmakuru",
+   "Tanya Goyal"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "memorization",
+   "hallucination"
+  ],
+  "summary": "Tracks self-generated hallucinations during reasoning-style RL on knowledge tasks across six open models: rewarded hallucinations are recalled 4.83% more later (0.17% for unrewarded ones), even facts the model retracted in its own chain; memorization is strongest on the hardest questions and reduces later abstention.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-23",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.26874",
+  "arxiv": "2611.26874",
+  "url": "",
+  "title": "How Language Models Compress and Compare: Understanding Selection with Token Covariance Maps",
+  "authors": [
+   "Moshe Eliasof"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "interpretability",
+   "phenomena"
+  ],
+  "summary": "Token covariance maps across depth show a compress-then-compare organization for selection prompts (incl. pairwise reranking) in 14 decoder models: diffuse early layers, a shared low-rank bottleneck mid-depth, then re-expansion into option-option geometry; it emerges during training and intervening at the bottleneck disrupts later comparison.",
+  "venue": "NeurIPS 2026",
+  "src": [
+   "Conference",
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-23",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.27125",
+  "arxiv": "2611.27125",
+  "url": "",
+  "title": "When Students Fail to Learn from Teachers: Learning Dynamics of On-Policy Distillation",
+  "authors": [
+   "Xinnan Zhang",
+   "Zeyi Liao",
+   "Siliang Zeng",
+   "Zhongruo Wang",
+   "Jiaxiang Li",
+   "Xinyan Zhao",
+   "Huan Sun",
+   "Mingyi Hong"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "training dynamics",
+   "post-training & RL"
+  ],
+  "summary": "Learning-dynamics analysis of on-policy distillation: identifies states where sampled-token updates cannot fix teacher-student mismatch (low student mass on the teacher's top-p set), shows their gradients interfere with other tokens, and traces how a termination-token mismatch drives repetitive, over-long generations.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-23",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.26756",
+  "arxiv": "2611.26756",
+  "url": "",
+  "title": "Reinforcement Learning Unlearns Corrupted SFT Reasoning",
+  "authors": [
+   "Anika Misra",
+   "Shreyas Vinod",
+   "Huteng Dai"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "phenomena",
+   "post-training & RL"
+  ],
+  "summary": "Across 361 corruption settings of GSM8K SFT traces, GRPO restores accuracy to the gold baseline; eight wrong three-line 'form-only' traces as SFT init beat gold SFT after RL, and SFT accuracy is uncorrelated with post-RL accuracy: SFT sets form, RL finds function.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-23",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.27083",
+  "arxiv": "2611.27083",
+  "url": "",
+  "title": "How Far Does Lossless Re-tokenization Move an RLVR Update?",
+  "authors": [
+   "Zhe Dong",
+   "Fang Qin"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "tokenization",
+   "post-training & RL"
+  ],
+  "summary": "Re-tokenizing the same RLVR rollouts (splitting ~1 token in 25) moves the update 0.556 times as far as using a different batch, in a consistent direction; in a tabular model they prove only the zero step agrees across tokenizations. Real re-encoding touches few tokens and the effect on accuracy is not significant.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-23",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.27258",
+  "arxiv": "2611.27258",
+  "url": "",
+  "title": "A preference for local interaction between layers emerges during training",
+  "authors": [
+   "Jiheon Lee"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "training dynamics",
+   "phenomena"
+  ],
+  "summary": "Perturbing one layer and measuring the response in others across 512 five-layer networks on modular addition: inter-layer responses grow during training and become ordered by distance, so locality between layers emerges although the loss couples all layers.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-23",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.27911",
+  "arxiv": "2611.27911",
+  "url": "",
+  "title": "Functional Depth Is Learned: Isolating the Computation That Layers Produce Only Together",
+  "authors": [
+   "JaeSeong Kim",
+   "KyungTae Lim"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "architectures",
+   "phenomena"
+  ],
+  "summary": "An exact inclusion-exclusion decomposition isolates computation that appears only when a set of layers acts together; across Pythia, OLMo and Amber checkpoints this connected coordination grows during pretraining, matters causally for perplexity, and is negatively correlated with layer similarity.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-23",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.27491",
+  "arxiv": "2611.27491",
+  "url": "",
+  "title": "Alignment without Transfer: Tokenization Impacts Cross-lingual Representations during Multilingual Language Model Pretraining",
+  "authors": [
+   "Jonathan von Rad",
+   "Pontus Stenetorp",
+   "Yao Lu"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "tokenization",
+   "phenomena"
+  ],
+  "summary": "39 1B models pretrained with only the tokenizer varied: better vocabulary allocation raises cross-lingual alignment in early-mid layers and knowledge sharing in FFN neurons, yet cross-lingual transfer stays unchanged; cross-script transfer remains low even with fair allocation.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-23",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.27506",
+  "arxiv": "2611.27506",
+  "url": "",
+  "title": "How Many Bytes Has a BPE Model Seen? Estimating Byte-Token Exposure in Pretraining from Corpus Statistics and Embedding Norms",
+  "authors": [
+   "Liwei Zhang",
+   "ZhiMing Tong",
+   "Mochen Guan",
+   "Linzhe Li"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "tokenization",
+   "embeddings"
+  ],
+  "summary": "Estimates how often byte-fallback tokens were seen in BPE pretraining from corpus statistics and from embedding/unembedding row norms, calibrated with untrained padding rows; never-valid UTF-8 bytes stay at initialization, and the norm-frequency relation folds at high frequency.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-23",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.27131",
+  "arxiv": "2611.27131",
+  "url": "",
+  "title": "Distillation with Errors: Sparse Unbiased Backpropagation for Knowledge Distillation",
+  "authors": [
+   "Yuyang Zhang",
+   "Yuxin Li"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "optimization"
+  ],
+  "summary": "Distillation with Errors: uses the zero-sum structure of logit gradients to build sparse paired estimates whose expectation equals the full-vocabulary KD gradient (proved unbiased), with geometry-aware pairing and stratified sampling to cut variance; up to 2.2x output-head speedup.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-23",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.26841",
+  "arxiv": "2611.26841",
+  "url": "",
+  "title": "Weight-Space Programming Writes In-Context Learning and Matches Fine-Tuning in Language Models",
+  "authors": [
+   "Konstantinos Skianis",
+   "Aristidis Likas"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "ICL"
+  ],
+  "summary": "Frontier models asked to edit a weaker LM's weights from examples mostly write the ICL task vector (few-shot minus zero-shot residual at the last token) into near-silent MLP units keyed to the prompt format, matching ICL and LoRA accuracy but brittle to rewording.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-23",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.27607",
+  "arxiv": "2611.27607",
+  "url": "",
+  "title": "Tasklets: A Unit-Test Benchmark for Language Model Architectures",
+  "authors": [
+   "Zayd Muhammad Kawakibi Zuhri",
+   "Munachiso Samuel Nwadike",
+   "Kentaro Inui",
+   "Alham Fikri Aji"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "architectures",
+   "evaluation"
+  ],
+  "summary": "Tasklets: a shared benchmark of small synthetic tasks (recall, sequence manipulation, state tracking) for comparing sequence-mixing layers under one setup, with controlled small-model comparisons.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-23",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.27946",
+  "arxiv": "2611.27946",
+  "url": "",
+  "title": "The Optimal Sample Complexity of Agnostic PAC Learning for Partial Concept Classes",
+  "authors": [
+   "Liang-Yu Zou"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "learning theory",
+   "extracurricular"
+  ],
+  "summary": "A deterministic agnostic PAC learner for partial concept classes of VC dimension d with O((d+log(1/δ))/ε²) samples, matching the Alon et al. (FOCS 2021) lower bound.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-23",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.27983",
+  "arxiv": "2611.27983",
+  "url": "",
+  "title": "Optimal Linear Regression Without a Variance",
+  "authors": [
+   "Artin Tajdini",
+   "Jasper C.H. Lee",
+   "Jonathan Scarlett",
+   "Kevin Jamieson"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "learning theory",
+   "extracurricular"
+  ],
+  "summary": "Black-box reduction (empirical residual pruning) turning finite-variance regression into a procedure for noise with only an unknown α-moment, α∈(1,2): rate ν^{1/α}((d+log 1/δ)/n)^{(α-1)/α} in Σ-norm without knowing α, with a matching minimax lower bound.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-23",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.27572",
+  "arxiv": "2611.27572",
+  "url": "",
+  "title": "Minimax-Optimal Small-Loss Regret in Online Convex Optimization and Applications to Contextual Search and Online Inverse Optimization",
+  "authors": [
+   "Shinsaku Sakaue"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "learning theory",
+   "extracurricular"
+  ],
+  "summary": "OCO with one subgradient per round achieving minimax-optimal small-loss regret O(1+√Δ*) without smoothness or knowing Δ*; consequences include resolving the Θ(√d/κ²) rate for contextual search with biased comparison flips.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-23",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.27653",
+  "arxiv": "2611.27653",
+  "url": "",
+  "title": "Late-Time Dynamics of Flow Matching: Distance Geometry and Learning",
+  "authors": [
+   "Umberto Biccari",
+   "Junqing Huang",
+   "Kang Liu",
+   "Enrique Zuazua"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "memorization",
+   "extracurricular"
+  ],
+  "summary": "For flow matching on a finite training set, late-time trajectories contract exponentially toward the nearest training sample away from Voronoi interfaces, with sharp Wasserstein error rates in the restart noise; connects flow matching and score-based diffusion through this limiting geometry.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-23",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.26671",
+  "arxiv": "2611.26671",
+  "url": "",
+  "title": "On the loss landscape of the linear neural network: beyond critical points",
+  "authors": [
+   "Antoine Lejay",
+   "Lionel Lenotre )",
+   "Saïd Toubra"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "optimization",
+   "extracurricular"
+  ],
+  "summary": "Introduces the 'critical thalweg', a structure containing all critical points of the linear-network loss, gives a geometric proof of Baldi-Hornik under weaker assumptions, and observes GD is attracted to it.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-23",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.27487",
+  "arxiv": "2611.27487",
+  "url": "",
+  "title": "Verifying and Strengthening Neural Tangent Kernel Theory",
+  "authors": [
+   "Hao Zhu"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "learning theory",
+   "extracurricular"
+  ],
+  "summary": "Lean 4 formalization of NTK convergence for two-layer tanh networks under gradient flow, plus sharper concentration-width constants and an L2 parameter geometry fix for the linearization bound; required widths stay impractical.",
+  "venue": "KDD 2027",
+  "src": [
+   "Conference",
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-23",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.26919",
+  "arxiv": "2611.26919",
+  "url": "",
+  "title": "ERA: Embed, Route, Adapt for Cold-Start Cross-Model Latent Retrieval",
+  "authors": [
+   "Venkata Chivukula",
+   "Zifeng Wang",
+   "Jinsung Yoon"
+  ],
+  "tier": "aware",
+  "tags": [
+   "embeddings",
+   "retrieval"
+  ],
+  "summary": "Google: query a vector index built with another embedding model without re-embedding, via a small anchor set chosen by cosine farthest-point sampling, an adapter with orthogonality regularization, and a router that sends hard queries to the original encoder; up to +35% nDCG@10 on BEIR.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox",
+   "Sumit (X / Bluesky)"
+  ],
+  "date": "2026-11-23",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.26809",
+  "arxiv": "2611.26809",
+  "url": "",
+  "title": "Search From the Start: Search-Native Pretraining for Language Models",
+  "authors": [
+   "Kaustubh Ponkshe",
+   "Gyung Hyun Je",
+   "Stefan Taga",
+   "Colin Raffel",
+   "Martin Jaggi"
+  ],
+  "tier": "aware",
+  "tags": [
+   "retrieval",
+   "RAG & agents"
+  ],
+  "summary": "Augments pretraining text with search queries and locally retrieved results so LMs learn to issue and use search during pretraining; a 1.4B model matches a FLOP-matched 3.3B baseline on knowledge tasks and the gain survives SFT (Raffel, Jaggi).",
+  "venue": "",
+  "src": [
+   "Scholar Inbox",
+   "Sumit (X / Bluesky)"
+  ],
+  "date": "2026-11-23",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.26752",
+  "arxiv": "2611.26752",
+  "url": "",
+  "title": "Depth-Linked Residual Tokens for Multimodal Retrieval and Generation",
+  "authors": [
+   "Jiangfan Zhang",
+   "Wentao Bao",
+   "Xian Wu",
+   "Xiangjun Fan",
+   "Jianpeng Cheng",
+   "Jun Xiao"
+  ],
+  "tier": "aware",
+  "tags": [
+   "embeddings",
+   "retrieval"
+  ],
+  "summary": "Meta: K learnable tokens linked by a residual recurrence in one forward pass for multimodal retrieval and generation, with a reachability/one-step-descent argument; matches looped models at much lower latency.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox",
+   "Sumit (X / Bluesky)"
+  ],
+  "date": "2026-11-23",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.27233",
+  "arxiv": "2611.27233",
+  "url": "",
+  "title": "LongCat Recall Sparse Attention: Co-Designing Key Organization and Retrieval for Long-Context Inference",
+  "authors": [
+   "Hao Zhang",
+   "Bin Xiao",
+   "Kefeng Zhang"
+  ],
+  "tier": "aware",
+  "tags": [
+   "vector search"
+  ],
+  "summary": "Meituan: retrieval-based sparse attention with an incrementally maintained paged index (time buckets, capacity-balanced directional groups with per-group centers) for top-K key selection; 4.7x faster selection than DSA at 1M tokens.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox",
+   "Sumit (X / Bluesky)"
+  ],
+  "date": "2026-11-23",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.27514",
+  "arxiv": "2611.27514",
+  "url": "",
+  "title": "Deep Cross-Division Network for Product-and-Ratio Feature Interactions in Industrial Ranking",
+  "authors": [
+   "Mikhail Trapeznikov",
+   "Sofia Gulevskaia",
+   "Maksim Utushkin",
+   "Aleksandr Poslavsky",
+   "Alexander D'yakonov"
+  ],
+  "tier": "aware",
+  "tags": [
+   "recommendation"
+  ],
+  "summary": "VK: a DCNv2-style cross layer with a division branch that represents Laurent monomials (ratios), removing hand-built ratio features from a production short-video ranker with significant A/B gains.",
+  "venue": "WSDM 2027",
+  "src": [
+   "Conference",
+   "Sumit (X / Bluesky)"
+  ],
+  "date": "2026-11-23",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.27780",
+  "arxiv": "2611.27780",
+  "url": "",
+  "title": "Search-RSI: Expanding Search Worlds Along Multimodal Agents' Capability Frontier",
+  "authors": [
+   "Chengchao Lv",
+   "Yin Wang",
+   "Chunzheng Zhu",
+   "Wanli Chang"
+  ],
+  "tier": "aware",
+  "tags": [
+   "RAG & agents"
+  ],
+  "summary": "Self-improvement loop for multimodal search agents that grows new tasks together with their evidence in the retrieval backend, so correct searches are not penalized for missing evidence; +9.8 points on nine benchmarks.",
+  "venue": "",
+  "src": [
+   "Sumit (X / Bluesky)"
+  ],
+  "date": "2026-11-23",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.27910",
+  "arxiv": "2611.27910",
+  "url": "",
+  "title": "Decision Columns as an Index: Interpretable Embeddings for Explainable Entity Matching and Search",
+  "authors": [
+   "Aadharsh Kannan",
+   "Robert Bruckner",
+   "Philip A. Bernstein"
+  ],
+  "tier": "aware",
+  "tags": [
+   "embeddings",
+   "retrieval"
+  ],
+  "summary": "Interpretable embeddings whose coordinates are calibrated yes/no/not-stated answers to natural-language questions; similarity decomposes per question, new questions extend the index without re-encoding, and retrieval matches dense candidate generation for entity matching.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-23",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.27174",
+  "arxiv": "2611.27174",
+  "url": "",
+  "title": "\"More Than You Expect!\": Leakage-Abuse Attacks on Encrypted Vector Search",
+  "authors": [
+   "Yang Zhang",
+   "Ruiqi He",
+   "Xiaoqian Sun",
+   "Siyi Lv",
+   "Zheli Liu"
+  ],
+  "tier": "aware",
+  "tags": [
+   "vector search"
+  ],
+  "summary": "Leakage-abuse attack on encrypted vector search: co-retrieval access patterns form a graph whose spectral groups reveal record labels and query categories (up to 84% label accuracy with 1% known labels), also under an encrypted approximate scheme.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-23",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.27432",
+  "arxiv": "2611.27432",
+  "url": "",
+  "title": "Space-Efficient Text Indexing for Advanced Counting Queries",
+  "authors": [
+   "Solon P. Pissis",
+   "Sharma V. Thankachan"
+  ],
+  "tier": "aware",
+  "tags": [
+   "retrieval"
+  ],
+  "summary": "Compact text indexes (O(n log σ) bits) answering a general class of advanced counting queries in optimal or near-optimal time, improving on MAST-style indexes for non-overlapping occurrence counting.",
+  "venue": "SOSA 2027",
+  "src": [
+   "Conference"
+  ],
+  "date": "2026-11-23",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.26921",
+  "arxiv": "2611.26921",
+  "url": "",
+  "title": "Leader Finding: A New Variation of Expert Finding in Community Question Answering",
+  "authors": [
+   "Sepideh Entezari Maleki",
+   "Mahmood Neshati"
+  ],
+  "tier": "aware",
+  "tags": [
+   "ranking"
+  ],
+  "summary": "Extended version of an ICTIR '21 short paper: ranking candidate team leaders by combining technical fit, managerial knowledge and communication in a probabilistic model, with one metric per quality, on Stack Overflow collections.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-23",
   "listed": true,
   "who": [],
   "has_abs": true,
@@ -39400,7 +40294,7 @@
   "who": [],
   "has_abs": true,
   "zotero": true,
-  "note": ""
+  "note": "ZZKRIWGQ"
  },
  {
   "id": "2410.13300",
@@ -60164,7 +61058,7 @@
   "who": [],
   "has_abs": false,
   "zotero": false,
-  "note": ""
+  "note": "6B2TCUEN"
  },
  {
   "id": "t:one layer transformers provably learn in context k nearest neighbor prediction with chain of thought",
