@@ -30,7 +30,7 @@
  {
   "name": "Sanjeev Arora",
   "aff": "Princeton University",
-  "n": 44,
+  "n": 47,
   "co": [],
   "co_auto": [
    "Anirudh Goyal",
@@ -121,7 +121,7 @@
  {
   "name": "Jiafeng Guo",
   "aff": "Institute of Computing Technology",
-  "n": 82,
+  "n": 83,
   "co": [],
   "co_auto": [
    "Xueqi Cheng",
@@ -216,7 +216,7 @@
  {
   "name": "Omar Khattab",
   "aff": "Massachusetts Institute of Technology",
-  "n": 20,
+  "n": 21,
   "co": [],
   "co_auto": [
    "Christopher Potts",
@@ -372,7 +372,7 @@
  {
   "name": "Xueguang Ma",
   "aff": "University of Waterloo",
-  "n": 22,
+  "n": 23,
   "co": [],
   "co_auto": [
    "Jimmy Lin",
@@ -525,7 +525,7 @@
  {
   "name": "Maarten de Rijke",
   "aff": "University of Amsterdam",
-  "n": 78,
+  "n": 79,
   "co": [],
   "co_auto": [
    "Ruqing Zhang",
@@ -553,7 +553,7 @@
  {
   "name": "Zhao Song",
   "aff": "independent researcher (theoretical CS)",
-  "n": 71,
+  "n": 72,
   "co": [
    "Xiaoyu Li",
    "Yingyu Liang",

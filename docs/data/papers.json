@@ -5721,7 +5721,7 @@
   "who": [],
   "has_abs": true,
   "zotero": true,
-  "note": ""
+  "note": "NSV7WFFI"
  },
  {
   "id": "2611.26935",
@@ -5748,7 +5748,7 @@
   "who": [],
   "has_abs": true,
   "zotero": true,
-  "note": ""
+  "note": "G7ISWRXI"
  },
  {
   "id": "2611.27889",
@@ -6585,6 +6585,960 @@
   "date": "2026-11-23",
   "listed": true,
   "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.30005",
+  "arxiv": "2611.30005",
+  "url": "",
+  "title": "Training Dynamics of Large State-Transition Models",
+  "authors": [
+   "Yee Man Choi",
+   "Fengchi Wang",
+   "Ruiquan Huang"
+  ],
+  "tier": "core",
+  "tags": [
+   "LLM theory",
+   "training dynamics"
+  ],
+  "summary": "Next-token prediction with a one-token context (a 'state-transition model') where input and output embeddings of dimension d < V are trained jointly from Gaussian init by perturbed GD with weight decay on population cross-entropy. For a low-rank centred log-probability table, the untied model reaches relative prediction gain > 7/8 once d = Ω(√V); the tied model gets 1 − O(V/d²) on observed states plus a transfer guarantee to unseen states. The key tool is a bound on the trace of the softmax-CE Hessian at approximate second-order stationary points.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.29692",
+  "arxiv": "2611.29692",
+  "url": "",
+  "title": "Grammar Sparsity Sets How Transformers Learn Random Languages",
+  "authors": [
+   "Edgar Andres Hernandez Moreno",
+   "Francesco Cagnetta"
+  ],
+  "tier": "core",
+  "tags": [
+   "transformer theory",
+   "training dynamics"
+  ],
+  "summary": "Transformers trained on the Random Language Model (random hierarchical grammar with known conditional entropies). Dense grammars are learnt level by level: sibling-based prediction after t ∝ V steps, full-context only after t ∝ V^3, with a widening plateau in between; sparse grammars are learnt all at once at t ∝ √V. The exponents 1 and 1/2 are derived at depth one for a linear model trained with Adam.",
+  "venue": "NeurIPS 2026 workshop",
+  "src": [
+   "Conference"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.28824",
+  "arxiv": "2611.28824",
+  "url": "",
+  "title": "Statistical mechanics of linear classification on hierarchical tree data",
+  "authors": [
+   "Jerome Garnier-Brun",
+   "Federica Kulka",
+   "Carlo Lucibello"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "memorization",
+   "learning theory"
+  ],
+  "summary": "A linear classifier is trained to infer the root of a broadcast process on a tree from its N leaves. Keeping the exact non-Gaussian law along the label direction and treating transverse fluctuations as Gaussian gives a finite-depth replica theory that matches learning curves. At large depth there is a double descent whose first descent occurs at N^ω samples (0<ω<1) and whose overfitting peak occurs at order N.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.29484",
+  "arxiv": "2611.29484",
+  "url": "",
+  "title": "Vanishing Initialization Turns Diagonal Tensor Gradient Flow into Greedy Matching",
+  "authors": [
+   "Dmitry Yarotsky",
+   "Eugene Golikov",
+   "Yaroslav Gusev"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "training dynamics",
+   "extracurricular"
+  ],
+  "summary": "Gradient flow on CP tensor factorization (order ≥ 3, diagonal target in orthonormal bases) from vanishing initialization is proved to follow a greedy bipartite matching between model atoms and target components, ordered by initialization-dependent activation clocks, giving a staircase loss. Modular addition fits after Fourier diagonalization, yielding an explicit distribution-free large-system loss curve.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.28975",
+  "arxiv": "2611.28975",
+  "url": "",
+  "title": "Global Stability and Loss Convergence in Matrix Factorization",
+  "authors": [
+   "Eric Gan"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "training dynamics",
+   "optimization"
+  ],
+  "summary": "For L(X,Y) = f(XY) with convex, smooth, Lipschitz-gradient f (including cross-entropy) and a minimizing set compact modulo invariances, GD with a learning rate below a positive threshold keeps parameters bounded, has summable squared gradients and converges in loss from every finite initialization. The proof uses a decreasing imbalance quantity between the two factors.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.30116",
+  "arxiv": "2611.30116",
+  "url": "",
+  "title": "Grokking as a Subspace Search: Computing the Destination Before Training",
+  "authors": [
+   "Sunjae Jeong",
+   "Jaeseung Kim",
+   "Hyoseok Hwang"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "training dynamics",
+   "phenomena"
+  ],
+  "summary": "On group tasks, the low-dimensional embedding subspace a grokking network ends in can be computed from the task before training and is shown to be essentially unique. Giving the network this subspace removes the delay; removing it caps accuracy at a precomputable ceiling; during normal training embeddings drift toward it long before test accuracy rises.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.28777",
+  "arxiv": "2611.28777",
+  "url": "",
+  "title": "Pretraining Representation Lottery Determines Fine-tuning Generalization",
+  "authors": [
+   "Fuming Yang",
+   "Core Francisco Park"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "memorization",
+   "phenomena"
+  ],
+  "summary": "In a synthetic setup with known concept geometry, seeds with equal pretraining loss differ widely in fine-tuning generalization. Injecting the true geometry, or distilling a lucky seed's representation (not its behaviour) into an unlucky one, fixes fine-tuning; reproduced on multi-seed Pythia-160M/410M, where the transferable representation lives in deep layers.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.28830",
+  "arxiv": "2611.28830",
+  "url": "",
+  "title": "Hidden Sensitivity in LLM Pre-training: A Dynamic System View",
+  "authors": [
+   "Bo Liu",
+   "Yuan Xie",
+   "Junan Chen",
+   "Fujun Han"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "training dynamics",
+   "phenomena"
+  ],
+  "summary": "Treats LLM pretraining as a non-autonomous dynamical system over weights and Adam states. At sensitive checkpoints a 1e-5 weight perturbation yields 35.7% top-1 disagreement after 200 steps with nearly equal validation loss; perturbing Adam moments has similar effects (also in OLMo-1B). A targeted stabilization cuts disagreement to 0.83% at a 0.11-nat loss cost.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.29171",
+  "arxiv": "2611.29171",
+  "url": "",
+  "title": "What Makes Recurrence Generalize Across Lengths?",
+  "authors": [
+   "Yoonsung Jung",
+   "Sunghun Jung",
+   "Louise Nayeong Koh",
+   "Yongjun Choi"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "CoT & reasoning",
+   "architectures"
+  ],
+  "summary": "Controlled state-tracking study of recurrent (weight-shared) transformers: atomic operation tokens extrapolate far better than multi-token templates, absolute positions hurt, and scaling the recurrent operator gives 35.1% exact match on 20-40 operations after training on 2-10, where larger fixed-depth transformers get 0%.",
+  "venue": "NeurIPS 2026 workshop",
+  "src": [
+   "Conference"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.31015",
+  "arxiv": "2611.31015",
+  "url": "",
+  "title": "Can Latent Reasoning Drive LLM Outputs Without a Trace?",
+  "authors": [
+   "Tomer Ashuach",
+   "Zorik Gekhman",
+   "Avi Caciularu",
+   "Ori Ram",
+   "Jonathan Herzig"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "CoT & reasoning",
+   "expressivity"
+  ],
+  "summary": "With an auxiliary loss, transformers solve multi-step tasks fully latently at least 5x deeper than previously reported. Models trained to pursue a hidden objective (loan decisions, planting a code vulnerability) write CoTs with no trace of it, and activation patching shows the latent computation finishes before the CoT is generated.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.30094",
+  "arxiv": "2611.30094",
+  "url": "",
+  "title": "Character Information in Language Models: A Prompt-Independent Word Store and a Late, Question-Driven Signal That Grows With Scale",
+  "authors": [
+   "Pratyush Acharya",
+   "Nuraj Rimal",
+   "Apar Baral",
+   "Habish Dhakal",
+   "Piyush Mohan Bhattarai"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "tokenization",
+   "interpretability"
+  ],
+  "summary": "Across 16 models (0.6B-14B), first/last/most-frequent letter of a word is linearly decodable from the word's own tokens with no question asked, ~70% already in the token embedding. Asking the question adds a second, late-layer signal at the answer position whose size grows with scale; controls remove length/repetition shortcuts.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.29579",
+  "arxiv": "2611.29579",
+  "url": "",
+  "title": "From Learning Rates to Rotational Schedules: Finite-Horizon Theory on the Sphere",
+  "authors": [
+   "Jacopo Graldi",
+   "Antonio Orvieto",
+   "Anastasia Koloskova"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "optimization",
+   "extracurricular"
+  ],
+  "summary": "Rewrites learning-rate schedules as rotational schedules for scale-invariant (normalized) parameters. In a geodesically convex spherical setting, a last-iterate bound separates the schedule's scale from its time profile; the optimal schedule tends to linear decay. Predictions about WSD vs linear decay for Adam/Muon vs their hyperball variants hold in LLM pretraining, and give a new schedule that beats cosine and WSD.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.29588",
+  "arxiv": "2611.29588",
+  "url": "",
+  "title": "How Multi-Timescale Memory Cools Optimization: Theory and Evidence from AdEMAMix",
+  "authors": [
+   "Jacopo Graldi",
+   "Antonio Orvieto",
+   "Anastasia Koloskova"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "optimization",
+   "extracurricular"
+  ],
+  "summary": "Explains AdEMAMix's gain over AdamW through norm dynamics under decoupled weight decay: a slow momentum barely changes the instantaneous update but inflates parameter norms, slowing rotation and acting as an endogenous annealing schedule; controlled interventions in LM pretraining support this.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.30467",
+  "arxiv": "2611.30467",
+  "url": "",
+  "title": "SGD Selects Initialization-Dependent Representation in Overparameterized ReLU Networks",
+  "authors": [
+   "Nikos Tsikouras",
+   "Yorgos Pantis",
+   "Ahmed Mehdi Inane",
+   "Mehrab Hamidi",
+   "Ioannis Mitliagkas"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "training dynamics",
+   "extracurricular"
+  ],
+  "summary": "Two-layer bias-free ReLU nets of width m ≥ 4 learning a linear teacher under Gaussian inputs have infinitely many non-aligned exact fits, yet batch-size-one SGD from small init provably drives every neuron to one of the two teacher directions and reaches arbitrarily small error in finite time, with an init-dependent allocation across neurons.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.28234",
+  "arxiv": "2611.28234",
+  "url": "",
+  "title": "Learning the Projection onto the Data Support: Distribution Learning that Avoids Memorization",
+  "authors": [
+   "Lin Chen",
+   "Dejan Slepčev"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "memorization",
+   "extracurricular"
+  ],
+  "summary": "Learns distributions on (unions of) manifolds by estimating the nearest-point projection onto the data support via an objective whose minimizer is that projection; it adapts to intrinsic dimension, has finite-sample Wasserstein bounds, and, unlike diffusion objectives, cannot be minimized by memorizing training samples.",
+  "venue": "NeurIPS 2026",
+  "src": [
+   "Conference"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.28399",
+  "arxiv": "2611.28399",
+  "url": "",
+  "title": "Data-Dependent Probability Estimation via Sample Amplification",
+  "authors": [
+   "Vitaly Feldman",
+   "Satyen Kale",
+   "Mahbod Majid",
+   "Kunal Talwar"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "learning theory",
+   "extracurricular"
+  ],
+  "summary": "Estimating the probability of an event chosen after seeing the data, with no fresh samples: Õ(√d) samples suffice for constant MSE on a domain of size d when the selection rule is known, matching the lower bound up to logs and resolving an open question of Feldman et al. Uses sample amplification plus online-learning distribution estimation; a smoothed variant needs only O(log d).",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.29737",
+  "arxiv": "2611.29737",
+  "url": "",
+  "title": "Deterministic Proper Positive-Only Learning Is Independent of ZFC",
+  "authors": [
+   "Shai Ben-David",
+   "Farnam Mansouri",
+   "Anay Mehrotra"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "learning theory",
+   "extracurricular"
+  ],
+  "summary": "Deterministic proper PAC learnability from positive-only samples is independent of ZFC: a VC-dimension-2 class exists whose deterministic proper learnability is undecidable although a randomized learner learns it, and no finite-character dimension characterizes it. Below a cardinality threshold (including countable domains) a combinatorial characterization holds; under GCH the threshold is sharp.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.28169",
+  "arxiv": "2611.28169",
+  "url": "",
+  "title": "The Value of Labels in Data Selection for Least Squares",
+  "authors": [
+   "Evan Borodow"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "learning theory",
+   "extracurricular"
+  ],
+  "summary": "Choosing n rows of a dataset (rows of leverage ≤ κ) to fit unweighted OLS: a label-blind selector has optimal worst-case excess ratio dκ/n, while one that sees labels gets between dκ/(2n) and dκΛ_d/n, so labels are worth exactly a factor 2 for d ≤ 4; for grouped designs the constant is 27d/128, and a high-dimensional construction shows labels are worth at most ~√e there.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.28579",
+  "arxiv": "2611.28579",
+  "url": "",
+  "title": "Tight Mistake-Abstention Tradeoffs for Sequential Prediction under Adversarial Injections",
+  "authors": [
+   "Moïse Blanchard",
+   "Ezra Edelman",
+   "Surbhi Goel",
+   "Shyam Narayanan",
+   "Jialin Yu"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "learning theory",
+   "extracurricular"
+  ],
+  "summary": "Sequential prediction with adversarially injected instances and free abstention on injected points: a weighted-shattering potential gives the conjectured O(d log T) mistakes for known μ, and tight-in-T-and-d mistake/abstention tradeoffs (balanced rate O(√(dT))) for unknown μ and oblivious adversaries.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.28583",
+  "arxiv": "2611.28583",
+  "url": "",
+  "title": "Tight Bounds for Rank Estimation in Turnstile Streams",
+  "authors": [
+   "Yang S. Hu",
+   "Cheng Jiang",
+   "Yinchen Liu",
+   "Huacheng Yu"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "learning theory",
+   "extracurricular"
+  ],
+  "summary": "Determines the space complexity of rank (quantile) estimation in turnstile streams up to a constant: a new lower bound Ω(min{ε^{-1}L^{3/2}log(…), ε^{-2}log U log n, …}) bits that matches Dyadic CountSketch in its regime, with refined algorithms for the remaining regimes.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.28555",
+  "arxiv": "2611.28555",
+  "url": "",
+  "title": "The abc index: Exact Retrieval for Learned Sparse Representations",
+  "authors": [
+   "Rossano Venturini"
+  ],
+  "tier": "aware",
+  "tags": [
+   "vector search",
+   "retrieval"
+  ],
+  "summary": "abc, an exact index for learned sparse retrieval built from standard parts (TAAT, Block-Max MaxScore, binary packing, doc-id reordering). On MS MARCO with four LSR models it is the fastest exact index (6.5-84x Qdrant, 2.9-18x BMP) and, while approximate indexes (Seismic, HNSW) are up to 4.3x faster at k=10, it overtakes them by up to 7.4x at k=1000 with 1.5-3.6x less space.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.29948",
+  "arxiv": "2611.29948",
+  "url": "",
+  "title": "Look Before You Leap: Re-Architecting Disk-Resident Vector Search with TriVS",
+  "authors": [
+   "Yizou Chen",
+   "Baotong Lu",
+   "Peiqi Yin",
+   "Zhisheng Hu",
+   "Qi Chen",
+   "Ming-Chang Yang"
+  ],
+  "tier": "aware",
+  "tags": [
+   "vector search"
+  ],
+  "summary": "TriVS for disk-resident ANN: route coarsely with in-memory clusters (no approach-phase I/O), distill routed clusters to a shortlist with compact quantized vectors in memory, then converge with vector-level disk reads. 3.42x PipeANN throughput at Recall@10 = 0.9 with less memory and 64% less I/O.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.29252",
+  "arxiv": "2611.29252",
+  "url": "",
+  "title": "Zarc: Exact Nearest Neighbors over a Billion Vectors in Seconds",
+  "authors": [
+   "Dongfang Zhao"
+  ],
+  "tier": "aware",
+  "tags": [
+   "vector search"
+  ],
+  "summary": "Zarc: exact k-NN (Euclidean, cosine, inner product, filtered, with updates) over a billion vectors on 4 H100s, keeping only the short rows of half-precision pruning proofs on GPU and fetching remaining candidates from host memory; 10k exact queries in 1.1 s vs 5 min, and 2.2-13.1x faster exact top-10 attention-key retrieval.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.29399",
+  "arxiv": "2611.29399",
+  "url": "",
+  "title": "SJG: A Skyline Joint Graph for Multi-Component Approximate Nearest Neighbor Search",
+  "authors": [
+   "Linyun Ma",
+   "Rui Mao"
+  ],
+  "tier": "aware",
+  "tags": [
+   "vector search"
+  ],
+  "summary": "Skyline Joint Graph for ANN under query-weighted multi-component distances: since dominance among candidates is weight-independent, each node keeps the skyline of candidates pooled across components; up to 27.9x throughput at 90% Recall@10 and much faster construction.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.28645",
+  "arxiv": "2611.28645",
+  "url": "",
+  "title": "PROSPER: LLMs as Sparse Retrievers for First-Stage Product Search",
+  "authors": [
+   "Hongru Song",
+   "Yu-An Liu",
+   "Ruqing Zhang",
+   "Jiafeng Guo",
+   "Maarten de Rijke",
+   "Sen Li",
+   "Wenjun Peng",
+   "Fuyu Lv",
+   "Xueqi Cheng"
+  ],
+  "tier": "aware",
+  "tags": [
+   "retrieval",
+   "ranking"
+  ],
+  "summary": "PROSPER uses LLMs as learned sparse retrievers for first-stage product search, with a literal residual network that re-weights under-weighted literal terms (brands, model ids) and a top-k lexical focusing window for early sparsification; offline gains and online A/B revenue gains.",
+  "venue": "WSDM 2027",
+  "src": [
+   "Conference",
+   "Followed researcher"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [
+   "Maarten de Rijke",
+   "Jiafeng Guo"
+  ],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.30069",
+  "arxiv": "2611.30069",
+  "url": "",
+  "title": "Pixel as the Common Language: Unified Multimodal Embedding via Visual Rendering",
+  "authors": [
+   "Xu Yuan",
+   "Pangjing Wu",
+   "Wenqi Fan",
+   "and Qing Li"
+  ],
+  "tier": "aware",
+  "tags": [
+   "embeddings"
+  ],
+  "summary": "RenderEmbed renders text, image and composed inputs into one visual substrate before encoding with a VLM, with anchor tokens for compact embeddings; beats same-size SOTA on MMEB and ViDoRe v2 (+1.7 P@1 over MetaEmbed).",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.30819",
+  "arxiv": "2611.30819",
+  "url": "",
+  "title": "Ask Again: Answer-List Instability in Generative Engines",
+  "authors": [
+   "Björn Busch-Geertsema",
+   "David Antony Selby",
+   "Sebastian Vollmer"
+  ],
+  "tier": "aware",
+  "tags": [
+   "ranking",
+   "evaluation"
+  ],
+  "summary": "Over 60,000 responses, generative search engines name a different first item 32% of the time for the same prompt; a close leader is identified only 60% of the time after 25 runs. Visibility metrics should report per-item appearance and first-position frequencies with uncertainty.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.28638",
+  "arxiv": "2611.28638",
+  "url": "",
+  "title": "Make Position Uninformative: Exchangeable Self-Distillation Flattens the Lost-in-the-Middle Curve",
+  "authors": [
+   "Qingsen Ma",
+   "Dianyun Wang",
+   "Jiahong Liu",
+   "Irwin King"
+  ],
+  "tier": "aware",
+  "tags": [
+   "RAG & agents"
+  ],
+  "summary": "Shows that with a uniform answer slot and shuffled distractors the optimal reader ignores position, and trains an adapter (ExSD) on shuffled contexts to match the model's answer given the gold document alone; flattens the lost-in-the-middle curve on 1.5B-32B models without gold answers.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.28995",
+  "arxiv": "2611.28995",
+  "url": "",
+  "title": "S$^2$LMR: Supervised Sequential Long-Context Multi-Step Retriever",
+  "authors": [
+   "Qiang Hu",
+   "Kaiyi Ji"
+  ],
+  "tier": "aware",
+  "tags": [
+   "retrieval",
+   "RAG & agents"
+  ],
+  "summary": "S²LMR, a supervised sequential multi-step retriever over long contexts (4K-10M tokens) that fixes three train/inference mismatches (easy negatives, noisy prefixes, position-agnostic scoring); matches costlier methods with ~2 GPU-hours of training.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.28298",
+  "arxiv": "2611.28298",
+  "url": "",
+  "title": "Language Model Harnesses can be Compositional Generalizers",
+  "authors": [
+   "Alex L. Zhang",
+   "Souradip Chakraborty",
+   "Omar Khattab"
+  ],
+  "tier": "researcher",
+  "tags": [],
+  "summary": "Training recursive LM harnesses with RL gives compositional generalization: training on short tasks transfers to 2-64x longer ones; RLM-27B improves long-context suites by 26.9% with ~2x fewer tokens.",
+  "venue": "",
+  "src": [
+   "Followed researcher"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [
+   "Omar Khattab"
+  ],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.29843",
+  "arxiv": "2611.29843",
+  "url": "",
+  "title": "The Temporal Residual: Fast and Effective Retrofitting of Latent Feedback into Pretrained Language Models",
+  "authors": [
+   "Ziyang Cai",
+   "Xingyu Zhu",
+   "Sanjeev Arora"
+  ],
+  "tier": "researcher",
+  "tags": [],
+  "summary": "A carried 'temporal residual' stream (2,752 extra parameters) retrofitted onto Qwen3.5-4B-Base raises AIME/AMC scores and lets the model reason in hidden state (no-CoT GSM8K 21% → 40%).",
+  "venue": "",
+  "src": [
+   "Followed researcher"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [
+   "Sanjeev Arora"
+  ],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.28819",
+  "arxiv": "2611.28819",
+  "url": "",
+  "title": "Improving semantic equivalence in research-level math formalization",
+  "authors": [
+   "Ayush Khaitan",
+   "Liam Fowl",
+   "Tomàs Ortega",
+   "Alex Kontorovich",
+   "Sanjeev Arora"
+  ],
+  "tier": "researcher",
+  "tags": [],
+  "summary": "4,076 audited NL-vs-Lean discrepancies from 832 research-level Lean projects; training on them improves writing Lean inside real projects (NeurIPS'26 Math-AI workshop).",
+  "venue": "",
+  "src": [
+   "Followed researcher"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [
+   "Sanjeev Arora"
+  ],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.28827",
+  "arxiv": "2611.28827",
+  "url": "",
+  "title": "Does a Frontier Large Language Model Know What It Can Solve? A 100-Conjecture Calibration Study",
+  "authors": [
+   "Ayush Khaitan",
+   "Liam Fowl",
+   "Tomàs Ortega",
+   "Alex Kontorovich",
+   "Sanjeev Arora"
+  ],
+  "tier": "researcher",
+  "tags": [],
+  "summary": "A frontier model's self-assessed success probability on 87 open geometric-analysis conjectures averaged 0.62 vs 0.10 observed: badly overconfident but still rank-informative (AUROC 0.71).",
+  "venue": "",
+  "src": [
+   "Followed researcher"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [
+   "Sanjeev Arora"
+  ],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.30202",
+  "arxiv": "2611.30202",
+  "url": "",
+  "title": "VADE: A Verifiable Agent Data Engine from Professional Sources",
+  "authors": [
+   "Xiangchao Chen",
+   "Zhiheng Lyu",
+   "Kai Zhang",
+   "Xueguang Ma",
+   "Ping Nie",
+   "Wenhu Chen"
+  ],
+  "tier": "researcher",
+  "tags": [],
+  "summary": "VADE builds verifiable analysis tasks for agents in law/finance from public professional sources, exploiting that answers are hard to find but easy to verify.",
+  "venue": "",
+  "src": [
+   "Followed researcher"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [
+   "Xueguang Ma"
+  ],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.30757",
+  "arxiv": "2611.30757",
+  "url": "",
+  "title": "A Matrix Lee-Sidford Barrier and Faster Semidefinite Programming",
+  "authors": [
+   "Zhao Song",
+   "Ruizhe Zhang"
+  ],
+  "tier": "researcher",
+  "tags": [],
+  "summary": "A matrix analogue of the Lee-Sidford barrier with self-concordance Õ(m), giving the fastest known SDP solver for m ≤ n.",
+  "venue": "",
+  "src": [
+   "Followed researcher"
+  ],
+  "date": "2026-11-24",
+  "listed": true,
+  "who": [
+   "Zhao Song"
+  ],
   "has_abs": true,
   "zotero": false,
   "note": ""
@@ -17169,7 +18123,7 @@
   "who": [],
   "has_abs": true,
   "zotero": true,
-  "note": ""
+  "note": "HEZMQDJR"
  },
  {
   "id": "2605.29384",
