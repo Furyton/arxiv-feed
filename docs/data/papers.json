@@ -6614,7 +6614,7 @@
   "who": [],
   "has_abs": true,
   "zotero": true,
-  "note": ""
+  "note": "7RPIGRKH"
  },
  {
   "id": "2611.29692",
@@ -6640,7 +6640,7 @@
   "who": [],
   "has_abs": true,
   "zotero": true,
-  "note": ""
+  "note": "329BMVB3"
  },
  {
   "id": "2611.28824",
@@ -7544,6 +7544,1229 @@
   "note": ""
  },
  {
+  "id": "2611.31579",
+  "arxiv": "2611.31579",
+  "url": "",
+  "title": "Provably Near-Optimal PQ in the Extended Zador Model",
+  "authors": [
+   "Edo Liberty",
+   "Ashwin Padaki",
+   "Amir Ingber"
+  ],
+  "tier": "core",
+  "tags": [
+   "IR theory",
+   "vector search"
+  ],
+  "summary": "Product quantization for Gaussian data: proves SVD is the optimal preconditioning rotation for PQ, introduces an Extended Zador estimator of k-means cost that stays accurate at low bit rates and dimensions, and allocates bits across segments by 1-d bin packing. The resulting EZPQ comes with a per-instance distortion lower-bound certificate (often within 1% of optimum at 2 bits/coordinate) and beats random-rotation methods such as RaBitQ and TurboQuant on reconstruction error.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.32667",
+  "arxiv": "2611.32667",
+  "url": "",
+  "title": "Balanced Voronoi Partitions, Self-Approaching Sequences, and Applications to Efficiently Navigable Graphs",
+  "authors": [
+   "Jonathan Conroy",
+   "Mohammadreza Daneshvaramoli",
+   "Cameron Musco",
+   "Christopher Musco",
+   "Jack Spalding-Jamieson"
+  ],
+  "tier": "core",
+  "tags": [
+   "IR theory",
+   "vector search"
+  ],
+  "summary": "Shows any Euclidean point set in d dimensions has two points whose Voronoi split is Omega(1/d)-balanced (tight), via a bound of O(d) on self-approaching sequences; for l_p with p != 2 balance can be exp(-d). As a consequence it builds navigable graphs with O(d log n) greedy-style routing, where earlier constructions needed exp(d).",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.31995",
+  "arxiv": "2611.31995",
+  "url": "",
+  "title": "Metric-Dependent Scaling Laws for Sketched Multiclass Softmax Regression",
+  "authors": [
+   "Ziyan Chen",
+   "Linhe Zheng",
+   "Peilin Liu",
+   "Zhongzhu Zhou",
+   "Ding-Xuan Zhou"
+  ],
+  "tier": "core",
+  "tags": [
+   "training dynamics",
+   "scaling laws",
+   "learning theory"
+  ],
+  "summary": "Full-batch GD with general stable learning rates on multiclass softmax regression where the student sees a random-feature sketch of Gaussian power-law features. Shows cross-entropy excess and excess 0-1 risk share one spectral scale (resolution term plus effective learned dimension over n), with teacher-student disagreement scaling as its square root; derives rate-optimal sketch size and training horizon.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.31513",
+  "arxiv": "2611.31513",
+  "url": "",
+  "title": "How to build and train your recurrent-depth model: A fixed-point perspective",
+  "authors": [
+   "Thomas Pethick"
+  ],
+  "tier": "core",
+  "tags": [
+   "training dynamics",
+   "optimization",
+   "architectures"
+  ],
+  "summary": "Shows input injection in recurrent-depth (looped) models is exactly Halpern iteration, and that with a slowly vanishing step size truncated backprop provably converges with a window polylogarithmic in depth, given a Lipschitz block. The Lipschitz requirement translates into row- and spectral-norm constraints on SwiGLU weights, which motivates a Muon replacement (Sparrow).",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.32049",
+  "arxiv": "2611.32049",
+  "url": "",
+  "title": "The Anatomy of Piecewise-Linear Learned Indexes",
+  "authors": [
+   "Yue Chen",
+   "Yong Zhang"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "memorization",
+   "IR theory"
+  ],
+  "summary": "Sharp theory of piecewise-linear learned indexes (PGM-index etc.): exact constants for keys per segment, and a proof that the claimed O(log log n) height fails under endpoint promotion (fanout locks at about 19.86 eps^2, lookup Theta(log n)). Rank-equispaced promotion restores log log height; theorems formalized in Lean.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.32855",
+  "arxiv": "2611.32855",
+  "url": "",
+  "title": "Speculative Decoding for Semantic-ID-Based Generative Recommendations",
+  "authors": [
+   "Harshal A. Chaudhari"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "generative retrieval",
+   "recommendation"
+  ],
+  "summary": "SIDECAR scores a whole draft of semantic-ID candidates in one tree-attention pass, upper-bounds every unexplored prefix, and certifies the exact top-K when the draft contains it; otherwise a branch-and-bound fallback needs at most L calls. Under a beam-search-equivalent budget it reports a factor 1+delta within which its list is exact.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.33068",
+  "arxiv": "2611.33068",
+  "url": "",
+  "title": "The Reliability Function of Error-Correcting Output Codes with Noisy Binary Classifiers",
+  "authors": [
+   "Gendo Kumoi",
+   "Hideki Yagi",
+   "Manabu Kobayashi",
+   "Shigeichi Hirasawa"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "learning theory",
+   "extracurricular"
+  ],
+  "summary": "Excess error of error-correcting output codes over MAP when each binary classifier's log-odds has Gaussian noise: upper and lower bounds show large Hamming distance is necessary and sufficient, the excess stays bounded away from zero when the two most probable classes have close codewords, and for n-vs-rest codes the exponents match, giving the reliability function in closed form. Lean-checked.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.32324",
+  "arxiv": "2611.32324",
+  "url": "",
+  "title": "When Exact Token Importance Is Not Enough: Limits of Top-K Selection in LLM Attention",
+  "authors": [
+   "Irmaan Mirzanejad"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "transformer theory",
+   "retrieval"
+  ],
+  "summary": "Shows that keeping the top-K attention positions by exact single-position importance can be arbitrarily worse (unbounded KL ratio) than the best K-subset, because attention renormalizes over the chosen set; gives an exchange identity and preference reversals for every K >= 2, and audits SmolLM2, Gemma and Qwen where a one-swap check finds better supports in most cases.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.31439",
+  "arxiv": "2611.31439",
+  "url": "",
+  "title": "Transformers with Signatures: Towards Universal In-Context Learning in Path Space",
+  "authors": [
+   "Ziheng Cheng",
+   "Xin Guo",
+   "Ben Hambly"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "ICL",
+   "transformer theory"
+  ],
+  "summary": "Constructs a causal softmax transformer (two heads per layer) that emulates in-context Lasso on path-signature features and proves finite-sample prediction bounds that allow dependence among demonstrations and query, beyond the IID ICL setting.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.31344",
+  "arxiv": "2611.31344",
+  "url": "",
+  "title": "Query Obfuscation with Embedding-Optimized Noise (EON): A Representational Blindspot in Agentic Retrieval",
+  "authors": [
+   "Ankit Gupta",
+   "Christoph Adami",
+   "Emily Dolson"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "embeddings",
+   "retrieval"
+  ],
+  "summary": "Optimizes visibly meaningless token sequences to match a query's embedding without any access to the corpus, and finds they preserve retrieval outcomes (intent/tool routing, document search, agent memory, cross-modal) across dense embedding families, and evade guardrails on harmful queries. Analyses why query-level matching transfers to unseen candidates through embedding geometry.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.31656",
+  "arxiv": "2611.31656",
+  "url": "",
+  "title": "BRAG: Bayesian Retrieval Augmented Generation",
+  "authors": [
+   "Javier Movellan",
+   "Manjot Bilkhu",
+   "Young-mok Jung",
+   "Sirajul Salekin",
+   "Henry Tran",
+   "Zhao Huang"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "IR theory",
+   "retrieval"
+  ],
+  "summary": "A generative model of retrieval with use: each chunk emits queries from a von Mises-Fisher mixture around its embedding and has a drifting latent utility; the optimal filter is closed-form and online. Query averaging, Rocchio feedback, frequency reranking, NUDGE and LADER fall out as special cases; it wins when new chunks make old ones obsolete.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.31870",
+  "arxiv": "2611.31870",
+  "url": "",
+  "title": "Subliminal Learning Crosses Modalities",
+  "authors": [
+   "Saraswathy Amjith",
+   "Kimia Hamidieh",
+   "Antonio Torralba",
+   "Yoon Kim"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "interpretability",
+   "phenomena"
+  ],
+  "summary": "Subliminal learning (trait transfer via number-sequence distillation) carries over across modalities: a diffusion model using the student as text encoder generates the student's preferred animal more often, but not color or style. A constant shift in the student's representations explains much of it; a 'weight lens' identifies the trait from the weights alone.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.32969",
+  "arxiv": "2611.32969",
+  "url": "",
+  "title": "Eliciting the Recall Capacity of Linear Attention",
+  "authors": [
+   "Johan Lindqvist",
+   "Antonio Orvieto"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "memorization",
+   "architectures"
+  ],
+  "summary": "Synthetic associative-recall experiments show the number of recallable items scales with state size similarly across linear-attention architectures, and one layer can store thousands of associations; yet standard LM training does not teach linear models to copy from context. Sentence repetition and loss reweighting during training close much of the gap to softmax.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.32762",
+  "arxiv": "2611.32762",
+  "url": "",
+  "title": "SGD with Large Learning Rates: General Analysis & Improved Rates",
+  "authors": [
+   "Konstantinos Emmanouilidis",
+   "Ziqing Xu",
+   "Salma Tarmoun",
+   "Lachlan MacDonald",
+   "Rene Vidal"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "optimization",
+   "extracurricular"
+  ],
+  "summary": "Proves that large step sizes accelerate SGD (O(1/T^2)) for cross-entropy with linear predictors and two-layer networks, answering whether the GD large-stepsize acceleration survives gradient noise; also tightens stable-regime bounds.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.32380",
+  "arxiv": "2611.32380",
+  "url": "",
+  "title": "The Activity Geometry of Discrete Generative Sampling",
+  "authors": [
+   "Xinlong Guo",
+   "Jie Zhang",
+   "Lingyou Zhou"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "diffusion LMs"
+  ],
+  "summary": "Defines the activity (expected transition cost) of finite-step couplings in discrete diffusion/flow samplers, splits it into a minimum set by marginal transport plus a coupling excess, and gives a training-free minimal-activity coupling; refinement samplers accumulate activity with little diversity gain.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.31990",
+  "arxiv": "2611.31990",
+  "url": "",
+  "title": "How Much Dependency Can a Marginal Rule See? Total Correlation in Diffusion LM Parallel Decoding",
+  "authors": [
+   "Dovud Asadov",
+   "Rustambek Urokov",
+   "Qobiljon Toshnazarov",
+   "Abduaziz Kayumov",
+   "Mardon Hazratov",
+   "Husanboy Mansuraliyev"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "diffusion LMs"
+  ],
+  "summary": "Measures the conditional total correlation lost when a masked diffusion LM commits several tokens in parallel, on four models: the best marginal-only predictors are about one bit off, mostly carried by the known bound; Dream-instruct is an outlier because its conditionals are least self-consistent.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.32585",
+  "arxiv": "2611.32585",
+  "url": "",
+  "title": "Understanding the Importance of Massive Activations through Adversarial Robustness",
+  "authors": [
+   "Tigran Fahradyan",
+   "Riccardo Ali",
+   "Sergio Calvo-Ordoñez",
+   "José Miguel Hernández-Lobato",
+   "Pietro Liò",
+   "Álvaro Arroyo"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "phenomena"
+  ],
+  "summary": "Links massive activations to region migration in delayed adversarial robustness: in the spline view, they push representations away from nonlinearity boundaries. The phenomenon also appears in residual MLPs and ResNets on simple tasks, and in LLM pretraining it tracks adversarial accuracy under embedding perturbations.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.32782",
+  "arxiv": "2611.32782",
+  "url": "",
+  "title": "Measuring Layer-wise Intrinsic Dimensionality of FFNs in LLMs via PCA",
+  "authors": [
+   "Daehee Kim"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "phenomena"
+  ],
+  "summary": "PCA of FFN down-projection inputs across 58 open LLMs (70M-72B) finds a recurring middle-heavy intrinsic-dimension profile, robust to corpus and post-training; allocating FFN width by this profile beats uniform width under a matched budget in distillation.",
+  "venue": "NeurIPS 2026",
+  "src": [
+   "Conference",
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.32801",
+  "arxiv": "2611.32801",
+  "url": "",
+  "title": "Scaling Laws of Ensemble Uncertainty in Language Models",
+  "authors": [
+   "Siamak Ravanbakhsh",
+   "David Nitchi",
+   "Khang Ngo"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "scaling laws"
+  ],
+  "summary": "Three power laws for LM ensembles: capacity error vs size, ensemble disagreement shrinking more slowly with size, and diversity loss as members share more training before branching; argues ensembles capture a growing share of epistemic uncertainty at scale.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.31260",
+  "arxiv": "2611.31260",
+  "url": "",
+  "title": "Capability and Interpretability of Transformers on Multi-task Recurrence",
+  "authors": [
+   "Xiamin Chen",
+   "Linyu Liu",
+   "Jiachen Hu",
+   "Pinyan Lu"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "ICL",
+   "phenomena"
+  ],
+  "summary": "Controlled study of transformers on linear recurrences over cyclic groups: executing a fixed rule, inferring a latent rule from context, or switching between specified rules. Switching is easier than inference; depth, width and algebraic structure affect generalization; probing shows how rules are represented.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.31790",
+  "arxiv": "2611.31790",
+  "url": "",
+  "title": "Byte Patches versus BPE at Matched Data: A Matched-Twin Comparison at 350M Parameters",
+  "authors": [
+   "Asadullah Maliyawala",
+   "Andrej Lisal"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "tokenization"
+  ],
+  "summary": "Matched-twin comparison at 350M parameters on identical bytes: a byte-patch model with a local decoder trails byte-level BPE-8k by 5-9% bits per byte, wins on character tasks, loses on facts; lists evaluation pitfalls that flip conclusions.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.31972",
+  "arxiv": "2611.31972",
+  "url": "",
+  "title": "A Minimax Optimal Leave One Out Bound for Bounded Losses",
+  "authors": [
+   "Peigan Gao",
+   "Jian Qian"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "learning theory",
+   "extracurricular"
+  ],
+  "summary": "Proper leave-one-out prediction with M experts on n fixed inputs: minimax excess loss is min{B, sqrt(B r log M / n) + B log M / n} for bounded losses, attained by one deterministic rule for all r, with a matching lower bound for randomized proper rules.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.32959",
+  "arxiv": "2611.32959",
+  "url": "",
+  "title": "Polynomial-Time Learning of Random Automata from One Label per Word",
+  "authors": [
+   "Yilin Cheng"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "learning theory",
+   "extracurricular"
+  ],
+  "summary": "Polynomial-time learning of random DFAs from words with a single accept bit, by comparing label moments at consecutive lengths; also refutes a Fish-Reyzin conjecture on meeting times. Partly Lean-formalized.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.32892",
+  "arxiv": "2611.32892",
+  "url": "",
+  "title": "Shared information governs multi-view planted matching",
+  "authors": [
+   "Ruiqi Wang",
+   "Jingtong Hu"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "learning theory",
+   "extracurricular"
+  ],
+  "summary": "Sharp thresholds for matching K shuffled Gaussian views of n objects: almost-exact matching iff the shared information of one object's views exceeds log n, possible even when no pair can be matched alone; exact recovery is governed by the weakest bipartition plus a Renyi condition for rare subpopulations.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.31882",
+  "arxiv": "2611.31882",
+  "url": "",
+  "title": "RELAY: Learning Compatible Representations One Encoder at a Time",
+  "authors": [
+   "Yu Wang",
+   "Chuan Qin",
+   "Qiang Zhang"
+  ],
+  "tier": "aware",
+  "tags": [
+   "embeddings",
+   "retrieval"
+  ],
+  "summary": "Backward-compatible embedding upgrade: train a new query encoder with a projection against the old gallery, freeze it, then train the new document encoder, so one query vector scores both old and new documents during backfill.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.31940",
+  "arxiv": "2611.31940",
+  "url": "",
+  "title": "MELODI: Similarity-Identity Decoupling for Lightweight Ranking",
+  "authors": [
+   "Quoc Phong Nguyen",
+   "Vuong Le",
+   "Volodymyr Vaskovych",
+   "Julien Monteil"
+  ],
+  "tier": "aware",
+  "tags": [
+   "recommendation",
+   "ranking"
+  ],
+  "summary": "Lightweight candidate ranking that separates target-history similarity from target identity; linearity of the similarity operator in its history argument makes pool-then-similarity equivalent to the costlier order.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.31951",
+  "arxiv": "2611.31951",
+  "url": "",
+  "title": "User-Adaptive Fusion of Multiple Foundation Models for Recommender Systems",
+  "authors": [
+   "Sunwoo Kim",
+   "Hyunjin Hwang",
+   "Geon Lee",
+   "Kyungho Kim",
+   "Kijung Shin"
+  ],
+  "tier": "aware",
+  "tags": [
+   "recommendation"
+  ],
+  "summary": "Fuses several foundation-model item representations for recommendation with user-specific score-level weights, after finding that the users who benefit differ across foundation models.",
+  "venue": "WSDM 2027",
+  "src": [
+   "Conference"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.32125",
+  "arxiv": "2611.32125",
+  "url": "",
+  "title": "LARF: Learning-aligned Reasoning Framework for Search Relevance",
+  "authors": [
+   "Tian Tang",
+   "Guo Chen",
+   "Reed Li",
+   "Hao Wang",
+   "Yu Lu",
+   "Haijin Liang",
+   "Haibo Shi"
+  ],
+  "tier": "aware",
+  "tags": [
+   "ranking"
+  ],
+  "summary": "LLM relevance model for web search: CoT-supervised SFT, GRPO with margin loss on the relevance token, then distillation into a classification-head student for low-latency serving.",
+  "venue": "WSDM 2027",
+  "src": [
+   "Conference"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.33036",
+  "arxiv": "2611.33036",
+  "url": "",
+  "title": "Towards Realistic Evaluation of Uncertainty Quantification for LLM-Based Recommender Systems",
+  "authors": [
+   "Hao Wu",
+   "Sipeng Chen",
+   "Weikai Li",
+   "Tianyi Chen",
+   "Qiancheng Yang",
+   "Hang Zhou",
+   "Yizhou Sun",
+   "Wei Wang",
+   "Xiao Luo"
+  ],
+  "tier": "aware",
+  "tags": [
+   "recommendation",
+   "evaluation"
+  ],
+  "summary": "Fixed-ranking benchmark comparing eight uncertainty signals for LLM recommenders as failure monitors; method ordering changes across backbones, and cutoff-aligned Top10Mass detects Error@10 best.",
+  "venue": "TMLR 2026",
+  "src": [
+   "Conference"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.32203",
+  "arxiv": "2611.32203",
+  "url": "",
+  "title": "OmniEVIE: Evidence-Vector-Informed Embedding for Multi-modal Retrieval",
+  "authors": [
+   "Zifei Wang",
+   "Wei Wen",
+   "Qiang Ji",
+   "Qian-Wen Zhang",
+   "Ruizhi Qiao",
+   "He Liu",
+   "Xing Sun",
+   "Qiang Lin"
+  ],
+  "tier": "aware",
+  "tags": [
+   "embeddings",
+   "retrieval"
+  ],
+  "summary": "OmniEVIE, a 4.5B multi-vector multimodal embedding model with a compressed index (at most 128 int8 vectors of dim 64 per record) and three-stage search; strong MMEB-V3/V2 and ViDoRe V3 results.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.32439",
+  "arxiv": "2611.32439",
+  "url": "",
+  "title": "See the Answer, Learn to Embed: Learning Universal Multimodal Embeddings from Hindsight",
+  "authors": [
+   "Yoonki Cho",
+   "Youngju Na",
+   "Taegeun Yang",
+   "Jinhwan Seo",
+   "Sung-Eui Yoon"
+  ],
+  "tier": "aware",
+  "tags": [
+   "embeddings"
+  ],
+  "summary": "Universal multimodal embeddings trained with a hindsight teacher that sees the matched candidate, distilled into a student that embeds queries without it.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.31495",
+  "arxiv": "2611.31495",
+  "url": "",
+  "title": "ModernELECTRA: Replaced-Token Detection with Boundary-Window Reconstruction for Compact Encoders that Classify and Embed",
+  "authors": [
+   "Mykhailo Shtopko",
+   "Ihor Stepanov",
+   "Dmytro Vodianytskyi",
+   "Oleksandr Lukashov"
+  ],
+  "tier": "aware",
+  "tags": [
+   "embeddings"
+  ],
+  "summary": "ModernELECTRA adds boundary-window token reconstruction to replaced-token detection so compact encoders (31M, 61M) both classify and embed well; also a fused DeBERTa attention kernel.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.31496",
+  "arxiv": "2611.31496",
+  "url": "",
+  "title": "Reading Between the Layers: Where Representation Quality Lives, and What Geometry Reveals",
+  "authors": [
+   "Arnesh Batra",
+   "Aniket Khandelwal",
+   "Arush Gumber",
+   "Krish Thukral",
+   "Kushagra Agrawal",
+   "Dev Sharma"
+  ],
+  "tier": "aware",
+  "tags": [
+   "embeddings"
+  ],
+  "summary": "Across 25 text models, the best probing layer depends on pretraining strategy and pooling; a label-free spectral index picks better layers than the last one.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.32908",
+  "arxiv": "2611.32908",
+  "url": "",
+  "title": "KuroANN: Avoiding Unnecessary SSD Reads in High-Recall Filtered Vector Search",
+  "authors": [
+   "Soobin Cho",
+   "Nakyung Lee",
+   "Jiwoong Park",
+   "Gyuyeong Kim"
+  ],
+  "tier": "aware",
+  "tags": [
+   "vector search"
+  ],
+  "summary": "On-SSD filtered vector search that sets each query's partition probes and SSD reads from its filter match count, calibrated offline; up to 34.5x over PipeANN-Filter.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.32590",
+  "arxiv": "2611.32590",
+  "url": "",
+  "title": "LazUnirec: Unifying Retrieval and Ranking in Multi-scenario Industrial Recommendation",
+  "authors": [
+   "Xiaodong Li",
+   "Junfeng Zhang",
+   "Shichao Nie",
+   "Ziyue Guo",
+   "Yiming Liu",
+   "Xinxin Xu",
+   "Xurong Li",
+   "Jinyuan Dang",
+   "Zhanming Ou",
+   "Jianan Yan",
+   "Tao Luo",
+   "Xiaoyi Zeng"
+  ],
+  "tier": "aware",
+  "tags": [
+   "recommendation"
+  ],
+  "summary": "Industrial model unifying retrieval and ranking in one transformer with LoRA-modulated attention and task-adaptive MoE to reduce gradient conflict.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.32073",
+  "arxiv": "2611.32073",
+  "url": "",
+  "title": "Efficient Semantic ORDER BY via Transitivity-Aware LLM Batch Sorting",
+  "authors": [
+   "Akinkunle Akintayo Akinola",
+   "Arijit Khan"
+  ],
+  "tier": "aware",
+  "tags": [
+   "ranking"
+  ],
+  "summary": "LLM-based semantic sorting that stores every revealed preference in a DAG and only asks about pairs not implied by transitivity; 12-20x fewer calls than pairwise quicksort.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.31679",
+  "arxiv": "2611.31679",
+  "url": "",
+  "title": "Rethinking Document Indexing for LLM-based Analysis",
+  "authors": [
+   "Donna Pham",
+   "Zhongwei Xu",
+   "Siyuan Dong",
+   "Haotian Gong",
+   "Lin Ma"
+  ],
+  "tier": "aware",
+  "tags": [
+   "retrieval"
+  ],
+  "summary": "Position paper: reuse database index design for LLM document analysis; Periplus is a B+-tree-like hierarchy of plain-text summaries navigated by relevance, using 70% fewer tokens.",
+  "venue": "CIDR 2027",
+  "src": [
+   "Conference",
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.30243",
+  "arxiv": "2611.30243",
+  "url": "",
+  "title": "Can Search Agents Correct Their Own Errors? Evaluating Retrieval, Evidence Delivery, and Answer Completion",
+  "authors": [
+   "Venkata Pagadala",
+   "K. Rajasekhara Rao",
+   "Pratyay Ganguly"
+  ],
+  "tier": "aware",
+  "tags": [
+   "RAG & agents",
+   "evaluation"
+  ],
+  "summary": "Diagnoses why search agents keep wrong earlier answers: missing the source, not reading the passage, or not revising.",
+  "venue": "",
+  "src": [
+   "Sumit (X / Bluesky)"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.29613",
+  "arxiv": "2611.29613",
+  "url": "",
+  "title": "Weight Coding: Evolving Web-Scale Recommenders through Direct Weight Edits with LLM Agents",
+  "authors": [
+   "Junpeng Hou",
+   "Jiaxing Qu",
+   "Derek Cheng",
+   "Jaewon Yang",
+   "Abhinav Naikawadi",
+   "Karthik Subbian"
+  ],
+  "tier": "aware",
+  "tags": [
+   "recommendation"
+  ],
+  "summary": "Pinterest improves a production recommender by having an LLM agent edit its weights directly instead of retraining.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox",
+   "Sumit (X / Bluesky)"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.30181",
+  "arxiv": "2611.30181",
+  "url": "",
+  "title": "Retrieval-Augmented Generation in the Agentic Era: Tradition, Present, and Prospect",
+  "authors": [
+   "Chenming Tang",
+   "Haolin Li",
+   "Yiran Li",
+   "Zixian Yang",
+   "Lizhu Zhai",
+   "Rui Sun",
+   "Qizhou Huang",
+   "Yunfang Wu"
+  ],
+  "tier": "aware",
+  "tags": [
+   "RAG & agents"
+  ],
+  "summary": "Survey of RAG from indexing to orchestration, treating agentic workflows as their own paradigm.",
+  "venue": "",
+  "src": [
+   "Sumit (X / Bluesky)"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.30230",
+  "arxiv": "2611.30230",
+  "url": "",
+  "title": "Composing Independently Distilled Memory and Retrieval Policies for Long-Term Agents",
+  "authors": [
+   "Grigorii Davydenko",
+   "Artem Sakhno",
+   "Igor Pavlov",
+   "Julia Belikova",
+   "Andrey Savchenko",
+   "Maksim Makarenko"
+  ],
+  "tier": "aware",
+  "tags": [
+   "RAG & agents"
+  ],
+  "summary": "Memory-writing and retrieval policies distilled separately into 3B models compose without joint training and beat RL-trained compositions.",
+  "venue": "",
+  "src": [
+   "Sumit (X / Bluesky)"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.31185",
+  "arxiv": "2611.31185",
+  "url": "",
+  "title": "CO-GRAFT: Attributing Reinforcement Learning Gains in Search Agents via Role-Level Policy Grafting",
+  "authors": [
+   "Ramraj Chandradevan",
+   "Sayontan Ghosh",
+   "Vinoth Selvendran"
+  ],
+  "tier": "aware",
+  "tags": [
+   "RAG & agents"
+  ],
+  "summary": "Attributes RL gains in search agents to reasoning, search decisions, query generation and answer extraction via Shapley values over grafted policy roles.",
+  "venue": "",
+  "src": [
+   "Sumit (X / Bluesky)"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.32088",
+  "arxiv": "2611.32088",
+  "url": "",
+  "title": "From Memory Access to Evidence Sufficiency: Diagnosing and Addressing Demand--Evidence Misalignment",
+  "authors": [
+   "Shiyao Liu",
+   "Yixing Fan",
+   "Ruqing Zhang",
+   "Xiaohui Yan",
+   "Jiafeng Guo",
+   "Xueqi Cheng"
+  ],
+  "tier": "researcher",
+  "tags": [],
+  "summary": "Long-term memory retrieval: diagnoses demand-evidence misalignment and retrieves by typed demands (BiDE-Mem), 91.8% on LongMemEval.",
+  "venue": "",
+  "src": [
+   "Followed researcher"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [
+   "Jiafeng Guo"
+  ],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.33098",
+  "arxiv": "2611.33098",
+  "url": "",
+  "title": "Delegent: A Multi-Agent Harness That Reduces Cost without Sacrificing Performance",
+  "authors": [
+   "Lingwei Gu",
+   "Jimmy Lin"
+  ],
+  "tier": "researcher",
+  "tags": [],
+  "summary": "Delegent: frontier agent delegates easy subtasks to a small local model, cutting frontier cost 59-67% on coding and agentic search.",
+  "venue": "",
+  "src": [
+   "Followed researcher"
+  ],
+  "date": "2026-11-25",
+  "listed": true,
+  "who": [
+   "Jimmy Lin"
+  ],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
   "id": "t:on the feasibility of forgetting in data streams",
   "arxiv": "",
   "url": "https://dl.acm.org/doi/10.1145/3651603",
@@ -8169,7 +9392,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -9350,7 +10573,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -9376,7 +10599,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -9589,7 +10812,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -10204,7 +11427,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -10310,7 +11533,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -10339,7 +11562,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -10474,7 +11697,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -10501,7 +11724,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -10610,7 +11833,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -10639,7 +11862,7 @@
    "Difan Zou"
   ],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -10662,7 +11885,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -10792,7 +12015,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -11039,7 +12262,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -11196,7 +12419,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -11335,7 +12558,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -11432,7 +12655,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -11533,7 +12756,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -11558,7 +12781,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -11960,7 +13183,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -13290,7 +14513,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -13965,7 +15188,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -17084,7 +18307,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -17441,7 +18664,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -17467,7 +18690,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -18177,7 +19400,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -18362,7 +19585,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -18466,7 +19689,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -18602,7 +19825,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -18636,7 +19859,7 @@
    "Hansi Zeng"
   ],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -18974,7 +20197,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -19081,7 +20304,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -19341,7 +20564,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -19365,7 +20588,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -19394,7 +20617,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -19504,7 +20727,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -19529,7 +20752,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -19582,7 +20805,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -19811,7 +21034,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -19987,7 +21210,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -20072,7 +21295,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -20099,7 +21322,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -20152,7 +21375,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -20531,7 +21754,7 @@
    "Kun Gai"
   ],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -20557,7 +21780,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -20584,7 +21807,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -20839,7 +22062,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -20867,7 +22090,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -20917,7 +22140,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -20993,7 +22216,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -21021,7 +22244,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -21056,7 +22279,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -21084,7 +22307,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -21164,7 +22387,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -21402,7 +22625,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -21427,7 +22650,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -21453,7 +22676,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -21482,7 +22705,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -21538,7 +22761,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -21566,7 +22789,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -21592,7 +22815,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -21938,7 +23161,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -22011,7 +23234,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -22056,7 +23279,7 @@
    "Jimmy Lin"
   ],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -22397,7 +23620,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -22598,7 +23821,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -22667,7 +23890,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -22790,7 +24013,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -22889,7 +24112,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -23354,7 +24577,7 @@
    "Jiaxin Mao"
   ],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -23532,7 +24755,7 @@
    "Kun Gai"
   ],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -24113,7 +25336,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -24987,7 +26210,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -25063,7 +26286,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -25110,7 +26333,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -25134,7 +26357,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -25250,7 +26473,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -25302,7 +26525,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -25672,7 +26895,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -26306,7 +27529,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -27937,7 +29160,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -27965,7 +29188,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -28696,7 +29919,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -30184,7 +31407,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -32002,7 +33225,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -33693,7 +34916,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -33847,7 +35070,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -34425,7 +35648,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -37411,7 +38634,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -47224,7 +48447,7 @@
    "Yuanzhi Li"
   ],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -49987,7 +51210,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -51561,7 +52784,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -53010,7 +54233,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -58344,7 +59567,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -58629,7 +59852,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
@@ -58781,7 +60004,7 @@
   "listed": false,
   "who": [],
   "has_abs": true,
-  "zotero": false,
+  "zotero": true,
   "note": ""
  },
  {
