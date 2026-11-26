@@ -7568,7 +7568,7 @@
   "who": [],
   "has_abs": true,
   "zotero": true,
-  "note": ""
+  "note": "25NCWRQ3"
  },
  {
   "id": "2611.32667",
@@ -7597,7 +7597,7 @@
   "who": [],
   "has_abs": true,
   "zotero": true,
-  "note": ""
+  "note": "CRKAMD3B"
  },
  {
   "id": "2611.31995",
@@ -8761,6 +8761,891 @@
   "listed": true,
   "who": [
    "Jimmy Lin"
+  ],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.34938",
+  "arxiv": "2611.34938",
+  "url": "",
+  "title": "Tokenisation is not in APX",
+  "authors": [
+   "Violeta Kastreva",
+   "Philip Whittington",
+   "Dennis Komm",
+   "Tiago Pimentel"
+  ],
+  "tier": "core",
+  "tags": [
+   "LLM theory",
+   "tokenization"
+  ],
+  "summary": "Proves that unless P=NP no polynomial-time algorithm finds a tokeniser within any constant factor of the optimum, for direct and bottom-up tokenisation, under compression and unigram log-likelihood objectives, for binary or larger alphabets; direct tokenisation is APX-hard even over a unary alphabet.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-26",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.33464",
+  "arxiv": "2611.33464",
+  "url": "",
+  "title": "PAC Learning to Sample: On Computational Aspects of Language Generation",
+  "authors": [
+   "Alkis Kalavasis",
+   "Shuchen Li",
+   "Manolis Zampetakis"
+  ],
+  "tier": "core",
+  "tags": [
+   "LLM theory",
+   "learning theory"
+  ],
+  "summary": "Studies a PAC model of language generation: from uniform positive examples of a Boolean concept, output a sampler close in TV to uniform on the concept. Builds a class where online learning is cryptographically hard yet PAC learning to sample is efficient, and gives algorithms that replace online learners with offline ERM plus sampling/counting oracles and an SQ learner.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-26",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.33302",
+  "arxiv": "2611.33302",
+  "url": "",
+  "title": "Two Timescales of Forgetting in Fine-tuning of Language Models: Fast Behavioral Suppression and Slow Representational Drift",
+  "authors": [
+   "Yilin Luo",
+   "Jin Hwa Lee",
+   "Andrew M. Saxe",
+   "Antonio Sclocchi"
+  ],
+  "tier": "core",
+  "tags": [
+   "training dynamics",
+   "post-training & RL"
+  ],
+  "summary": "Pretrains transformers on the Random Hierarchy Model and fine-tunes on a subset of its rules. Generation of deleted rules is suppressed on a fast timescale inversely proportional to the token-latent correlation, while the hidden representations of those rules persist and are forgotten only on a much slower timescale tied to parameter drift; a similar separation appears with natural language.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-26",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.34298",
+  "arxiv": "2611.34298",
+  "url": "",
+  "title": "RAP: Radial-Angular Random Projection for Hyperbolic Representations",
+  "authors": [
+   "Jiahong Liu",
+   "Wenhao Yu",
+   "Yifan Li",
+   "Yanyu Chen",
+   "Rex Ying",
+   "Menglin Yang",
+   "Irwin King"
+  ],
+  "tier": "core",
+  "tags": [
+   "embeddings",
+   "vector search"
+  ],
+  "summary": "Radial-angular random projection keeps the hyperbolic radius exactly and applies a Gaussian JL map only to the direction, reducing hyperbolic compression to angular JL on the sphere; proves a finite-set distortion guarantee with explicit sinh(r_x)sinh(r_y) conditioning, explains why tangent-space and hyperboloid projections fail, and improves distortion and retrieval empirically.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-26",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.33823",
+  "arxiv": "2611.33823",
+  "url": "",
+  "title": "Pitfalls of Dependency-Ready Decoding for Masked Diffusion Language Models",
+  "authors": [
+   "Lina Berrayana",
+   "Christopher Malon",
+   "Yoichi Ishibashi",
+   "Taichi Aida",
+   "and Masafumi Oyamada"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "diffusion LMs"
+  ],
+  "summary": "Asks whether masked diffusion LMs should unmask tokens only after their dependencies are resolved. Attention-based dependency-ready decoders, when they win, collapse to left-to-right order; defines dependency information-theoretically and proves that when the margin exceeds this sensitivity score no revelation can change the top prediction, so max-margin decoding already commits dependency-ready tokens.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-26",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.33887",
+  "arxiv": "2611.33887",
+  "url": "",
+  "title": "The Gradient Difference Induced by Detaching the Denominator in QK Normalization",
+  "authors": [
+   "Yuanqi Zhang",
+   "Haocheng Wang",
+   "Congping Lin"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "training dynamics",
+   "architectures"
+  ],
+  "summary": "Closed form for the gradient change when the RMS denominator in QK normalization is detached: per token it only rescales the query, but through the shared W_Q it splits into radial, tangential and upstream parts; under AdamW the radial part inflates ||W_Q|| and shrinks angular updates, matching a consistent test-loss gap in small LMs.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-26",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.34579",
+  "arxiv": "2611.34579",
+  "url": "",
+  "title": "Tune for Retention, Not Just Gain: SFT Forgets Far Less than You Think",
+  "authors": [
+   "Nirmit Joshi",
+   "Nathan Srebro",
+   "Eran Malach"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "phenomena",
+   "post-training & RL"
+  ],
+  "summary": "Srebro and Malach show that SFT's catastrophic forgetting is largely a hyperparameter artefact: lower learning rate and batch size give similar new-task gains with little forgetting, making vanilla SFT competitive with on-policy self-distillation when hyperparameters are chosen for both gain and retention.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-26",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.33304",
+  "arxiv": "2611.33304",
+  "url": "",
+  "title": "The Platonic Representation Hypothesis in Jacobian-Space: Language and Vision Models Agree Approximately Up to a Rotation",
+  "authors": [
+   "Ross Murphy",
+   "Gabriel Brostow"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "phenomena",
+   "embeddings"
+  ],
+  "summary": "Tests the Platonic Representation Hypothesis in Jacobian space (per-word vectors that most increase a word's output). J-spaces of language and vision models agree up to a single rotation fitted on a subset of words; rotated word vectors steer VLMs, image generators and an ImageNet classifier toward the corresponding object.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-26",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.34725",
+  "arxiv": "2611.34725",
+  "url": "",
+  "title": "Bigger Model or Bigger Table? How Much Backbone a Chorus N-gram Module Replaces",
+  "authors": [
+   "Szymon Kocur"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "scaling laws",
+   "memorization"
+  ],
+  "summary": "Measures how many backbone parameters hashed bigram/trigram tables (Chorus) replace: with tables as large as the backbone, a model matches a plain model 1.16-1.34x its size, so each table parameter replaces at most 0.31 backbone parameters; per-model learning-rate tuning removes a third of the apparent gain.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-26",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.33692",
+  "arxiv": "2611.33692",
+  "url": "",
+  "title": "Rethinking Sequential Locate-Then-Edit: Optimality and Stability",
+  "authors": [
+   "Bingqing Liu",
+   "Wei Liu",
+   "Zhiying Deng",
+   "Jun Wang",
+   "Yuhua Li",
+   "and Ruixuan Li"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "memorization"
+  ],
+  "summary": "Sequential locate-then-edit knowledge editing can be made batch-equivalent; analysing accumulated weight perturbations shows existing sequential methods grow linearly or logarithmically while the batch-equivalent update stays bounded, explaining collapse after a few hundred edits.",
+  "venue": "NeurIPS 2026",
+  "src": [
+   "Conference",
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-26",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.34373",
+  "arxiv": "2611.34373",
+  "url": "",
+  "title": "Under the Influence -- of What? A Controlled Evaluation of Influence Functions",
+  "authors": [
+   "Johannes Gabriel Sindlinger",
+   "Arzu Burcu Güven",
+   "Rob van der Goot",
+   "Anna Rogers"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "memorization",
+   "evaluation"
+  ],
+  "summary": "Retrains GPT-2-type models on controlled data splits to check whether examples flagged as influential by GradSim, TrackStar and K-FAC actually carry the relevant linguistic or factual property; on average they are relevant, but often not directly, and the kind of relevance varies by setting.",
+  "venue": "EACL 2027",
+  "src": [
+   "Conference",
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-26",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.33303",
+  "arxiv": "2611.33303",
+  "url": "",
+  "title": "Certify What You Plant: Shortcut-Free Proof Depth in Logical Reasoning Data",
+  "authors": [
+   "Baptiste Juran",
+   "Dimitri Kachler",
+   "Damien Sileo"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "CoT & reasoning",
+   "evaluation"
+  ],
+  "summary": "Computes, per logic problem, the steps every proof must make, the shortest proof and indispensable premises, with checkable certificates. Finds that some datasets' labelled depth is forced while others (FLDx2) need about two rule applications at 'depth 5'; constructs problems whose every proof has a prescribed structure.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-26",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.33875",
+  "arxiv": "2611.33875",
+  "url": "",
+  "title": "Random Voronoi Networks",
+  "authors": [
+   "Ray Verma",
+   "Pau Mateo-Bernardó",
+   "Daniel Mas Montserrat",
+   "David Bonet",
+   "Marçal Comajoan Cara",
+   "Alexander G. Ioannidis"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "vector search"
+  ],
+  "summary": "Random Voronoi Networks: three-layer MLPs built from pairwise affine separators between training points; with all pairs, step RVNs compute exact Euclidean k-NN and ReLU RVNs realize 1-NN via a violation score; subsampling gives approximate versions, and the features help tabular models.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-26",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": true,
+  "note": ""
+ },
+ {
+  "id": "2611.33759",
+  "arxiv": "2611.33759",
+  "url": "",
+  "title": "Understanding Double Descent through Universal Compression",
+  "authors": [
+   "Jiaxuan Cheng",
+   "Addison Spiegel"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "learning theory",
+   "extracurricular"
+  ],
+  "summary": "Bounds MLE excess test loss by approximation, minimax regret, prior cost and an MLE-vs-Bayes gap, and attributes the double-descent peak mainly to that gap: SGLD ensembles show no interpolation peak where SGD does.",
+  "venue": "NeurIPS 2026",
+  "src": [
+   "Conference",
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-26",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.33825",
+  "arxiv": "2611.33825",
+  "url": "",
+  "title": "On Grokking and the Dynamics of Generalization",
+  "authors": [
+   "Malik Amir"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "training dynamics",
+   "extracurricular"
+  ],
+  "summary": "Extends the signal-channel theory of grokking to preconditioned gradient flows with time-dependent kernels; spectral learning-rate differences give arbitrarily long delays between low training loss and low population risk without feature learning, and generalization timing cannot in general be read from training dynamics alone.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-26",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.33531",
+  "arxiv": "2611.33531",
+  "url": "",
+  "title": "Adversarial Bandit Convex Optimization with $d^{3/2}\\sqrt{n}$ Regret",
+  "authors": [
+   "Alireza Bakhtiari",
+   "Kevin Jamieson",
+   "Tor Lattimore",
+   "Lillian Ratliff"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "learning theory",
+   "extracurricular"
+  ],
+  "summary": "Improves adversarial bandit convex optimization regret from d^{5/2}sqrt(n) to d^{3/2}sqrt(n), matching the Bubeck et al. conjecture and leaving a d^{1/6} gap to the lower bound, via online Newton step with Gaussian exploration and unbiased gradient/Hessian estimates of the smoothed loss.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-26",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.30625",
+  "arxiv": "2611.30625",
+  "url": "",
+  "title": "Omniprediction with the Minimum Number of Linear Scores",
+  "authors": [
+   "MohammadHossein Bateni",
+   "Zahra Hadizadeh",
+   "MohammadTaghi Hajiaghayi",
+   "Mahdi JafariRaviz",
+   "Shayan Taherijam"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "learning theory",
+   "extracurricular"
+  ],
+  "summary": "Shows one single-index model suffices for exact omniprediction in the bounded-action binary setting (answering Hu-Tian-Yang), that min{d, K-1} linear scores are necessary and sufficient for K classes, and gives tight Theta_K(1/eps^2) sample complexity.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-26",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.33889",
+  "arxiv": "2611.33889",
+  "url": "",
+  "title": "On the Learnability of Model Reprogramming: A Reachability and Relabeling Perspective",
+  "authors": [
+   "Zesheneg Ye",
+   "Pin-Yu Chen",
+   "Feng Liu"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "learning theory",
+   "extracurricular"
+  ],
+  "summary": "Agnostic-PAC analysis of model reprogramming (frozen source model wrapped by input transformation and output relabeling): sample complexity splits additively into a reachability term and a relabeling term, with a matching lower bound; the approximation gap decomposes into source-label information loss and output-mapping restriction.",
+  "venue": "NeurIPS 2026",
+  "src": [
+   "Conference",
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-26",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.33447",
+  "arxiv": "2611.33447",
+  "url": "",
+  "title": "Centered Kernel Distance: Dimension-Free Error Bounds for Comparing Neural Representations",
+  "authors": [
+   "Shujun Xiong",
+   "Sarah E. Harvey",
+   "Jacob Zavatone-Veth",
+   "Alexander H. Williams"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "learning theory",
+   "extracurricular"
+  ],
+  "summary": "Introduces Centered Kernel Distance, the metric counterpart of CKA/RSA, which has an unbiased estimator (CKA has none); its estimation error decays as 1/M + 1/N in conditions and neurons, independent of dimension.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-26",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.34063",
+  "arxiv": "2611.34063",
+  "url": "",
+  "title": "Near-Tight Robust Coresets for Clustering in Euclidean Spaces",
+  "authors": [
+   "Pengsen Huang",
+   "Yi Li",
+   "Xuan Wu"
+  ],
+  "tier": "interesting",
+  "tags": [
+   "learning theory",
+   "extracurricular"
+  ],
+  "summary": "Determines the optimal worst-case size of robust coresets for (k,z)-clustering with m outliers in Euclidean space up to polylog factors, in all dimensions.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-26",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.33844",
+  "arxiv": "2611.33844",
+  "url": "",
+  "title": "When Rerankers Work Together: Better and Faster Reranking without Joint Training",
+  "authors": [
+   "Yanqiao Chen",
+   "Dongsheng Hou",
+   "Yuhan Rui"
+  ],
+  "tier": "aware",
+  "tags": [
+   "ranking",
+   "RAG & agents"
+  ],
+  "summary": "Composes heterogeneous rerankers (lexical, single-vector, late interaction, cross-encoder) without joint training; cheap cached coarse scorers before a cross-encoder raise RAG answer accuracy by 4-9 points and speed up pruning ~1.6-1.9x, though gains depend on reader and stage configuration.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox",
+   "Sumit (X / Bluesky)"
+  ],
+  "date": "2026-11-26",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.33653",
+  "arxiv": "2611.33653",
+  "url": "",
+  "title": "OneQuery: Unified Sequence-to-Structure Generation for Multilingual E-commerce Query Understanding",
+  "authors": [
+   "Mingyu Zhang",
+   "Jiejie Qin",
+   "Jianhui Ji",
+   "Rong Xiao",
+   "Meishan Zhang",
+   "Xiaoyi Zeng"
+  ],
+  "tier": "aware",
+  "tags": [
+   "retrieval"
+  ],
+  "summary": "Alibaba unifies language ID, spelling correction, translation and query tagging for AliExpress search into one schema-constrained generation task with multi-task RL.",
+  "venue": "WSDM 2027 (Findings)",
+  "src": [
+   "Conference",
+   "Sumit (X / Bluesky)"
+  ],
+  "date": "2026-11-26",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.34366",
+  "arxiv": "2611.34366",
+  "url": "",
+  "title": "ConTra: A Training Framework for Effective Contextual Retrieval via Prefix Generation",
+  "authors": [
+   "Jiajun Hou",
+   "Jingbang Chen"
+  ],
+  "tier": "aware",
+  "tags": [
+   "retrieval",
+   "RAG & agents"
+  ],
+  "summary": "Trains small LLMs with RL to write a short context prefix per chunk at indexing time, rewarded by frozen embedder/reranker feedback, factual support and brevity; ConTra-2B beats a prompted 9B prefix generator and a contextual encoder on ConTEB and a new RealContextBench.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox",
+   "Sumit (X / Bluesky)"
+  ],
+  "date": "2026-11-26",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.31266",
+  "arxiv": "2611.31266",
+  "url": "",
+  "title": "Agentic Systems Need Multi-Run Evaluation: A Study of Retrieval and Response Variability in a Deployed Enterprise RAG System",
+  "authors": [
+   "Karan Gupta",
+   "Sumit Bhatia",
+   "Yunyao Li"
+  ],
+  "tier": "aware",
+  "tags": [
+   "RAG & agents",
+   "evaluation"
+  ],
+  "summary": "Running 739 questions ten times through a deployed agentic RAG system (Adobe): retrieval hit rate drops from 69.4% (any run) to 50.9% (all runs), and retrieval causes most run-to-run divergence.",
+  "venue": "",
+  "src": [
+   "Sumit (X / Bluesky)"
+  ],
+  "date": "2026-11-26",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.32917",
+  "arxiv": "2611.32917",
+  "url": "",
+  "title": "SOARS: System One Assisted Reranking for Agentic Search",
+  "authors": [
+   "Amin Bigdeli",
+   "Liye Fu",
+   "Fattane Zarrinkalam",
+   "Joel Stremmel",
+   "Elizabeth Lingg"
+  ],
+  "tier": "aware",
+  "tags": [
+   "ranking",
+   "RAG & agents"
+  ],
+  "summary": "Training-free fast reranking step inside deep search agents that selects passages and reranks candidates in one call per step; raises accuracy while cutting search calls on BrowseComp-Plus and WebShaper.",
+  "venue": "",
+  "src": [
+   "Sumit (X / Bluesky)"
+  ],
+  "date": "2026-11-26",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.33124",
+  "arxiv": "2611.33124",
+  "url": "",
+  "title": "SAG-Mem-1.0 Technical Report",
+  "authors": [
+   "Yuchao Wu",
+   "XingCheng Liang",
+   "Xuanze Wang",
+   "Yini Huang",
+   "Yue Wu"
+  ],
+  "tier": "aware",
+  "tags": [
+   "retrieval",
+   "RAG & agents"
+  ],
+  "summary": "Conversational memory that keeps raw dialogue chunks in a BM25 index and expands queries with lexical cues from useful evidence; best scores on LoCoMo and LongMemEval among compared methods, with no LLM-based memory construction.",
+  "venue": "",
+  "src": [
+   "Sumit (X / Bluesky)"
+  ],
+  "date": "2026-11-26",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.34436",
+  "arxiv": "2611.34436",
+  "url": "",
+  "title": "Grounding User Preferences in Shared Multimodal Concepts for Recommendation",
+  "authors": [
+   "Ao Xu",
+   "Jinhui Huang",
+   "Wenqiang Tang",
+   "Tiehua Mei",
+   "Hongru Hou",
+   "Hengrui Chen",
+   "Jiaqing Liang",
+   "Deqing Yang"
+  ],
+  "tier": "aware",
+  "tags": [
+   "recommendation"
+  ],
+  "summary": "MKGE induces a vocabulary of canonical multimodal concepts from item images and titles and grounds user histories in them, so preference evidence accumulates across items; gains are largest for low-activity users.",
+  "venue": "WSDM 2027",
+  "src": [
+   "Conference"
+  ],
+  "date": "2026-11-26",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.33240",
+  "arxiv": "2611.33240",
+  "url": "",
+  "title": "Learning the Platform, Not the Learner: Sequencing Shortcuts in the Offline Evaluation of Educational Recommender Systems and LLM Rankers",
+  "authors": [
+   "Youssef Jdidou"
+  ],
+  "tier": "aware",
+  "tags": [
+   "recommendation",
+   "evaluation"
+  ],
+  "summary": "In offline evaluation of educational recommenders, predictors using only the last activity reach a median 95% of the best accuracy because the platform, not the learner, decides most next steps; LLM rankers are near random with structure-plausible negatives; reweighting test steps by structural improbability recovers a personalization signal.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-26",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.33250",
+  "arxiv": "2611.33250",
+  "url": "",
+  "title": "Focus On Facts: Stylistically Invariant and Factually Sensitive Text Embeddings",
+  "authors": [
+   "Maximus Adeola"
+  ],
+  "tier": "aware",
+  "tags": [
+   "embeddings",
+   "evaluation"
+  ],
+  "summary": "Benchmark of 83k triplets where a base embedder prefers a fact-altered near-copy over a fact-preserving rewrite 99.6% of the time; hard-negative contrastive fine-tuning of an 80M model shifts this but only to a 29% factual preference rate.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-26",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.33594",
+  "arxiv": "2611.33594",
+  "url": "",
+  "title": "Aligned Machine: A Benchmark for Evaluating Multimodal Embedding Similarity via Human Comparative Judgements",
+  "authors": [
+   "Jiechen Li",
+   "Hannah Groos",
+   "Brinnae Bent"
+  ],
+  "tier": "aware",
+  "tags": [
+   "embeddings",
+   "evaluation"
+  ],
+  "summary": "Crowd-sourced forced-choice benchmark of which pair is more similar; 12 embedding models only partly agree with humans, text-only models agree more than multimodal ones.",
+  "venue": "",
+  "src": [
+   "Others"
+  ],
+  "date": "2026-11-26",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.33668",
+  "arxiv": "2611.33668",
+  "url": "",
+  "title": "Verifiable but Not Predictable: What Sentence Embeddings Know About Propositional Decomposition",
+  "authors": [
+   "Qingan Li",
+   "Tianxiao Wu",
+   "Xiling Cui"
+  ],
+  "tier": "aware",
+  "tags": [
+   "embeddings"
+  ],
+  "summary": "Cosine similarity cannot verify whether a proposition belongs to a sentence (an embedding is not a linear combination of its propositions' embeddings), but a linear probe predicts the number of propositions beyond length, robust to INT8/INT4 quantization and Matryoshka truncation to 256 dims.",
+  "venue": "",
+  "src": [
+   "Scholar Inbox"
+  ],
+  "date": "2026-11-26",
+  "listed": true,
+  "who": [],
+  "has_abs": true,
+  "zotero": false,
+  "note": ""
+ },
+ {
+  "id": "2611.33690",
+  "arxiv": "2611.33690",
+  "url": "",
+  "title": "Refusal Is Not Scored: A Coverage Limit in Content-Based Bias Evaluation",
+  "authors": [
+   "Afifah Kashif",
+   "Malak Sadek",
+   "Jin Huang",
+   "Hatice Gunes"
+  ],
+  "tier": "researcher",
+  "tags": [],
+  "summary": "Bias audits that discard refusals remove a demographically skewed subset; none of seven lexicon or LLM-judge instruments detects the refusal disparity, a coverage limit upstream of scoring.",
+  "venue": "",
+  "src": [
+   "Followed researcher"
+  ],
+  "date": "2026-11-26",
+  "listed": true,
+  "who": [
+   "Jin Huang"
   ],
   "has_abs": true,
   "zotero": false,
@@ -65212,7 +66097,7 @@
   ],
   "has_abs": true,
   "zotero": true,
-  "note": ""
+  "note": "WWITWDHZ"
  },
  {
   "id": "2603.01514",

@@ -1,0 +1,961 @@
+{
+ "date": "2026-11-26",
+ "headline": "A quieter theory day: tokenisation is proved not to be in APX (no constant-factor approximation unless P=NP), Kalavasis-Li-Zampetakis give quantitative PAC guarantees for learning to sample a language, and Saxe/Sclocchi show SFT forgets behaviour fast but representations slowly in a Random Hierarchy Model. For vector search, RAP gives the first oblivious JL-type random projection for hyperbolic embeddings.",
+ "stats": {
+  "arxiv_new": 968,
+  "scholar_inbox": 100,
+  "curated": 28,
+  "titles_read": 464,
+  "abstracts_read": 56
+ },
+ "daily_picks": [
+  {
+   "title": "On Union-Closedness of Language Generation",
+   "authors": [
+    "Steve Hanneke",
+    "Amin Karbasi",
+    "Anay Mehrotra",
+    "Grigoris Velegkas"
+   ],
+   "year": "2025",
+   "url": "https://arxiv.org/abs/2506.18642",
+   "zotero_key": "NM82D487",
+   "note_key": "WWITWDHZ",
+   "digest": "Setting and problem \n The model. Fix a countable universe of strings $\\Sigma^*$ (in all of the paper's constructions this is identified with $\\mathbb{Z}$ or $\\mathbb{N}$). A language is an infinite subset $L \\subseteq \\Sigma^*$, and a collection $\\mathcal{L}$ is any family of languages, possibly uncountable. A generator is a sequence of maps $G = (G_n)_{n \\in \\mathbb{N}}$ with $G_n : (\\Sigma^*)^n \\to \\Sigma^*$. The game, due to Kleinberg and Mullainathan (KM24), is:\n\n\n \n An adversary picks a target $K \\in \\mathcal{L}$ and an enumeration $x_1, x_2, \\dots$ of $K$: every element of $K$ appears at some finite position, and nothing outside $K$ ever appears. The paper also assumes no repeats, which keeps \"number of samples\" well defined. \n In round $n$ the generator has seen $S_n = \\{x_1, \\dots, x_n\\}$ and outputs $w_n = G_n(x_1, \\dots, x_n)$. \n $G$ generates from $K$ in the limit if, for every enumeration of $K$, there is a finite $n^\\star$ such that $w_n \\in K \\setminus S_n$ for all $n \\ge n^\\star$. The collection $\\mathcal{L}$ is generatable if one $G$ does this for every $K \\in \\mathcal{L}$. \n \n What is given and what must be produced. The generator knows $\\mathcal{L}$ in full, but it sees $K$ only through positive examples. It never has to name $K$. It only has to produce, from some point on, strings that are new and that certainly belong to $K$. This is weaker than …"
+  },
+  {
+   "title": "Balanced Voronoi Partitions, Self-Approaching Sequences, and Applications to Efficiently Navigable Graphs",
+   "authors": [
+    "Jonathan Conroy",
+    "Mohammadreza Daneshvaramoli",
+    "Cameron Musco",
+    "Christopher Musco",
+    "Jack Spalding-Jamieson"
+   ],
+   "year": "2026",
+   "url": "https://arxiv.org/abs/2611.32667",
+   "zotero_key": "3VHB3GZ6",
+   "note_key": "CRKAMD3B",
+   "digest": "Setting and problem \n The objects. Let $X = \\{x_1, \\dots, x_n\\}$ be a finite set of $n \\ge 2$ points in a metric space $(\\mathcal{X}, D)$; the main case is $\\mathcal{X} = \\mathbb{R}^d$ with $D(x,y) = \\|x-y\\|_2$. Each point $x$ has a total preference order over $X$: $x$ prefers $x_i$ to $x_j$ if $D(x, x_i) < D(x, x_j)$, with ties broken by index. Note that $x$ ranks itself first. For distinct $a, b \\in X$ the Voronoi split of $X$ induced by the pair is\n\n\n $$S(a,b) = \\{x \\in X : x \\text{ prefers } a \\text{ to } b\\}, \\qquad S(b,a) = X \\setminus S(a,b),$$\n\n\n so $a \\in S(a,b)$ and $b \\in S(b,a)$. Geometrically, $S(a,b)$ is the part of $X$ on $a$'s side of the perpendicular bisector of $a$ and $b$. The split is $\\alpha$-balanced if $\\min\\{|S(a,b)|, |S(b,a)|\\} \\ge \\alpha n$.\n\n\n A key restriction: both \"centers\" $a, b$ must be data points, and there are exactly two of them. You may not place a hyperplane freely, and you may not use weights or more centers.\n\n\n What's given and what must be produced. Given: an arbitrary, worst-case $X$. There is no distributional assumption, no general-position assumption, and no bound on spread unless stated. Produce: a pair $a, b \\in X$ whose bisector splits $X$ with balance $\\alpha$. The paper studies the best $\\alpha$ that holds for every input.\n\n\n The precise question. What is the largest $\\alpha = \\alpha(d)$ such that every finite $X \\subset …"
+  },
+  {
+   "title": "Provably Near-Optimal PQ in the Extended Zador Model",
+   "authors": [
+    "Edo Liberty",
+    "Ashwin Padaki",
+    "Amir Ingber"
+   ],
+   "year": "2026",
+   "url": "https://arxiv.org/abs/2611.31579",
+   "zotero_key": "TBMHF94H",
+   "note_key": "25NCWRQ3",
+   "digest": "Setting and problem \n Formal object. Data are $n$ vectors in $\\mathbb{R}^d$, stacked as $X \\in \\mathbb{R}^{d \\times n}$, modelled as i.i.d. draws $x \\sim \\mathcal{N}(\\mu, \\Sigma)$ with $\\Sigma \\succ 0$. Write the eigendecomposition $\\Sigma = U \\,\\mathrm{diag}(\\sigma_1^2, \\dots, \\sigma_d^2)\\, U^\\top$ with $\\sigma_1^2 \\ge \\dots \\ge \\sigma_d^2$. A product quantizer (PQ) is specified by\n\n\n \n a preconditioning rotation $R \\in O(d)$, giving rotated centred data $\\tilde{x} = R(x - \\mu) \\sim \\mathcal{N}(0, \\tilde\\Sigma)$ with $\\tilde\\Sigma = R \\Sigma R^\\top$; \n $m$ disjoint segments $G = \\{g_1, \\dots, g_m\\}$, $g_r \\subseteq [d]$, of widths $d_r = |g_r|$ (widths may differ, unlike classical PQ/OPQ), plus an \"unquantized\" leftover set $g_0 = [d] \\setminus \\bigcup_r g_r$ whose coordinates are simply dropped (reconstructed as the mean); \n per segment, a codebook of $k = 2^C$ centroids found by $k$-means (so $C$ bits per segment, $mC$ bits per vector, nominal rate $\\bar b = mC/d$ bits per dimension). The paper fixes $C = 8$, i.e. $k = 256$, the byte-aligned industry default. \n \n Given: the data (in practice, its empirical mean and covariance), $k$ and $m$. Produce: $R$ and $G$ (the codebooks then follow from $k$-means). The loss is expected squared reconstruction error under the Gaussian population model,\n$$\n\\mathrm{cost}(R, G) = \\sum_{g \\in G} d_g \\, e^2(\\tilde\\Sigma_g) + …"
+  }
+ ],
+ "researchers": [
+  {
+   "title": "Refusal Is Not Scored: A Coverage Limit in Content-Based Bias Evaluation",
+   "authors": [
+    "Afifah Kashif",
+    "Malak Sadek",
+    "Jin Huang",
+    "Hatice Gunes"
+   ],
+   "categories": [
+    "cs.CL",
+    "cs.CY"
+   ],
+   "comments": "10 pages, 3 figures, 3 tables. Code and data: https://github.com/AfifahK/bias-eval-construct-validity",
+   "abstract": "Bias audits of conversational models often discard refusals (responses such as \"I can't assist with that request\") before scoring, a filtering step which is rarely examined as a measurement decision even though it determines which responses an audit is capable of evaluating. This work examines what the step removes, applying seven bias-evaluation instruments spanning both deployed paradigms, three dictionary-based and four LLM-as-judge, to two intersectional datasets of 360 generated responses each. In both datasets, the filter removed a demographically skewed subset produced entirely by one of the three responder models, which refused North Korean prompts at 2.15 times the rate of American prompts on declarative content and 1.76 times on operational content. We then remove the filter and pass every refusal to all seven instruments. Bias-Lexicon scores refusals as clean, and including them shrinks the nationality disparity it reports. HurtLex appears to register the disparity, but we trace this entirely to a single lexicon entry matching the token \"can\" in \"I can't\". The LLM judges either flag most responses or rate refusals as unbiased. For the two judges that discriminate, including refusals lowers the nationality disparity they report, and no instrument identifies the refusal disparity. The failure is therefore a coverage limit upstream of scoring rather than a calibration gap that a better lexicon or judge prompt would be expected to close, which makes the behavioral channel an instrument is sensitive to a question of construct validity rather than one of method selection.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.33690",
+   "researcher": "Jin Huang",
+   "verdict": "confirmed",
+   "evidence": "co-author Hatice Gunes (Cambridge), a known co-author in researchers.yaml",
+   "summary": "Bias audits that discard refusals remove a demographically skewed subset; none of seven lexicon or LLM-judge instruments detects the refusal disparity, a coverage limit upstream of scoring."
+  }
+ ],
+ "papers": [
+  {
+   "title": "Tokenisation is not in APX",
+   "authors": [
+    "Violeta Kastreva",
+    "Philip Whittington",
+    "Dennis Komm",
+    "Tiago Pimentel"
+   ],
+   "categories": [
+    "cs.CL",
+    "cs.LG"
+   ],
+   "comments": "",
+   "abstract": "In this paper, we prove that, unless P=NP, no polynomial-time algorithm can find a tokeniser whose objective is within any constant factor of the optimum, meaning that tokenisation is not in the APX complexity class. We prove this for direct and bottom-up tokenisation, under both a compression or unigram log-likelihood objectives, and for binary or larger alphabets. We further show that, even over unary alphabets, direct tokenisation is APX-hard, and thus admits no polynomial-time approximation scheme.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.34938",
+   "tier": "core",
+   "tags": [
+    "tokenization",
+    "LLM theory"
+   ],
+   "zotero_topics": [
+    "lm",
+    "theory"
+   ],
+   "venue": "",
+   "summary": "Proves that unless P=NP no polynomial-time algorithm finds a tokeniser within any constant factor of the optimum, for direct and bottom-up tokenisation, under compression and unigram log-likelihood objectives, for binary or larger alphabets; direct tokenisation is APX-hard even over a unary alphabet.",
+   "why": "Sharp hardness result for tokenisation (strengthens earlier NP-hardness work by the same group); relevant to any theory of how sequences or docids get tokenised.",
+   "ideas": [],
+   "zotero": "added"
+  },
+  {
+   "title": "PAC Learning to Sample: On Computational Aspects of Language Generation",
+   "authors": [
+    "Alkis Kalavasis",
+    "Shuchen Li",
+    "Manolis Zampetakis"
+   ],
+   "categories": [
+    "stat.ML",
+    "cs.CL",
+    "cs.DS",
+    "cs.LG"
+   ],
+   "comments": "",
+   "abstract": "The success of language models has motivated theoretical work on learning to sample from distributions on discrete domains. A prominent abstraction is the model of language generation in the limit, introduced by Kleinberg and Mullainathan (NeurIPS 2024), in which the algorithm must generate from the target language after some finite but unspecified number of positive examples. While its positive results are surprisingly general, most guarantees are qualitative. In this work, we seek quantitative guarantees on sample and time complexity, inspired by statistical and computational learning theory. To this end, we study a PAC model of language generation, proposed (in a different context) by De, Diakonikolas, and Servedio (SODA 2015), in which a Boolean concept class $C$ over $\\{-1,1\\}^n$ defines the target languages: given uniformly random positive examples of an unknown concept $f \\in C$, the learner must output a sampler whose output distribution (conditioned on the training data) is close in total variation to the uniform distribution over $f^{-1}(1)$. Their work implicitly gives an efficient algorithm for PAC learning to sample $C$, given three primitives for $C$: an online learner, approximate sampling and counting oracles, and an SQ learner. We ask whether these ingredients, in particular online learnability, are necessary. First, we construct a Boolean concept class $C$ for which online learning is cryptographically hard, yet PAC learning to sample is computationally efficient. Then, we develop new algorithms that use offline ERM oracles instead of online learners, together with approximate sampling/counting oracles for intersections of concepts in $C$ and an SQ learner for $C$. We view our results, together with the work of De, Diakonikolas, and Servedio, as a first step towards understanding the computational complexity of language generation.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.33464",
+   "tier": "core",
+   "tags": [
+    "learning theory",
+    "LLM theory"
+   ],
+   "zotero_topics": [
+    "lm",
+    "theory"
+   ],
+   "venue": "",
+   "summary": "Studies a PAC model of language generation: from uniform positive examples of a Boolean concept, output a sampler close in TV to uniform on the concept. Builds a class where online learning is cryptographically hard yet PAC learning to sample is efficient, and gives algorithms that replace online learners with offline ERM plus sampling/counting oracles and an SQ learner.",
+   "why": "Moves generation-in-the-limit toward quantitative sample/time complexity; a clean computational view of what it means to learn to generate.",
+   "ideas": [],
+   "zotero": "added"
+  },
+  {
+   "title": "Two Timescales of Forgetting in Fine-tuning of Language Models: Fast Behavioral Suppression and Slow Representational Drift",
+   "authors": [
+    "Yilin Luo",
+    "Jin Hwa Lee",
+    "Andrew M. Saxe",
+    "Antonio Sclocchi"
+   ],
+   "categories": [
+    "cs.LG",
+    "cond-mat.dis-nn",
+    "cs.CL",
+    "stat.ML"
+   ],
+   "comments": "36 pages, 27 figures. Code: https://github.com/yilin-luo/two-timescales-of-forgetting",
+   "abstract": "Today, a core pipeline of artificial intelligence systems is pretraining on a broad range of text corpora and then fine-tuning on specific tasks or desired behaviors. Yet we still have limited understanding of how fine-tuning on a restricted data distribution modifies representations acquired during pretraining. In particular, it remains unclear whether surface behavioral suppression happens together with the erasure of latent representations that support it. In this work, we study supervised fine-tuning (SFT) by pretraining transformers on a controlled context-free grammar with hierarchical latent structure, the Random Hierarchy Model (RHM), and fine-tuning with a restricted subset of its generative rules. While during pretraining the model's ability to generate with the correct grammar rules coincides with building the internal representations of the corresponding latent, we find that SFT exhibits a very different dynamics: (i) the generation of deleted rules changes on a fast timescale inversely proportional to the magnitude of the token-latent correlation; meanwhile, their corresponding representations stay intact; (ii) the hidden representations of the deleted rules become forgotten on a much longer timescale, associated with a slow drift of the network parameters. Finally, we observe analogous results in a realistic setup with natural language, suggesting that this timescale separation in forgetting is a more general phenomenon of fine-tuning language models.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.33302",
+   "tier": "core",
+   "tags": [
+    "training dynamics",
+    "post-training & RL"
+   ],
+   "zotero_topics": [
+    "lm"
+   ],
+   "venue": "",
+   "summary": "Pretrains transformers on the Random Hierarchy Model and fine-tunes on a subset of its rules. Generation of deleted rules is suppressed on a fast timescale inversely proportional to the token-latent correlation, while the hidden representations of those rules persist and are forgotten only on a much slower timescale tied to parameter drift; a similar separation appears with natural language.",
+   "why": "A controlled, theory-ready account of forgetting in fine-tuning (Saxe, Sclocchi): behaviour and representation decouple, with timescales set by data statistics.",
+   "ideas": [],
+   "zotero": "added"
+  },
+  {
+   "title": "RAP: Radial-Angular Random Projection for Hyperbolic Representations",
+   "authors": [
+    "Jiahong Liu",
+    "Wenhao Yu",
+    "Yifan Li",
+    "Yanyu Chen",
+    "Rex Ying",
+    "Menglin Yang",
+    "Irwin King"
+   ],
+   "categories": [
+    "cs.LG",
+    "cs.AI"
+   ],
+   "comments": "39 pages, 11 figures, 15 tables, including appendices",
+   "abstract": "Random projection is a basic compression primitive for Euclidean representation learning, with the Johnson--Lindenstrauss lemma giving a target dimension $k=O(\\varepsilon^{-2}\\log n)$ independent of the ambient dimension. As hyperbolic representations gain increasing attention in modern Transformers, vision-language models, and large language models, the same need for oblivious dimensionality reduction arises, but no analogous primitive yet exists for hyperbolic representations. We study this gap. Two natural attempts fail in dual ways: a tangent-space scheme gives a clean local guarantee but is chart-bound and pays a curvature penalty, while a fully hyperbolic projection in the hyperboloid model is geometrically native but mixes radial and angular error before feeding them into the conditioning of $\\operatorname{arcosh}$. We propose radial-angular random projection (RAP), which preserves the radial coordinate exactly and applies a Euclidean random projection only to the angular direction, lifting the result back to the target hyperboloid. RAP is hyperbolic-to-hyperbolic by construction, costs one Gaussian matrix-vector product, and reduces hyperbolic compression to a normalized angular JL question on $\\mathbb{S}^{d-1}$. We prove a finite-set RAP guarantee with explicit $\\sinh(\\sqrt{c}\\,r_x)\\sinh(\\sqrt{c}\\,r_y)$ conditioning, complemented by a local tangent-space JL theorem and an arcosh-conditioning lemma for the fully hyperbolic comparator. Across an origin-centered broad-radius point cloud, a balanced tree, a clustered Gaussian, and the WordNet noun hierarchy, RAP attains the lowest mean relative distortion in every $(n,k)$ cell, reducing distortion over the strongest hyperbolic baseline by approximately $48\\%$--$49\\%$ on broad-radius data. RAP also scales to million-point datasets and improves retrieval on vision--language representations over hyperbolic projection baselines.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.34298",
+   "tier": "core",
+   "tags": [
+    "vector search",
+    "embeddings"
+   ],
+   "zotero_topics": [
+    "vector-search",
+    "theory"
+   ],
+   "venue": "",
+   "summary": "Radial-angular random projection keeps the hyperbolic radius exactly and applies a Gaussian JL map only to the direction, reducing hyperbolic compression to angular JL on the sphere; proves a finite-set distortion guarantee with explicit sinh(r_x)sinh(r_y) conditioning, explains why tangent-space and hyperboloid projections fail, and improves distortion and retrieval empirically.",
+   "why": "First oblivious JL-type primitive for hyperbolic representations, with a clean decomposition of where the error comes from.",
+   "ideas": [
+    1
+   ],
+   "zotero": "already in library"
+  },
+  {
+   "title": "Pitfalls of Dependency-Ready Decoding for Masked Diffusion Language Models",
+   "authors": [
+    "Lina Berrayana",
+    "Christopher Malon",
+    "Yoichi Ishibashi",
+    "Taichi Aida",
+    "and Masafumi Oyamada"
+   ],
+   "categories": [
+    "cs.CL",
+    "cs.AI",
+    "cs.LG"
+   ],
+   "comments": "Under Submission",
+   "abstract": "Masked diffusion models (MDMs) have shown strong performance on structured reasoning tasks such as Sudoku, Trip Planning, and Countdown. MDMs introduce a freedom in the order in which tokens may be unmasked, and to exercise this freedom for good accuracy, early decoding strategies relied on signals of confidence or the downstream impact of decoding a token. However, simple examples seem to illustrate that resolving a token's dependencies before unmasking it should be important. Therefore, we examine whether this principle, which we call dependency-ready decoding, would contribute to better accuracy, from a practical and a theoretical perspective. We examine a recent decoder that implements dependency-readiness through attention, and generally find that when it performs better than confidence-based or future utility baselines, its decoding order collapses to left-to-right decoding. For theoretical analysis, we establish a definition of dependency without resorting to attention, measured by an information-theoretic score of how much revealing a single masked token (or a set) would shift the model's prediction for another. We prove that when the margin is large relative to this score, no such revelation can change the top prediction, so in this regime Maximum-Margin decoding already commits dependency-ready tokens. These findings leave only a narrow scope for future dependency-ready decoders: their potential benefit is limited to positions with margins smaller than the information-theoretic sensitivity, and reliance on attention should be questioned.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.33823",
+   "tier": "interesting",
+   "tags": [
+    "diffusion LMs"
+   ],
+   "venue": "",
+   "summary": "Asks whether masked diffusion LMs should unmask tokens only after their dependencies are resolved. Attention-based dependency-ready decoders, when they win, collapse to left-to-right order; defines dependency information-theoretically and proves that when the margin exceeds this sensitivity score no revelation can change the top prediction, so max-margin decoding already commits dependency-ready tokens.",
+   "why": "Small but clean theorem on decoding order in diffusion LMs.",
+   "ideas": []
+  },
+  {
+   "title": "The Gradient Difference Induced by Detaching the Denominator in QK Normalization",
+   "authors": [
+    "Yuanqi Zhang",
+    "Haocheng Wang",
+    "Congping Lin"
+   ],
+   "categories": [
+    "cs.LG"
+   ],
+   "comments": "20 pages, 5 figures, 7 tables. Yuanqi Zhang and Haocheng Wang contributed equally",
+   "abstract": "QK normalization divides each query and key by its own RMS norm before the attention scores are computed. Treating this denominator as a constant during backpropagation leaves the forward pass unchanged but alters the parameter gradients. We derive a closed form for the difference between the gradient under this detached rule and the gradient under the standard rule. For a single token, this difference is parallel to the token's own query; it changes only the query norm and has no first-order effect after normalization. The queries, however, are computed by a projection matrix $W_Q$ shared across all tokens. The gradient difference on $W_Q$ therefore equals $W_Q$ right-multiplied by a weighted second moment of the inputs, and it decomposes exactly into three components: a radial component that changes only the norm of $W_Q$, a tangential component that changes the query directions of other tokens, and an upstream component that changes the gradient passed to earlier layers. Under AdamW, the radial component drives $W_Q$ to a larger equilibrium norm and reduces its angular update per step. Paired experiments on a small Transformer language model are consistent with this analysis. Detaching the query denominator consistently raises the test loss, and the gap persists across hardware, evaluation datasets and learning rates. All three components remain non-negligible throughout training, with the tangential component the largest. Norm growth and the smaller angular update appear only on the detached projection matrix, while the other projection matrix is essentially unchanged. With a learnable scale, however, we observe no resolvable loss gap.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.33887",
+   "tier": "interesting",
+   "tags": [
+    "training dynamics",
+    "architectures"
+   ],
+   "venue": "",
+   "summary": "Closed form for the gradient change when the RMS denominator in QK normalization is detached: per token it only rescales the query, but through the shared W_Q it splits into radial, tangential and upstream parts; under AdamW the radial part inflates ||W_Q|| and shrinks angular updates, matching a consistent test-loss gap in small LMs.",
+   "why": "Exact gradient analysis of a transformer implementation detail, with a mechanism that is checked experimentally.",
+   "ideas": []
+  },
+  {
+   "title": "Tune for Retention, Not Just Gain: SFT Forgets Far Less than You Think",
+   "authors": [
+    "Nirmit Joshi",
+    "Nathan Srebro",
+    "Eran Malach"
+   ],
+   "categories": [
+    "cs.LG",
+    "cs.AI"
+   ],
+   "comments": "28 pages, 17 figures. Comments are welcome",
+   "abstract": "Catastrophic forgetting, the drastic loss of previously acquired capabilities when learning new ones, is a central challenge in language model fine-tuning. Supervised fine-tuning (SFT) is widely believed to be prone to such forgetting. Recent works have attributed this to the off-policy nature of SFT, arguing that on-policy learning is key to continual learning. In this paper, we challenge this premise. We show that while maximizing new-task performance can induce catastrophic forgetting, alternative hyperparameter choices (lower learning rate and batch size) can yield similar gains with little to no forgetting. With hyperparameters selected jointly for gain and retention, vanilla SFT retains prior capabilities far better than previously suggested and can be competitive with Self-Distillation Fine-Tuning (SDFT), an on-policy approach designed to mitigate forgetting. While SDFT can be more robust to hyperparameter choices, it also requires a retention-aware criterion to identify hyperparameter configurations that avoid catastrophic forgetting. Our results challenge the view that on-policy training is what enables learning with retention and raise broader questions about what drives catastrophic forgetting during fine-tuning.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.34579",
+   "tier": "interesting",
+   "tags": [
+    "post-training & RL",
+    "phenomena"
+   ],
+   "venue": "",
+   "summary": "Srebro and Malach show that SFT's catastrophic forgetting is largely a hyperparameter artefact: lower learning rate and batch size give similar new-task gains with little forgetting, making vanilla SFT competitive with on-policy self-distillation when hyperparameters are chosen for both gain and retention.",
+   "why": "Challenges the 'on-policy is what prevents forgetting' story; pairs well with the two-timescales paper above.",
+   "ideas": []
+  },
+  {
+   "title": "The Platonic Representation Hypothesis in Jacobian-Space: Language and Vision Models Agree Approximately Up to a Rotation",
+   "authors": [
+    "Ross Murphy",
+    "Gabriel Brostow"
+   ],
+   "categories": [
+    "cs.AI",
+    "cs.CL",
+    "cs.CV"
+   ],
+   "comments": "",
+   "abstract": "The Platonic Representation Hypothesis (PRH) posits that AI models converge toward a shared representation of the world, even when trained on different data modalities. Previous work has found evidence for the PRH in the activations of vision and language models. In this work, we ask whether vision and language models also converge in how they act on these representations: precisely, in how these internal representations affect the models' output. At a chosen layer of a transformer, the Jacobian lens gives every word in the vocabulary (or class in an image classifier) a vector in the hidden state: the vector that most increases the model's tendency to generate that word, at that position or later, or to predict that class. Collectively, these vectors make up what is referred to as the model's J-space. We find evidence of the PRH in J-space across vision and language models, and furthermore, we find that J-spaces mostly converge up to a rotation. That is, a single rotation, fitted on a subset of words, approximately maps one model's J-space onto another's, and so applies to words and classes it was not fitted on. A word's vector, rotated from a text-only language model's J-space into the visual patch tokens of a vision-language model, changes the object the vision-language model says is in the image (and only in the image region where it is added). Rotated into an image generator's text conditioning, a word's vector changes the object in the generated image. Rotated into an ImageNet classifier (trained without text), it raises that object's class score above almost all others, and vice versa. This suggests that models converge not only in how they represent the world, but also in how they act on it.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.33304",
+   "tier": "interesting",
+   "tags": [
+    "phenomena",
+    "embeddings"
+   ],
+   "venue": "",
+   "summary": "Tests the Platonic Representation Hypothesis in Jacobian space (per-word vectors that most increase a word's output). J-spaces of language and vision models agree up to a single rotation fitted on a subset of words; rotated word vectors steer VLMs, image generators and an ImageNet classifier toward the corresponding object.",
+   "why": "A clean cross-model alignment phenomenon (convergence in how models act, not just represent) a theorist could try to explain.",
+   "ideas": []
+  },
+  {
+   "title": "Bigger Model or Bigger Table? How Much Backbone a Chorus N-gram Module Replaces",
+   "authors": [
+    "Szymon Kocur"
+   ],
+   "categories": [
+    "cs.CL",
+    "cs.LG"
+   ],
+   "comments": "21 pages, 2 figures, 12 tables",
+   "abstract": "We ask how much of a transformer's backbone the Chorus N-gram module replaces. Chorus adds hashed tables of token bigrams and trigrams to its input and attention. We train models of 16M to 349M parameters on 1.34 billion tokens of Polish printed before 1918 and find the size of a plain model with the same held-out loss. A separate learning-rate search for each kind of model cuts Chorus's gain at 47M by about a third. With tables about as large as the backbone, Chorus then matches a plain model 1.34 times its size at 16M and 1.16 to 1.20 times from 107M to 349M. With these tables, each added parameter replaces at most 0.31 backbone parameters. Chorus trains slower than a plain model of its size and faster than one of the same loss. On a fact quiz the two differ about as much as two seeds of one model. The results rest on one corpus, one 8,000-token vocabulary and a fifth of an epoch.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.34725",
+   "tier": "interesting",
+   "tags": [
+    "memorization",
+    "scaling laws"
+   ],
+   "venue": "",
+   "summary": "Measures how many backbone parameters hashed bigram/trigram tables (Chorus) replace: with tables as large as the backbone, a model matches a plain model 1.16-1.34x its size, so each table parameter replaces at most 0.31 backbone parameters; per-model learning-rate tuning removes a third of the apparent gain.",
+   "why": "Careful exchange rate between lookup memory and backbone capacity, relevant to how much memorization can be offloaded to tables.",
+   "ideas": []
+  },
+  {
+   "title": "Rethinking Sequential Locate-Then-Edit: Optimality and Stability",
+   "authors": [
+    "Bingqing Liu",
+    "Wei Liu",
+    "Zhiying Deng",
+    "Jun Wang",
+    "Yuhua Li",
+    "and Ruixuan Li"
+   ],
+   "categories": [
+    "cs.CL",
+    "cs.AI"
+   ],
+   "comments": "Accepted by NeurIPS 2026. 10 pages of main text, 6 figures, and 2 tables. The full manuscript contains 41 pages, including references and supplementary material. This work concerns sequential knowledge editing within the locate-then-edit framework",
+   "abstract": "The Locate-Then-Edit framework enables efficient knowledge updates in large language models without requiring full retraining. Recent research has increasingly focused on sequential editing, where knowledge arrives continuously and the model is updated incrementally. However, existing sequential methods commonly suffer from catastrophic forgetting and model collapse after only a few hundred edits. In contrast, batch editing - which jointly optimizes all edits and yields the optimal solution under a specified editing objective - can support tens of thousands of edits with high edit efficacy while preserving the model's general capabilities, resulting in a substantial performance gap between the two editing paradigms. In this paper, we demonstrate that this gap can be closed via a batch-equivalent sequential editing approach. Moreover, we investigate the underlying mechanism of model degradation in existing sequential methods by analyzing the convergence behavior of weight perturbations as edits accumulate. Our analysis reveals that current methods typically exhibit linear or logarithmic growth in perturbation, whereas the proposed batch-equivalent method achieves time-invariant growth, thereby theoretically guaranteeing long-term stability and preserving the integrity of pretrained knowledge throughout massive-scale sequential editing.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.33692",
+   "tier": "interesting",
+   "tags": [
+    "memorization"
+   ],
+   "venue": "NeurIPS 2026",
+   "summary": "Sequential locate-then-edit knowledge editing can be made batch-equivalent; analysing accumulated weight perturbations shows existing sequential methods grow linearly or logarithmically while the batch-equivalent update stays bounded, explaining collapse after a few hundred edits.",
+   "why": "Perturbation-growth analysis of associative-memory style edits in FFN layers.",
+   "ideas": []
+  },
+  {
+   "title": "Under the Influence -- of What? A Controlled Evaluation of Influence Functions",
+   "authors": [
+    "Johannes Gabriel Sindlinger",
+    "Arzu Burcu Güven",
+    "Rob van der Goot",
+    "Anna Rogers"
+   ],
+   "categories": [
+    "cs.CL",
+    "cs.LG"
+   ],
+   "comments": "Accepted at EACL 2027 (Main Conference). 31 pages, 15 figures, 12 tables",
+   "abstract": "Influence functions are a promising way to identify which training examples are responsible for a model's output. However, so far empirical evaluations on LLM pretraining level only assumed that they work as intended. This is the first work to systematically evaluate whether the 'influential' examples actually have properties relevant to a language model output, based on re-training with controlled data splits. We investigate three prominent Hessian approximation methods (GradSim, TrackStar, K-FAC) in two settings (linguistic phenomena and factual knowledge) in GPT-2 type models (68M-5.6B training tokens). We find that on average, the `influential' examples are indeed relevant, but they do not always bear the target properties directly, and the ratio and kind of relevance varies by setting.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.34373",
+   "tier": "interesting",
+   "tags": [
+    "memorization",
+    "evaluation"
+   ],
+   "venue": "EACL 2027",
+   "summary": "Retrains GPT-2-type models on controlled data splits to check whether examples flagged as influential by GradSim, TrackStar and K-FAC actually carry the relevant linguistic or factual property; on average they are relevant, but often not directly, and the kind of relevance varies by setting.",
+   "why": "Ground-truth check of training-data attribution for LMs.",
+   "ideas": []
+  },
+  {
+   "title": "Certify What You Plant: Shortcut-Free Proof Depth in Logical Reasoning Data",
+   "authors": [
+    "Baptiste Juran",
+    "Dimitri Kachler",
+    "Damien Sileo"
+   ],
+   "categories": [
+    "cs.AI",
+    "cs.CL",
+    "cs.LO"
+   ],
+   "comments": "24 pages, 5 figures. Code/data: https://github.com/sileod/semforge",
+   "abstract": "Procedurally generated logic problems are used to both evaluate and train reasoning in language models. Their difficulty is usually set by planting a proof, that is, by sampling a proof of the desired depth and stating its premises as the problem. However, a planted proof is only one possible proof. A problem can also have shorter proofs, or several unrelated ones, and its stated depth then overstates what solving it requires. We measure what a problem actually requires, relative to a stated set of inference rules. For each problem, we compute the steps every proof must make, the shortest proof, the number of minimal proofs and the indispensable premises, and export certificates that an independent checker verifies. Audits of eight datasets find depth that is forced (ProofWriter, Blocksworld), problems labelled depth 5 that require about two specific rule applications (FLDx2), and answers that need no particular step (ZebraLogic). We then construct problems whose every proof has a requested structure, using a catalog of shortcuts proved once per rule set. Every constructed problem is checked in full and comes with its own certificate. In training, the best data mixes depths and problem types. At equal size, such mixtures of certified problem types, including model-checking problems that forward generation does not produce, transfer better than FLDx2-style derivation data for Qwen3 models from 0.6B to 8B.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.33303",
+   "tier": "interesting",
+   "tags": [
+    "CoT & reasoning",
+    "evaluation"
+   ],
+   "venue": "",
+   "summary": "Computes, per logic problem, the steps every proof must make, the shortest proof and indispensable premises, with checkable certificates. Finds that some datasets' labelled depth is forced while others (FLDx2) need about two rule applications at 'depth 5'; constructs problems whose every proof has a prescribed structure.",
+   "why": "Gives certified control over proof depth, useful for any controlled study of CoT length and reasoning sample complexity.",
+   "ideas": []
+  },
+  {
+   "title": "Random Voronoi Networks",
+   "authors": [
+    "Ray Verma",
+    "Pau Mateo-Bernardó",
+    "Daniel Mas Montserrat",
+    "David Bonet",
+    "Marçal Comajoan Cara",
+    "Alexander G. Ioannidis"
+   ],
+   "categories": [
+    "cs.LG",
+    "cs.AI"
+   ],
+   "comments": "",
+   "abstract": "Nearest-neighbor methods are local, simple, and interpretable, but their non-parametric form makes them memory-intensive, expensive at inference, and difficult to integrate into differentiable neural architectures. We introduce Random Voronoi Networks (RVNs), a family of structured three-layer MLPs that express nearest-neighbor geometry through sampled Voronoi comparisons. The first layer computes Random Voronoi Features (RVF) from affine pairwise separators between selected training samples, the second layer aggregates these comparisons into Voronoi cells or top-k neighborhood scores, and the readout layer produces classification or regression predictions. We show that, when all samples and pairwise comparisons are included, step RVNs recover exact Euclidean k-NN, while ReLU RVNs provide a violation-score realization for 1-NN that can be relaxed into a differentiable soft weighting. Subsampling yields approximate RVNs with explicit control over the number of cells and features. We study several unsupervised sampling methods that trade off random coverage, directional diversity, coordinate sparsity, and empirical feature variance. Empirically, RVFs produce a highly effective data encoding strategy, providing performance boosts to downstream methods ranging from linear to modern tabular deep learning models. Finally, we showcase that RVF provides an interpretable feature map due to its k-NN based construction and ties to pairwise local directions. These results position our Random Voronoi formulation as a bridge between nearest-neighbor rules, random features, and modern tabular models.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.33875",
+   "tier": "interesting",
+   "tags": [
+    "vector search"
+   ],
+   "venue": "",
+   "summary": "Random Voronoi Networks: three-layer MLPs built from pairwise affine separators between training points; with all pairs, step RVNs compute exact Euclidean k-NN and ReLU RVNs realize 1-NN via a violation score; subsampling gives approximate versions, and the features help tabular models.",
+   "why": "An explicit construction of a network that stores a dataset and answers nearest-neighbour queries.",
+   "ideas": [
+    1
+   ]
+  },
+  {
+   "title": "Understanding Double Descent through Universal Compression",
+   "authors": [
+    "Jiaxuan Cheng",
+    "Addison Spiegel"
+   ],
+   "categories": [
+    "stat.ML",
+    "cs.LG"
+   ],
+   "comments": "Accepted at NeurIPS 2026. 20 pages, 6 figures",
+   "abstract": "Many deep learning models exhibit a double-descent phenomenon, where test loss exhibits a sharp peak near the interpolation threshold and then descends a second time as model size grows further, contrary to the U-shape predicted by the classical bias--variance tradeoff. The double-descent phenomenon has been found and explained in toy classical models, but is not well-understood in modern deep learning despite extensive empirical study. We interpret double descent through the novel lens of universal compression. Specifically, we upper bound the maximum-likelihood excess test loss as a sum of four terms: an approximation-and-shift term, a minimax batch regret, a prior cost, and an MLE-vs-Bayes gap. Under exact posterior sampling, we further show that the expected MLE-vs-ensemble gap lower-bounds the MLE-vs-Bayes gap in the well-specified setting. In our experiments, a Gaussian-prior SGLD approximation to the Bayes predictor, unlike SGD, shows no pronounced interpolation peak. Experiments with uniform random labels support this gap as a major contributor to the double-descent peak; here, the SGD cross-entropy is roughly four times the SGLD ensemble cross-entropy at the peak, while the ensemble cross-entropy remains near $\\log 10$.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.33759",
+   "tier": "interesting",
+   "tags": [
+    "learning theory",
+    "extracurricular"
+   ],
+   "venue": "NeurIPS 2026",
+   "summary": "Bounds MLE excess test loss by approximation, minimax regret, prior cost and an MLE-vs-Bayes gap, and attributes the double-descent peak mainly to that gap: SGLD ensembles show no interpolation peak where SGD does.",
+   "why": "Universal-compression view of double descent.",
+   "ideas": []
+  },
+  {
+   "title": "On Grokking and the Dynamics of Generalization",
+   "authors": [
+    "Malik Amir"
+   ],
+   "categories": [
+    "cs.LG",
+    "math.DS",
+    "math.FA",
+    "math.OC"
+   ],
+   "comments": "",
+   "abstract": "We extend the signal-channel theory of grokking introduced by Litman and Guo by relating training dissipation and evaluation transfer to population risk. For preconditioned gradient flows with time-dependent kernels, we distinguish two sources of limited evaluation visibility, namely small cumulative dissipation and weak transfer. We obtain quantitative bounds for task visibility and establish their stability under signal filtering and changes of evaluation distribution. We describe how task directions enter the effective signal channel through spectral activation or transport. We establish necessary and sufficient conditions for the transferred signal to decrease squared population risk and derive classification error bounds under margin assumptions. These results yield sufficient conditions for the same training trajectory to generalize under one evaluation distribution while failing under another. We show that differences in spectral learning rates can produce arbitrarily long delays between low training loss and low population risk. By relating classification accuracy to the distribution of margin crossing times, we construct a family of gradient flows in which the generalization delay tends to infinity, while both the duration of the transition from zero to full accuracy and the corresponding variation of population risk tend to zero. These phenomena occur without feature evolution during training. Finally, we prove that the occurrence and timing of generalization cannot generally be inferred from training dynamics alone, but depend on the geometry of evaluation transfer and its relation to the target.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.33825",
+   "tier": "interesting",
+   "tags": [
+    "training dynamics",
+    "extracurricular"
+   ],
+   "venue": "",
+   "summary": "Extends the signal-channel theory of grokking to preconditioned gradient flows with time-dependent kernels; spectral learning-rate differences give arbitrarily long delays between low training loss and low population risk without feature learning, and generalization timing cannot in general be read from training dynamics alone.",
+   "why": "Rigorous statement that grokking delays can arise from kernel spectra alone.",
+   "ideas": []
+  },
+  {
+   "title": "Adversarial Bandit Convex Optimization with $d^{3/2}\\sqrt{n}$ Regret",
+   "authors": [
+    "Alireza Bakhtiari",
+    "Kevin Jamieson",
+    "Tor Lattimore",
+    "Lillian Ratliff"
+   ],
+   "categories": [
+    "stat.ML",
+    "cs.LG"
+   ],
+   "comments": "",
+   "abstract": "We study adversarial bandit convex optimization, where in each of $n$ rounds a learner chooses a point $A_t$ in a convex body $\\mathcal{K}\\subset\\mathbb{R}^d$ and observes only a noisy value of a convex loss $f_t:\\mathcal{K}\\to[0,1]$ at that point. The losses are chosen by an adversary, who may change them from round to round and adapt them to the learner's past actions. We improve the best known regret bound for this problem from $\\widetilde O(d^{5/2}\\sqrt n)$ (Lattimore, 2020, 2026) to $\\widetilde O(d^{3/2}\\sqrt n)$, which matches the rate conjectured by Bubeck et al. (2017). Together with the recent lower bound of $\\Omega(d^{4/3}\\sqrt n)$ due to Rajaraman and Han (2026), it determines the minimax regret up to a factor of $d^{1/6}$ and logarithmic factors. The algorithm is an online Newton step with Gaussian exploration. Unlike earlier methods of this kind, it uses unbiased estimates of the gradient and Hessian of the Gaussian smoothing of the loss, rather than of an optimistic surrogate.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.33531",
+   "tier": "interesting",
+   "tags": [
+    "learning theory",
+    "extracurricular"
+   ],
+   "venue": "",
+   "summary": "Improves adversarial bandit convex optimization regret from d^{5/2}sqrt(n) to d^{3/2}sqrt(n), matching the Bubeck et al. conjecture and leaving a d^{1/6} gap to the lower bound, via online Newton step with Gaussian exploration and unbiased gradient/Hessian estimates of the smoothed loss.",
+   "why": "Sharp online-learning result (Lattimore, Jamieson).",
+   "ideas": []
+  },
+  {
+   "title": "Omniprediction with the Minimum Number of Linear Scores",
+   "authors": [
+    "MohammadHossein Bateni",
+    "Zahra Hadizadeh",
+    "MohammadTaghi Hajiaghayi",
+    "Mahdi JafariRaviz",
+    "Shayan Taherijam"
+   ],
+   "categories": [],
+   "comments": "",
+   "abstract": "An $\\varepsilon$-omnipredictor uses one forecast for an entire family of downstream losses. After postprocessing for each loss, its expected loss must be at most $\\varepsilon$ above that of the best comparator for that loss. A binary single-index model (SIM) learns a norm-bounded weight vector $w$ and a nondecreasing link $\\rho$. It reduces the features $x$ to one linear score $w^\\top x$, then maps that score to a probability $p(x)=\\rho(w^\\top x)$. Hu, Tian, and Yang (STOC 2025) achieved $\\varepsilon$-omniprediction for binary matching losses using $O(1/\\varepsilon^2)$ SIMs and asked whether one SIM suffices. In the population model, we prove that one SIM suffices for exact omniprediction in their bounded-action setting. The result holds for any compact family of continuous nondecreasing target links. With unrestricted actions and matching losses generated by $1/\\beta$-strongly convex entropies, the SIM's link can also be $\\beta$-Lipschitz. For $K$ classes and $d$-dimensional features with finite first moment, $\\min\\{d,K-1\\}$ linear scores are necessary and sufficient in the worst case. A joint link maps these scores to class probabilities, and its Lipschitz bound $\\beta$ is also sharp under the comparator's coefficient norm bound. For bounded features and smooth entropies, we achieve $\\varepsilon$-omniprediction for two or three classes using $\\widetilde O(1/\\varepsilon^2)$ samples at fixed confidence and regularity. This bound is independent of $d$ and tight up to logarithmic factors. For any fixed number of classes $K \\ge 2$, the tight worst-case sample complexity for $\\varepsilon$-omniprediction under the Dirichlet condition on the features is $\\Theta_K(1/\\varepsilon^2)$.",
+   "sources": [
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.30625",
+   "tier": "interesting",
+   "tags": [
+    "learning theory",
+    "extracurricular"
+   ],
+   "venue": "",
+   "summary": "Shows one single-index model suffices for exact omniprediction in the bounded-action binary setting (answering Hu-Tian-Yang), that min{d, K-1} linear scores are necessary and sufficient for K classes, and gives tight Theta_K(1/eps^2) sample complexity.",
+   "why": "Clean characterisation of how many linear scores a multi-loss predictor needs.",
+   "ideas": []
+  },
+  {
+   "title": "On the Learnability of Model Reprogramming: A Reachability and Relabeling Perspective",
+   "authors": [
+    "Zesheneg Ye",
+    "Pin-Yu Chen",
+    "Feng Liu"
+   ],
+   "categories": [
+    "cs.LG"
+   ],
+   "comments": "Accepted to NeurIPS 2026",
+   "abstract": "Model reprogramming adapts a frozen source model to a target task by wrapping it in a learnable input transformation from target input to the source-model input space, and an output mapping from source-model outputs to target predictions. Despite extensive empirical progress, the finite-sample learnability of the induced wrapper hypothesis class $\\mathcal{F}_{\\rm MR}$ remains underexplored. We address this for source models that expose hard source labels and analyze it through the wrapper structure: on any target samples, the input transformation selects reachable source labels that the output mapping relabels. Through this lens, we answer two questions: (1) how many target samples are needed to approach the best predictor in $\\mathcal{F}_{\\rm MR}$, and (2) what gap remains between the optimum over $\\mathcal{F}_{\\rm MR}$ and the target Bayes risk. For (1), the wrapper structure factorizes the sample-wise complexity of $\\mathcal{F}_{\\rm MR}$ into a reachability term counting reachable source-label patterns, and a conditional relabeling term counting their relabelings. This yields an agnostic-PAC bound on the estimation error, with sample complexity scaling additively in the two terms; this bound becomes closed-form on additive input transformations and is matched by a lower bound on an explicit binary classification construction. For (2), the same structure decomposes the approximation error exactly into the source-label information loss and output-mapping restriction with a source-conditional upper bound on this gap. We extend the approximation analysis to logit-exposing source models, where the upper bound is empirically estimable. The wrapper-side analysis localizes both errors to specific components, giving a structural view of reprogramming practice.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.33889",
+   "tier": "interesting",
+   "tags": [
+    "learning theory",
+    "extracurricular"
+   ],
+   "venue": "NeurIPS 2026",
+   "summary": "Agnostic-PAC analysis of model reprogramming (frozen source model wrapped by input transformation and output relabeling): sample complexity splits additively into a reachability term and a relabeling term, with a matching lower bound; the approximation gap decomposes into source-label information loss and output-mapping restriction.",
+   "why": "Learnability of adapting a frozen model through its input/output interface.",
+   "ideas": []
+  },
+  {
+   "title": "Centered Kernel Distance: Dimension-Free Error Bounds for Comparing Neural Representations",
+   "authors": [
+    "Shujun Xiong",
+    "Sarah E. Harvey",
+    "Jacob Zavatone-Veth",
+    "Alexander H. Williams"
+   ],
+   "categories": [
+    "stat.ML",
+    "cs.LG"
+   ],
+   "comments": "11 pages (48 total), 3 figures (15 total), submitted to ICLR 2027",
+   "abstract": "The asymptotic error of representational similarity metrics such as centered kernel alignment (CKA) and representational similarity analysis (RSA) has been well-characterized, but there are no realistic bounds on how estimates of representational similarity $\\textit{simultaneously}$ depend on the number of sampled neurons ($N$) and experimental conditions ($M$). We study the natural metric counterpart of CKA and RSA, which we call the Centered Kernel Distance (CKD). We show that CKD admits an unbiased estimator, whereas several popular similarity measures including CKA have no unbiased estimator. Under mild assumptions, we show that estimation error of CKD decays in proportion to $1/M + 1/N$. Strikingly, the rate in this bound does not depend on the dimensionality of the space of experimental conditions. Thus, similarity estimation does not suffer from the curse of dimensionality, which plagues similar problems in high-dimensional statistics. We verify our results empirically in random shallow neural networks, trained neural networks, and macaque visual cortex data. Ultimately, this paper advances a framework for predicting the error of similarity estimators in experiments by relaxing existing, biologically-unrealistic assumptions. Our theoretical and empirical predictions produce specific prescriptions on how to most efficiently estimate the similarity between multiple neural systems.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.33447",
+   "tier": "interesting",
+   "tags": [
+    "learning theory",
+    "extracurricular"
+   ],
+   "venue": "",
+   "summary": "Introduces Centered Kernel Distance, the metric counterpart of CKA/RSA, which has an unbiased estimator (CKA has none); its estimation error decays as 1/M + 1/N in conditions and neurons, independent of dimension.",
+   "why": "Finite-sample theory for representation-similarity measures.",
+   "ideas": []
+  },
+  {
+   "title": "Near-Tight Robust Coresets for Clustering in Euclidean Spaces",
+   "authors": [
+    "Pengsen Huang",
+    "Yi Li",
+    "Xuan Wu"
+   ],
+   "categories": [
+    "cs.DS"
+   ],
+   "comments": "",
+   "abstract": "This paper considers coresets for the robust $(k,z)$-clustering problem with $m$ outliers in Euclidean spaces. A robust coreset is a weighted subset of the data that, for every set of $k$ centers and every outlier budget $0\\leq b\\leq m$, approximates the clustering cost with $b$ outliers removed to within relative error $\\epsilon$. For every constant $z\\geq 1$, we prove that the optimal worst-case size of such coresets over all ambient dimensions is \\[ \\Theta(m) + \\widetilde{\\Theta}_z(\\min\\{k\\epsilon^{-(z+2)}, k^{2(z+1)/(z+2)}\\epsilon^{-2} + km^{z/(z+2)}\\epsilon^{-4/(z+2)}\\}), \\qquad 1\\leq z \\leq 2, \\] \\[ \\Theta(m) + \\widetilde{\\Theta}_z(\\min\\{k\\epsilon^{-(z+2)}, k^{2(z+1)/(z+2)}\\epsilon^{-2} + k \\min\\{m, \\sqrt{m}\\epsilon^{-z/2}\\} \\}), \\qquad z > 2. \\]",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.34063",
+   "tier": "interesting",
+   "tags": [
+    "learning theory",
+    "extracurricular"
+   ],
+   "venue": "",
+   "summary": "Determines the optimal worst-case size of robust coresets for (k,z)-clustering with m outliers in Euclidean space up to polylog factors, in all dimensions.",
+   "why": "Near-tight sketching bound for clustering, the primitive behind partition-based ANN indexes.",
+   "ideas": []
+  },
+  {
+   "title": "When Rerankers Work Together: Better and Faster Reranking without Joint Training",
+   "authors": [
+    "Yanqiao Chen",
+    "Dongsheng Hou",
+    "Yuhan Rui"
+   ],
+   "categories": [
+    "cs.CL",
+    "cs.AI"
+   ],
+   "comments": "",
+   "abstract": "Standalone reranker quality does not determine its value in a multistage RAG pipeline. We systematically study heterogeneous rerankers composed without joint training, spanning lexical, single-vector, late-interaction, and joint query-context scoring. Two lightweight semantic coarse scorers, Cache-Pointwise and Cache-Shapley, learn from passage relevance labels and share cacheable representations and linear-time singleton inference. Under matched candidates and budgets, we compare cascades with stage-removal references to measure evidence retention, repair and breakage, reader accuracy, and online pruning cost. On NoLiMa 32K with Gemma, inserting these scorers before CrossEncoder or Provence improves answer accuracy by 4.02-9.43 percentage points while accelerating online pruning by 1.57-1.88x relative to the corresponding reranker alone. Cache-Pointwise composed with ColBERTv2 through reciprocal rank fusion improves accuracy by 4.60 points at 1.36x speedup over direct ColBERTv2. The stage-removal comparisons reveal an asymmetry: a cascade can outperform its final reranker alone while underperforming its coarse selector alone. Two readers, a second multi-hop dataset, and three-stage extensions show that the gains depend on the reader, reranker pairing, and stage configuration. These findings demonstrate a practical route to better and faster reranking without joint training and motivate studying stage order, candidate budgets, and rank fusion as determinants of composition quality.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox",
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Studies RAG cascades of separately trained rerankers and finds that adding a lightweight first-stage scorer can improve accuracy and speed, though gains vary by setup.",
+   "arxiv": "2611.33844",
+   "tier": "aware",
+   "tags": [
+    "ranking",
+    "RAG & agents"
+   ],
+   "venue": "",
+   "summary": "Composes heterogeneous rerankers (lexical, single-vector, late interaction, cross-encoder) without joint training; cheap cached coarse scorers before a cross-encoder raise RAG answer accuracy by 4-9 points and speed up pruning ~1.6-1.9x, though gains depend on reader and stage configuration.",
+   "ideas": []
+  },
+  {
+   "title": "OneQuery: Unified Sequence-to-Structure Generation for Multilingual E-commerce Query Understanding",
+   "authors": [
+    "Mingyu Zhang",
+    "Jiejie Qin",
+    "Jianhui Ji",
+    "Rong Xiao",
+    "Meishan Zhang",
+    "Xiaoyi Zeng"
+   ],
+   "categories": [
+    "cs.IR"
+   ],
+   "comments": "Accepted by WSDM 2027 (Findings)",
+   "abstract": "Multilingual e-commerce search requires robust query understanding to convert cross-lingual user queries with varied linguistic patterns into standardized semantic representations that support retrieval and ranking. However, traditional Query Understanding systems suffer from error accumulation, separately optimized subtasks that ignore their mutual correlations, and high maintenance costs. To address these issues, this paper proposes OneQuery, a unified generative framework for multilingual query understanding based on domain-specific large language models in e-commerce. We reformulate four subtasks, namely Language Recognition, Spelling Correction, Translation, and Query Tagging, into a unified Sequenceto-Structure autoregressive generation process constrained by predefined schemas, and design a three-stage progressive training pipeline with multi-task reinforcement learning alignment. OneQuery demonstrates consistent gains over baselines across all tasks and remains effective across different backbone sizes, and online experiments in the AliExpress e-commerce search scenario further confirm its practical value for industrial deployment.",
+   "sources": [
+    "arxiv",
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Alibaba presents an LLM framework for AliExpress search that handles language ID, spelling correction, translation, and query tagging in a single output.",
+   "arxiv": "2611.33653",
+   "tier": "aware",
+   "tags": [
+    "retrieval"
+   ],
+   "venue": "WSDM 2027 (Findings)",
+   "summary": "Alibaba unifies language ID, spelling correction, translation and query tagging for AliExpress search into one schema-constrained generation task with multi-task RL.",
+   "ideas": []
+  },
+  {
+   "title": "ConTra: A Training Framework for Effective Contextual Retrieval via Prefix Generation",
+   "authors": [
+    "Jiajun Hou",
+    "Jingbang Chen"
+   ],
+   "categories": [
+    "cs.IR",
+    "cs.AI"
+   ],
+   "comments": "15 pages",
+   "abstract": "Data management systems organize large text collections for tasks such as finding relevant studies and extracting contract clauses. Systems make long documents searchable by splitting them into independently indexed chunks. Chunking can separate text from its identifying details. The indexing challenge is to keep each chunk independently searchable while preserving the context needed to find and rank it. Existing methods either encode that context in chunk vectors or attach it as a text prefix. Context encoded only in vectors is unavailable to text rerankers. Prompted prefixes serve both vector search and reranking, but are costly to generate at indexing time and can underperform contextual encoders. We propose ConTra (Context That Travels), a reinforcement learning framework for training lightweight prefix generators. Its reward combines feedback from frozen embedding and reranking models with factual verification and length control. ConTra generates one prefix per chunk during index construction and stores the augmented text and its embedding for reuse across queries. To evaluate contextual retrieval across workloads and under interference, we introduce RealContextBench, a benchmark with five application collections and three controlled conditions that isolate the effect of distracting text. On ConTEB and RealContextBench, ConTra-2B outperforms the prompted 9B baseline using Anthropic's method and the PPLX-4B contextual encoder, with a margin of up to 3.15 points over their best overall scores, while indexing short documents 7.74 times and 2.15 times as fast as those baselines, respectively. Post-trained only on ConTEB, it leads the standalone methods on RealContextBench after reranking and is less sensitive than the prompted 2B baseline to random and topically similar distractors. Code, datasets, and trained models are available at https://github.com/SStan1/ConTra.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox",
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Uses RL to train small LLMs that add short context to chunks, rewarding retrieval and reranking quality, factual support, and brevity.",
+   "arxiv": "2611.34366",
+   "tier": "aware",
+   "tags": [
+    "retrieval",
+    "RAG & agents"
+   ],
+   "venue": "",
+   "summary": "Trains small LLMs with RL to write a short context prefix per chunk at indexing time, rewarded by frozen embedder/reranker feedback, factual support and brevity; ConTra-2B beats a prompted 9B prefix generator and a contextual encoder on ConTEB and a new RealContextBench.",
+   "ideas": []
+  },
+  {
+   "title": "Agentic Systems Need Multi-Run Evaluation: A Study of Retrieval and Response Variability in a Deployed Enterprise RAG System",
+   "authors": [
+    "Karan Gupta",
+    "Sumit Bhatia",
+    "Yunyao Li"
+   ],
+   "categories": [],
+   "comments": "",
+   "sources": [
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Adobe finds single-run tests can hide reliability issues in agentic RAG, with repeated runs diverging most often at retrieval.",
+   "arxiv": "2611.31266",
+   "tier": "aware",
+   "tags": [
+    "RAG & agents",
+    "evaluation"
+   ],
+   "venue": "",
+   "summary": "Running 739 questions ten times through a deployed agentic RAG system (Adobe): retrieval hit rate drops from 69.4% (any run) to 50.9% (all runs), and retrieval causes most run-to-run divergence.",
+   "ideas": []
+  },
+  {
+   "title": "SOARS: System One Assisted Reranking for Agentic Search",
+   "authors": [
+    "Amin Bigdeli",
+    "Liye Fu",
+    "Fattane Zarrinkalam",
+    "Joel Stremmel",
+    "Elizabeth Lingg"
+   ],
+   "categories": [],
+   "comments": "",
+   "sources": [
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Introduces a training-free method using a fast System One model to rerank results each time an agent searches, improving accuracy with fewer searches.",
+   "arxiv": "2611.32917",
+   "tier": "aware",
+   "tags": [
+    "ranking",
+    "RAG & agents"
+   ],
+   "venue": "",
+   "summary": "Training-free fast reranking step inside deep search agents that selects passages and reranks candidates in one call per step; raises accuracy while cutting search calls on BrowseComp-Plus and WebShaper.",
+   "ideas": []
+  },
+  {
+   "title": "SAG-Mem-1.0 Technical Report",
+   "authors": [
+    "Yuchao Wu",
+    "XingCheng Liang",
+    "Xuanze Wang",
+    "Yini Huang",
+    "Yue Wu"
+   ],
+   "categories": [],
+   "comments": "",
+   "sources": [
+    "curator:reachsumit"
+   ],
+   "curator_blurb": "Introduces a chat memory framework that keeps the original dialogue, needs no LLM to build memory, and uses terms from useful evidence to search again for related facts.",
+   "arxiv": "2611.33124",
+   "tier": "aware",
+   "tags": [
+    "RAG & agents",
+    "retrieval"
+   ],
+   "venue": "",
+   "summary": "Conversational memory that keeps raw dialogue chunks in a BM25 index and expands queries with lexical cues from useful evidence; best scores on LoCoMo and LongMemEval among compared methods, with no LLM-based memory construction.",
+   "ideas": []
+  },
+  {
+   "title": "Grounding User Preferences in Shared Multimodal Concepts for Recommendation",
+   "authors": [
+    "Ao Xu",
+    "Jinhui Huang",
+    "Wenqiang Tang",
+    "Tiehua Mei",
+    "Hongru Hou",
+    "Hengrui Chen",
+    "Jiaqing Liang",
+    "Deqing Yang"
+   ],
+   "categories": [
+    "cs.IR"
+   ],
+   "comments": "Accepted at WSDM 2027 (Main Conference). 10 pages, 7 figures, 6 tables",
+   "abstract": "Multimodal recommendation has substantially advanced item understanding by incorporating rich visual and textual content. Yet user preferences are still commonly encoded as implicit signals tied to individual items, leaving recurring semantic factors without persistent identities that can be shared across items. We introduce MKGE, a multimodal knowledge graph framework that represents these factors as canonical, addressable concepts. MKGE induces a domain-adaptive concept vocabulary from item images and titles, grounds each user's interaction history in supported concepts, and jointly models direct user-item evidence and concept-mediated preference signals. By turning recurring semantics into shared coordinates, MKGE enables evidence from different items to accumulate around the same preference factors. Extensive experiments on three public benchmarks demonstrate that MKGE consistently outperforms collaborative, knowledge-graph, multimodal, and recent LLM/MLLM-based recommenders across all six reported metrics. Controlled studies further demonstrate the importance of canonical concept identities and personalized user-concept correspondence, with especially pronounced gains over removing or rewiring the user graph for low-activity users. These results establish canonical multimodal concepts as effective units for preference modeling and transfer. Code, constructed knowledge graphs, and prompts are available at https://github.com/Garden1a-X/MKGE.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.34436",
+   "tier": "aware",
+   "tags": [
+    "recommendation"
+   ],
+   "venue": "WSDM 2027",
+   "summary": "MKGE induces a vocabulary of canonical multimodal concepts from item images and titles and grounds user histories in them, so preference evidence accumulates across items; gains are largest for low-activity users.",
+   "ideas": []
+  },
+  {
+   "title": "Learning the Platform, Not the Learner: Sequencing Shortcuts in the Offline Evaluation of Educational Recommender Systems and LLM Rankers",
+   "authors": [
+    "Youssef Jdidou"
+   ],
+   "categories": [
+    "cs.IR",
+    "cs.CY",
+    "cs.LG"
+   ],
+   "comments": "27 pages, 6 figures, 17 tables. Code: https://github.com/jdidou/beat-the-syllabus (doi:10.5281/zenodo.24443552); code and per-case results also in the ancillary files",
+   "abstract": "Educational recommenders are usually compared offline, by how well they predict the next activity in logs of tutoring systems, learning applications and MOOCs, where the next activity is largely decided by the platform: teachers assign problem sets, tutors draw problems until mastery, engines select questions. On eight public datasets from five platforms, we compare four structural predictors, which use nothing about the learner beyond the last activity, with ten personalised recommenders and with open-weight LLM rankers from 0.5 to 7 billion parameters, under two protocols. The structural predictors reach between 0.81 and 1.00 of the best accuracy of any method (median 0.95), mostly through population transitions rather than the course order; the best personalised recommender is significantly better on five datasets, by 0.007 to 0.102 NDCG@10, and on Eedi in three of four training runs. Every method is far less accurate on steps along transitions never seen in training and on steps chosen by learners. LLM rankers look competent with random negatives but are never much better than a word-matching baseline, and with negatives that are plausible under the course structure they stay close to random or well behind the transition heuristic, whatever their size. In a simulation with known learner needs, the structural share tracks the share of steps decided by the platform, and offline accuracy ranks an oracle of the learners' needs below imitators of the platform. Weighting test steps by how unlikely the structure makes them restores much of the link with usefulness and, on the real data, reveals a significant personalisation signal on seven of the eight datasets. We propose a syllabus-aware evaluation checklist and release a Python package that reports the lift of any recommender over the structure.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.33240",
+   "tier": "aware",
+   "tags": [
+    "recommendation",
+    "evaluation"
+   ],
+   "venue": "",
+   "summary": "In offline evaluation of educational recommenders, predictors using only the last activity reach a median 95% of the best accuracy because the platform, not the learner, decides most next steps; LLM rankers are near random with structure-plausible negatives; reweighting test steps by structural improbability recovers a personalization signal.",
+   "ideas": []
+  },
+  {
+   "title": "Focus On Facts: Stylistically Invariant and Factually Sensitive Text Embeddings",
+   "authors": [
+    "Maximus Adeola"
+   ],
+   "categories": [
+    "cs.CL"
+   ],
+   "comments": "",
+   "abstract": "Text embedding models can conflate surface-form similarity with factual identity. Given an altered near-copy with one corrupted fact and a differently worded fact-preserving rewrite, the base model prefers the altered near-copy. We test whether hard-negative contrastive supervision can reduce this surface-similarity shortcut. We construct FOF-Bench, an 83,263-triplet benchmark spanning five domains. Each anchor is paired with an LLM-generated, fact-preserving stylistic rewrite and a matched fact-altered near-copy. We fine-tune FOF-80M (Focus On Facts), an 80M-parameter embedding model, with a triplet contrastive objective that ranks the rewrite above the factual alteration. On 8,327 held-out test triplets, the base model chooses the factually altered text in 99.58% of cases (0.42% factual preference rate; mean separation -0.1650). After fine-tuning, mean positive--negative separation is +0.0329, 98.5% of individual margins move in the intended direction, and the preference rate reaches 29.37%. On DiSC, an external style-transfer corpus, mean cross-style similarity increases from 0.7905 to 0.9559. The model also penalizes omission and transfers poorly to directional tasks such as NLI and summarization. We characterize FOF-80M as a soft factual fingerprint for studying factual retention under stylistic variation, not as a general-purpose factuality metric.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.33250",
+   "tier": "aware",
+   "tags": [
+    "embeddings",
+    "evaluation"
+   ],
+   "venue": "",
+   "summary": "Benchmark of 83k triplets where a base embedder prefers a fact-altered near-copy over a fact-preserving rewrite 99.6% of the time; hard-negative contrastive fine-tuning of an 80M model shifts this but only to a 29% factual preference rate.",
+   "ideas": []
+  },
+  {
+   "title": "Aligned Machine: A Benchmark for Evaluating Multimodal Embedding Similarity via Human Comparative Judgements",
+   "authors": [
+    "Jiechen Li",
+    "Hannah Groos",
+    "Brinnae Bent"
+   ],
+   "categories": [
+    "cs.AI",
+    "cs.CL"
+   ],
+   "comments": "",
+   "abstract": "Embedding models increasingly inform how people search, recommend, and retrieve information, yet we lack credible ways to test whether these similarity judgments reflect how humans understand meaning. Existing benchmarks typically rely on static, expert-labeled pairs with coarse Likert-style annotations, limiting scalability and making it difficult to obtain consistent, high-confidence annotations. We introduce Aligned Machine, an interactive, public-facing platform that transforms broad participation into a continuously growing Human-Aligned Similarity Benchmark (HASB) for evaluating semantic alignment in embedding-based systems. Participants complete a cognitively-natural, forced-choice task, comparing two pairs of items (text or images) and selecting which pair is more similar. This comparative design is accessible to non-experts, yields clean preference data, and supports robust aggregation. We report results from an initial deployment with 115 participants contributing 2,875 total labeled pairs and 872 unique pairs. Using HASB, we evaluated 12 widely used embedding models and found only partial alignment between embedding similarity and human judgments. Text-only models consistently achieve higher overall agreement than multimodal models, while multimodal performance varies systematically by task type: alignment is strongest for image-image comparisons, weaker for image-text comparisons, and lowest for text-text comparisons. Aligned Machine is designed to evolve over time as participation grows, supporting longitudinal analysis, domain-specific studies, bias detection, and measurement of concept drift across model versions. By combining accessible public participation with rigorous comparative evaluation, HASB provides a scalable and accountable framework for auditing semantic alignment in embedding models.",
+   "sources": [
+    "arxiv"
+   ],
+   "arxiv": "2611.33594",
+   "tier": "aware",
+   "tags": [
+    "embeddings",
+    "evaluation"
+   ],
+   "venue": "",
+   "summary": "Crowd-sourced forced-choice benchmark of which pair is more similar; 12 embedding models only partly agree with humans, text-only models agree more than multimodal ones.",
+   "ideas": []
+  },
+  {
+   "title": "Verifiable but Not Predictable: What Sentence Embeddings Know About Propositional Decomposition",
+   "authors": [
+    "Qingan Li",
+    "Tianxiao Wu",
+    "Xiling Cui"
+   ],
+   "categories": [
+    "cs.CL",
+    "cs.LG"
+   ],
+   "comments": "19 pages, 9 figures, 4 tables",
+   "abstract": "Quality control for proposition decomposition by large language models (LLMs) raises two asymmetric questions. After decomposition, one can verify: given a sentence and a candidate proposition, does the proposition belong to that sentence? Before decomposition, one would like to predict: how many propositions should the sentence yield? On PropSegmEnt, a corpus of English Wikipedia sentences each segmented by three human annotators, we find that the two questions live in different representational spaces. A natural language inference (NLI) judge verifies membership with 92.8% accuracy and an area under the ROC curve (AUC) of 0.977, and its residual errors turn out to be mostly propositions that are true in document context rather than genuine entailment mistakes. Vector geometry cannot verify: cosine similarity saturates, and a sentence embedding is not a linear combination of its propositions' embeddings. For prediction, every symbolic anchor we test, namely token count, the CPIDR idea-density counter, and a Neo-Davidsonian predicate count, reduces to a length proxy once token count is controlled. A linear ridge probe on sentence embeddings is the only predictor that keeps genuine count signal: its length-partialled correlation with human counts is 0.40-0.49 with bootstrap confidence intervals (CIs) excluding zero, and it orders length-matched sentence pairs correctly 67-71% of the time against a 50% chance level, statistically matching the inter-annotator agreement ceiling. This signal survives INT8 quantization without loss, INT4 at a small cost, and Matryoshka truncation to 256 dimensions, and it works as well in a 2021 encoder as in a 2025 one. Its structured weakness is a systematic under-splitting of long sentences. We distill the protocol lessons, including a retracted pilot study, into a checklist for probing length-confounded quantities.",
+   "sources": [
+    "arxiv",
+    "scholar-inbox"
+   ],
+   "arxiv": "2611.33668",
+   "tier": "aware",
+   "tags": [
+    "embeddings"
+   ],
+   "venue": "",
+   "summary": "Cosine similarity cannot verify whether a proposition belongs to a sentence (an embedding is not a linear combination of its propositions' embeddings), but a linear probe predicts the number of propositions beyond length, robust to INT8/INT4 quantization and Matryoshka truncation to 256 dims.",
+   "ideas": []
+  }
+ ]
+}
